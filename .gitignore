@@ -27,3 +27,4 @@ Thumbs.db
 *.tsbuildinfo
 .vp/
 .fresh-clone/
+scripts/aws-lab/out/

@@ -136,3 +136,18 @@ def test_snapshot_file_records_its_source():
     data = json.loads(AWS_SNAPSHOT.read_text(encoding="utf-8"))
     assert data["prowler_version"] and re.match(r"\d+\.\d+\.\d+", data["prowler_version"])
     assert len(data["checks"]) > 500
+
+
+def test_aws_lab_only_promises_mapped_checks():
+    """The real-account lab README must name checks the mapping actually uses."""
+    import json
+    import re
+    from pathlib import Path
+
+    repo = Path(__file__).resolve().parents[2]
+    readme = (repo / "scripts/aws-lab/README.md").read_text(encoding="utf-8")
+    table = readme.split("## Steps")[0]
+    named = set(re.findall(r"`([a-z0-9_]+)`", table)) - {"0"}
+    fw = json.loads((repo / "compliance/prowler/pdpl_egypt_aws.json").read_text(encoding="utf-8"))
+    mapped = {c for r in fw["Requirements"] for c in r["Checks"]}
+    assert len(named) >= 8 and named <= mapped, named - mapped

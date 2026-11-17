@@ -1,0 +1,68 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  PDPL-Ready test lab. A handful of deliberately weak, low-cost settings so a real Prowler scan
+  has something to find. Nothing here is reachable from the internet: the bucket keeps its public
+  access block on, and the security group is attached to nothing. Delete the stack when done.
+
+Parameters:
+  LabName:
+    Type: String
+    Default: pdpl-ready-lab
+    AllowedPattern: "[a-z0-9-]{3,40}"
+
+Resources:
+  # Finds: s3_bucket_object_versioning, s3_bucket_server_access_logging_enabled,
+  # s3_bucket_secure_transport_policy, s3_bucket_lifecycle_enabled (FAIL).
+  # Passes: s3_bucket_level_public_access_block, s3_bucket_default_encryption (S3 always encrypts now).
+  LabBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: !Sub "${LabName}-${AWS::AccountId}-${AWS::Region}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - { Key: purpose, Value: pdpl-ready-test-lab }
+
+  # Finds: ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_22 (FAIL).
+  # Attached to no instance, so nothing is actually exposed.
+  OpenSshGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub "${LabName}-open-ssh"
+      GroupDescription: PDPL-Ready lab - SSH open to the world, attached to nothing
+      SecurityGroupIngress:
+        - { IpProtocol: tcp, FromPort: 22, ToPort: 22, CidrIp: 0.0.0.0/0, Description: deliberately too open }
+      Tags:
+        - { Key: purpose, Value: pdpl-ready-test-lab }
+
+  # Finds: cloudwatch_log_group_retention_policy_specific_days_enabled,
+  # cloudwatch_log_group_kms_encryption_enabled (FAIL). Empty log group, no cost.
+  LabLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Delete
+    Properties:
+      LogGroupName: !Sub "/${LabName}/app"
+
+  # Finds: ec2_ebs_volume_encryption, ec2_ebs_volume_protected_by_backup_plan (FAIL)
+  # unless EBS encryption by default is on in this region. 1 GiB gp3: a few US cents a month.
+  UnencryptedVolume:
+    Type: AWS::EC2::Volume
+    DeletionPolicy: Delete
+    Properties:
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Size: 1
+      VolumeType: gp3
+      Encrypted: false
+      Tags:
+        - { Key: Name, Value: !Sub "${LabName}-unencrypted" }
+        - { Key: purpose, Value: pdpl-ready-test-lab }
+
+Outputs:
+  Bucket:
+    Value: !Ref LabBucket
+  SecurityGroup:
+    Value: !Ref OpenSshGroup
