@@ -11,8 +11,8 @@ jobs:
   backend-sqlite:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -38,8 +38,8 @@ jobs:
       PDPL_TEST_DATABASE_URL: postgresql+psycopg://pdpl:pdpl@localhost:5432/pdpl_test
       DATABASE_URL: postgresql+psycopg://pdpl:pdpl@localhost:5432/pdpl_test
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install -r backend/requirements-dev.txt "psycopg[binary]"
@@ -51,11 +51,13 @@ jobs:
     # Installs the real Prowler on Linux and checks every mapped check ID against it.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install -r backend/requirements-dev.txt prowler
+      - run: pip install -r backend/requirements-dev.txt
+      - name: Install Prowler in its own virtualenv (it pins pydantic and regex differently from Sijill)
+        run: python -m venv .vp && .vp/bin/pip install prowler==5.50.0
       - name: Mapping uses only check IDs that exist in the installed Prowler
         working-directory: backend
         env:
@@ -68,8 +70,8 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: "24"
           cache: npm
@@ -83,6 +85,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [backend-sqlite, frontend]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build image (not pushed)
         run: docker build -t sijill:ci .
