@@ -176,7 +176,7 @@ function YesNo({ name, value, onChange, disabled }: { name: string; value: boole
   );
 }
 
-function Licensing({ q, reload, onTrack, canEdit }: { q: Questionnaires; reload: () => void; onTrack: (key: string, kind: Kind) => void; canEdit: boolean }) {
+function Licensing({ q, reload, onTrack, canEdit, trackedTitles }: { q: Questionnaires; reload: () => void; onTrack: (key: string, kind: Kind) => void; canEdit: boolean; trackedTitles: string[] }) {
   const { t } = useTranslation();
   const [answers, setAnswers] = useState<Answers>(q.licensing.answers);
   const [msg, setMsg] = useState<string | null>(null);
@@ -225,11 +225,16 @@ function Licensing({ q, reload, onTrack, canEdit }: { q: Questionnaires; reload:
                   {r.likely_required === true ? t("obligations.likely") : r.likely_required === false ? t("obligations.likelyNot") : t("obligations.unknown")}
                 </div>
               </div>
-              {r.likely_required && canEdit && (
-                <button className="btn-secondary text-xs" onClick={() => onTrack(r.key, r.kind)}>
-                  {t("obligations.track")}
-                </button>
-              )}
+              {r.likely_required &&
+                (trackedTitles.some((tt) => tt.startsWith(t(`obligations.results.${r.key}`).toLowerCase())) ? (
+                  <span className="chip bg-green-50 text-green-800">{t("obligations.alreadyTracked")}</span>
+                ) : (
+                  canEdit && (
+                    <button className="btn-secondary text-xs" onClick={() => onTrack(r.key, r.kind)}>
+                      {t("obligations.track")}
+                    </button>
+                  )
+                ))}
             </li>
           ))}
         </ul>
@@ -451,7 +456,7 @@ export default function Obligations() {
         </div>
       )}
 
-      {tab === "licensing" && (q.data ? <Licensing q={q.data} reload={q.reload} canEdit={canEdit} onTrack={(key, kind) => {
+      {tab === "licensing" && (q.data ? <Licensing q={q.data} reload={q.reload} canEdit={canEdit} trackedTitles={(items.data ?? []).filter((o) => o.status !== "not_needed").map((o) => o.title.toLowerCase())} onTrack={(key, kind) => {
         setEditing({ id: null, draft: { ...EMPTY, kind, title: t(`obligations.results.${key}`) } });
         setFlash(null);
       }} /> : <Spinner />)}

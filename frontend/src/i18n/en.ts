@@ -438,6 +438,7 @@ const en = {
     likelyNot: "Likely not required",
     unknown: "Answer the question to see",
     track: "Track this",
+    alreadyTracked: "Tracked",
     tracked: "Added to the tracker.",
     questions: {
       controls_processing: "Do you decide why and how personal data is processed (for your own patients, customers or staff)?",

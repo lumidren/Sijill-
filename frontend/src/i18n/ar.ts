@@ -442,6 +442,7 @@ const ar: DeepString<Strings> = {
     likelyNot: "غير مطلوب على الأرجح",
     unknown: "أجب عن السؤال لمعرفة ذلك",
     track: "تتبّع هذا",
+    alreadyTracked: "قيد المتابعة",
     tracked: "تمت الإضافة إلى المتابعة.",
     questions: {
       controls_processing: "هل تحددون لماذا وكيف تُعالج البيانات الشخصية (لمرضاكم أو عملائكم أو موظفيكم)؟",
