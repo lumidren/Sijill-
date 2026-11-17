@@ -2,7 +2,8 @@
 
 **Open-source, self-hosted readiness tracking for Egypt's Personal Data Protection Law (Law No. 151 of 2020).**
 Assess an organisation against the law, back the technical part with automated evidence from Prowler and Linux
-hosts, watch the score over time, catch regressions, and hand management a report, in English or Arabic.
+hosts, keep the records the law asks for, watch the score over time, catch regressions, run the breach clock, and
+hand management a report, in English or Arabic.
 
 > PDPL-Ready helps you organise evidence and track readiness. It is **not legal advice** and does not determine legal
 > compliance. The requirement catalog is plain-language drafting that has **not yet been verified** against the official
@@ -26,18 +27,19 @@ proof that the technical controls exist or still hold.
 
 ## What it does
 
-| | Capability | State |
+| | Capability | What you get |
 |---|---|---|
-| 1 | **PDPL catalog in OSCAL**: 11 assessment areas, 52 requirements, English and Arabic, each with a plain-language question and guidance | Working |
-| 2 | **Technical evidence engine**: imports Prowler JSON-OCSF findings and output from a dependency-free Linux collector; 129 Prowler AWS checks and 12 Linux checks mapped to 16 technical requirements; every result hashed and timestamped | Working; AWS evidence in this repo is synthetic (no AWS account was scanned) |
-| 3 | **Scoring with drill-down**: weighted readiness score per area and overall; failing checks cap self-attested answers; staleness flags; every number explains itself down to the failing resource | Working |
-| 4 | **Posture and drift**: scheduled collection, run history, run-to-run comparison, regression detection, score-over-time chart | Working |
-| 5 | **Reporting**: readiness report and gap list as PDF (English and shaped right-to-left Arabic), CSV, OSCAL assessment results and POA&M | Working |
-| 6 | **Assessment workflow**: answer area by area, attach evidence | In progress |
-| 7 | Processing register, licensing tracker and applicability screener, breach clock | Planned (stretch) |
+| 1 | **Assessment workflow** | 11 areas, 52 requirements, each with a plain-language question in English and Arabic; answer, add notes, attach evidence (hashed), see the score and gaps move |
+| 2 | **Records of processing** | The processing register with completeness hints, exported in controller and processor layouts (CSV with bilingual headers, PDF in English or Arabic) |
+| 3 | **Licences and obligations** | An applicability screener, a licensing questionnaire that says "likely required", and a tracker for licences, permits, DPO registration, consent mechanisms and cross-border flows, with renewal reminders on the dashboard |
+| 4 | **Technical evidence engine** | Imports Prowler JSON-OCSF findings and the output of a dependency-free Linux collector; 129 Prowler AWS checks and 12 Linux checks mapped to 16 technical requirements; every result hashed and timestamped |
+| 5 | **Posture and drift** | Scheduled collection, run history, resource-by-resource comparison, regression detection, score over time |
+| 6 | **Breach readiness** | Incident records with live countdowns to the regulator deadline and the notice to individuals, escalation as the deadline nears, a timeline, and notices filled from the recorded facts (EN/AR, text and PDF) |
+| 7 | **Reporting** | Readiness report and gap list (PDF in English and shaped right-to-left Arabic, CSV), evidence pack with a SHA-256 manifest, OSCAL catalog, assessment results and POA&M |
 
 Everything runs in English and Arabic with full right-to-left layout, behind local accounts with four roles
 (Admin, DPO, IT/Security, read-only Auditor) enforced on the server, and an append-only, hash-chained audit log.
+All AWS evidence in this repository is synthetic: no AWS account was scanned.
 
 ## Screenshots
 
@@ -47,10 +49,16 @@ All data below is the fictional demo clinic that `scripts/start.ps1` seeds.
 |---|---|
 | ![Score over time with the regression marked, and the regression list](docs/screenshots/dashboard-trend-regressions.jpg) | ![Requirement drill-down: a self-attested "Met" capped to "Partly met" by three failing checks](docs/screenshots/requirement-drilldown.jpg) |
 | **Drift.** The latest scan dipped the score; the red point and the list show why. | **Every number explains itself.** The DPO answered "Met"; three failing checks cap it at "Partly met". |
-| ![Run comparison showing four regressed checks](docs/screenshots/run-regression.jpg) | ![The dashboard in Arabic, right to left](docs/screenshots/dashboard-arabic.jpg) |
-| **Run comparison.** Resource-by-resource diff against the previous scan of the same account. | **Arabic, right to left.** Mirrored layout, Arabic-Indic digits, reversed time axis. |
-| ![Reports screen](docs/screenshots/reports.jpg) | ![Arabic PDF readiness report](docs/screenshots/report-arabic-pdf.jpg) |
-| **Reports.** PDF, CSV and OSCAL, each with the not-legal-advice notice. | **Arabic PDF.** Shaped and reordered with pure-Python packages, no system fonts. |
+| ![Assessment question with the cap warning](docs/screenshots/assessment-cap.jpg) | ![Run comparison showing four regressed checks](docs/screenshots/run-regression.jpg) |
+| **Assessment.** Plain-language questions; the answer is warned that failing checks will cap it. | **Run comparison.** Resource-by-resource diff against the previous scan of the same account. |
+| ![Breach clock with the regulator countdown](docs/screenshots/breach-clock.jpg) | ![Licences and obligations tracker](docs/screenshots/obligations.jpg) |
+| **Breach clock.** Live countdowns from the moment of awareness, and the regulator notice filled from the incident. | **Obligations.** Licences, permits, DPO registration and reviews, with days left and reminders. |
+| ![Licensing questionnaire results phrased as likely](docs/screenshots/licensing-likely.jpg) | ![Processing register with completeness hints](docs/screenshots/register.jpg) |
+| **Licensing.** "Likely required", never "required", with the estimate disclaimer. | **Register.** Completeness hints in plain language, exports in two layouts. |
+| ![The dashboard in Arabic, right to left](docs/screenshots/dashboard-arabic.jpg) | ![Arabic PDF readiness report](docs/screenshots/report-arabic-pdf.jpg) |
+| **Arabic, right to left.** Mirrored layout, Arabic-Indic digits, reversed time axis. | **Arabic PDF.** Shaped and reordered with pure-Python packages, no system fonts. |
+| ![Reports screen](docs/screenshots/reports.jpg) | ![Breach clock on a phone](docs/screenshots/breach-mobile.jpg) |
+| **Reports.** PDF, CSV, ZIP and OSCAL, each with the not-legal-advice notice. | **On a phone.** Every screen was checked at 375 px for overflow. |
 
 ## Architecture
 
@@ -61,9 +69,10 @@ flowchart LR
     L["Linux collector<br/>stdlib Python, read-only"]
     U["Upload / inbox folder"]
   end
-  Q["Questionnaire answers<br/>+ evidence files (SHA-256)"]
+  Q["Assessment answers<br/>+ evidence files (SHA-256)"]
   C["OSCAL catalog<br/>11 areas, 52 requirements"]
   M["PDPL → check mapping<br/>Prowler compliance framework JSON"]
+  R2["Register · obligations · incidents"]
   P --> I
   L --> I
   U --> I
@@ -73,9 +82,11 @@ flowchart LR
   C --> S
   M --> S
   S --> D["Dashboard · drill-down<br/>drift · regressions"]
-  S --> X["Reports<br/>PDF EN/AR · CSV<br/>OSCAL AR · POA&M"]
+  R2 --> D
+  S --> X["Reports<br/>PDF EN/AR · CSV · ZIP<br/>OSCAL AR · POA&M"]
   APS(["APScheduler<br/>in-process"]) -.-> P
   APS -.-> U
+  APS -.-> RM["Renewal reminders"]
 ```
 
 - **Backend**: Python 3.12, FastAPI, SQLAlchemy 2 + Alembic, Pydantic, APScheduler. SQLite by default; Postgres via
@@ -94,8 +105,8 @@ reviews it.
 
 The technical requirements are mapped to automated checks in
 [`compliance/prowler/pdpl_egypt_aws.json`](compliance/prowler/pdpl_egypt_aws.json), written as a **Prowler compliance
-framework** so it can be contributed upstream (Prowler would then report on PDPL directly). The format was read from
-the Prowler 5.50.0 package itself, not written from memory, and the file loads with Prowler's own
+framework** so it can be contributed upstream (see [docs/PROWLER-UPSTREAM.md](docs/PROWLER-UPSTREAM.md)). The format
+was read from the Prowler 5.50.0 package itself, not written from memory, and the file loads with Prowler's own
 `load_compliance_framework`. Every check ID is verified by a test against a committed snapshot of Prowler 5.50.0's
 678 AWS checks, and again against a live Prowler install in CI.
 
@@ -148,6 +159,21 @@ number is a *readiness* score and is never presented as legal compliance. Click 
 to see the answer, each mapped check and each failing resource behind the number. The rules are pure functions in
 [`backend/app/scoring.py`](backend/app/scoring.py) with their own unit tests.
 
+## Breach readiness, licences and records
+
+- **Breach clock.** The clock starts when the organisation became aware of the breach. The regulator deadline
+  (72 hours by default) and the notice to individuals (a clearly marked placeholder default) are configuration, never
+  constants. Clocks escalate under 24 hours and again under 12 hours, and show "Overdue by …" afterwards. Times are
+  stored in UTC and shown in Cairo time; tests cover a deadline crossing midnight and Egypt's daylight-saving change.
+  The regulator notice and the letter to individuals are filled only from recorded facts; anything missing is marked
+  "[to be completed]".
+- **Licences and obligations.** The screener says which side of the Central Bank of Egypt line an organisation is on
+  (CBE-supervised entities out of scope, except money transfer and currency exchange companies). The licensing
+  questionnaire turns six yes/no answers into "likely required" results that can be tracked with one click. Licences
+  without an expiry date get the configured default validity, labelled as such.
+- **Records of processing.** One entry per activity, as controller or processor, with completeness hints (missing
+  retention, transfer safeguards, security measures for sensitive data, …).
+
 ## How OSCAL is used
 
 | Document | Endpoint | Contents |
@@ -165,14 +191,15 @@ installs.
 ## Evidence integrity and security
 
 - Every findings file, every individual result and every uploaded evidence file is stored with a **SHA-256** hash and a
-  UTC timestamp; downloads re-verify the hash.
+  UTC timestamp; downloads re-verify the hash. The evidence pack ships `sha256sums.txt`, checkable with `sha256sum -c`.
 - The **audit log** is append-only, enforced three ways: ORM events, database triggers (SQLite and Postgres) and a hash
   chain that `GET /api/audit/verify` recomputes.
 - **Cloud credentials are never stored.** The Prowler adapter only passes an AWS profile name or role ARN from the
   server environment. Anything in a findings file that looks like an access key, secret key, session token or private
   key is redacted before storage.
 - Argon2 password hashing, signed HttpOnly SameSite=Strict session cookies, a custom header on every write (CSRF),
-  login throttling, role checks on every endpoint, strict security headers, and upload type, size and magic-byte checks.
+  login throttling, role checks on every endpoint, strict security headers, upload type, size and magic-byte checks,
+  and CSV formula neutralisation.
 
 ## Run it
 
@@ -188,8 +215,8 @@ and serves everything at <http://127.0.0.1:8000>. Demo accounts (password `pdpl-
 | User | Role | Can |
 |---|---|---|
 | `admin` | Admin | everything, including users and settings |
-| `dpo` | DPO | answer the assessment, upload evidence, manage records |
-| `it` | IT / Security | import findings, run collection, upload evidence |
+| `dpo` | DPO | answer the assessment, upload evidence, manage the register, obligations and breaches |
+| `it` | IT / Security | import findings, run collection, upload evidence, record breaches |
 | `auditor` | Auditor | read everything, download reports, change nothing |
 
 Other options:
@@ -202,8 +229,8 @@ Other options:
 ```
 
 Configuration is by environment variable (`PDPL_` prefix), for example `PDPL_EVIDENCE_STALE_DAYS`,
-`PDPL_COLLECT_INTERVAL_HOURS`, `PDPL_AWS_PROFILE`, `PDPL_BREACH_REGULATOR_HOURS` and `DATABASE_URL`. Legal durations are
-configuration with defaults, never constants; see [docs/LEGAL-REVIEW.md](docs/LEGAL-REVIEW.md).
+`PDPL_COLLECT_INTERVAL_HOURS`, `PDPL_AWS_PROFILE`, `PDPL_BREACH_REGULATOR_HOURS` and `DATABASE_URL`. The Settings
+screen lists every value and marks the legal ones unverified; see [docs/LEGAL-REVIEW.md](docs/LEGAL-REVIEW.md).
 
 A `Dockerfile` and `docker-compose.yml` are included (`PDPL_SEED_DEMO=1` seeds the demo). They are built in CI but were
 not run on the development machine.
@@ -222,27 +249,29 @@ not run on the development machine.
 
 | Suite | Count | What it covers |
 |---|---|---|
-| Backend (pytest) | 123 passed, 2 skipped | auth and every role, audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, reports, OSCAL validity and round trip, demo story |
+| Backend (pytest) | 185 passed, 2 skipped | auth and every role, audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
 | Linux collector | included above | replays recorded fictional hosts; read-only command guarantee |
-| Frontend (vitest) | 14 passed | sign-in, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors |
+| Frontend (vitest) | 28 passed | sign-in, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
 
 The two skipped tests need a live Prowler install, which the Windows path limit prevented here (see
 [docs/DECISIONS.md](docs/DECISIONS.md)); CI's `prowler-mapping` job runs them on Linux. Postgres tests and the Docker
-build also run only in CI.
+build also run only in CI. Every screen was also checked in the running app for unlabelled controls, unnamed buttons,
+duplicate ids and horizontal overflow, in English and Arabic and at 375 px width.
 
 ```powershell
 cd backend; ..\.venv\Scripts\python -m pytest
 cd frontend; npm test
 ```
 
-Measured on the development machine with the demo data: seeding the demo takes about 2 seconds; the readiness PDF
-renders in 0.04 s (English) and 0.19 s (Arabic, first render including font loading); the OSCAL assessment-results
-export holds 153 observations and 41 findings.
+Measured on the development machine: from a fresh clone, `scripts/start.ps1` was serving after 80 seconds (with pip and npm caches already warm); seeding the demo takes 2.1 seconds; the readiness PDF renders
+in about 0.04 s in English and 0.2 s in Arabic; the evidence pack (116 KB) builds in 0.08 s; the OSCAL
+assessment-results export holds 153 observations and 41 findings.
 
 ## Project layout
 
 ```
-backend/app/          FastAPI app: auth, catalog, evidence engine, scoring, posture, reports, scheduler
+backend/app/          FastAPI app: auth, catalog, evidence engine, scoring, posture, reports, register,
+                      obligations, incidents, scheduler
 backend/alembic/      database migrations (append-only audit triggers included)
 catalog/              the PDPL OSCAL catalog
 compliance/           PDPL mapping as a Prowler framework (AWS) and the Linux mapping; Prowler check snapshot
@@ -250,7 +279,7 @@ collectors/linux/     the read-only Linux collector
 fixtures/             recorded fictional hosts and synthetic Prowler findings
 frontend/             React + TypeScript UI
 scripts/              start, dev, fixture, font and legal-review generators
-docs/                 DECISIONS, PROGRESS, LEGAL-REVIEW, screenshots
+docs/                 DECISIONS, PROGRESS, LEGAL-REVIEW, PROWLER-UPSTREAM, screenshots
 ```
 
 ## Legal accuracy
