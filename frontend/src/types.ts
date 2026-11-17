@@ -105,6 +105,21 @@ export interface BreachClock {
   individuals_state: string;
 }
 
+export interface GovernanceSummary {
+  tasks: { open: number; overdue: number };
+  risks: { open: number; by_level: Record<string, number>; heat_map: number[][]; acceptance_expired: number };
+  requests: { open: number; overdue: number; due_soon: number };
+  vendors: { active: number; without_dpa: number };
+  policies: { approved: number; review_overdue: number };
+  dpias: { total: number; approved: number; pending: number };
+}
+
+export interface RelatedRecords {
+  tasks: { id: number; title: string; status: string; owner: string; due_on: string | null; days_left: number | null }[];
+  risks: { id: number; title: string; score: number; level: string; status: string }[];
+  policies: { id: number; title: string; version: string; status: string; review_overdue: boolean }[];
+}
+
 export interface Dashboard {
   overall: number | null;
   counts: Counts;
@@ -118,7 +133,8 @@ export interface Dashboard {
   runs_total: number;
   deadlines: Deadline[];
   breaches: BreachClock[];
-  features?: { obligations: boolean; incidents: boolean };
+  features?: { obligations: boolean; incidents: boolean; governance?: boolean };
+  governance?: GovernanceSummary;
   organization?: { name: string; name_ar?: string; demo?: boolean } | null;
 }
 
@@ -178,4 +194,5 @@ export interface RequirementDetail {
   answer: { status: ReqStatus; note: string; updated_at: string; updated_by: string | null } | null;
   checks: CheckSummary[];
   evidence: { id: number; filename: string; size: number; sha256: string; content_type: string; uploaded_at: string; description: string }[];
+  related?: RelatedRecords;
 }

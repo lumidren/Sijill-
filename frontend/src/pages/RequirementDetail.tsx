@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth";
+import { DaysChip, LEVEL_STYLE } from "../components/RecordForm";
 import { BasisChip, Card, CheckChip, EmptyState, ErrorBox, Spinner, StaleChip, StatusChip, Unverified } from "../components/ui";
 import { useApi } from "../hooks";
 import { fmtDate, fmtDateTime, fmtNum, pick } from "../i18n";
@@ -166,6 +167,72 @@ export default function RequirementDetail() {
             {can("assessment.write") && (
               <Link to={`/assessment?area=${req.area_id}#${req.id}`} className="btn-secondary mt-4 w-full">
                 {t("requirements.answerInAssessment")}
+              </Link>
+            )}
+          </Card>
+
+          <Card title={t("gov.related")}>
+            {!data.related || data.related.tasks.length + data.related.risks.length + data.related.policies.length === 0 ? (
+              <p className="text-sm text-slate-600">{t("gov.noRelated")}</p>
+            ) : (
+              <div className="space-y-4 text-sm">
+                {data.related.tasks.length > 0 && (
+                  <div>
+                    <h3 className="mb-1 text-xs font-semibold text-slate-500">{t("nav.tasks")}</h3>
+                    <ul className="space-y-1.5">
+                      {data.related.tasks.map((x) => (
+                        <li key={x.id}>
+                          <Link to="/tasks?done=1" className="hover:text-brand-800">
+                            {x.title}
+                          </Link>
+                          <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                            <span>{t(`tasks.statuses.${x.status}`)}</span>
+                            {x.owner && <span>· {x.owner}</span>}
+                            <DaysChip days={x.days_left} done={x.status === "done"} />
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {data.related.risks.length > 0 && (
+                  <div>
+                    <h3 className="mb-1 text-xs font-semibold text-slate-500">{t("nav.risks")}</h3>
+                    <ul className="space-y-1.5">
+                      {data.related.risks.map((x) => (
+                        <li key={x.id} className="flex items-start justify-between gap-2">
+                          <Link to="/risks" className="hover:text-brand-800">
+                            {x.title}
+                          </Link>
+                          <span className={`chip shrink-0 ${LEVEL_STYLE[x.level]}`}>{t(`risks.levels.${x.level}`)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {data.related.policies.length > 0 && (
+                  <div>
+                    <h3 className="mb-1 text-xs font-semibold text-slate-500">{t("nav.policies")}</h3>
+                    <ul className="space-y-1.5">
+                      {data.related.policies.map((x) => (
+                        <li key={x.id}>
+                          <Link to="/policies" className="hover:text-brand-800">
+                            {x.title} <span dir="ltr">v{x.version}</span>
+                          </Link>
+                          <div className="text-xs text-slate-500">
+                            {t(`policies.statuses.${x.status}`)}
+                            {x.review_overdue && <span className="ms-1.5 font-medium text-red-700">· {t("policies.reviewOverdue")}</span>}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+            {can("tasks.write") && !["compliant", "not_applicable"].includes(data.result.status) && (
+              <Link to={`/tasks?new=${req.id}&title=${encodeURIComponent(pick(req.title))}`} className="btn-secondary mt-4 w-full">
+                {t("tasks.createFromGap")}
               </Link>
             )}
           </Card>

@@ -24,6 +24,12 @@ const ICONS = {
   incidents: I("M12 8v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"),
   users: I("M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9.5 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM21 19v-1a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"),
   audit: I("M12 8v4l2.5 2.5M3.05 11a9 9 0 1 1 .5 4M3 4v4h4"),
+  tasks: I("M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"),
+  risks: I("M12 3 2 20h20L12 3Zm0 6v5m0 3h.01"),
+  requests: I("M4 5h16v11H8l-4 4V5Zm4 4h8M8 12h5"),
+  vendors: I("M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M9 10h.01M15 10h.01"),
+  dpias: I("M11 4a7 7 0 1 0 4.9 12l4.6 4.6M8 11l2 2 4-4"),
+  policies: I("M7 3h8l4 4v14H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm1 9h8M8 16h6M8 8h4"),
   settings: I("M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7.4-3a7.4 7.4 0 0 0-.1-1.3l2-1.6-2-3.4-2.4 1a7.6 7.6 0 0 0-2.2-1.3L14.3 3h-4l-.4 2.4a7.6 7.6 0 0 0-2.2 1.3l-2.4-1-2 3.4 2 1.6a7.4 7.4 0 0 0 0 2.6l-2 1.6 2 3.4 2.4-1c.7.5 1.4 1 2.2 1.3l.4 2.4h4l.4-2.4c.8-.3 1.5-.8 2.2-1.3l2.4 1 2-3.4-2-1.6c.1-.4.1-.9.1-1.3Z"),
 };
 
@@ -36,6 +42,14 @@ export const WORKSPACE: Item[] = [
   { to: "/register", key: "register", icon: ICONS.register },
   { to: "/obligations", key: "obligations", icon: ICONS.obligations },
   { to: "/incidents", key: "incidents", icon: ICONS.incidents },
+];
+export const GOVERNANCE: Item[] = [
+  { to: "/tasks", key: "tasks", icon: ICONS.tasks },
+  { to: "/risks", key: "risks", icon: ICONS.risks },
+  { to: "/requests", key: "requests", icon: ICONS.requests },
+  { to: "/vendors", key: "vendors", icon: ICONS.vendors },
+  { to: "/dpias", key: "dpias", icon: ICONS.dpias },
+  { to: "/policies", key: "policies", icon: ICONS.policies },
 ];
 export const ADMIN: Item[] = [
   { to: "/users", key: "users", icon: ICONS.users, cap: "users.manage" },
@@ -122,6 +136,16 @@ export default function AppShell() {
             ))}
           </div>
         </div>
+        {visible(GOVERNANCE).length > 0 && (
+          <div>
+            <div className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-brand-200/70">{t("nav.governance")}</div>
+            <div className="flex flex-col gap-0.5">
+              {visible(GOVERNANCE).map((i) => (
+                <NavItem key={i.to} item={i} onNavigate={close} />
+              ))}
+            </div>
+          </div>
+        )}
         {visible(ADMIN).length > 0 && (
           <div>
             <div className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-brand-200/70">{t("nav.admin")}</div>
@@ -137,9 +161,16 @@ export default function AppShell() {
         <div className="mt-4 rounded-xl bg-white/8 p-3">
           <div className="truncate text-sm font-medium">{user.display_name}</div>
           <div className="text-xs text-brand-200/80">{t(`roles.${user.role}`)}</div>
-          <button className="mt-2 text-xs font-medium text-brand-100 underline-offset-2 hover:underline" onClick={logout}>
-            {t("nav.signOut")}
-          </button>
+          <div className="mt-2 flex gap-3">
+            {enabledRoutes.has("/account") && (
+              <NavLink to="/account" onClick={close} className="text-xs font-medium text-brand-100 underline-offset-2 hover:underline">
+                {t("nav.account")}
+              </NavLink>
+            )}
+            <button className="text-xs font-medium text-brand-100 underline-offset-2 hover:underline" onClick={logout}>
+              {t("nav.signOut")}
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BreachClock, type Clock, type ClockState } from "../components/BreachClock";
+import { GovernanceCard } from "../components/GovernanceCard";
 import { MiniBar, ScoreRing, StackedBar, TrendChart } from "../components/charts";
 import { BasisChip, Card, EmptyState, ErrorBox, PageHeader, Spinner, StaleChip, StatusChip } from "../components/ui";
 import { useApi, useNow } from "../hooks";
@@ -290,6 +291,8 @@ export default function Dashboard() {
             )}
           </Card>
         )}
+
+        {data.features?.governance && data.governance && <GovernanceCard g={data.governance} />}
       </div>
     </>
   );

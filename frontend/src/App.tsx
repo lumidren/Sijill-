@@ -19,6 +19,13 @@ const IncidentDetail = lazy(() => import("./pages/IncidentDetail"));
 const Users = lazy(() => import("./pages/Users"));
 const Settings = lazy(() => import("./pages/Settings"));
 const AuditLog = lazy(() => import("./pages/AuditLog"));
+const Tasks = lazy(() => import("./pages/Tasks"));
+const Risks = lazy(() => import("./pages/Risks"));
+const Requests = lazy(() => import("./pages/Requests"));
+const Vendors = lazy(() => import("./pages/Vendors"));
+const Dpias = lazy(() => import("./pages/Dpias"));
+const Policies = lazy(() => import("./pages/Policies"));
+const Account = lazy(() => import("./pages/Account"));
 
 const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/", element: <Dashboard /> },
@@ -32,6 +39,13 @@ const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/obligations", element: <Obligations /> },
   { path: "/incidents", element: <Incidents /> },
   { path: "/incidents/:id", element: <IncidentDetail /> },
+  { path: "/tasks", element: <Tasks /> },
+  { path: "/risks", element: <Risks /> },
+  { path: "/requests", element: <Requests /> },
+  { path: "/vendors", element: <Vendors /> },
+  { path: "/dpias", element: <Dpias /> },
+  { path: "/policies", element: <Policies /> },
+  { path: "/account", element: <Account /> },
   { path: "/users", element: <Users /> },
   { path: "/audit", element: <AuditLog /> },
   { path: "/settings", element: <Settings /> },
