@@ -1,5 +1,7 @@
 # Sijill: PDPL readiness for Egypt
 
+[![CI](https://github.com/lumidren/Sijill-/actions/workflows/ci.yml/badge.svg)](https://github.com/lumidren/Sijill-/actions/workflows/ci.yml)
+
 **Open-source, self-hosted readiness tracking for Egypt's Personal Data Protection Law (Law No. 151 of 2020).**
 *Sijill* (سجل) means "register" or "record", which is what the law asks organisations to keep. The project was
 called PDPL-Ready until 18 November 2026.
@@ -259,8 +261,8 @@ Configuration is by environment variable (`PDPL_` prefix), for example `PDPL_EVI
 `PDPL_COLLECT_INTERVAL_HOURS`, `PDPL_AWS_PROFILE`, `PDPL_BREACH_REGULATOR_HOURS` and `DATABASE_URL`. The Settings
 screen lists every value and marks the legal ones unverified; see [docs/LEGAL-REVIEW.md](docs/LEGAL-REVIEW.md).
 
-A `Dockerfile` and `docker-compose.yml` are included (`PDPL_SEED_DEMO=1` seeds the demo). They are built in CI but were
-not run on the development machine.
+A `Dockerfile` and `docker-compose.yml` are included (`PDPL_SEED_DEMO=1` seeds the demo). CI builds the image on every
+push; it was not run on the development machine.
 
 ### Collecting evidence
 
@@ -286,8 +288,8 @@ not run on the development machine.
 | Frontend (vitest) | 49 passed | evidence requests (create from a requirement, link shown once, review, the recipient's page in English and Arabic, expired link), clients page, organisation switcher, per-account organisation access, sign-in and the two-step code, account setup with QR, risk acceptance, request clocks, DPIA screening, policy approval, task prefill from a gap, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
 
 The two skipped tests need a live Prowler install, which the Windows path limit prevented here (see
-[docs/DECISIONS.md](docs/DECISIONS.md)); CI's `prowler-mapping` job runs them on Linux. Postgres tests and the Docker
-build also run only in CI. Every screen was also checked in the running app for unlabelled controls, unnamed buttons,
+[docs/DECISIONS.md](docs/DECISIONS.md)); CI's `prowler-mapping` job runs them on Linux against real Prowler 5.50.0. CI also runs
+the whole backend suite on PostgreSQL 16 and builds the Docker image, on every push. Every screen was also checked in the running app for unlabelled controls, unnamed buttons,
 duplicate ids and horizontal overflow, in English and Arabic and at 375 px width.
 
 ```powershell

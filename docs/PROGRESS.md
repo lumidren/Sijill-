@@ -23,6 +23,8 @@ Core first, then the assessment workflow, then the stretch goals in order:
 
 ## Verified, and how
 
+- **CI on GitHub** (github.com/lumidren/Sijill-): all five jobs green - SQLite suite, PostgreSQL 16 suite, real Prowler 5.50.0 check-ID and framework validation, frontend typecheck/tests/build, Docker build. The first runs found and fixed: tests using the machine's date instead of Cairo's, two Linux packages missing from the npm lock file, Prowler's dependency pins clashing with ours (now its own virtualenv), and a damaged stored evidence file not being repaired by a fresh upload. Failing backend tests become public annotations (`scripts/ci_annotate.py`).
+
 - **Backend tests**: 237 passed, 2 skipped (the two live-Prowler tests; CI runs them). Includes every role on every write endpoint, malformed/oversized/wrong-type uploads, tampered evidence, credential redaction, scoring rules, OSCAL schema validity and round trip, deadline arithmetic across midnight and Egypt's DST change, the 70-hour urgent clock and an overdue clock.
 - **Frontend tests**: 49 passed (vitest + Testing Library), including Arabic RTL with Arabic-Indic digits and the two-step sign-in flow.
 - **Evidence requests in the running app**: created a request from requirement A05.04, opened the link with no account, answered, attached a file, sent; reviewed and accepted as the consultant; the file appeared under A05.04 credited to the sender and the audit chain still verified. Screenshot `docs/screenshots/evidence-request-link.jpg`.
@@ -38,12 +40,11 @@ Core first, then the assessment workflow, then the stretch goals in order:
 - Prowler is not installed locally (Windows path limit; DECISIONS #8). The Prowler subprocess adapter is tested with a mocked subprocess only. CI job `prowler-mapping` installs real Prowler.
 - All AWS evidence is synthetic (generated in Prowler's OCSF shape); no AWS account was scanned. `scripts/aws-lab` is ready for the owner to run against their own account; it was only syntax-checked here.
 - The Linux collector ran only against recorded fictional hosts, never against a real host.
-- Postgres is exercised only in CI (`backend-postgres` job); Docker image built only in CI; neither run locally.
+- Postgres is exercised only in CI (`backend-postgres` job, green since 2026-11-18); the Docker image is built in CI but was never run locally.
 - PDFs were inspected only in the browser's PDF viewer (poppler is a system tool; pypdfium2 could not be downloaded, PyPI timed out).
-- The CI workflow has never run: there is no git remote, so nothing was pushed.
 - No legal source documents were available: every requirement, the 11-area structure, the screener rules, the licence/permit list and both breach deadlines are unverified (docs/LEGAL-REVIEW.md). The notice-to-individuals default (144 h) is a placeholder.
 - Reminders are in-app only (no email).
-- Organisation scoping relies on the ORM: raw SQL would bypass it (there is none in the app today). Postgres runs of migration 0006 happen only in CI.
+- Organisation scoping relies on the ORM: raw SQL would bypass it (there is none in the app today). Migrations 0006 and 0007 run on Postgres in CI.
 - Two-step sign-in was tested with RFC 6238 vectors and mocked UI flows, not with a real authenticator app on a phone.
 - The request-response period (30 days), risk bands and DPIA screening rule are placeholders or practice conventions, not verified law.
 
