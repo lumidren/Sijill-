@@ -31,6 +31,8 @@ class Settings(BaseSettings):
     breach_regulator_hours: int = 72
     breach_individuals_hours: int = 72 + 72  # follow-up notice; placeholder default
     licence_validity_years: int = 3
+    dsr_response_days: int = 30  # placeholder; the law's response period is unverified
+    risk_acceptance_max_days: int = 365
     renewal_reminder_days: int = 90
 
     # Evidence

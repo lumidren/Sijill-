@@ -29,6 +29,10 @@ PERMISSIONS: dict[str, set[str]] = {
     "obligations.write": {"admin", "dpo"},
     "incidents.write": {"admin", "dpo", "it"},
     "reports.generate": {"admin", "dpo", "it", "auditor"},
+    "tasks.write": {"admin", "dpo", "it"},
+    "governance.write": {"admin", "dpo"},
+    "risks.accept": {"admin"},
+    "approve": {"admin"},
 }
 
 MIN_PASSWORD_LEN = 10
