@@ -18,6 +18,7 @@ interface MappingRow {
 interface Collectors {
   adapters: { adapter: string; available: boolean; detail: string }[];
   interval_hours: number;
+  active_here?: boolean;
   next_run: string | null;
   last: { at: string | null; results: { adapter: string; status: string; detail: string; runs: number }[] };
   inbox: string;
@@ -234,7 +235,10 @@ function CollectorsPanel() {
             </li>
           ))}
         </ul>
-        {can("checks.write") && (
+        {data.active_here === false && (
+          <p className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-900">{t("orgs.collectorsElsewhere")}</p>
+        )}
+        {can("checks.write") && data.active_here !== false && (
           <button
             className="btn-secondary mt-4"
             disabled={busy}
