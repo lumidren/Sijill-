@@ -749,6 +749,8 @@ const en = {
       renewal_reminder_days: "Remind before a renewal or review",
       collect_interval_hours: "Collect automated evidence every",
       max_upload_mb: "Largest upload",
+      dsr_response_days: "Answer requests from individuals within",
+      risk_acceptance_max_days: "Longest risk acceptance",
     },
     units: { hours: "hours", years: "years", days: "days", MB: "MB" },
     catalogInfo: "Catalog {{version}}: {{unverified}} of {{total}} requirements unverified.",

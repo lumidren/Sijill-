@@ -753,6 +753,8 @@ const ar: DeepString<Strings> = {
       renewal_reminder_days: "التذكير قبل التجديد أو المراجعة بـ",
       collect_interval_hours: "جمع الأدلة الآلية كل",
       max_upload_mb: "أكبر حجم للرفع",
+      dsr_response_days: "الرد على طلبات الأفراد خلال",
+      risk_acceptance_max_days: "أطول مدة لقبول الخطر",
     },
     units: { hours: "ساعة", years: "سنوات", days: "يومًا", MB: "ميجابايت" },
     catalogInfo: "الكتالوج {{version}}: {{unverified}} من {{total}} متطلبًا غير موثّق.",

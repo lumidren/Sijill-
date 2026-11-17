@@ -101,11 +101,26 @@ These defaults live in `backend/app/config.py` and can be changed with environme
 | Regulator breach notification | 72 hours | Breach clock | `PDPL_BREACH_REGULATOR_HOURS` |
 | Notice to affected individuals | 144 hours (**placeholder, no source**) | Breach clock | `PDPL_BREACH_INDIVIDUALS_HOURS` |
 | Licence validity | 3 years | Renewal dates | `PDPL_LICENCE_VALIDITY_YEARS` |
+| Response to requests from individuals | 30 days (**placeholder, no source**) | Request clocks | `PDPL_DSR_RESPONSE_DAYS` |
+| Longest risk acceptance | 365 days | Risk register (policy choice, not law) | `PDPL_RISK_ACCEPTANCE_MAX_DAYS` |
 | Renewal reminder lead time | 90 days | Reminders (policy choice, not law) | `PDPL_RENEWAL_REMINDER_DAYS` |
 | Evidence staleness | 30 days | Stale flags (policy choice, not law) | `PDPL_EVIDENCE_STALE_DAYS` |
 | Linux log retention threshold | 90 days | Collector check `linux_log_retention_configured` (policy choice) | `--min-log-retention-days` |
 
-## 4. Facts taken from the project brief
+## 4. Governance rules of thumb
+
+The governance modules use conventions from general privacy and risk practice. None comes from the Egyptian texts:
+
+- Risk scores are likelihood x impact on 1-5 scales, banded 1-4 low, 5-9 medium, 10-16 high, 20-25 critical.
+- A DPIA is shown as "likely needed" when two or more of eight screening criteria apply (sensitive data, large
+  scale, systematic monitoring, new technology, vulnerable people, data leaving Egypt, automated decisions, combining
+  datasets). Whether and when the law requires an impact assessment needs confirming.
+- The request types (access, correction, deletion, objection, withdrawing consent, a portable copy) follow common
+  data-protection rights; the rights the law actually grants and their exceptions need confirming.
+- Vendors acting as processors are flagged when no data processing agreement is recorded; the required contract
+  terms under the law are not modelled.
+
+## 5. Facts taken from the project brief
 
 The software relies on these statements from the brief. They need a citation or correction:
 
@@ -121,14 +136,14 @@ The software relies on these statements from the brief. They need a citation or 
 | Banks and other CBE-supervised entities are out of scope, except money transfer and currency exchange companies. | Applicability screener |
 | The regulator publishes a self-assessment checklist with 11 assessment areas, and controller/processor register templates. | Catalog structure (11 areas); register export layouts |
 
-## 5. Wording rules the product already follows
+## 6. Wording rules the product already follows
 
 - Licences and permits are described as "likely required", never "required".
 - The score is called a readiness score and is never presented as legal compliance.
 - No article numbers, decree clauses, fees or penalties appear anywhere (a test enforces this for the catalog).
 - The app footer and every report carry a not-legal-advice notice.
 
-## 6. Arabic text
+## 7. Arabic text
 
 All Arabic (catalog, interface, reports) was drafted in Modern Standard Arabic without a legal translator. A native
 legal-language reviewer should check terminology against the official Arabic text of the Law.
