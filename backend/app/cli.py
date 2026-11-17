@@ -17,7 +17,7 @@ import sys
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(prog="pdpl-ready")
+    p = argparse.ArgumentParser(prog="sijill")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("migrate")
     ca = sub.add_parser("create-admin")

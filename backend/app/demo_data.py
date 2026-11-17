@@ -69,7 +69,7 @@ STAGE_2 = [  # more areas, ~20 days ago
     ("a11-01", "compliant", "Controller licence held; see the obligations tracker."),
     ("a11-02", "not_applicable", "The clinic sends appointment reminders only, no electronic marketing."),
     ("a11-03", "partial", "CCTV in the waiting area with signs; permit held but expiring soon."),
-    ("a11-04", "partial", "Dates now tracked in PDPL-Ready; the CCTV permit renewal is due soon."),
+    ("a11-04", "partial", "Dates now tracked in Sijill; the CCTV permit renewal is due soon."),
 ]
 STAGE_3 = [  # technical self-attestation, ~10 days ago
     ("a05-04", "compliant", "Nightly backups via AWS Backup; restore tested in October."),

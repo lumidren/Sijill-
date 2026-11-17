@@ -2,7 +2,7 @@
 
 S = {
     "en": {
-        "brand": "PDPL-Ready",
+        "brand": "Sijill",
         "readiness_title": "PDPL readiness report",
         "gaps_title": "PDPL gap list",
         "generated": "Generated {when} (Cairo time)",
@@ -59,7 +59,7 @@ S = {
         "risk_open": "Open", "risk_treating": "Being treated", "risk_accepted": "Accepted until", "risk_closed": "Closed",
     },
     "ar": {
-        "brand": "PDPL-Ready",
+        "brand": "سجل",
         "readiness_title": "تقرير الجاهزية لقانون حماية البيانات الشخصية",
         "gaps_title": "قائمة الفجوات",
         "generated": "أُعدّ في {when} (بتوقيت القاهرة)",

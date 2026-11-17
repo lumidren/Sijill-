@@ -416,8 +416,8 @@ def _risk_register(d: ReportData, lang: Lang, width: float) -> list:
 
 def _doc(buf, d: ReportData, lang: Lang, title: str) -> SimpleDocTemplate:
     return SimpleDocTemplate(buf, pagesize=A4, leftMargin=MARGIN, rightMargin=MARGIN, topMargin=17 * mm,
-                             bottomMargin=19 * mm, title=title, author="PDPL-Ready", subject=d.org.get("name", ""),
-                             creator="PDPL-Ready", lang=lang.code)
+                             bottomMargin=19 * mm, title=title, author="Sijill", subject=d.org.get("name", ""),
+                             creator="Sijill", lang=lang.code)
 
 
 def readiness_pdf(d: ReportData, lang_code: str = "en") -> bytes:

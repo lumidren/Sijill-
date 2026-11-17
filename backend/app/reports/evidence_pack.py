@@ -93,7 +93,7 @@ def build_pack(db: Session, d: ReportData) -> bytes:
         w.writerow(i)
     files["manifest.csv"] = ("﻿" + buf.getvalue()).encode("utf-8")
     files["README.txt"] = (
-        "PDPL-Ready evidence pack\n"
+        "Sijill evidence pack\n"
         f"Organisation: {d.org.get('name', '')}\nGenerated: {d.generated_at.isoformat()}\n\n"
         "Verify every file:   sha256sum -c sha256sums.txt\n"
         "manifest.json lists each item with the hash recorded when it was collected or uploaded.\n"

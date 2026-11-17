@@ -240,7 +240,7 @@ def test_prowler_adapter_runs_subprocess_and_imports_output(db, monkeypatch):
     def fake_run(cmd, **kw):
         calls.append(cmd)
         outdir = Path(cmd[cmd.index("--output-directory") + 1])
-        (outdir / "pdpl-ready.ocsf.json").write_bytes(WEEK1.read_bytes())
+        (outdir / "sijill.ocsf.json").write_bytes(WEEK1.read_bytes())
         return subprocess.CompletedProcess(cmd, 3, "", "")  # 3 = scan ok, some checks failed
 
     a = ProwlerCliAdapter(runner=fake_run)

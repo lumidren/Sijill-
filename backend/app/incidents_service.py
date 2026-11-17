@@ -112,8 +112,8 @@ LABELS = {
            "dpo": "اسم مسؤول حماية البيانات"},
 }
 TEMPLATE_NOTE = {
-    "en": "Template drafted by PDPL-Ready without the regulator's official form. Check the fields and channel the regulator requires before sending. Not legal advice.",
-    "ar": "نموذج أعدّته PDPL-Ready دون الاطلاع على النموذج الرسمي للجهة الرقابية. تحققوا من الحقول ووسيلة الإرسال المطلوبة قبل الإرسال. ليس استشارة قانونية.",
+    "en": "Template drafted by Sijill without the regulator's official form. Check the fields and channel the regulator requires before sending. Not legal advice.",
+    "ar": "نموذج أعدّته منصة سجل دون الاطلاع على النموذج الرسمي للجهة الرقابية. تحققوا من الحقول ووسيلة الإرسال المطلوبة قبل الإرسال. ليس استشارة قانونية.",
 }
 
 
@@ -226,5 +226,5 @@ def notice_pdf(n: dict) -> bytes:
     story += [Spacer(1, 12), rp.Para(n["note"], size=8, rtl=L.rtl, color=rp.MUTED)]
     buf = io.BytesIO()
     SimpleDocTemplate(buf, pagesize=A4, leftMargin=20 * mm, rightMargin=20 * mm, topMargin=20 * mm,
-                      bottomMargin=20 * mm, title=n["subject"], author="PDPL-Ready").build(story)
+                      bottomMargin=20 * mm, title=n["subject"], author="Sijill").build(story)
     return buf.getvalue()

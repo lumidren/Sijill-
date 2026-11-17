@@ -100,7 +100,7 @@ class ProwlerCliAdapter:
     def command(self, outdir: str) -> list[str]:
         checks = sorted(c for c, info in get_mapping().checks.items() if info.provider == "aws")
         cmd = [self.binary(), "aws", "--checks", *checks, "--output-formats", "json-ocsf",
-               "--output-directory", outdir, "--output-filename", "pdpl-ready", "--no-banner"]
+               "--output-directory", outdir, "--output-filename", "sijill", "--no-banner"]
         if self.settings.aws_profile:
             cmd += ["--profile", self.settings.aws_profile]
         if self.settings.aws_role_arn:

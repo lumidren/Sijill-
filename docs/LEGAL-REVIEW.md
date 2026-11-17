@@ -1,6 +1,6 @@
 # Legal review checklist
 
-PDPL-Ready was built without access to the official texts of Law No. 151 of 2020, its Executive Regulations or
+Sijill was built without access to the official texts of Law No. 151 of 2020, its Executive Regulations or
 the regulator's checklist and templates. Everything below was drafted in plain language from the project brief and
 general data-protection practice, and is marked unverified in the product. A lawyer should work through this list.
 

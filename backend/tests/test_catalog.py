@@ -92,7 +92,7 @@ def test_catalog_import_requires_admin_and_valid_oscal(as_role, raw):
     for p in ctrl["props"]:
         if p["name"] == "verified":
             p["value"] = "true"
-    ctrl["props"].append({"name": "source", "value": "Reviewed text, page 1", "ns": "urn:pdpl-ready:oscal"})
+    ctrl["props"].append({"name": "source", "value": "Reviewed text, page 1", "ns": "urn:sijill:oscal"})
     ok = {"file": ("catalog.json", json.dumps(reviewed).encode(), "application/json")}
     r = c.post("/api/catalog/import", files=ok)
     assert r.status_code == 200, r.text

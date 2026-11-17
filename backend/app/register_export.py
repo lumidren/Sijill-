@@ -119,6 +119,6 @@ def to_pdf(activities: list[ProcessingActivity], role: str, lang: str, org: dict
     story.append(rp._table(rows, widths, L))
     buf = io.BytesIO()
     doc = SimpleDocTemplate(buf, pagesize=page, leftMargin=margin, rightMargin=margin, topMargin=15 * mm,
-                            bottomMargin=17 * mm, title=title_ar if L.rtl else title_en, author="PDPL-Ready")
+                            bottomMargin=17 * mm, title=title_ar if L.rtl else title_en, author="Sijill")
     doc.build(story, canvasmaker=rp._numbered_canvas(L, org_name))
     return buf.getvalue()

@@ -3,7 +3,7 @@
   "Name": "Egypt Personal Data Protection Law No. 151 of 2020 (readiness mapping)",
   "Version": "",
   "Provider": "AWS",
-  "Description": "Readiness mapping for Egypt's Personal Data Protection Law No. 151 of 2020 and its Executive Regulations, maintained by the PDPL-Ready project. Requirements are grouped into 11 assessment areas; only technical safeguards carry automated checks, organisational requirements are listed as Manual. This mapping is a readiness aid, not a legal determination, and the requirement text has not been verified against the official legal texts.",
+  "Description": "Readiness mapping for Egypt's Personal Data Protection Law No. 151 of 2020 and its Executive Regulations, maintained by the Sijill project. Requirements are grouped into 11 assessment areas; only technical safeguards carry automated checks, organisational requirements are listed as Manual. This mapping is a readiness aid, not a legal determination, and the requirement text has not been verified against the official legal texts.",
   "Requirements": [
     {
       "Id": "a01-01",

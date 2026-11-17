@@ -28,7 +28,7 @@ def test_window_and_replay():
 
 def test_otpauth_uri():
     uri = totp.otpauth_uri("ABCDEF", "dpo")
-    assert uri.startswith("otpauth://totp/PDPL-Ready%3Adpo?") and "secret=ABCDEF" in uri and "issuer=PDPL-Ready" in uri
+    assert uri.startswith("otpauth://totp/Sijill%3Adpo?") and "secret=ABCDEF" in uri and "issuer=Sijill" in uri
 
 
 def _enable(c, db) -> str:

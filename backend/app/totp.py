@@ -55,6 +55,6 @@ def verify(secret_b32: str, code: str, last_counter: int | None = None, at: floa
     return None
 
 
-def otpauth_uri(secret_b32: str, account: str, issuer: str = "PDPL-Ready") -> str:
+def otpauth_uri(secret_b32: str, account: str, issuer: str = "Sijill") -> str:
     label = quote(f"{issuer}:{account}")
     return f"otpauth://totp/{label}?" + urlencode({"secret": secret_b32, "issuer": issuer, "digits": DIGITS, "period": STEP})

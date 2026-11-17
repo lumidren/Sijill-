@@ -4,7 +4,7 @@ Both mapping files use Prowler's compliance framework schema (Framework, Name, P
 Requirements[Id, Name, Description, Attributes, Checks]):
 
 - compliance/prowler/pdpl_egypt_aws.json   - a real Prowler framework file (upstream candidate)
-- compliance/linux/pdpl_egypt_linux.json   - same schema, for the PDPL-Ready Linux collector
+- compliance/linux/pdpl_egypt_linux.json   - same schema, for the Sijill Linux collector
 """
 from __future__ import annotations
 

@@ -49,7 +49,7 @@ async def lifespan(app: FastAPI):
 
 
 def create_app(start_scheduler: bool = True) -> FastAPI:
-    app = FastAPI(title="PDPL-Ready", version=__version__, lifespan=lifespan,
+    app = FastAPI(title="Sijill", version=__version__, lifespan=lifespan,
                   docs_url="/api/docs", openapi_url="/api/openapi.json", redoc_url=None)
     app.state.start_scheduler = start_scheduler
     for r in API_ROUTERS + _optional_routers():
