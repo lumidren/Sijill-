@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --color-brand-50: #effcf9;
+  --color-brand-100: #c9f5ec;
+  --color-brand-200: #94e9da;
+  --color-brand-300: #5ad4c3;
+  --color-brand-400: #2bb8a8;
+  --color-brand-500: #149a8d;
+  --color-brand-600: #0d7b72;
+  --color-brand-700: #0f625c;
+  --color-brand-800: #114e4a;
+  --color-brand-900: #0f3d3a;
+  --color-ink: #10201f;
+}
+
+html[dir="rtl"] {
+  --font-sans: "IBM Plex Sans Arabic", "Inter Variable", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-slate-50);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+@utility card {
+  @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-brand-700 text-white hover:bg-brand-800;
+}
+@utility btn-secondary {
+  @apply btn border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+}
+@utility btn-ghost {
+  @apply btn text-slate-700 hover:bg-slate-100;
+}
+@utility btn-danger {
+  @apply btn bg-red-700 text-white hover:bg-red-800;
+}
+@utility input {
+  @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-ink placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
+}
+@utility label {
+  @apply mb-1 block text-sm font-medium text-slate-700;
+}
+@utility page-title {
+  @apply text-2xl font-semibold tracking-tight text-ink;
+}
+@utility chip {
+  @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap;
+}
+@utility table-base {
+  @apply w-full text-sm;
+}
+
+.table-base th {
+  border-bottom: 1px solid var(--color-slate-200);
+  padding: 0.5rem 0.75rem;
+  text-align: start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-slate-500);
+}
+.table-base td {
+  border-bottom: 1px solid var(--color-slate-100);
+  padding: 0.625rem 0.75rem;
+  vertical-align: top;
+}
+html[dir="rtl"] .table-base th {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
