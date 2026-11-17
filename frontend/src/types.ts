@@ -97,9 +97,12 @@ export interface Deadline {
 export interface BreachClock {
   id: number;
   title: string;
-  regulator_due: string;
-  individuals_due: string | null;
   status: string;
+  regulator_due: string;
+  regulator_state: string;
+  regulator_done: boolean;
+  individuals_due: string | null;
+  individuals_state: string;
 }
 
 export interface Dashboard {

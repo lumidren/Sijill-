@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { BreachClock, type Clock, type ClockState } from "../components/BreachClock";
 import { MiniBar, ScoreRing, StackedBar, TrendChart } from "../components/charts";
 import { BasisChip, Card, EmptyState, ErrorBox, PageHeader, Spinner, StaleChip, StatusChip } from "../components/ui";
 import { useApi, useNow } from "../hooks";
@@ -268,14 +269,19 @@ export default function Dashboard() {
             ) : (
               <ul className="space-y-3">
                 {data.breaches.map((b) => {
-                  const hours = Math.floor((new Date(b.regulator_due).getTime() - now.getTime()) / 3_600_000);
+                  // show the next notification still to make
+                  const regulatorPending = !b.regulator_done;
+                  const clock: Clock = {
+                    due: regulatorPending ? b.regulator_due : (b.individuals_due ?? b.regulator_due),
+                    done_at: null,
+                    state: (regulatorPending ? b.regulator_state : b.individuals_state) as ClockState,
+                    seconds_left: null,
+                  };
                   return (
                     <li key={b.id}>
-                      <Link to={`/incidents/${b.id}`} className={`block rounded-xl border p-3 ${hours < 0 ? "border-red-300 bg-red-50" : hours < 12 ? "border-amber-300 bg-amber-50" : "border-slate-200"}`}>
-                        <div className="text-sm font-medium">{b.title}</div>
-                        <div className={`mt-1 text-xs font-semibold ${hours < 0 ? "text-red-700" : "text-amber-800"}`}>
-                          {hours < 0 ? t("dashboard.overdue") : t("dashboard.hoursLeft", { hours: fmtNum(hours) })}
-                        </div>
+                      <Link to={`/incidents/${b.id}`} className="block rounded-2xl focus-visible:outline-2">
+                        <p className="mb-1.5 text-sm font-medium text-ink">{b.title}</p>
+                        <BreachClock label={regulatorPending ? t("incidents.clocks.regulator") : t("incidents.clocks.individuals")} clock={clock} now={now} size="sm" />
                       </Link>
                     </li>
                   );
