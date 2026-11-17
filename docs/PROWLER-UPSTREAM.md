@@ -30,7 +30,7 @@ cp compliance/prowler/pdpl_egypt_aws.json "$(python -c 'import prowler, os; prin
 prowler aws --compliance pdpl_egypt_aws -M json-ocsf
 ```
 
-The JSON-OCSF output can then be imported into PDPL-Ready (Automated checks → Import findings). Prowler 5.50.0 also
+The JSON-OCSF output can then be imported into Sijill (Automated checks → Import findings). Prowler 5.50.0 also
 loads external frameworks registered under the `prowler.compliance` entry-point group (`Compliance.get_bulk`);
 packaging the file that way would avoid copying it into site-packages, but that route has not been tested here.
 

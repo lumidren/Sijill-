@@ -1,12 +1,15 @@
-# PDPL-Ready
+# Sijill: PDPL readiness for Egypt
 
 **Open-source, self-hosted readiness tracking for Egypt's Personal Data Protection Law (Law No. 151 of 2020).**
+*Sijill* (سجل) means "register" or "record", which is what the law asks organisations to keep. The project was
+called PDPL-Ready until 18 November 2026.
+
 Assess an organisation against the law, back the technical part with automated evidence from Prowler and Linux
 hosts, keep the records the law asks for, run the privacy programme around them (remediation tasks, a risk register,
 requests from individuals, vendors, impact assessments, policies), watch the score over time, catch regressions, run
 the breach clock, and hand management a report, in English or Arabic.
 
-> PDPL-Ready helps you organise evidence and track readiness. It is **not legal advice** and does not determine legal
+> Sijill helps you organise evidence and track readiness. It is **not legal advice** and does not determine legal
 > compliance. The requirement catalog is plain-language drafting that has **not yet been verified** against the official
 > legal texts. Every unverified item is marked in the app and listed in [docs/LEGAL-REVIEW.md](docs/LEGAL-REVIEW.md).
 
@@ -258,7 +261,7 @@ not run on the development machine.
 
 ### Collecting evidence
 
-- **Prowler (AWS)**: install Prowler where PDPL-Ready runs and set `PDPL_AWS_PROFILE` or `PDPL_AWS_ROLE_ARN`; the
+- **Prowler (AWS)**: install Prowler where Sijill runs and set `PDPL_AWS_PROFILE` or `PDPL_AWS_ROLE_ARN`; the
   scheduler then runs `prowler aws --checks <mapped checks> -M json-ocsf` and imports the result. Or run Prowler
   anywhere and import its `.ocsf.json` file.
 - **Linux**: run the collector on each host and import the file, or copy it into the inbox folder shown on the
