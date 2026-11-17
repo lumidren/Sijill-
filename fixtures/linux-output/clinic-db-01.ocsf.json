@@ -1,0 +1,866 @@
+[
+ {
+  "message": "12 audit rules loaded.",
+  "metadata": {
+   "event_code": "linux_auditd_rules_present",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 3,
+  "severity": "Medium",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "12 audit rules loaded.",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "auditd without rules records very little. Rules should watch identity files, sudoers and logins.",
+   "title": "Audit rules are loaded",
+   "uid": "pdpl-linux-clinic-db-01-linux_auditd_rules_present"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "12 audit rules loaded."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Add rules under /etc/audit/rules.d/ and load them with augenrules --load.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "auditd is active.",
+  "metadata": {
+   "event_code": "linux_auditd_running",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 4,
+  "severity": "High",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "auditd is active.",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "auditd records security-relevant events needed to investigate a breach.",
+   "title": "The audit daemon is running",
+   "uid": "pdpl-linux-clinic-db-01-linux_auditd_running"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "auditd is active."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Install and enable auditd: systemctl enable --now auditd.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "unattended-upgrades is enabled.",
+  "metadata": {
+   "event_code": "linux_automatic_security_updates_enabled",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 2,
+  "severity": "Low",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "unattended-upgrades is enabled.",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "unattended-upgrades or dnf-automatic shortens the window of exposure.",
+   "title": "Security updates install automatically",
+   "uid": "pdpl-linux-clinic-db-01-linux_automatic_security_updates_enabled"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "unattended-upgrades is enabled."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Enable unattended-upgrades (Debian/Ubuntu) or dnf-automatic (RHEL family).",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "All data filesystems are on encrypted volumes: /, /data",
+  "metadata": {
+   "event_code": "linux_disk_encryption_enabled",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 4,
+  "severity": "High",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "All data filesystems are on encrypted volumes: /, /data",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "Mounted data filesystems (/, /home, /var, /srv, /data) should sit on dm-crypt/LUKS volumes.",
+   "title": "Filesystems holding data are on encrypted volumes",
+   "uid": "pdpl-linux-clinic-db-01-linux_disk_encryption_enabled"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "All data filesystems are on encrypted volumes: /, /data"
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Encrypt data volumes with LUKS (cryptsetup) or use encrypted cloud volumes.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "ufw is active.",
+  "metadata": {
+   "event_code": "linux_firewall_enabled",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 4,
+  "severity": "High",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "ufw is active.",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "A host firewall (ufw, firewalld, nftables or iptables) limits exposure of services.",
+   "title": "A host firewall is active",
+   "uid": "pdpl-linux-clinic-db-01-linux_firewall_enabled"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "ufw is active."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Enable ufw or firewalld, or load an nftables ruleset with a default-deny input policy.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "logrotate keeps about 91 days of logs (minimum 90).",
+  "metadata": {
+   "event_code": "linux_log_retention_configured",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 3,
+  "severity": "Medium",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "logrotate keeps about 91 days of logs (minimum 90).",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "logrotate settings determine how long logs survive. Compared with --min-log-retention-days.",
+   "title": "System logs are kept for the required period",
+   "uid": "pdpl-linux-clinic-db-01-linux_log_retention_configured"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "logrotate keeps about 91 days of logs (minimum 90)."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Increase 'rotate' in /etc/logrotate.conf (e.g. 'weekly' + 'rotate 13' = about 90 days).",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "No pending security updates (apt).",
+  "metadata": {
+   "event_code": "linux_pending_security_updates",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 4,
+  "severity": "High",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "No pending security updates (apt).",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "Pending security updates leave known vulnerabilities open.",
+   "title": "No security updates are pending",
+   "uid": "pdpl-linux-clinic-db-01-linux_pending_security_updates"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "No pending security updates (apt)."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Apply updates: apt-get upgrade / dnf upgrade --security.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "8 sensitive files have restrictive permissions.",
+  "metadata": {
+   "event_code": "linux_sensitive_file_permissions",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 4,
+  "severity": "High",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "8 sensitive files have restrictive permissions.",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "Password hashes, group secrets and SSH host keys must not be readable by other users.",
+   "title": "Sensitive system files have restrictive permissions",
+   "uid": "pdpl-linux-clinic-db-01-linux_sensitive_file_permissions"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "8 sensitive files have restrictive permissions."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "chmod 0640 /etc/shadow /etc/gshadow; chmod 0600 /etc/ssh/ssh_host_*_key; owner root.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "PasswordAuthentication is 'no' (sshd -T).",
+  "metadata": {
+   "event_code": "linux_ssh_password_auth_disabled",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 3,
+  "severity": "Medium",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "PasswordAuthentication is 'no' (sshd -T).",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "PasswordAuthentication should be 'no' to block password guessing.",
+   "title": "SSH requires keys, not passwords",
+   "uid": "pdpl-linux-clinic-db-01-linux_ssh_password_auth_disabled"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "PasswordAuthentication is 'no' (sshd -T)."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Set 'PasswordAuthentication no' in /etc/ssh/sshd_config after deploying keys.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "PermitRootLogin is 'no' (sshd -T).",
+  "metadata": {
+   "event_code": "linux_ssh_root_login_disabled",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 4,
+  "severity": "High",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "PermitRootLogin is 'no' (sshd -T).",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "PermitRootLogin should be 'no' so administrators log in as themselves and escalate.",
+   "title": "SSH does not allow direct root login",
+   "uid": "pdpl-linux-clinic-db-01-linux_ssh_root_login_disabled"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "PermitRootLogin is 'no' (sshd -T)."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Set 'PermitRootLogin no' in /etc/ssh/sshd_config and reload sshd.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "No weak ciphers or MACs configured (sshd -T).",
+  "metadata": {
+   "event_code": "linux_ssh_strong_ciphers",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 3,
+  "severity": "Medium",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "No weak ciphers or MACs configured (sshd -T).",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "CBC-mode, arcfour, 3DES ciphers and MD5/SHA1-96 MACs weaken encryption in transit.",
+   "title": "SSH offers only strong ciphers and MACs",
+   "uid": "pdpl-linux-clinic-db-01-linux_ssh_strong_ciphers"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "No weak ciphers or MACs configured (sshd -T)."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Remove weak entries from the Ciphers and MACs lines in sshd_config.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ },
+ {
+  "message": "System clock is NTP-synchronised.",
+  "metadata": {
+   "event_code": "linux_time_sync_enabled",
+   "product": {
+    "name": "PDPL-Ready Linux collector",
+    "uid": "pdpl-ready-linux",
+    "vendor_name": "PDPL-Ready",
+    "version": "0.1.0"
+   },
+   "profiles": [
+    "datetime"
+   ],
+   "version": "1.4.0"
+  },
+  "severity_id": 2,
+  "severity": "Low",
+  "status": "New",
+  "status_code": "PASS",
+  "status_detail": "System clock is NTP-synchronised.",
+  "status_id": 1,
+  "activity_id": 1,
+  "activity_name": "Create",
+  "finding_info": {
+   "created_time": 1794816000,
+   "created_time_dt": "2026-11-16T08:00:00Z",
+   "desc": "Accurate timestamps are needed to reconstruct incidents and meet notification deadlines.",
+   "title": "The clock is synchronised",
+   "uid": "pdpl-linux-clinic-db-01-linux_time_sync_enabled"
+  },
+  "resources": [
+   {
+    "name": "clinic-db-01",
+    "uid": "clinic-db-01",
+    "type": "Host",
+    "region": "",
+    "group": {
+     "name": "linux"
+    },
+    "labels": [],
+    "data": {
+     "details": "System clock is NTP-synchronised."
+    }
+   }
+  ],
+  "device": {
+   "hostname": "clinic-db-01",
+   "name": "clinic-db-01",
+   "type": "Server",
+   "type_id": 1,
+   "os": {
+    "name": "Ubuntu 24.04.1 LTS",
+    "type": "Linux",
+    "type_id": 100
+   }
+  },
+  "category_name": "Findings",
+  "category_uid": 2,
+  "class_name": "Detection Finding",
+  "class_uid": 2004,
+  "type_uid": 200401,
+  "type_name": "Detection Finding: Create",
+  "remediation": {
+   "desc": "Enable systemd-timesyncd, chrony or ntpd.",
+   "references": []
+  },
+  "time": 1794816000,
+  "time_dt": "2026-11-16T08:00:00Z",
+  "unmapped": {
+   "provider": "linux"
+  }
+ }
+]
