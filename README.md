@@ -48,6 +48,7 @@ proof that the technical controls exist or still hold.
 | 12 | **Impact assessments** | DPIAs linked to processing activities, with an eight-criterion screening ("likely needed" at two or more), necessity, risks, measures, residual risk and DPO opinion; an Admin approves only a complete assessment |
 | 13 | **Policy library** | Versioned policies with owners, linked requirements and evidence, approval history and review dates; a new version needs approval again |
 | 14 | **Several client organisations** | One install, many clients: each organisation has its own assessment, evidence, registers, governance records and reports; a switcher in the sidebar; a Clients page with every client's readiness, evidence split, gaps, high risks, overdue items, missing contracts and breach clocks; per-account access to chosen organisations |
+| 15 | **Evidence requests** | Pick requirements, get a private link and send it to whoever at the client knows the answer (IT vendor, HR, clinic manager). They answer in English or Arabic and attach files without an account; nothing counts until you accept it, and accepted files become evidence on the requirement, credited to the sender. Links are random, stored only as a hash, expire, and can be replaced or revoked |
 
 Everything runs in English and Arabic with full right-to-left layout, behind local accounts with four roles
 (Admin, DPO, IT/Security, read-only Auditor) enforced on the server, optional two-step sign-in with an authenticator
@@ -59,6 +60,8 @@ All AWS evidence in this repository is synthetic: no AWS account was scanned.
 ## Screenshots
 
 ![Clients page: three fictional organisations side by side](docs/screenshots/clients.jpg)
+
+![What client staff see when they open an evidence request link](docs/screenshots/evidence-request-link.jpg)
 
 All data below is the fictional demo clinic that `scripts/start.ps1` seeds.
 
@@ -278,9 +281,9 @@ not run on the development machine.
 
 | Suite | Count | What it covers |
 |---|---|---|
-| Backend (pytest) | 228 passed, 2 skipped | organisation isolation (every module by list and by id, forged organisation cookie, restricted accounts, archived organisations, per-organisation audit trail that still verifies, migration of existing data), auth and every role, two-step sign-in (RFC test vectors, time window, replay, throttling, reset), governance modules (risk bands and acceptance expiry, request clocks, DPIA screening and approval rules, policy versions, vendor gaps, role checks on every module), audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
+| Backend (pytest) | 237 passed, 2 skipped | evidence request links (token shown once and stored hashed, CSRF header, wrong type and forged content, file limits, expiry, revoke and replace, unknown-token throttling, review before anything reaches the assessment, organisation of the link wins over the browser's), organisation isolation (every module by list and by id, forged organisation cookie, restricted accounts, archived organisations, per-organisation audit trail that still verifies, migration of existing data), auth and every role, two-step sign-in (RFC test vectors, time window, replay, throttling, reset), governance modules (risk bands and acceptance expiry, request clocks, DPIA screening and approval rules, policy versions, vendor gaps, role checks on every module), audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
 | Linux collector | included above | replays recorded fictional hosts; read-only command guarantee |
-| Frontend (vitest) | 43 passed | clients page, organisation switcher, per-account organisation access, sign-in and the two-step code, account setup with QR, risk acceptance, request clocks, DPIA screening, policy approval, task prefill from a gap, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
+| Frontend (vitest) | 49 passed | evidence requests (create from a requirement, link shown once, review, the recipient's page in English and Arabic, expired link), clients page, organisation switcher, per-account organisation access, sign-in and the two-step code, account setup with QR, risk acceptance, request clocks, DPIA screening, policy approval, task prefill from a gap, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
 
 The two skipped tests need a live Prowler install, which the Windows path limit prevented here (see
 [docs/DECISIONS.md](docs/DECISIONS.md)); CI's `prowler-mapping` job runs them on Linux. Postgres tests and the Docker
