@@ -17,6 +17,7 @@ const Obligations = lazy(() => import("./pages/Obligations"));
 const Incidents = lazy(() => import("./pages/Incidents"));
 const IncidentDetail = lazy(() => import("./pages/IncidentDetail"));
 const Users = lazy(() => import("./pages/Users"));
+const Settings = lazy(() => import("./pages/Settings"));
 const AuditLog = lazy(() => import("./pages/AuditLog"));
 
 const ROUTES: { path: string; element: ReactNode }[] = [
@@ -33,6 +34,7 @@ const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/incidents/:id", element: <IncidentDetail /> },
   { path: "/users", element: <Users /> },
   { path: "/audit", element: <AuditLog /> },
+  { path: "/settings", element: <Settings /> },
 ];
 setEnabledRoutes(ROUTES.map((r) => r.path));
 
