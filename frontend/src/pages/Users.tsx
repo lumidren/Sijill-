@@ -2,11 +2,13 @@ import { useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { api, ApiError } from "../api";
 import { useAuth, type Role, type User } from "../auth";
+import { RecordForm, type Draft, type Field } from "../components/RecordForm";
 import { Card, ErrorBox, PageHeader, Spinner } from "../components/ui";
 import { useApi } from "../hooks";
 import { fmtDateTime } from "../i18n";
+import { useOrg } from "../org";
 
-type Row = User & { is_active: boolean; last_login_at: string | null };
+type Row = User & { is_active: boolean; last_login_at: string | null; org_ids?: number[] | null };
 const ROLES: Role[] = ["admin", "dpo", "it", "auditor"];
 
 export default function Users() {
@@ -16,12 +18,24 @@ export default function Users() {
   const [form, setForm] = useState({ username: "", display_name: "", password: "", role: "dpo" as Role });
   const [msg, setMsg] = useState<string | null>(null);
   const [formErr, setFormErr] = useState<string | null>(null);
+  const { orgs, current, currentOrg } = useOrg();
+  const [access, setAccess] = useState<Row | null>(null);
+  // New accounts see only the organisation open now unless the admin says otherwise.
+  const [scope, setScope] = useState<"current" | "all">("current");
+  const many = orgs.length > 1;
+  const orgName = (id: number) => orgs.find((o) => o.id === id)?.name ?? `#${id}`;
+  const accessFields: Field[] = [
+    { key: "all", label: t("orgs.all"), type: "checkbox" },
+    ...orgs.map((o) => ({ key: `org_${o.id}`, label: o.name, type: "checkbox" as const, show: (d: Draft) => !d.all })),
+  ];
+  const accessDraft = (u: Row): Draft => ({ all: !u.org_ids, ...Object.fromEntries(orgs.map((o) => [`org_${o.id}`, !!u.org_ids?.includes(o.id)])) });
+  const accessBody = (d: Draft) => (d.all ? "all" : orgs.filter((o) => d[`org_${o.id}`]).map((o) => o.id));
 
   async function create(e: FormEvent) {
     e.preventDefault();
     setFormErr(null);
     try {
-      await api.post("/api/users", form);
+      await api.post("/api/users", { ...form, access: many && scope === "current" && current ? [current] : "all" });
       setForm({ username: "", display_name: "", password: "", role: "dpo" });
       setMsg(t("users.created"));
       reload();
@@ -57,6 +71,7 @@ export default function Users() {
                     <th>{t("users.role")}</th>
                     <th>{t("common.status")}</th>
                     <th>{t("mfa.column")}</th>
+                    {many && <th>{t("orgs.access")}</th>}
                     <th>{t("users.lastLogin")}</th>
                     <th>
                       <span className="sr-only">{t("common.actions")}</span>
@@ -75,6 +90,16 @@ export default function Users() {
                       <td>{t(`roles.${u.role}`)}</td>
                       <td>{u.is_active ? t("users.active") : <span className="text-slate-500">{t("users.inactive")}</span>}</td>
                       <td>{u.mfa_enabled ? <span className="chip bg-green-50 text-green-800">{t("mfa.on")}</span> : <span className="text-slate-500">{t("mfa.off")}</span>}</td>
+                      {many && (
+                        <td className="max-w-[14rem] text-sm">
+                          {u.role === "admin" || !u.org_ids ? t("orgs.all") : u.org_ids.map(orgName).join(", ")}
+                          {u.role !== "admin" && (
+                            <button className="ms-2 text-xs text-brand-700 hover:underline" onClick={() => setAccess(u)}>
+                              {t("orgs.change")}
+                            </button>
+                          )}
+                        </td>
+                      )}
                       <td className="text-slate-600">{fmtDateTime(u.last_login_at)}</td>
                       <td className="whitespace-nowrap text-end">
                         {u.mfa_enabled && u.id !== me?.id && (
@@ -131,6 +156,17 @@ export default function Users() {
                 ))}
               </select>
             </div>
+            {many && form.role !== "admin" && (
+              <div>
+                <label className="label" htmlFor="nu-scope">
+                  {t("orgs.access")}
+                </label>
+                <select id="nu-scope" className="input" value={scope} onChange={(e) => setScope(e.target.value as "current" | "all")}>
+                  <option value="current">{t("orgs.onlyCurrent", { name: currentOrg?.name ?? "" })}</option>
+                  <option value="all">{t("orgs.all")}</option>
+                </select>
+              </div>
+            )}
             <div>
               <label className="label" htmlFor="nu-pw">
                 {t("users.password")}
@@ -146,6 +182,18 @@ export default function Users() {
           </form>
         </Card>
       </div>
+      {access && (
+        <RecordForm
+          title={`${t("orgs.access")}: ${access.display_name}`}
+          fields={accessFields}
+          initial={accessDraft(access)}
+          onClose={() => setAccess(null)}
+          onSubmit={async (d) => {
+            await api.patch(`/api/users/${access.id}`, { access: accessBody(d) });
+            reload();
+          }}
+        />
+      )}
     </>
   );
 }
