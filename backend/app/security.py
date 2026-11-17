@@ -22,6 +22,7 @@ PERMISSIONS: dict[str, set[str]] = {
     "audit.read": {"admin", "dpo", "auditor"},
     "users.manage": {"admin"},
     "orgs.manage": {"admin"},
+    "evidence_requests.manage": {"admin", "dpo"},
     "settings.manage": {"admin"},
     "assessment.write": {"admin", "dpo"},
     "evidence.upload": {"admin", "dpo", "it"},

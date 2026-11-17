@@ -21,7 +21,8 @@ def _optional_routers():
 
     out = []
     for name in ("catalog", "assessment", "evidence", "checks", "posture", "reports", "settings_api",
-                 "register", "obligations", "incidents", "governance", "mfa", "orgs"):
+                 "register", "obligations", "incidents", "governance", "mfa", "orgs",
+                 "evidence_requests"):
         try:
             mod = importlib.import_module(f".routers.{name}", __package__)
         except ModuleNotFoundError as e:
@@ -29,6 +30,8 @@ def _optional_routers():
                 continue
             raise
         out.append(mod.router)
+        if hasattr(mod, "public"):  # endpoints reached without an account (evidence request links)
+            out.append(mod.public)
     return out
 
 

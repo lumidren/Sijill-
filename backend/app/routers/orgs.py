@@ -116,6 +116,10 @@ def client_summary(org: Organisation) -> dict:
         except ModuleNotFoundError:
             breaches = []
         gaps = sum(1 for r in res.requirements if r.status in ("non_compliant", "partial"))
+        from ..models import EvidenceRequest, EvidenceRequestItem
+
+        awaiting = len(s.execute(select(EvidenceRequestItem).join(EvidenceRequest)
+                                 .where(EvidenceRequestItem.status == "answered", EvidenceRequest.status != "closed")).scalars().all())
     return {
         **org_out(org),
         "overall": res.overall,
@@ -126,6 +130,7 @@ def client_summary(org: Organisation) -> dict:
         "requests_overdue": gov["requests"]["overdue"],
         "vendors_without_dpa": gov["vendors"]["without_dpa"],
         "open_breaches": len(breaches),
+        "evidence_to_review": awaiting,
         "last_run": runs[0].started_at.isoformat() if runs else None,
     }
 
