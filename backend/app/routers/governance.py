@@ -322,6 +322,10 @@ def _apply_policy(db, p: Policy, b: PolicyIn, actor):
     data = b.model_dump()
     review = data.pop("review_due")
     new_version = data["version"] != p.version and p.id is not None
+    if new_version:
+        data["status"] = "draft"  # a new version always needs approval again
+    elif p.status == "approved" and data["status"] == "draft":
+        data["status"] = "approved"  # editing wording under the same version keeps the approval
     for k, v in data.items():
         setattr(p, k, v)
     p.review_due = day(review)

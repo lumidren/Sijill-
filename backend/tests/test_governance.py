@@ -153,6 +153,9 @@ def test_policy_versions_and_approval(as_role):
     ok = as_role("admin").post(f"/api/policies/{p['id']}/approve").json()
     assert ok["status"] == "approved" and ok["review_overdue"] is True and len(ok["history"]) == 2
     c = as_role("dpo")
+    same = c.put(f"/api/policies/{p['id']}", json={"title": "Data protection policy (typo fixed)", "version": "1.2",
+                                                     "review_due": d(-3), "requirement_ids": ["a01-03"]}).json()
+    assert same["status"] == "approved" and same["approved_on"] is not None and len(same["history"]) == 2
     v2 = c.put(f"/api/policies/{p['id']}", json={"title": "Data protection policy", "version": "1.3",
                                                    "review_due": d(365), "requirement_ids": ["a01-03"]}).json()
     assert v2["status"] == "draft" and v2["approved_on"] is None and v2["history"][-1]["version"] == "1.3"
