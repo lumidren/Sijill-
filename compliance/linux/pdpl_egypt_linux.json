@@ -1,0 +1,809 @@
+{
+  "Framework": "PDPL-Egypt",
+  "Name": "Egypt Personal Data Protection Law No. 151 of 2020 (readiness mapping)",
+  "Version": "",
+  "Provider": "Linux",
+  "Description": "Readiness mapping for Egypt's Personal Data Protection Law No. 151 of 2020 and its Executive Regulations, maintained by the PDPL-Ready project. Requirements are grouped into 11 assessment areas; only technical safeguards carry automated checks, organisational requirements are listed as Manual. This mapping is a readiness aid, not a legal determination, and the requirement text has not been verified against the official legal texts.",
+  "Requirements": [
+    {
+      "Id": "a01-01",
+      "Name": "A01.01 Appoint a Data Protection Officer",
+      "Description": "The organization has appointed a Data Protection Officer (DPO) with enough authority, time and independence to oversee personal data protection.",
+      "Attributes": [
+        {
+          "ItemId": "a01-01",
+          "Section": "A01 Governance and accountability",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a01-02",
+      "Name": "A01.02 Register the DPO with the regulator",
+      "Description": "The DPO's appointment has been registered with the data protection regulator, and the registration details are kept up to date.",
+      "Attributes": [
+        {
+          "ItemId": "a01-02",
+          "Section": "A01 Governance and accountability",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a01-03",
+      "Name": "A01.03 Approved data protection policy",
+      "Description": "A written data protection policy, approved by management, sets out how the organization handles personal data.",
+      "Attributes": [
+        {
+          "ItemId": "a01-03",
+          "Section": "A01 Governance and accountability",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a01-04",
+      "Name": "A01.04 Staff awareness and training",
+      "Description": "Staff who handle personal data receive data protection training when they join and at regular intervals.",
+      "Attributes": [
+        {
+          "ItemId": "a01-04",
+          "Section": "A01 Governance and accountability",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a01-05",
+      "Name": "A01.05 Documented accountability",
+      "Description": "The organization keeps records that show how it meets its data protection obligations, such as policies, decisions, assessments and reviews.",
+      "Attributes": [
+        {
+          "ItemId": "a01-05",
+          "Section": "A01 Governance and accountability",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a02-01",
+      "Name": "A02.01 A lawful basis for every purpose",
+      "Description": "Each purpose for which personal data is processed has an identified lawful basis, recorded in the processing register.",
+      "Attributes": [
+        {
+          "ItemId": "a02-01",
+          "Section": "A02 Lawful processing and consent",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a02-02",
+      "Name": "A02.02 Valid, recorded consent",
+      "Description": "Where processing relies on consent, the consent is specific, informed and recorded, and people can withdraw it as easily as they gave it.",
+      "Attributes": [
+        {
+          "ItemId": "a02-02",
+          "Section": "A02 Lawful processing and consent",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a02-03",
+      "Name": "A02.03 Purpose limitation",
+      "Description": "Personal data is used only for the purposes people were told about, and new purposes are assessed before data is reused.",
+      "Attributes": [
+        {
+          "ItemId": "a02-03",
+          "Section": "A02 Lawful processing and consent",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a02-04",
+      "Name": "A02.04 Sensitive personal data",
+      "Description": "Sensitive personal data, such as health or biometric data, is identified and handled under stricter controls.",
+      "Attributes": [
+        {
+          "ItemId": "a02-04",
+          "Section": "A02 Lawful processing and consent",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a02-05",
+      "Name": "A02.05 Children's data",
+      "Description": "Where the organization processes children's personal data, it obtains a parent's or guardian's consent when required and applies extra care.",
+      "Attributes": [
+        {
+          "ItemId": "a02-05",
+          "Section": "A02 Lawful processing and consent",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a03-01",
+      "Name": "A03.01 Privacy notice at collection",
+      "Description": "People receive a clear privacy notice when their data is collected, explaining who collects it, why, for how long, who receives it and what rights they have.",
+      "Attributes": [
+        {
+          "ItemId": "a03-01",
+          "Section": "A03 Transparency and data subject rights",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a03-02",
+      "Name": "A03.02 Handling data subject requests",
+      "Description": "A documented process receives and answers requests from people to access, correct, delete or object to the processing of their data, within the time the law allows.",
+      "Attributes": [
+        {
+          "ItemId": "a03-02",
+          "Section": "A03 Transparency and data subject rights",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a03-03",
+      "Name": "A03.03 Identity verification",
+      "Description": "Before acting on a request, the organization verifies the requester's identity without collecting more data than needed.",
+      "Attributes": [
+        {
+          "ItemId": "a03-03",
+          "Section": "A03 Transparency and data subject rights",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a03-04",
+      "Name": "A03.04 Request log",
+      "Description": "All requests are logged with the date received, the response date and the outcome.",
+      "Attributes": [
+        {
+          "ItemId": "a03-04",
+          "Section": "A03 Transparency and data subject rights",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a04-01",
+      "Name": "A04.01 Controller processing register",
+      "Description": "The organization keeps a register of its processing activities listing purposes, data categories, data subjects, recipients, retention periods and safeguards.",
+      "Attributes": [
+        {
+          "ItemId": "a04-01",
+          "Section": "A04 Records of processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a04-02",
+      "Name": "A04.02 Processor register",
+      "Description": "Where the organization processes data on behalf of others, it keeps a separate register of that processing for each client.",
+      "Attributes": [
+        {
+          "ItemId": "a04-02",
+          "Section": "A04 Records of processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a04-03",
+      "Name": "A04.03 Register kept current",
+      "Description": "The register is reviewed at set intervals and updated whenever a new system, supplier or purpose is introduced.",
+      "Attributes": [
+        {
+          "ItemId": "a04-03",
+          "Section": "A04 Records of processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a04-04",
+      "Name": "A04.04 Data inventory",
+      "Description": "The organization knows which systems, files and suppliers hold personal data, and where they are located.",
+      "Attributes": [
+        {
+          "ItemId": "a04-04",
+          "Section": "A04 Records of processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a05-01",
+      "Name": "A05.01 Data minimisation",
+      "Description": "Forms and systems collect only the personal data needed for the stated purpose.",
+      "Attributes": [
+        {
+          "ItemId": "a05-01",
+          "Section": "A05 Minimisation, accuracy and retention",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a05-02",
+      "Name": "A05.02 Accuracy",
+      "Description": "Personal data is kept accurate and up to date, and errors are corrected without delay.",
+      "Attributes": [
+        {
+          "ItemId": "a05-02",
+          "Section": "A05 Minimisation, accuracy and retention",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a05-03",
+      "Name": "A05.03 Retention periods enforced",
+      "Description": "Each category of personal data has a defined retention period, and data is deleted or anonymised when that period ends.",
+      "Attributes": [
+        {
+          "ItemId": "a05-03",
+          "Section": "A05 Minimisation, accuracy and retention",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a05-04",
+      "Name": "A05.04 Backups protected and tested",
+      "Description": "Personal data is backed up, backups are protected to the same standard as live data, and restores are tested.",
+      "Attributes": [
+        {
+          "ItemId": "a05-04",
+          "Section": "A05 Minimisation, accuracy and retention",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a06-01",
+      "Name": "A06.01 Encryption at rest",
+      "Description": "Storage holding personal data, including databases, disks, object storage, snapshots and laptops, is encrypted.",
+      "Attributes": [
+        {
+          "ItemId": "a06-01",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_disk_encryption_enabled"
+      ]
+    },
+    {
+      "Id": "a06-02",
+      "Name": "A06.02 Encryption in transit",
+      "Description": "Personal data sent over networks is protected with current TLS or SSH, and plain-text protocols are disabled.",
+      "Attributes": [
+        {
+          "ItemId": "a06-02",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_ssh_strong_ciphers"
+      ]
+    },
+    {
+      "Id": "a06-03",
+      "Name": "A06.03 Key management",
+      "Description": "Encryption keys are rotated, access to them is restricted, and they are never publicly accessible.",
+      "Attributes": [
+        {
+          "ItemId": "a06-03",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a06-04",
+      "Name": "A06.04 Least privilege",
+      "Description": "People and systems have only the access they need; administrator rights are limited, reviewed and removed when no longer needed.",
+      "Attributes": [
+        {
+          "ItemId": "a06-04",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a06-05",
+      "Name": "A06.05 Strong authentication",
+      "Description": "Privileged and remote access requires multi-factor authentication, and password rules prevent weak passwords.",
+      "Attributes": [
+        {
+          "ItemId": "a06-05",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_ssh_password_auth_disabled"
+      ]
+    },
+    {
+      "Id": "a06-06",
+      "Name": "A06.06 No public exposure of data stores",
+      "Description": "Databases, storage buckets, snapshots and backups that hold personal data are not reachable from the internet.",
+      "Attributes": [
+        {
+          "ItemId": "a06-06",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a06-07",
+      "Name": "A06.07 Network protection",
+      "Description": "Firewalls or security groups allow only the network traffic that is needed, and administrative ports are not open to the internet.",
+      "Attributes": [
+        {
+          "ItemId": "a06-07",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_firewall_enabled"
+      ]
+    },
+    {
+      "Id": "a06-08",
+      "Name": "A06.08 Patching and vulnerability management",
+      "Description": "Systems that process personal data receive security updates promptly and are checked for known vulnerabilities.",
+      "Attributes": [
+        {
+          "ItemId": "a06-08",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_pending_security_updates",
+        "linux_automatic_security_updates_enabled"
+      ]
+    },
+    {
+      "Id": "a06-09",
+      "Name": "A06.09 Host hardening",
+      "Description": "Servers are hardened: remote administrator login is restricted and sensitive system files are readable only by those who need them.",
+      "Attributes": [
+        {
+          "ItemId": "a06-09",
+          "Section": "A06 Security of processing: access and encryption",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_ssh_root_login_disabled",
+        "linux_sensitive_file_permissions"
+      ]
+    },
+    {
+      "Id": "a07-01",
+      "Name": "A07.01 Audit logging enabled",
+      "Description": "Administrative and security events are logged on all accounts and servers that process personal data.",
+      "Attributes": [
+        {
+          "ItemId": "a07-01",
+          "Section": "A07 Logging, monitoring and breach detection",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_auditd_running",
+        "linux_auditd_rules_present"
+      ]
+    },
+    {
+      "Id": "a07-02",
+      "Name": "A07.02 Log retention and protection",
+      "Description": "Logs are kept for a defined period and protected against tampering and deletion.",
+      "Attributes": [
+        {
+          "ItemId": "a07-02",
+          "Section": "A07 Logging, monitoring and breach detection",
+          "Service": "linux",
+          "Type": "Automated",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": [
+        "linux_log_retention_configured",
+        "linux_time_sync_enabled"
+      ]
+    },
+    {
+      "Id": "a07-03",
+      "Name": "A07.03 Threat detection",
+      "Description": "Automated threat detection monitors accounts and systems for signs of compromise.",
+      "Attributes": [
+        {
+          "ItemId": "a07-03",
+          "Section": "A07 Logging, monitoring and breach detection",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a07-04",
+      "Name": "A07.04 Security alerting",
+      "Description": "Alerts are raised and reviewed for high-risk events such as root account use, unauthorised access attempts and changes to security settings.",
+      "Attributes": [
+        {
+          "ItemId": "a07-04",
+          "Section": "A07 Logging, monitoring and breach detection",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a07-05",
+      "Name": "A07.05 Access to personal data is traceable",
+      "Description": "Reads of and changes to stores of personal data are logged so that access can be traced to a person or system.",
+      "Attributes": [
+        {
+          "ItemId": "a07-05",
+          "Section": "A07 Logging, monitoring and breach detection",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a08-01",
+      "Name": "A08.01 Breach response plan",
+      "Description": "A written breach response plan names who decides, who investigates and who notifies.",
+      "Attributes": [
+        {
+          "ItemId": "a08-01",
+          "Section": "A08 Breach response and notification",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a08-02",
+      "Name": "A08.02 Notifying the regulator",
+      "Description": "Personal data breaches are reported to the regulator within the deadline set by the regulations (configurable in this platform).",
+      "Attributes": [
+        {
+          "ItemId": "a08-02",
+          "Section": "A08 Breach response and notification",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a08-03",
+      "Name": "A08.03 Informing affected people",
+      "Description": "People affected by a breach are informed when required, in plain language, with steps they can take.",
+      "Attributes": [
+        {
+          "ItemId": "a08-03",
+          "Section": "A08 Breach response and notification",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a08-04",
+      "Name": "A08.04 Breach register",
+      "Description": "Every breach is recorded, including those not notified, with the facts, effects and actions taken.",
+      "Attributes": [
+        {
+          "ItemId": "a08-04",
+          "Section": "A08 Breach response and notification",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a08-05",
+      "Name": "A08.05 Plan is tested",
+      "Description": "The breach response plan is tested through an exercise at set intervals, and lessons are recorded.",
+      "Attributes": [
+        {
+          "ItemId": "a08-05",
+          "Section": "A08 Breach response and notification",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a09-01",
+      "Name": "A09.01 Written processor contracts",
+      "Description": "Every supplier that processes personal data on the organization's behalf has a written contract covering instructions, confidentiality, security and breach notification.",
+      "Attributes": [
+        {
+          "ItemId": "a09-01",
+          "Section": "A09 Processors and third parties",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a09-02",
+      "Name": "A09.02 Supplier due diligence",
+      "Description": "Suppliers' safeguards are checked before they are engaged and reviewed periodically.",
+      "Attributes": [
+        {
+          "ItemId": "a09-02",
+          "Section": "A09 Processors and third parties",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a09-03",
+      "Name": "A09.03 Recipients list",
+      "Description": "The organization keeps a current list of every third party that receives personal data, and why.",
+      "Attributes": [
+        {
+          "ItemId": "a09-03",
+          "Section": "A09 Processors and third parties",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a09-04",
+      "Name": "A09.04 Sub-processors controlled",
+      "Description": "Suppliers pass personal data to their own subcontractors only with the organization's approval.",
+      "Attributes": [
+        {
+          "ItemId": "a09-04",
+          "Section": "A09 Processors and third parties",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a10-01",
+      "Name": "A10.01 Transfer inventory",
+      "Description": "Every flow of personal data outside Egypt, including cloud hosting and remote support, is identified with its destination country and purpose.",
+      "Attributes": [
+        {
+          "ItemId": "a10-01",
+          "Section": "A10 Cross-border transfers",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a10-02",
+      "Name": "A10.02 Transfer permits",
+      "Description": "A permit is obtained from the regulator for each cross-border transfer that likely requires one, and its conditions are followed.",
+      "Attributes": [
+        {
+          "ItemId": "a10-02",
+          "Section": "A10 Cross-border transfers",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a10-03",
+      "Name": "A10.03 Transfer safeguards",
+      "Description": "Each transfer is covered by safeguards appropriate to the destination, such as contract terms and encryption.",
+      "Attributes": [
+        {
+          "ItemId": "a10-03",
+          "Section": "A10 Cross-border transfers",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a11-01",
+      "Name": "A11.01 Controller or processor licence",
+      "Description": "The organization holds a current licence from the regulator to act as a controller or processor, where one is likely required.",
+      "Attributes": [
+        {
+          "ItemId": "a11-01",
+          "Section": "A11 Licences, permits and special processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a11-02",
+      "Name": "A11.02 Electronic marketing",
+      "Description": "Electronic marketing is sent only with the recipient's agreement, offers an easy way to opt out, and is covered by a permit where one is likely required.",
+      "Attributes": [
+        {
+          "ItemId": "a11-02",
+          "Section": "A11 Licences, permits and special processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a11-03",
+      "Name": "A11.03 Surveillance",
+      "Description": "Surveillance such as CCTV is limited to what is necessary, signposted, and covered by a permit where one is likely required.",
+      "Attributes": [
+        {
+          "ItemId": "a11-03",
+          "Section": "A11 Licences, permits and special processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "a11-04",
+      "Name": "A11.04 Renewals tracked",
+      "Description": "Expiry dates of licences and permits are tracked, and renewal starts well before they lapse.",
+      "Attributes": [
+        {
+          "ItemId": "a11-04",
+          "Section": "A11 Licences, permits and special processing",
+          "Service": "linux",
+          "Type": "Manual",
+          "Comment": "Plain-language drafting, not legal text; not yet verified against the Law or its Executive Regulations."
+        }
+      ],
+      "Checks": []
+    }
+  ]
+}
