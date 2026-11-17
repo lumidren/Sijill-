@@ -105,8 +105,8 @@ function RunsTable({ runs }: { runs: Run[] }) {
                 {r.unmapped > 0 && <span className="ms-2 text-xs text-slate-400" title={t("checks.unmappedHint")}>+{fmtNum(r.unmapped)}</span>}
               </td>
               <td className="whitespace-nowrap">
-                {r.regressions ? <span className="chip bg-red-600 text-white">{t("checks.comparedRegressions", { count: r.regressions })}</span> : null}{" "}
-                {r.fixed ? <span className="chip bg-green-100 text-green-800">{t("checks.comparedFixed", { count: r.fixed })}</span> : null}
+                {r.regressions ? <span className="chip bg-red-600 text-white">{t("checks.comparedRegressions", { count: fmtNum(r.regressions) })}</span> : null}{" "}
+                {r.fixed ? <span className="chip bg-green-100 text-green-800">{t("checks.comparedFixed", { count: fmtNum(r.fixed) })}</span> : null}
                 {!r.regressions && !r.fixed && <span className="text-xs text-slate-400">—</span>}
               </td>
               <td className="font-mono text-[11px] text-slate-400" dir="ltr" title={r.file_sha256}>

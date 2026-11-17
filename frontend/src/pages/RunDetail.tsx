@@ -79,7 +79,7 @@ export default function RunDetail() {
       <section className="mt-6 space-y-3">
         <p className="text-sm text-slate-600">{d.previous_run_id ? t("checks.vsPrevious", { id: d.previous_run_id }) : t("checks.noPrevious")}</p>
         {noChange && <p className="text-sm text-slate-600">{t("checks.noChanges")}</p>}
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
           <DiffList title={t("checks.regressed")} items={d.regressions} tone="red" />
           <DiffList title={t("checks.newFailures")} items={d.new_failures} tone="amber" />
           <DiffList title={t("checks.fixed")} items={d.fixed} tone="green" />

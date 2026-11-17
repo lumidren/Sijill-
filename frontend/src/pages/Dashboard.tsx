@@ -50,7 +50,7 @@ export default function Dashboard() {
         }
       />
 
-      <div className="grid gap-5 lg:grid-cols-3">
+      <div className="grid items-start gap-5 lg:grid-cols-3">
         {/* Score */}
         <Card className="flex flex-col">
           <h2 className="text-base font-semibold">{t("dashboard.scoreTitle")}</h2>
@@ -68,7 +68,7 @@ export default function Dashboard() {
                 </span>
               )}
             </div>
-            <p className="text-xs text-slate-500">{t("dashboard.ofRequirements", { count: c.total - (c.by_status.not_applicable ?? 0), total: c.total })}</p>
+            <p className="text-xs text-slate-500">{t("dashboard.ofRequirements", { count: fmtNum(c.total - (c.by_status.not_applicable ?? 0)), total: fmtNum(c.total) })}</p>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-slate-500">{t("dashboard.scoreCaption")}</p>
         </Card>
@@ -105,7 +105,7 @@ export default function Dashboard() {
             <EmptyState title={t("dashboard.regressionsEmpty")} />
           ) : (
             <ul className="space-y-3">
-              {data.regressions.slice(0, 5).map((r) => (
+              {data.regressions.slice(0, 3).map((r) => (
                 <li key={`${r.run_id}-${r.check_id}-${r.resource}`} className="rounded-xl border border-red-200 bg-red-50/60 p-3">
                   <Link to={`/checks/runs/${r.run_id}`} className="text-sm font-medium text-red-900 hover:underline">
                     {r.title || r.check_id}
@@ -119,6 +119,13 @@ export default function Dashboard() {
                   </div>
                 </li>
               ))}
+              {data.regressions.length > 3 && (
+                <li>
+                  <Link to="/checks?tab=regressions" className="text-sm font-medium text-brand-700 hover:underline">
+                    {t("dashboard.viewAll")} ({fmtNum(data.regressions.length)})
+                  </Link>
+                </li>
+              )}
             </ul>
           )}
         </Card>
@@ -156,7 +163,7 @@ export default function Dashboard() {
             <EmptyState title={data.counts.by_basis.not_assessed === data.counts.total ? t("dashboard.noGapsYet") : t("dashboard.gapsEmpty")} />
           ) : (
             <>
-              <p className="-mt-2 mb-3 text-xs text-slate-500">{t("dashboard.gapCount", { count: data.gap_total })}</p>
+              <p className="-mt-2 mb-3 text-xs text-slate-500">{t("dashboard.gapCount", { count: fmtNum(data.gap_total) })}</p>
               <ul className="divide-y divide-slate-100">
                 {data.gaps.map((g) => (
                   <li key={g.id} className="py-2.5">

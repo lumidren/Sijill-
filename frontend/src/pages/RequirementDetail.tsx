@@ -11,11 +11,11 @@ function Explanation({ d }: { d: Detail }) {
   const r = d.result;
   const text =
     r.reason === "capped_by_failing_checks"
-      ? t("requirements.capped", { count: r.failing_checks })
+      ? t("requirements.capped", { count: fmtNum(r.failing_checks) })
       : r.reason === "na_overridden_by_failing_checks"
-        ? t("requirements.naOverridden", { count: r.failing_checks })
+        ? t("requirements.naOverridden", { count: fmtNum(r.failing_checks) })
         : r.reason === "derived_from_checks"
-          ? t("requirements.derived", { passed: r.passing_checks, failed: r.failing_checks })
+          ? t("requirements.derived", { passed: fmtNum(r.passing_checks), failed: fmtNum(r.failing_checks) })
           : r.reason === "from_answer"
             ? t("requirements.fromAnswer")
             : t("requirements.notAssessedReason");
@@ -85,7 +85,7 @@ export default function RequirementDetail() {
           {pick(req.title)} {!req.verified && <Unverified />}
         </h1>
         <p className="mt-1 text-xs text-slate-500">
-          {req.technical ? t("requirements.technical") : t("requirements.organisational")} · {t("requirements.weightHint", { weight: req.weight })}
+          {req.technical ? t("requirements.technical") : t("requirements.organisational")} · {t("requirements.weightHint", { weight: fmtNum(req.weight) })}
         </p>
       </div>
 
