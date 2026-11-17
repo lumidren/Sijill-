@@ -23,7 +23,8 @@ proof that the technical controls exist or still hold.
 **Who it is for**
 
 - **Compliance consultants and DPOs serving several small organisations**: clinics, schools, ed-tech companies,
-  startups. One install per client keeps each organisation's data separate (`-DataDir`).
+  startups. One install holds every client, each organisation's data kept separate, with a Clients page that ranks
+  them side by side.
 - **In-house IT and security teams** who have to show that the safeguards are actually in place.
 
 ## What it does
@@ -43,6 +44,7 @@ proof that the technical controls exist or still hold.
 | 11 | **Vendors and processors** | Who handles personal data for you, whether a data processing agreement is signed, when safeguards were last checked, data held outside Egypt, next review |
 | 12 | **Impact assessments** | DPIAs linked to processing activities, with an eight-criterion screening ("likely needed" at two or more), necessity, risks, measures, residual risk and DPO opinion; an Admin approves only a complete assessment |
 | 13 | **Policy library** | Versioned policies with owners, linked requirements and evidence, approval history and review dates; a new version needs approval again |
+| 14 | **Several client organisations** | One install, many clients: each organisation has its own assessment, evidence, registers, governance records and reports; a switcher in the sidebar; a Clients page with every client's readiness, evidence split, gaps, high risks, overdue items, missing contracts and breach clocks; per-account access to chosen organisations |
 
 Everything runs in English and Arabic with full right-to-left layout, behind local accounts with four roles
 (Admin, DPO, IT/Security, read-only Auditor) enforced on the server, optional two-step sign-in with an authenticator
@@ -52,6 +54,8 @@ review), and every requirement's drill-down lists the tasks, risks and policies 
 All AWS evidence in this repository is synthetic: no AWS account was scanned.
 
 ## Screenshots
+
+![Clients page: three fictional organisations side by side](docs/screenshots/clients.jpg)
 
 All data below is the fictional demo clinic that `scripts/start.ps1` seeds.
 
@@ -240,7 +244,7 @@ Other options:
 
 ```powershell
 ./scripts/start.ps1 -NoDemo                     # empty install: create the first admin in the browser
-./scripts/start.ps1 -DataDir D:\clients\acme    # one install per client organisation
+./scripts/start.ps1 -DataDir D:\clients\acme    # a separate install, if a client needs its own server
 ./scripts/start.ps1 -ResetDemo                  # wipe and re-seed the demo
 ./scripts/dev.ps1                               # API with auto-reload + Vite dev server on :5173
 ```
@@ -259,6 +263,11 @@ not run on the development machine.
   anywhere and import its `.ocsf.json` file.
 - **Linux**: run the collector on each host and import the file, or copy it into the inbox folder shown on the
   *Automated checks → Collection* tab.
+- **Several organisations**: scheduled collection uses credentials from the server's environment, so it feeds one
+  organisation (`PDPL_COLLECT_ORG_ID`, default 1). For the others, import findings files on their *Runs* tab or with
+  `python -m app.cli import-findings FILE --org ID`.
+- **A real AWS account**: [scripts/aws-lab](scripts/aws-lab/README.md) creates a few deliberately weak, low-cost
+  settings in an account you own, scans them read-only with Prowler, imports the result and tears everything down.
 - **Try it without any infrastructure**: import `fixtures/prowler/nour-clinic-week6.ocsf.json` or
   `fixtures/linux-output/clinic-web-01.ocsf.json`.
 
@@ -266,9 +275,9 @@ not run on the development machine.
 
 | Suite | Count | What it covers |
 |---|---|---|
-| Backend (pytest) | 217 passed, 2 skipped | auth and every role, two-step sign-in (RFC test vectors, time window, replay, throttling, reset), governance modules (risk bands and acceptance expiry, request clocks, DPIA screening and approval rules, policy versions, vendor gaps, role checks on every module), audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
+| Backend (pytest) | 228 passed, 2 skipped | organisation isolation (every module by list and by id, forged organisation cookie, restricted accounts, archived organisations, per-organisation audit trail that still verifies, migration of existing data), auth and every role, two-step sign-in (RFC test vectors, time window, replay, throttling, reset), governance modules (risk bands and acceptance expiry, request clocks, DPIA screening and approval rules, policy versions, vendor gaps, role checks on every module), audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
 | Linux collector | included above | replays recorded fictional hosts; read-only command guarantee |
-| Frontend (vitest) | 38 passed | sign-in and the two-step code, account setup with QR, risk acceptance, request clocks, DPIA screening, policy approval, task prefill from a gap, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
+| Frontend (vitest) | 43 passed | clients page, organisation switcher, per-account organisation access, sign-in and the two-step code, account setup with QR, risk acceptance, request clocks, DPIA screening, policy approval, task prefill from a gap, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
 
 The two skipped tests need a live Prowler install, which the Windows path limit prevented here (see
 [docs/DECISIONS.md](docs/DECISIONS.md)); CI's `prowler-mapping` job runs them on Linux. Postgres tests and the Docker
@@ -295,7 +304,7 @@ compliance/           PDPL mapping as a Prowler framework (AWS) and the Linux ma
 collectors/linux/     the read-only Linux collector
 fixtures/             recorded fictional hosts and synthetic Prowler findings
 frontend/             React + TypeScript UI
-scripts/              start, dev, fixture, font and legal-review generators
+scripts/              start, dev, fixture, font and legal-review generators; aws-lab (real-account test lab)
 docs/                 DECISIONS, PROGRESS, LEGAL-REVIEW, PROWLER-UPSTREAM, screenshots
 ```
 
