@@ -2,6 +2,7 @@ import { Suspense, useState, type ReactNode } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth";
+import { OrgProvider, useOrg } from "../org";
 import { Spinner } from "./ui";
 import type { Lang } from "../i18n";
 
@@ -14,6 +15,7 @@ const I = (d: string) => (
 );
 
 const ICONS = {
+  clients: I("M3 21h18M6 21V7l6-4 6 4v14M10 11h4M10 15h4M3 10h3m12 0h3"),
   dashboard: I("M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"),
   requirements: I("M9 5h11M9 12h11M9 19h11M4 5h.01M4 12h.01M4 19h.01"),
   assessment: I("M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"),
@@ -102,6 +104,38 @@ export function LangSwitch({ className = "" }: { className?: string }) {
   );
 }
 
+/** Which client organisation the workspace shows. Hidden when the user can open only one. */
+export function OrgSwitcher() {
+  const { t } = useTranslation();
+  const { orgs, current, currentOrg, select } = useOrg();
+  if (orgs.length === 0) return null;
+  if (orgs.length === 1)
+    return (
+      <div className="mb-6 truncate px-3 text-xs text-brand-100/90" title={currentOrg?.name}>
+        {currentOrg?.name}
+      </div>
+    );
+  return (
+    <div className="mb-6 px-1">
+      <label htmlFor="org-switch" className="mb-1 block px-2 text-[11px] font-semibold uppercase tracking-wider text-brand-200/70">
+        {t("orgs.switch")}
+      </label>
+      <select
+        id="org-switch"
+        className="w-full rounded-lg border border-white/15 bg-white/10 px-2.5 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-300 [&>option]:text-ink"
+        value={current ?? ""}
+        onChange={(e) => select(Number(e.target.value))}
+      >
+        {orgs.map((o) => (
+          <option key={o.id} value={o.id}>
+            {o.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export function Disclaimer() {
   const { t } = useTranslation();
   return (
@@ -112,22 +146,38 @@ export function Disclaimer() {
 }
 
 export default function AppShell() {
+  return (
+    <OrgProvider>
+      <Shell />
+    </OrgProvider>
+  );
+}
+
+function Shell() {
   const { t } = useTranslation();
   const { user, logout, can } = useAuth();
+  const { orgs, current, currentOrg } = useOrg();
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   const visible = (items: Item[]) => items.filter((i) => enabledRoutes.has(i.to) && (!i.cap || can(i.cap)));
+  const showClients = enabledRoutes.has("/clients") && (orgs.length > 1 || can("orgs.manage"));
 
   const sidebar = (
     <div className="flex h-full flex-col bg-brand-900 px-3 py-5 text-white">
-      <div className="mb-8 flex items-center gap-2.5 px-2">
+      <div className="mb-5 flex items-center gap-2.5 px-2">
         <img src="/favicon.svg" alt="" className="h-8 w-8" />
         <div>
           <div className="text-[15px] font-semibold leading-tight">{t("app.name")}</div>
           <div className="text-[11px] leading-tight text-brand-200/80">PDPL 151/2020</div>
         </div>
       </div>
+      <OrgSwitcher />
       <nav aria-label={t("nav.main")} className="flex flex-1 flex-col gap-6 overflow-y-auto">
+        {showClients && (
+          <div className="flex flex-col gap-0.5">
+            <NavItem item={{ to: "/clients", key: "clients", icon: ICONS.clients }} onNavigate={close} />
+          </div>
+        )}
         <div>
           <div className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-brand-200/70">{t("nav.workspace")}</div>
           <div className="flex flex-col gap-0.5">
@@ -195,7 +245,9 @@ export default function AppShell() {
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <div className="hidden text-sm text-slate-500 sm:block">{t("app.tagline")}</div>
+          <div className="hidden min-w-0 truncate text-sm text-slate-500 sm:block">
+            {orgs.length > 1 && currentOrg ? <span className="font-medium text-ink">{currentOrg.name}</span> : t("app.tagline")}
+          </div>
           <div className="flex items-center gap-2">
             {user?.role === "auditor" && (
               <span className="chip bg-slate-100 text-slate-700 ring-1 ring-slate-300">{t("common.readOnly")}</span>
@@ -205,7 +257,8 @@ export default function AppShell() {
         </header>
         <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8">
           <Suspense fallback={<Spinner />}>
-            <Outlet />
+            {/* Remount the page when the organisation changes, so nothing from the last one lingers. */}
+            <Outlet key={current ?? 0} />
           </Suspense>
         </main>
         <Disclaimer />
