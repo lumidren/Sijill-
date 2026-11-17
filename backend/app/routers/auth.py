@@ -51,6 +51,7 @@ def user_out(u: User) -> dict:
     return {
         "id": u.id, "username": u.username, "display_name": u.display_name, "role": u.role,
         "locale": u.locale, "is_active": u.is_active, "capabilities": capabilities_for(u.role),
+        "mfa_enabled": bool(u.totp_enabled),
         "last_login_at": u.last_login_at.isoformat() if u.last_login_at else None,
     }
 
@@ -96,6 +97,12 @@ def login(body: LoginIn, request: Request, response: Response, db: Session = Dep
         db.commit()
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "invalid_credentials")
     _FAILS.pop(key, None)
+    if u.totp_enabled:
+        # password was right; the session cookie is only issued after the second factor
+        from .mfa import make_mfa_token
+        audit.record(db, u, "auth.password_ok_mfa_pending", "user", u.id)
+        db.commit()
+        return {"mfa_required": True, "mfa_token": make_mfa_token(u)}
     u.last_login_at = utcnow()
     audit.record(db, u, "auth.login", "user", u.id)
     db.commit()

@@ -24,7 +24,7 @@ class User(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
     last_login_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
-    # Two-factor sign-in (TOTP, RFC 6238). The secret is stored encrypted (see app/totp.py).
+    # Two-factor sign-in (TOTP, RFC 6238); see app/totp.py.
     totp_secret: Mapped[str | None] = mapped_column(String(255), nullable=True)
     totp_enabled: Mapped[bool] = mapped_column(Boolean, default=False)
     totp_last_counter: Mapped[int | None] = mapped_column(Integer, nullable=True)
