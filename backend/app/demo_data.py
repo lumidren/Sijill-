@@ -181,7 +181,7 @@ def seed_all(db: Session, users: dict[str, User]) -> str:
                             it, source="linux-collector", imported_at=at + timedelta(minutes=5))
 
     extras = []
-    for name in ("seed_register", "seed_obligations", "seed_incidents"):
+    for name in ("seed_register", "seed_obligations", "seed_incidents", "seed_governance"):
         try:
             mod = __import__(f"app.demo_{name.split('_', 1)[1]}", fromlist=[name])
         except ModuleNotFoundError:
