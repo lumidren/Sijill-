@@ -1,0 +1,1 @@
+PDPL Sans is IBM Plex Sans Arabic (arabic + latin + latin-ext subsets, from the npm package @fontsource/ibm-plex-sans-arabic) merged into one TrueType file per weight by scripts/build_pdf_fonts.py and renamed. Licensed under the SIL Open Font License 1.1 (OFL.txt).
