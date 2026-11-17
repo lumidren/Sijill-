@@ -1640,7 +1640,7 @@
               },
               {
                 "name": "evidence-type",
-                "value": "organizational",
+                "value": "technical",
                 "ns": "urn:pdpl-ready:oscal"
               },
               {
