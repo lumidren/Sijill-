@@ -422,3 +422,63 @@ class Policy(OrgScoped, Base):
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
     updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+class EvidenceRequest(OrgScoped, Base):
+    """A private link that asks one person at the client for answers and files on chosen requirements.
+
+    Only a SHA-256 hash of the link token is stored. Nothing the recipient sends counts toward the
+    assessment until a consultant accepts it.
+    """
+
+    __tablename__ = "evidence_requests"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    recipient: Mapped[str] = mapped_column(String(128))
+    recipient_contact: Mapped[str] = mapped_column(String(255), default="")  # for the consultant's reference only
+    message: Mapped[str] = mapped_column(Text, default="")
+    token_hash: Mapped[str] = mapped_column(String(64), unique=True, index=True)
+    status: Mapped[str] = mapped_column(String(12), default="open")  # open | submitted | closed | revoked
+    expires_at: Mapped[datetime] = mapped_column(UTCDateTime)
+    first_opened_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    submitted_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    created_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    items: Mapped[list["EvidenceRequestItem"]] = relationship(
+        back_populates="request", cascade="all, delete-orphan", order_by="EvidenceRequestItem.id")
+
+
+class EvidenceRequestItem(OrgScoped, Base):
+    __tablename__ = "evidence_request_items"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    request_id: Mapped[int] = mapped_column(ForeignKey("evidence_requests.id", ondelete="CASCADE"), index=True)
+    requirement_id: Mapped[str] = mapped_column(String(32))
+    ask: Mapped[str] = mapped_column(Text, default="")  # the consultant's note on what they need
+    response: Mapped[str] = mapped_column(Text, default="")
+    responded_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    status: Mapped[str] = mapped_column(String(12), default="open")  # open | answered | accepted | returned
+    review_note: Mapped[str] = mapped_column(Text, default="")
+    reviewed_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    reviewed_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    request: Mapped[EvidenceRequest] = relationship(back_populates="items")
+    files: Mapped[list["EvidenceRequestFile"]] = relationship(
+        back_populates="item", cascade="all, delete-orphan", order_by="EvidenceRequestFile.id")
+
+
+class EvidenceRequestFile(OrgScoped, Base):
+    """A file the recipient attached. Becomes an EvidenceFile only when the item is accepted."""
+
+    __tablename__ = "evidence_request_files"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    item_id: Mapped[int] = mapped_column(ForeignKey("evidence_request_items.id", ondelete="CASCADE"), index=True)
+    filename: Mapped[str] = mapped_column(String(255))
+    stored_name: Mapped[str] = mapped_column(String(128))
+    content_type: Mapped[str] = mapped_column(String(128))
+    size: Mapped[int] = mapped_column(Integer)
+    sha256: Mapped[str] = mapped_column(String(64))
+    uploaded_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    evidence_file_id: Mapped[int | None] = mapped_column(ForeignKey("evidence_files.id", ondelete="SET NULL"), nullable=True)
+    item: Mapped[EvidenceRequestItem] = relationship(back_populates="files")

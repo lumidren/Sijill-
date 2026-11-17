@@ -38,6 +38,9 @@ class Settings(BaseSettings):
     # Evidence
     evidence_stale_days: int = 30
     max_upload_mb: int = 20
+    # Evidence requests (links for client staff)
+    evidence_request_days: int = 14
+    evidence_request_files_per_item: int = 10
 
     # Scheduler
     scheduler_enabled: bool = True

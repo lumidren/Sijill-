@@ -60,8 +60,8 @@ def validate(data: bytes, filename: str) -> tuple[str, str]:
     return ext, ctype
 
 
-def store(db: Session, data: bytes, filename: str, requirement_id: str | None, actor: User | None,
-          description: str = "", uploaded_at: datetime | None = None) -> EvidenceFile:
+def write_blob(data: bytes, filename: str) -> tuple[str, str, str]:
+    """Validate and store content-addressed. Returns (stored_name, content_type, sha256)."""
     ext, ctype = validate(data, filename)
     sha = hashlib.sha256(data).hexdigest()
     settings = get_settings()
@@ -70,6 +70,12 @@ def store(db: Session, data: bytes, filename: str, requirement_id: str | None, a
     path = settings.evidence_dir / stored
     if not path.exists():
         path.write_bytes(data)
+    return stored, ctype, sha
+
+
+def store(db: Session, data: bytes, filename: str, requirement_id: str | None, actor: User | None,
+          description: str = "", uploaded_at: datetime | None = None) -> EvidenceFile:
+    stored, ctype, sha = write_blob(data, filename)
     ev = EvidenceFile(
         requirement_id=requirement_id, filename=safe_name(filename), stored_name=stored, content_type=ctype,
         size=len(data), sha256=sha, description=description[:2000], uploaded_by_id=actor.id if actor else None,
