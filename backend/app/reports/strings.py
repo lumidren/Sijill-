@@ -1,0 +1,103 @@
+"""Report wording in English and Arabic (kept apart from the UI strings so reports render server-side)."""
+
+S = {
+    "en": {
+        "brand": "PDPL-Ready",
+        "readiness_title": "PDPL readiness report",
+        "gaps_title": "PDPL gap list",
+        "generated": "Generated {when} (Cairo time)",
+        "disclaimer": ("This report helps organise evidence and track readiness for Egypt's Personal Data Protection Law "
+                       "(Law No. 151 of 2020). It is not legal advice and does not determine legal compliance."),
+        "unverified": ("{count} of {total} requirements in the catalog are plain-language drafts that have not yet been "
+                       "verified against the official legal texts. Have a lawyer review them before relying on them."),
+        "score": "Readiness score",
+        "score_caption": ("Weighted from self-attested answers and automated technical checks. Automated checks only "
+                          "cover technical safeguards. This is a readiness indicator, not a compliance rating."),
+        "out_of": "out of 100",
+        "coverage": "How the requirements are backed",
+        "automated": "Automated evidence",
+        "attested": "Self-attested",
+        "not_assessed": "Not assessed",
+        "technical_coverage": "{automated} of {technical} technical-safeguard requirements have automated evidence.",
+        "status_counts": "Requirement status",
+        "compliant": "Met", "partial": "Partly met", "non_compliant": "Not met", "not_applicable": "Not applicable",
+        "stale": "Stale evidence (older than {days} days)",
+        "capped": "Capped by failing checks",
+        "trend": "Score over time",
+        "regressions": "Regressions in the latest scans",
+        "regressions_none": "No regressions: nothing that passed before fails now.",
+        "regression_line": "{check} on {resource} ({target}) — affects {reqs}",
+        "areas": "Results by assessment area",
+        "area": "Area", "score_col": "Score", "met": "Met", "part": "Partly", "notmet": "Not met", "na_col": "N/A", "unassessed": "Not assessed",
+        "gaps": "Gap list",
+        "gaps_intro": "{count} requirements are not fully met, ordered by severity and weight.",
+        "gaps_none": "No open gaps.",
+        "req": "Requirement", "status": "Status", "basis": "Basis", "why": "Why",
+        "why_capped": "Answered as met, but {n} mapped check(s) fail.",
+        "why_failing": "{n} of {m} mapped checks fail.",
+        "why_answer": "Self-attested.",
+        "why_none": "Not answered and no automated results.",
+        "why_na_override": "Marked not applicable, but {n} mapped check(s) fail.",
+        "method": "How this report was produced",
+        "method_text": ("Each requirement is met, partly met, not met, not applicable or not assessed. Self-attested "
+                        "answers are used as given, except that a requirement backed by automated checks cannot score "
+                        "above partly met while any mapped check fails. Not-assessed requirements count as zero. Area and "
+                        "overall scores are weighted averages."),
+        "sources": "Automated evidence used",
+        "source_line": "{target} ({provider}) — scanned {when}; {passed} passed, {failed} failed; file SHA-256 {sha}",
+        "sources_none": "No automated scans have been imported.",
+        "page": "Page {n} of {total}",
+        "na": "—",
+        "basis_automated": "Automated", "basis_attested": "Self-attested", "basis_not_assessed": "Not assessed",
+    },
+    "ar": {
+        "brand": "PDPL-Ready",
+        "readiness_title": "تقرير الجاهزية لقانون حماية البيانات الشخصية",
+        "gaps_title": "قائمة الفجوات",
+        "generated": "أُعدّ في {when} (بتوقيت القاهرة)",
+        "disclaimer": ("يساعد هذا التقرير على تنظيم الأدلة ومتابعة الجاهزية لقانون حماية البيانات الشخصية المصري "
+                       "(القانون رقم 151 لسنة 2020). وهو ليس استشارة قانونية ولا يحدد الامتثال القانوني."),
+        "unverified": ("{count} من أصل {total} متطلبًا في الكتالوج مسودات بلغة مبسطة لم يتم التحقق منها بعد مقارنة "
+                       "بالنصوص القانونية الرسمية. اطلبوا مراجعتها من محامٍ قبل الاعتماد عليها."),
+        "score": "مؤشر الجاهزية",
+        "score_caption": ("محسوب من الإجابات الذاتية ونتائج الفحوص التقنية الآلية. الفحوص الآلية تغطي الضمانات التقنية "
+                          "فقط. هذا مؤشر للجاهزية وليس تقييمًا للامتثال."),
+        "out_of": "من 100",
+        "coverage": "ما الذي يدعم المتطلبات",
+        "automated": "أدلة آلية",
+        "attested": "إقرار ذاتي",
+        "not_assessed": "لم يُقيَّم",
+        "technical_coverage": "{automated} من {technical} من متطلبات الضمانات التقنية مدعومة بأدلة آلية.",
+        "status_counts": "حالة المتطلبات",
+        "compliant": "مستوفى", "partial": "مستوفى جزئيًا", "non_compliant": "غير مستوفى", "not_applicable": "لا ينطبق",
+        "stale": "أدلة قديمة (أقدم من {days} يومًا)",
+        "capped": "محدود بسبب فحوص فاشلة",
+        "trend": "تطور المؤشر",
+        "regressions": "التراجعات في آخر الفحوص",
+        "regressions_none": "لا توجد تراجعات: لا يوجد فحص كان ناجحًا وأصبح فاشلًا.",
+        "regression_line": "{check} على {resource} ({target}) — يؤثر على {reqs}",
+        "areas": "النتائج حسب مجال التقييم",
+        "area": "المجال", "score_col": "المؤشر", "met": "مستوفى", "part": "جزئيًا", "notmet": "غير مستوفى", "na_col": "لا ينطبق", "unassessed": "لم يُقيَّم",
+        "gaps": "قائمة الفجوات",
+        "gaps_intro": "{count} متطلبًا غير مستوفى بالكامل، مرتبة حسب الخطورة والوزن.",
+        "gaps_none": "لا توجد فجوات مفتوحة.",
+        "req": "المتطلب", "status": "الحالة", "basis": "المصدر", "why": "السبب",
+        "why_capped": "أُجيب بأنه مستوفى، لكن {n} من الفحوص المرتبطة فاشلة.",
+        "why_failing": "{n} من {m} من الفحوص المرتبطة فاشلة.",
+        "why_answer": "إقرار ذاتي.",
+        "why_none": "لا توجد إجابة ولا نتائج آلية.",
+        "why_na_override": "اختير «لا ينطبق»، لكن {n} من الفحوص المرتبطة فاشلة.",
+        "method": "كيف أُعدّ هذا التقرير",
+        "method_text": ("لكل متطلب إحدى الحالات: مستوفى، مستوفى جزئيًا، غير مستوفى، لا ينطبق، لم يُقيَّم. تُعتمد الإجابات "
+                        "الذاتية كما هي، إلا أن المتطلب المدعوم بفحوص آلية لا يتجاوز «مستوفى جزئيًا» ما دام أي فحص مرتبط "
+                        "به فاشلًا. المتطلبات غير المقيّمة تُحتسب صفرًا. مؤشرات المجالات والمؤشر العام متوسطات مرجّحة."),
+        "sources": "الأدلة الآلية المستخدمة",
+        "source_line": "{target} ({provider}) — فُحص في {when}؛ {passed} ناجح و{failed} فاشل؛ بصمة الملف SHA-256 {sha}",
+        "sources_none": "لم يتم استيراد أي فحوص آلية.",
+        "page": "صفحة {n} من {total}",
+        "na": "—",
+        "basis_automated": "آلي", "basis_attested": "إقرار ذاتي", "basis_not_assessed": "لم يُقيَّم",
+    },
+}
+
+MONTHS_AR = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
