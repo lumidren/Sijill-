@@ -139,3 +139,32 @@ class AppSetting(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     key: Mapped[str] = mapped_column(String(64))
     value: Mapped[dict] = mapped_column(JSON, default=dict)
+
+
+class ProcessingActivity(Base):
+    """One entry in the records of processing (controller or processor register)."""
+
+    __tablename__ = "processing_activities"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    role: Mapped[str] = mapped_column(String(16), default="controller")  # controller | processor
+    name: Mapped[str] = mapped_column(String(255))
+    purpose: Mapped[str] = mapped_column(Text, default="")
+    lawful_basis: Mapped[str] = mapped_column(String(255), default="")
+    data_subjects: Mapped[list] = mapped_column(JSON, default=list)
+    data_categories: Mapped[list] = mapped_column(JSON, default=list)
+    sensitive_categories: Mapped[list] = mapped_column(JSON, default=list)
+    source: Mapped[str] = mapped_column(String(255), default="")
+    recipients: Mapped[list] = mapped_column(JSON, default=list)
+    cross_border: Mapped[bool] = mapped_column(Boolean, default=False)
+    transfer_countries: Mapped[list] = mapped_column(JSON, default=list)
+    transfer_safeguards: Mapped[str] = mapped_column(Text, default="")
+    retention: Mapped[str] = mapped_column(String(255), default="")
+    security_measures: Mapped[str] = mapped_column(Text, default="")
+    systems: Mapped[list] = mapped_column(JSON, default=list)
+    client_name: Mapped[str] = mapped_column(String(255), default="")  # processor register: on whose behalf
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    status: Mapped[str] = mapped_column(String(16), default="active")  # active | archived
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
