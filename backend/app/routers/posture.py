@@ -8,7 +8,7 @@ from ..catalog import get_catalog
 from ..config import get_settings
 from ..db import get_db
 from ..evidence.mapping import get_mapping
-from ..models import Answer, CheckRun, EvidenceFile, User
+from ..models import Answer, AppSetting, CheckRun, EvidenceFile, User
 from ..posture import current_score, latest_runs, open_regressions, snapshots
 from ..security import require
 
@@ -60,6 +60,7 @@ def explain(req_id: str, db: Session = Depends(get_db), _=Depends(require("read"
         "requirement": req.as_dict(),
         "area": {"id": area.id, "score": area.score, **_area_titles()[area.id]},
         "result": r.as_dict(),
+        "stale_days": get_settings().evidence_stale_days,
         "contribution": None if r.value is None else {"points": r.value * r.weight, "of": r.weight,
                                                        "area_weight": area_weight},
         "answer": None if not answer else {
@@ -121,15 +122,24 @@ def dashboard(db: Session = Depends(get_db), _=Depends(require("read"))):
         "runs_total": db.query(CheckRun).count(),
         "deadlines": [],
         "breaches": [],
+        "features": {"obligations": False, "incidents": False},
+        "organization": organization(db),
     }
     try:
         from ..obligations_service import upcoming_deadlines
         out["deadlines"] = upcoming_deadlines(db)
+        out["features"]["obligations"] = True
     except ModuleNotFoundError:
         pass
     try:
         from ..incidents_service import active_clocks
         out["breaches"] = active_clocks(db)
+        out["features"]["incidents"] = True
     except ModuleNotFoundError:
         pass
     return out
+
+
+def organization(db: Session) -> dict | None:
+    row = db.execute(select(AppSetting).where(AppSetting.key == "organization")).scalar_one_or_none()
+    return row.value if row else None
