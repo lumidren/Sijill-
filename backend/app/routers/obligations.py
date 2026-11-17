@@ -80,7 +80,10 @@ def save_applicability(body: AnswersIn, db: Session = Depends(get_db), actor: Us
 @router.get("")
 def list_obligations(db: Session = Depends(get_db), _=Depends(require("read"))):
     now = utcnow()
-    rows = db.execute(select(Obligation).order_by(Obligation.kind, Obligation.id)).scalars()
+    rows = db.execute(select(Obligation)).scalars()
+    order = {k: i for i, k in enumerate(OBLIGATION_KINDS)}
+    # licences and permits first, then registrations and recurring reviews; "not needed" items last
+    rows = sorted(rows, key=lambda o: (o.status == "not_needed", order.get(o.kind, 99), o.title.lower()))
     return [obligation_out(o, now) for o in rows]
 
 

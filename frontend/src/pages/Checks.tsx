@@ -285,7 +285,7 @@ export default function Checks() {
   return (
     <>
       <PageHeader title={t("checks.title")} subtitle={t("checks.subtitle")} />
-      <div role="tablist" aria-label={t("checks.title")} className="mb-5 flex gap-1 overflow-x-auto border-b border-slate-200">
+      <div role="tablist" aria-label={t("checks.title")} className="mb-5 flex gap-1 overflow-x-auto overflow-y-hidden border-b border-slate-200">
         {tabs.map((k) => (
           <button
             key={k}

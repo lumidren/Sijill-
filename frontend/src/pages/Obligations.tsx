@@ -323,7 +323,7 @@ export default function Obligations() {
           )
         }
       />
-      <div role="tablist" aria-label={t("obligations.title")} className="mb-5 flex gap-1 overflow-x-auto border-b border-slate-200">
+      <div role="tablist" aria-label={t("obligations.title")} className="mb-5 flex gap-1 overflow-x-auto overflow-y-hidden border-b border-slate-200">
         {tabs.map(([k, label]) => (
           <button
             key={k}
