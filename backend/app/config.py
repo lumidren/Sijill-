@@ -42,6 +42,8 @@ class Settings(BaseSettings):
     # Scheduler
     scheduler_enabled: bool = True
     collect_interval_hours: int = 24
+    # Organisation that scheduled collection (Prowler, inbox) feeds. Others import findings files.
+    collect_org_id: int = 1
     # Optional: AWS profile name or role ARN taken from the environment. Never stored in the DB.
     aws_profile: str | None = None
     aws_role_arn: str | None = None

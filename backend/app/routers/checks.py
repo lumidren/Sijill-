@@ -122,11 +122,18 @@ def collectors(db: Session = Depends(get_db), _=Depends(require("read"))):
         out.append({"adapter": a.name, "available": ok, "detail": detail})
     nxt = next_run_time()
     total_results = db.scalar(select(func.count()).select_from(CheckResult))
+    from ..scheduler import collect_org_id
+
     return {"adapters": out, "interval_hours": get_settings().collect_interval_hours,
+            "collect_org_id": collect_org_id(), "active_here": db.info.get("org_id") == collect_org_id(),
             "next_run": nxt.isoformat() if nxt else None, "last": last_collection(),
             "inbox": str(get_settings().inbox_dir), "stored_results": total_results}
 
 
 @router.post("/collect")
-def collect_now(_=Depends(require("checks.write"))):
+def collect_now(db: Session = Depends(get_db), _=Depends(require("checks.write"))):
+    from ..scheduler import collect_org_id
+
+    if db.info.get("org_id") != collect_org_id():
+        raise HTTPException(409, "collectors_bound_to_other_org")
     return collect_once()

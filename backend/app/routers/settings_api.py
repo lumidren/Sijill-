@@ -9,7 +9,7 @@ from .. import __version__, audit
 from ..catalog import get_catalog
 from ..config import get_settings
 from ..db import get_db
-from ..models import AppSetting, User
+from ..models import AppSetting, Organisation, User
 from ..security import require
 
 router = APIRouter(prefix="/api/settings", tags=["settings"])
@@ -41,6 +41,7 @@ def read_settings(db: Session = Depends(get_db), _=Depends(require("read"))):
             {"key": "evidence_stale_days", "value": s.evidence_stale_days, "unit": "days", "env": "PDPL_EVIDENCE_STALE_DAYS"},
             {"key": "renewal_reminder_days", "value": s.renewal_reminder_days, "unit": "days", "env": "PDPL_RENEWAL_REMINDER_DAYS"},
             {"key": "collect_interval_hours", "value": s.collect_interval_hours, "unit": "hours", "env": "PDPL_COLLECT_INTERVAL_HOURS"},
+            {"key": "collect_org_id", "value": s.collect_org_id, "unit": "", "env": "PDPL_COLLECT_ORG_ID"},
             {"key": "max_upload_mb", "value": s.max_upload_mb, "unit": "MB", "env": "PDPL_MAX_UPLOAD_MB"},
             {"key": "risk_acceptance_max_days", "value": s.risk_acceptance_max_days, "unit": "days", "env": "PDPL_RISK_ACCEPTANCE_MAX_DAYS"},
         ],
@@ -59,6 +60,9 @@ def update_org(body: OrgIn, db: Session = Depends(get_db), actor: User = Depends
         db.add(AppSetting(key="organization", value=value))
     else:
         row.value = value
+    org = db.get(Organisation, db.info.get("org_id"))
+    if org is not None:  # keep the organisation switcher's label in step with the profile
+        org.name = body.name
     audit.record(db, actor, "settings.organization", "settings", "organization", body.model_dump())
     db.commit()
     return value

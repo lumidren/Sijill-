@@ -6,12 +6,17 @@ import threading
 from datetime import datetime
 
 from .config import get_settings
-from .db import session_factory, utcnow
+from .db import org_session, session_factory, utcnow
 
 log = logging.getLogger("pdpl.scheduler")
 _lock = threading.Lock()
 _scheduler = None
 _last: dict = {"at": None, "results": []}
+
+
+def collect_org_id() -> int:
+    """Collector credentials come from the environment, so automated collection feeds one organisation."""
+    return get_settings().collect_org_id
 
 
 def collect_once() -> dict:
@@ -23,7 +28,7 @@ def collect_once() -> dict:
     try:
         results = []
         for adapter in adapters():
-            with session_factory()() as db:
+            with org_session(collect_org_id()) as db:
                 try:
                     results.append(adapter.collect(db).as_dict())
                 except Exception as e:  # one adapter failing never stops the others
@@ -44,9 +49,16 @@ def _run_reminders() -> None:
         from .obligations_service import generate_reminders
     except ModuleNotFoundError:
         return
+    from sqlalchemy import select
+
+    from .models import Organisation
+
     with session_factory()() as db:
-        generate_reminders(db)
-        db.commit()
+        ids = list(db.execute(select(Organisation.id).where(Organisation.archived.is_(False))).scalars())
+    for org_id in ids:
+        with org_session(org_id) as db:
+            generate_reminders(db)
+            db.commit()
 
 
 def last_collection() -> dict:

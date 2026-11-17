@@ -21,7 +21,7 @@ def _optional_routers():
 
     out = []
     for name in ("catalog", "assessment", "evidence", "checks", "posture", "reports", "settings_api",
-                 "register", "obligations", "incidents", "governance", "mfa"):
+                 "register", "obligations", "incidents", "governance", "mfa", "orgs"):
         try:
             mod = importlib.import_module(f".routers.{name}", __package__)
         except ModuleNotFoundError as e:
