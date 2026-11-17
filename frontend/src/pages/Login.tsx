@@ -6,7 +6,9 @@ import { Disclaimer, LangSwitch } from "../components/AppShell";
 
 export default function Login() {
   const { t } = useTranslation();
-  const { login, setup, needsSetup } = useAuth();
+  const { login, verifyMfa, setup, needsSetup } = useAuth();
+  const [mfaToken, setMfaToken] = useState<string | null>(null);
+  const [code, setCode] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -19,10 +21,23 @@ export default function Login() {
     setError(null);
     try {
       if (needsSetup) await setup(username, displayName, password);
-      else await login(username, password);
+      else if (mfaToken) await verifyMfa(mfaToken, code.replace(/\s/g, ""));
+      else {
+        const token = await login(username, password);
+        if (token) {
+          setMfaToken(token);
+          setCode("");
+        }
+      }
     } catch (err) {
-      const code = err instanceof ApiError ? err.status : 0;
-      setError(code === 429 ? t("login.throttled") : code === 422 ? t("errors.validation_error") : code === 401 ? t("login.invalid") : t("common.error"));
+      const status = err instanceof ApiError ? err.status : 0;
+      const errCode = err instanceof ApiError ? err.code : "";
+      if (mfaToken && errCode === "mfa_token_expired") {
+        setMfaToken(null);
+        setPassword("");
+        setError(t("mfa.expired"));
+      } else if (mfaToken && status === 401) setError(t("mfa.invalid"));
+      else setError(status === 429 ? t("login.throttled") : status === 422 ? t("errors.validation_error") : status === 401 ? t("login.invalid") : t("common.error"));
     } finally {
       setBusy(false);
     }
@@ -55,13 +70,44 @@ export default function Login() {
                 <img src="/favicon.svg" alt="" className="mb-3 h-10 w-10" />
                 <p className="text-sm text-slate-600">{t("app.tagline")}</p>
               </div>
-              <h1 className="text-2xl font-semibold text-ink">{needsSetup ? t("login.setupTitle") : t("login.title")}</h1>
-              <p className="mt-1 mb-6 text-sm text-slate-600">{needsSetup ? t("login.setupSubtitle") : t("login.subtitle")}</p>
+              <h1 className="text-2xl font-semibold text-ink">{needsSetup ? t("login.setupTitle") : mfaToken ? t("mfa.title") : t("login.title")}</h1>
+              <p className="mt-1 mb-6 text-sm text-slate-600">{needsSetup ? t("login.setupSubtitle") : mfaToken ? t("mfa.prompt") : t("login.subtitle")}</p>
               {error && (
                 <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
                   {error}
                 </div>
               )}
+              {mfaToken ? (
+                <>
+                  <div className="mb-6">
+                    <label className="label" htmlFor="mfa-code">
+                      {t("mfa.code")}
+                    </label>
+                    <input
+                      id="mfa-code"
+                      className="input text-center font-mono text-lg tracking-[0.4em]"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      maxLength={7}
+                      autoFocus
+                      value={code}
+                      onChange={(e) => setCode(e.target.value)}
+                      aria-describedby="mfa-prompt"
+                      dir="ltr"
+                    />
+                    <p id="mfa-prompt" className="mt-1 text-xs text-slate-500">
+                      {t("mfa.prompt")}
+                    </p>
+                  </div>
+                  <button type="submit" className="btn-primary w-full py-2.5" disabled={busy || code.replace(/\s/g, "").length !== 6}>
+                    {t("mfa.verify")}
+                  </button>
+                  <button type="button" className="btn-ghost mt-2 w-full" onClick={() => { setMfaToken(null); setError(null); }}>
+                    {t("common.cancel")}
+                  </button>
+                </>
+              ) : (
+              <>
               {needsSetup && (
                 <div className="mb-4">
                   <label className="label" htmlFor="displayName">
@@ -101,6 +147,8 @@ export default function Login() {
                 {needsSetup ? t("login.setupSubmit") : t("login.submit")}
               </button>
               {!needsSetup && <p className="mt-6 text-xs text-slate-500">{t("login.demoHint")}</p>}
+              </>
+              )}
             </form>
           </div>
         </div>

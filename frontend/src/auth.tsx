@@ -10,13 +10,17 @@ export interface User {
   role: Role;
   locale: Lang;
   capabilities: string[];
+  mfa_enabled?: boolean;
 }
 
 interface AuthState {
   user: User | null;
   loading: boolean;
   needsSetup: boolean;
-  login: (username: string, password: string) => Promise<void>;
+  /** Resolves to an MFA token when the account needs a second step; call verifyMfa with it. */
+  login: (username: string, password: string) => Promise<string | void>;
+  verifyMfa: (mfaToken: string, code: string) => Promise<void>;
+  setUser: (u: User) => void;
   setup: (username: string, displayName: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   can: (capability: string) => boolean;
@@ -51,8 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     })();
   }, []);
 
-  const login = useCallback(async (username: string, password: string) => {
-    const me = await api.post<User>("/api/auth/login", { username, password });
+  const finishSignIn = useCallback(async (me: User) => {
     // The language chosen on the sign-in screen wins and is saved to the profile.
     const shown = (i18n.language === "ar" ? "ar" : "en") as Lang;
     if (shown !== me.locale) {
@@ -65,6 +68,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     setUser(me);
   }, []);
+
+  const login = useCallback(
+    async (username: string, password: string) => {
+      const res = await api.post<User | { mfa_required: true; mfa_token: string }>("/api/auth/login", { username, password });
+      if ("mfa_required" in res) return res.mfa_token;
+      await finishSignIn(res);
+    },
+    [finishSignIn],
+  );
+
+  const verifyMfa = useCallback(
+    async (mfa_token: string, code: string) => {
+      await finishSignIn(await api.post<User>("/api/auth/mfa/verify", { mfa_token, code }));
+    },
+    [finishSignIn],
+  );
 
   const setup = useCallback(async (username: string, display_name: string, password: string) => {
     const me = await api.post<User>("/api/auth/setup", { username, display_name, password });
@@ -95,7 +114,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <Ctx.Provider value={{ user, loading, needsSetup, login, setup, logout, can, changeLang }}>{children}</Ctx.Provider>
+    <Ctx.Provider value={{ user, loading, needsSetup, login, verifyMfa, setUser, setup, logout, can, changeLang }}>{children}</Ctx.Provider>
   );
 }
 

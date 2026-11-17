@@ -30,6 +30,11 @@ export default function Users() {
     }
   }
 
+  async function resetMfa(u: Row) {
+    await api.post(`/api/users/${u.id}/mfa/reset`, {});
+    reload();
+  }
+
   async function toggle(u: Row) {
     await api.patch(`/api/users/${u.id}`, { is_active: !u.is_active });
     reload();
@@ -51,6 +56,7 @@ export default function Users() {
                     <th>{t("users.name")}</th>
                     <th>{t("users.role")}</th>
                     <th>{t("common.status")}</th>
+                    <th>{t("mfa.column")}</th>
                     <th>{t("users.lastLogin")}</th>
                     <th>
                       <span className="sr-only">{t("common.actions")}</span>
@@ -68,8 +74,14 @@ export default function Users() {
                       </td>
                       <td>{t(`roles.${u.role}`)}</td>
                       <td>{u.is_active ? t("users.active") : <span className="text-slate-500">{t("users.inactive")}</span>}</td>
+                      <td>{u.mfa_enabled ? <span className="chip bg-green-50 text-green-800">{t("mfa.on")}</span> : <span className="text-slate-500">{t("mfa.off")}</span>}</td>
                       <td className="text-slate-600">{fmtDateTime(u.last_login_at)}</td>
-                      <td className="text-end">
+                      <td className="whitespace-nowrap text-end">
+                        {u.mfa_enabled && u.id !== me?.id && (
+                          <button className="btn-ghost text-xs" onClick={() => resetMfa(u)}>
+                            {t("mfa.reset")}
+                          </button>
+                        )}
                         {u.id !== me?.id && (
                           <button className="btn-ghost text-xs" onClick={() => toggle(u)}>
                             {u.is_active ? t("users.deactivate") : t("users.activate")}
