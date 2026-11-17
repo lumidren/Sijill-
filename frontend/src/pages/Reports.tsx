@@ -107,6 +107,9 @@ export default function Reports() {
           <Dl href="/api/reports/gaps.pdf?lang=ar">{t("reports.pdfAr")}</Dl>
           <Dl href="/api/reports/gaps.csv">{t("reports.csv")}</Dl>
         </ReportCard>
+        <ReportCard icon="list" title={t("reports.evidence")} desc={t("reports.evidenceDesc")}>
+          <Dl href="/api/reports/evidence-pack.zip">{t("reports.zip")}</Dl>
+        </ReportCard>
         <ReportCard icon="data" title={t("reports.oscalTitle")} desc={t("reports.oscalDesc")}>
           <div className="w-full space-y-3">
             {[

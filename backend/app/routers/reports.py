@@ -11,6 +11,7 @@ from ..db import get_db, utcnow
 from ..models import User
 from ..reports.csv_export import gaps_csv
 from ..reports.data import build
+from ..reports.evidence_pack import build_pack
 from ..reports.oscal_export import OscalImportError, assessment_results, import_assessment_results, poam
 from ..reports.pdf import gaps_pdf, readiness_pdf
 from ..security import require
@@ -53,6 +54,13 @@ def gaps_report_csv(db: Session = Depends(get_db), actor: User = Depends(require
     data = gaps_csv(build(db))
     _log(db, actor, "gaps-csv")
     return _file(data, "text/csv; charset=utf-8", _name("gap-list", "csv"))
+
+
+@router.get("/evidence-pack.zip")
+def evidence_pack(db: Session = Depends(get_db), actor: User = Depends(require("reports.generate"))):
+    data = build_pack(db, build(db))
+    _log(db, actor, "evidence-pack")
+    return _file(data, "application/zip", _name("evidence-pack", "zip"))
 
 
 @router.get("/oscal/assessment-results")

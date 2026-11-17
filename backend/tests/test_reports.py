@@ -153,3 +153,26 @@ def test_report_generation_is_audited(as_role):
     c.get("/api/reports/gaps.csv")
     items = c.get("/api/audit").json()["items"]
     assert items[0]["action"] == "report.generate"
+
+
+def test_evidence_pack_manifest_and_hashes(demo, app_client):
+    import hashlib
+    import zipfile
+    from app.demo import DEMO_PASSWORD
+    c = app_client
+    assert c.post("/api/auth/login", json={"username": "auditor", "password": DEMO_PASSWORD}).status_code == 200
+    r = c.get("/api/reports/evidence-pack.zip")
+    assert r.status_code == 200 and r.headers["content-type"] == "application/zip"
+    z = zipfile.ZipFile(io.BytesIO(r.content))
+    names = set(z.namelist())
+    assert {"manifest.json", "manifest.csv", "sha256sums.txt", "README.txt", "assessment-results.oscal.json"} <= names
+    # every line of sha256sums.txt verifies
+    for line in z.read("sha256sums.txt").decode().splitlines():
+        digest, name = line.split("  ", 1)
+        assert hashlib.sha256(z.read(name)).hexdigest() == digest, name
+    manifest = json.loads(z.read("manifest.json"))
+    evidence = [i for i in manifest["items"] if i["kind"] == "evidence-file"]
+    assert len(evidence) >= 3 and all(i["hash_matches"] for i in evidence)
+    assert any(n.startswith("evidence/a01-01/") for n in names)
+    assert len([i for i in manifest["items"] if i["kind"] == "check-run"]) >= 12
+    assert errors(json.loads(z.read("assessment-results.oscal.json")), "assessment-results") == []
