@@ -382,6 +382,38 @@ def _sources(d: ReportData, lang: Lang) -> list:
     return out
 
 
+def _remediation(d: ReportData, lang: Lang, width: float) -> list:
+    out = _h(lang.t("remediation"), lang)
+    if not d.tasks:
+        return out + [Para(lang.t("remediation_none"), rtl=lang.rtl, color=MUTED)]
+    rows = [[lang.t("task"), lang.t("req"), lang.t("owner"), lang.t("due"), lang.t("status")]]
+    for t in d.tasks[:25]:
+        due = t["due_on"] or "—"
+        if t["overdue"]:
+            due = f"{due} ({lang.t('overdue_short')})"
+        rows.append([t["title"], t["requirement_label"] or "—", t["owner"] or "—",
+                     due.translate(AR_DIGITS) if lang.rtl else due, lang.t(f"task_{t['status']}")])
+    w = width
+    return out + [_table(rows, [w * 0.40, w * 0.10, w * 0.18, w * 0.17, w * 0.15], lang)]
+
+
+def _risk_register(d: ReportData, lang: Lang, width: float) -> list:
+    out = _h(lang.t("risks"), lang)
+    if not d.risks:
+        return out + [Para(lang.t("risks_none"), rtl=lang.rtl, color=MUTED)]
+    rows = [[lang.t("risk"), lang.t("inherent"), lang.t("residual"), lang.t("treatment"), lang.t("status")]]
+    for r in d.risks[:15]:
+        inh = f"{lang.num(r['score'])} · {lang.t('level_' + r['level'])}"
+        res = f"{lang.num(r['residual_score'])} · {lang.t('level_' + r['residual_level'])}" if r["residual_score"] else "—"
+        status = lang.t("risk_" + r["status"])
+        if r["status"] == "accepted" and r["acceptance_expires_on"]:
+            exp = r["acceptance_expires_on"]
+            status += f" → {exp.translate(AR_DIGITS) if lang.rtl else exp}"
+        rows.append([r["title"], inh, res, lang.t("treat_" + r["treatment"]), status])
+    w = width
+    return out + [_table(rows, [w * 0.40, w * 0.14, w * 0.14, w * 0.14, w * 0.18], lang)]
+
+
 def _doc(buf, d: ReportData, lang: Lang, title: str) -> SimpleDocTemplate:
     return SimpleDocTemplate(buf, pagesize=A4, leftMargin=MARGIN, rightMargin=MARGIN, topMargin=17 * mm,
                              bottomMargin=19 * mm, title=title, author="PDPL-Ready", subject=d.org.get("name", ""),
@@ -398,6 +430,7 @@ def readiness_pdf(d: ReportData, lang_code: str = "en") -> bytes:
     story += _regressions(d, lang)
     story += [PageBreak()] + _areas(d, lang, width)
     story += [*_h(lang.t("gaps"), lang)] + _gap_table(d, lang, width)
+    story += _remediation(d, lang, width) + _risk_register(d, lang, width)
     story += [KeepTogether(_h(lang.t("method"), lang) + [Para(lang.t("method_text"), size=8.5, rtl=lang.rtl, color=MUTED)])]
     story += _sources(d, lang)
     buf = io.BytesIO()

@@ -176,3 +176,18 @@ def test_evidence_pack_manifest_and_hashes(demo, app_client):
     assert any(n.startswith("evidence/a01-01/") for n in names)
     assert len([i for i in manifest["items"] if i["kind"] == "check-run"]) >= 12
     assert errors(json.loads(z.read("assessment-results.oscal.json")), "assessment-results") == []
+
+
+def test_poam_items_carry_remediation_owner_and_due_date(demo):
+    doc = poam(build(demo))
+    assert errors(doc, "plan-of-action-and-milestones") == []
+    items = {next(p["value"] for p in i["props"] if p["name"] == "requirement-id"): i
+             for i in doc["plan-of-action-and-milestones"]["poam-items"] if i.get("props")}
+    props = {p["name"]: p["value"] for p in items["a06-05"]["props"]}
+    assert props["remediation-owner"] == "Omar Adel" and props["remediation-due"] and "Remediation tasks" in items["a06-05"]["remarks"]
+
+
+def test_readiness_report_includes_remediation_and_risks(demo):
+    d = build(demo)
+    assert d.tasks and d.risks and d.risks[0]["level"] == "critical"
+    assert readiness_pdf(d, "en").startswith(b"%PDF-") and readiness_pdf(d, "ar").startswith(b"%PDF-")

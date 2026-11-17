@@ -216,6 +216,14 @@ def poam(d: ReportData) -> dict:
             "props": [_prop("requirement-id", g.id), _prop("pdpl-status", g.status), _prop("basis", g.basis),
                       _prop("priority-weight", g.weight)],
         }
+        planned = [t for t in d.tasks if t["requirement_id"] == g.id]
+        if planned:
+            first = min(planned, key=lambda t: t["due_on"] or "9999")
+            item["props"] += [_prop("remediation-owner", first["owner"] or "unassigned"),
+                              _prop("remediation-due", first["due_on"] or "not set"),
+                              _prop("remediation-status", first["status"])]
+            item["remarks"] = "Remediation tasks: " + "; ".join(
+                f"{t['title']} (owner {t['owner'] or 'unassigned'}, due {t['due_on'] or 'not set'}, {t['status']})" for t in planned)
         fu = _u("finding", g.id)
         if fu in finding_ids:
             item["related-findings"] = [{"finding-uuid": fu}]

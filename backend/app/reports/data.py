@@ -33,6 +33,8 @@ class ReportData:
     trend: list[tuple[datetime, float]]
     stale_days: int
     results: dict[str, ReqResult] = field(default_factory=dict)
+    tasks: list = field(default_factory=list)
+    risks: list = field(default_factory=list)
 
     def req(self, rid: str) -> Requirement:
         return self.catalog.requirement(rid)
@@ -67,4 +69,23 @@ def build(db: Session, now: datetime | None = None) -> ReportData:
         trend=[(s.at, s.overall) for s in snapshots(db)],
         stale_days=get_settings().evidence_stale_days,
         results={r.id: r for r in score.requirements},
+        tasks=_tasks(db, now),
+        risks=_risks(db, now),
     )
+
+
+def _tasks(db: Session, now: datetime) -> list[dict]:
+    from ..governance import task_out
+    from ..models import Task
+
+    rows = [task_out(t, now) for t in db.execute(select(Task)).scalars()]
+    return sorted((t for t in rows if t["status"] != "done"),
+                  key=lambda t: (t["days_left"] is None, t["days_left"] if t["days_left"] is not None else 0))
+
+
+def _risks(db: Session, now: datetime) -> list[dict]:
+    from ..governance import risk_out
+    from ..models import Risk
+
+    rows = [risk_out(r, now) for r in db.execute(select(Risk)).scalars()]
+    return sorted((r for r in rows if r["status"] != "closed"), key=lambda r: -r["score"])

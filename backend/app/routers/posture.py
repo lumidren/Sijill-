@@ -72,11 +72,25 @@ def explain(req_id: str, db: Session = Depends(get_db), _=Depends(require("read"
              "severity": mapping.checks[c.check_id].severity}
             for c in r.checks
         ],
+        "related": _related(db, req_id),
         "evidence": [
             {"id": f.id, "filename": f.filename, "size": f.size, "sha256": f.sha256, "content_type": f.content_type,
              "uploaded_at": f.uploaded_at.isoformat(), "description": f.description}
             for f in files
         ],
+    }
+
+
+def _related(db: Session, req_id: str) -> dict:
+    from ..db import utcnow
+    from ..governance import policy_out, risk_out, task_out
+    from ..models import Policy, Risk, Task
+
+    now = utcnow()
+    return {
+        "tasks": [task_out(t, now) for t in db.execute(select(Task).where(Task.requirement_id == req_id)).scalars()],
+        "risks": [risk_out(r, now) for r in db.execute(select(Risk)).scalars() if req_id in (r.requirement_ids or [])],
+        "policies": [policy_out(p, now) for p in db.execute(select(Policy)).scalars() if req_id in (p.requirement_ids or [])],
     }
 
 
@@ -125,6 +139,9 @@ def dashboard(db: Session = Depends(get_db), _=Depends(require("read"))):
         "features": {"obligations": False, "incidents": False},
         "organization": organization(db),
     }
+    from ..governance import summary as governance_summary
+    out["governance"] = governance_summary(db)
+    out["features"]["governance"] = True
     try:
         from ..obligations_service import upcoming_deadlines
         out["deadlines"] = upcoming_deadlines(db)
