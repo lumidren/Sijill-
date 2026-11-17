@@ -249,7 +249,7 @@ A `Dockerfile` and `docker-compose.yml` are included (`PDPL_SEED_DEMO=1` seeds t
 
 </details>
 
-## 🏗️ Architecture
+## 🧱 Architecture
 
 ```mermaid
 flowchart LR
@@ -389,7 +389,7 @@ docs/                 DECISIONS (42 logged), PROGRESS, LEGAL-REVIEW, PROWLER-UPS
 
 </details>
 
-## ⚖️ Legal accuracy
+## 📜 Legal accuracy
 
 Invented legal detail is worse than a visible gap, so:
 
