@@ -9,9 +9,9 @@ Core first, fully working and demoable before anything else:
 - [x] **Skeleton** — FastAPI + SQLAlchemy + Alembic, Argon2 auth, roles enforced server-side, hash-chained append-only audit log, React shell EN/AR + RTL, CI workflow, `scripts/start.ps1` / `scripts/dev.ps1`, Dockerfile + compose (not run)
 - [x] **Core 1: PDPL catalog in OSCAL** — `catalog/pdpl-catalog.json`: 11 areas, 52 bilingual requirements (16 technical), all `verified=false` / `source-status=needed`; validates against the official OSCAL 1.1.3 schema; lossless round trip; admin import/reset of a reviewed catalog
 - [x] **Core 2: Evidence engine** — OCSF ingestion (validation, redaction, per-target runs, SHA-256 per file and per result), Prowler framework file `compliance/prowler/pdpl_egypt_aws.json` (129 AWS checks), Linux mapping, inbox + Prowler subprocess adapters, APScheduler collection, Linux collector (`collectors/linux/`)
-- [ ] **Core 3: Scoring, run history, regression detection, score-over-time dashboard** — backend done (scoring, snapshots, diffs, `/api/posture/*`, `/api/checks/*`); frontend dashboard, requirements and checks screens next
-- [ ] **Core 4: One report** — readiness report + gap list, PDF (EN, AR) and OSCAL (assessment results + POA&M)
-- [ ] **Core 5: Demo seed + README**
+- [x] **Core 3: Scoring, run history, regression detection, score-over-time dashboard** — dashboard (score, coverage split automated/self-attested/not assessed, status split, trend with regression markers, areas, gaps, regressions, monitored systems), requirements list + drill-down, checks (runs, import, regressions, mapping, collection), run comparison
+- [x] **Core 4: One report** — readiness report + gap list as PDF (EN and shaped RTL Arabic), CSV, OSCAL assessment results + POA&M (schema-valid), OSCAL AR import round trip
+- [x] **Core 5: Demo seed + README** — Nour Family Clinic (fictional): half-finished assessment, 6 weekly AWS + Linux scans, one regression (public patient-scans bucket); README with screenshots; LEGAL-REVIEW generated from the catalog
 - [ ] **Assessment workflow** — answers per area, evidence upload, gap analysis
 - [ ] Stretch 1: processing register
 - [ ] Stretch 2: licensing questionnaire, applicability screener, obligations + reminders
@@ -20,10 +20,10 @@ Core first, fully working and demoable before anything else:
 
 ## Verified so far
 
-- Backend: 102 pytest tests pass, 2 skipped (live-Prowler tests; they run in CI where Prowler installs).
+- Backend: 123 pytest tests pass, 2 skipped (live-Prowler tests; they run in CI where Prowler installs).
   Covers auth per role, CSRF header, throttling, audit chain + append-only triggers, catalog schema validation and round trip, scoring rules (cap, N/A override, staleness, roll-up), ingestion edge cases (bad JSON, wrong class, oversized, wrong type, duplicate file), credential redaction, regression detection (AWS and Linux), adapters (inbox quarantine, Prowler subprocess mocked).
 - Linux collector: 15 tests replaying recorded fictional hosts, plus a static test that it only runs allow-listed read-only commands.
-- Frontend: 7 vitest tests (sign-in, setup, bad credentials, Arabic RTL, role-based navigation).
+- Frontend: 14 vitest tests (sign-in, setup, bad credentials, Arabic RTL and digits, role-based navigation, dashboard, drill-down, filters, import errors).
 - Manually: signed in through the browser as the demo DPO in Arabic; `scripts/start.ps1` ran end to end (install, build, migrate, seed, serve).
 - Prowler framework files load with Prowler 5.50.0's own `load_compliance_framework`; all generated findings validate with `py_ocsf_models` `DetectionFinding` (one-off checks, see DECISIONS #8, #11).
 
@@ -35,6 +35,9 @@ Core first, fully working and demoable before anything else:
 - Postgres is exercised only in CI (`backend-postgres` job); not run locally.
 - Docker image is built only in CI; not run locally.
 
+- Browser-verified on the running app (screenshots in docs/screenshots): dashboard EN + AR, requirement drill-down, run comparison with regressions, reports page, Arabic PDF opened in the browser's PDF viewer.
+- PDFs were checked visually only in the browser's PDF viewer (no local PDF renderer: poppler is a system tool and pypdfium2 could not be downloaded, PyPI timed out).
+
 ## Next
 
-Frontend: dashboard (score, trend, coverage split, gaps, regressions), requirements list + drill-down, checks/runs screens. Then the demo seed (app/demo_data.py) with weekly history.
+Assessment workflow (answer per area, attach evidence, gap analysis), then stretch features in order: processing register, licensing/obligations, breach clock.
