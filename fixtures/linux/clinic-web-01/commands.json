@@ -1,0 +1,46 @@
+{
+  "lsblk -J -o NAME,TYPE,FSTYPE,MOUNTPOINT": {
+    "rc": 0,
+    "out": "{\"blockdevices\": [{\"name\": \"sda\", \"type\": \"disk\", \"fstype\": null, \"mountpoint\": null, \"children\": [{\"name\": \"sda1\", \"type\": \"part\", \"fstype\": \"ext4\", \"mountpoint\": \"/\"}, {\"name\": \"sda15\", \"type\": \"part\", \"fstype\": \"vfat\", \"mountpoint\": \"/boot/efi\"}]}, {\"name\": \"sdb\", \"type\": \"disk\", \"fstype\": \"ext4\", \"mountpoint\": \"/var\"}]}"
+  },
+  "sshd -T": {
+    "rc": 0,
+    "out": "port 22\npermitrootlogin yes\npasswordauthentication yes\nkbdinteractiveauthentication no\npubkeyauthentication yes\nciphers chacha20-poly1305@openssh.com,aes128-ctr,aes256-ctr,aes128-cbc,3des-cbc\nmacs hmac-sha2-256,hmac-sha1,hmac-md5\nx11forwarding yes\n"
+  },
+  "systemctl is-active auditd": {
+    "rc": 3,
+    "out": "inactive\n"
+  },
+  "auditctl -l": {
+    "rc": 0,
+    "out": "No rules\n"
+  },
+  "timedatectl show -p NTPSynchronized --value": {
+    "rc": 0,
+    "out": "yes\n"
+  },
+  "ufw status": {
+    "rc": 0,
+    "out": "Status: inactive\n"
+  },
+  "systemctl is-active firewalld": {
+    "rc": 4,
+    "out": "inactive\n"
+  },
+  "nft list ruleset": {
+    "rc": 0,
+    "out": ""
+  },
+  "iptables -S": {
+    "rc": 0,
+    "out": "-P INPUT ACCEPT\n-P FORWARD ACCEPT\n-P OUTPUT ACCEPT\n"
+  },
+  "apt-get -s -o Debug::NoLocking=1 upgrade": {
+    "rc": 0,
+    "out": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\nThe following packages will be upgraded:\n  libssl3 nginx openssl tzdata\n4 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nInst libssl3 [3.0.2-0ubuntu1.15] (3.0.2-0ubuntu1.18 Ubuntu:22.04/jammy-updates, Ubuntu:22.04/jammy-security [amd64])\nInst openssl [3.0.2-0ubuntu1.15] (3.0.2-0ubuntu1.18 Ubuntu:22.04/jammy-updates, Ubuntu:22.04/jammy-security [amd64])\nInst nginx [1.18.0-6ubuntu14.4] (1.18.0-6ubuntu14.6 Ubuntu:22.04/jammy-updates, Ubuntu:22.04/jammy-security [amd64])\nInst tzdata [2024a-0ubuntu0.22.04] (2025b-0ubuntu0.22.04 Ubuntu:22.04/jammy-updates [all])\n"
+  },
+  "systemctl is-active dnf-automatic.timer": {
+    "rc": 4,
+    "out": "inactive\n"
+  }
+}

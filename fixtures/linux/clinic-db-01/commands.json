@@ -1,0 +1,34 @@
+{
+  "lsblk -J -o NAME,TYPE,FSTYPE,MOUNTPOINT": {
+    "rc": 0,
+    "out": "{\"blockdevices\": [{\"name\": \"nvme0n1\", \"type\": \"disk\", \"fstype\": null, \"mountpoint\": null, \"children\": [{\"name\": \"nvme0n1p1\", \"type\": \"part\", \"fstype\": \"vfat\", \"mountpoint\": \"/boot/efi\"}, {\"name\": \"nvme0n1p2\", \"type\": \"part\", \"fstype\": \"ext4\", \"mountpoint\": \"/boot\"}, {\"name\": \"nvme0n1p3\", \"type\": \"part\", \"fstype\": \"crypto_LUKS\", \"mountpoint\": null, \"children\": [{\"name\": \"dm_crypt-0\", \"type\": \"crypt\", \"fstype\": \"LVM2_member\", \"mountpoint\": null, \"children\": [{\"name\": \"ubuntu--vg-root\", \"type\": \"lvm\", \"fstype\": \"ext4\", \"mountpoint\": \"/\"}, {\"name\": \"ubuntu--vg-data\", \"type\": \"lvm\", \"fstype\": \"xfs\", \"mountpoint\": \"/data\"}]}]}]}]}"
+  },
+  "sshd -T": {
+    "rc": 0,
+    "out": "port 22\npermitrootlogin no\npasswordauthentication no\nkbdinteractiveauthentication no\npubkeyauthentication yes\nciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr\nmacs umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com\nx11forwarding no\n"
+  },
+  "systemctl is-active auditd": {
+    "rc": 0,
+    "out": "active\n"
+  },
+  "auditctl -l": {
+    "rc": 0,
+    "out": "-w /etc/passwd -p wa -k identity\n-w /etc/group -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/gshadow -p wa -k identity\n-w /etc/sudoers -p wa -k scope\n-w /etc/sudoers.d -p wa -k scope\n-w /var/log/sudo.log -p wa -k actions\n-w /var/log/faillog -p wa -k logins\n-w /var/log/lastlog -p wa -k logins\n-a always,exit -F arch=b64 -S execve -F euid=0 -k rootcmd\n-w /data/postgresql -p rwa -k patient-db\n-w /etc/ssh/sshd_config -p wa -k sshd\n"
+  },
+  "timedatectl show -p NTPSynchronized --value": {
+    "rc": 0,
+    "out": "yes\n"
+  },
+  "ufw status": {
+    "rc": 0,
+    "out": "Status: active\n\nTo                         Action      From\n--                         ------      ----\n5432/tcp                   ALLOW       10.20.0.0/24\n22/tcp                     ALLOW       10.20.9.0/28\n"
+  },
+  "apt-get -s -o Debug::NoLocking=1 upgrade": {
+    "rc": 0,
+    "out": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n"
+  },
+  "systemctl is-active firewalld": {
+    "rc": 4,
+    "out": "inactive\n"
+  }
+}
