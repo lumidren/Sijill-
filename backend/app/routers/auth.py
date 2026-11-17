@@ -52,6 +52,7 @@ def user_out(u: User) -> dict:
         "id": u.id, "username": u.username, "display_name": u.display_name, "role": u.role,
         "locale": u.locale, "is_active": u.is_active, "capabilities": capabilities_for(u.role),
         "mfa_enabled": bool(u.totp_enabled),
+        "org_ids": None if u.role == "admin" else u.org_ids,
         "last_login_at": u.last_login_at.isoformat() if u.last_login_at else None,
     }
 
@@ -112,7 +113,10 @@ def login(body: LoginIn, request: Request, response: Response, db: Session = Dep
 
 @router.post("/logout")
 def logout(response: Response):
+    from ..db import ORG_COOKIE
+
     response.delete_cookie(COOKIE_NAME, path="/")
+    response.delete_cookie(ORG_COOKIE, path="/")
     return {"ok": True}
 
 

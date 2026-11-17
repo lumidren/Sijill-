@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy import func, select
+from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
 from ..audit import verify_chain
@@ -15,8 +15,10 @@ router = APIRouter(prefix="/api/audit", tags=["audit"])
 @router.get("")
 def list_audit(limit: int = Query(100, ge=1, le=500), offset: int = Query(0, ge=0),
                db: Session = Depends(get_db), _=Depends(require("audit.read"))):
-    total = db.scalar(select(func.count()).select_from(AuditLog))
-    rows = db.execute(select(AuditLog).order_by(AuditLog.id.desc()).limit(limit).offset(offset)).scalars()
+    # This organisation's events plus install-wide ones (accounts, organisations).
+    here = or_(AuditLog.org_id == db.info.get("org_id"), AuditLog.org_id.is_(None))
+    total = db.scalar(select(func.count()).select_from(AuditLog).where(here))
+    rows = db.execute(select(AuditLog).where(here).order_by(AuditLog.id.desc()).limit(limit).offset(offset)).scalars()
     return {
         "total": total,
         "items": [

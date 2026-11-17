@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 
 from .config import get_settings
 from .db import get_db
-from .models import User
+from .models import Organisation, User
 
 COOKIE_NAME = "pdpl_session"
 CSRF_HEADER = "x-pdpl-request"
@@ -21,6 +21,7 @@ PERMISSIONS: dict[str, set[str]] = {
     "read": {"admin", "dpo", "it", "auditor"},
     "audit.read": {"admin", "dpo", "auditor"},
     "users.manage": {"admin"},
+    "orgs.manage": {"admin"},
     "settings.manage": {"admin"},
     "assessment.write": {"admin", "dpo"},
     "evidence.upload": {"admin", "dpo", "it"},
@@ -75,7 +76,25 @@ def current_user(request: Request, db: Session = Depends(get_db)) -> User:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "not_authenticated")
     if request.method not in ("GET", "HEAD", "OPTIONS") and request.headers.get(CSRF_HEADER) != "1":
         raise HTTPException(status.HTTP_403_FORBIDDEN, "missing_csrf_header")
+    # Pin the session to an organisation this user may open, before any endpoint reads data.
+    allowed = allowed_orgs(db, user)
+    if not allowed:
+        raise HTTPException(status.HTTP_403_FORBIDDEN, "no_organisation_access")
+    if db.info.get("org_id") not in {o.id for o in allowed}:
+        db.info["org_id"] = allowed[0].id
+    request.state.org_id = db.info["org_id"]
     return user
+
+
+def allowed_orgs(db: Session, user: User) -> list[Organisation]:
+    """Active organisations the user may open, oldest first."""
+    from sqlalchemy import select
+
+    orgs = list(db.execute(select(Organisation).where(Organisation.archived.is_(False)).order_by(Organisation.id)).scalars())
+    if user.role == "admin" or user.org_ids is None:
+        return orgs
+    ids = set(user.org_ids)
+    return [o for o in orgs if o.id in ids]
 
 
 def require(capability: str):
