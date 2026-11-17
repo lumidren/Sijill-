@@ -787,6 +787,7 @@ const ar: DeepString<Strings> = {
       max_upload_mb: "أكبر حجم للرفع",
       dsr_response_days: "الرد على طلبات الأفراد خلال",
       risk_acceptance_max_days: "أطول مدة لقبول الخطر",
+      collect_org_id: "الجهة التي يغذّيها الجمع المجدول (المعرّف)",
     },
     units: { hours: "ساعة", years: "سنوات", days: "يومًا", MB: "ميجابايت" },
     catalogInfo: "الكتالوج {{version}}: {{unverified}} من {{total}} متطلبًا غير موثّق.",

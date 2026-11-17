@@ -783,6 +783,7 @@ const en = {
       max_upload_mb: "Largest upload",
       dsr_response_days: "Answer requests from individuals within",
       risk_acceptance_max_days: "Longest risk acceptance",
+      collect_org_id: "Organisation fed by scheduled collection (id)",
     },
     units: { hours: "hours", years: "years", days: "days", MB: "MB" },
     catalogInfo: "Catalog {{version}}: {{unverified}} of {{total}} requirements unverified.",
