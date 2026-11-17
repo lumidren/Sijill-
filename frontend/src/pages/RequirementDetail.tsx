@@ -235,6 +235,11 @@ export default function RequirementDetail() {
                 {t("tasks.createFromGap")}
               </Link>
             )}
+            {can("evidence_requests.manage") && data.result.status !== "not_applicable" && (
+              <Link to={`/evidence-requests?new=${req.id}`} className="btn-ghost mt-2 w-full">
+                {t("er.askClient")}
+              </Link>
+            )}
           </Card>
 
           <Card title={t("requirements.evidence")}>

@@ -18,6 +18,7 @@ export interface ClientRow extends Org {
   vendors_without_dpa: number;
   open_breaches: number;
   last_run: string | null;
+  evidence_to_review?: number;
 }
 
 const BASIS = [
@@ -103,6 +104,7 @@ export default function Clients() {
                     <td>
                       <div className="font-medium">{o.name}</div>
                       {o.id === here && <div className="text-xs text-brand-700">{t("orgs.openNow")}</div>}
+                      {!!o.evidence_to_review && <div className="text-xs font-medium text-violet-700">{t("er.toReview", { count: o.evidence_to_review })}</div>}
                       {can("orgs.manage") && (
                         <div className="mt-0.5 flex gap-3 text-xs">
                           <button className="text-brand-700 hover:underline" onClick={() => setEditing({ id: o.id, draft: { name: o.name } })} aria-label={`${t("orgs.rename")}: ${o.name}`}>

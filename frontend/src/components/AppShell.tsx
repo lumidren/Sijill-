@@ -15,6 +15,7 @@ const I = (d: string) => (
 );
 
 const ICONS = {
+  evidenceRequests: I("M4 4h16v12H5.2L4 17.2V4Zm4 5h8M8 12h5M15 20l2 2 4-4"),
   clients: I("M3 21h18M6 21V7l6-4 6 4v14M10 11h4M10 15h4M3 10h3m12 0h3"),
   dashboard: I("M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"),
   requirements: I("M9 5h11M9 12h11M9 19h11M4 5h.01M4 12h.01M4 19h.01"),
@@ -39,6 +40,7 @@ export const WORKSPACE: Item[] = [
   { to: "/", key: "dashboard", icon: ICONS.dashboard },
   { to: "/requirements", key: "requirements", icon: ICONS.requirements },
   { to: "/assessment", key: "assessment", icon: ICONS.assessment },
+  { to: "/evidence-requests", key: "evidenceRequests", icon: ICONS.evidenceRequests },
   { to: "/checks", key: "checks", icon: ICONS.checks },
   { to: "/reports", key: "reports", icon: ICONS.reports },
   { to: "/register", key: "register", icon: ICONS.register },
