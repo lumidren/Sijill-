@@ -1,4 +1,4 @@
-import { lazy, Suspense, type ReactNode } from "react";
+import { lazy, type ReactNode } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./auth";
 import AppShell, { setEnabledRoutes } from "./components/AppShell";
@@ -13,6 +13,7 @@ const RunDetail = lazy(() => import("./pages/RunDetail"));
 const Assessment = lazy(() => import("./pages/Assessment"));
 const Reports = lazy(() => import("./pages/Reports"));
 const Register = lazy(() => import("./pages/Register"));
+const Obligations = lazy(() => import("./pages/Obligations"));
 const Users = lazy(() => import("./pages/Users"));
 const AuditLog = lazy(() => import("./pages/AuditLog"));
 
@@ -25,6 +26,7 @@ const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/assessment", element: <Assessment /> },
   { path: "/reports", element: <Reports /> },
   { path: "/register", element: <Register /> },
+  { path: "/obligations", element: <Obligations /> },
   { path: "/users", element: <Users /> },
   { path: "/audit", element: <AuditLog /> },
 ];
@@ -35,7 +37,6 @@ export function AppRoutes() {
   if (loading) return <Spinner />;
   if (!user) return <Login />;
   return (
-    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route element={<AppShell />}>
           {ROUTES.map((r) => (
@@ -44,7 +45,6 @@ export function AppRoutes() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
-    </Suspense>
   );
 }
 

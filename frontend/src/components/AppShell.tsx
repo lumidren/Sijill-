@@ -1,7 +1,8 @@
-import { useState, type ReactNode } from "react";
+import { Suspense, useState, type ReactNode } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth";
+import { Spinner } from "./ui";
 import type { Lang } from "../i18n";
 
 type Item = { to: string; key: string; icon: ReactNode; cap?: string };
@@ -172,7 +173,9 @@ export default function AppShell() {
           </div>
         </header>
         <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8">
-          <Outlet />
+          <Suspense fallback={<Spinner />}>
+            <Outlet />
+          </Suspense>
         </main>
         <Disclaimer />
       </div>
