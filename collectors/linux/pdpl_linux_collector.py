@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""PDPL-Ready Linux evidence collector.
+"""Sijill Linux evidence collector.
 
 Read-only. Standard library only (Python 3.6+). Runs on the host being assessed and prints
 findings as a JSON array of OCSF "Detection Finding" objects - the same shape as Prowler's
-JSON-OCSF output - so PDPL-Ready ingests both the same way.
+JSON-OCSF output - so Sijill ingests both the same way.
 
 It never changes the system: it reads configuration files and runs read-only commands
 (lsblk, sshd -T, systemctl is-active, ufw status, nft list ruleset, iptables -S,
@@ -14,7 +14,7 @@ report MANUAL instead of guessing.
 Usage:
   sudo python3 pdpl_linux_collector.py --output host-findings.ocsf.json
   python3 pdpl_linux_collector.py --fixture tests/fixtures/linux/web-01   # replay a recorded host
-Then import the file in PDPL-Ready (Automated checks > Import findings) or drop it in the inbox folder.
+Then import the file in Sijill (Automated checks > Import findings) or drop it in the inbox folder.
 """
 import argparse
 import fnmatch
@@ -29,7 +29,7 @@ import sys
 import time
 
 COLLECTOR_VERSION = "0.1.0"
-PRODUCT_UID = "pdpl-ready-linux"
+PRODUCT_UID = "sijill-linux"
 SEVERITY_IDS = {"informational": 1, "low": 2, "medium": 3, "high": 4, "critical": 5}
 
 # Each check: (id, title, severity, description, remediation)
@@ -443,8 +443,8 @@ def finding(check_id, status, message, host, now, os_name):
         "message": message,
         "metadata": {
             "event_code": check_id,
-            "product": {"name": "PDPL-Ready Linux collector", "uid": PRODUCT_UID,
-                        "vendor_name": "PDPL-Ready", "version": COLLECTOR_VERSION},
+            "product": {"name": "Sijill Linux collector", "uid": PRODUCT_UID,
+                        "vendor_name": "Sijill", "version": COLLECTOR_VERSION},
             "profiles": ["datetime"],
             "version": "1.4.0",
         },
@@ -496,7 +496,7 @@ def collect(probe, opts, now=None):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Read-only PDPL-Ready evidence collector for Linux hosts.")
+    ap = argparse.ArgumentParser(description="Read-only Sijill evidence collector for Linux hosts.")
     ap.add_argument("--output", "-o", help="write findings to this file instead of stdout")
     ap.add_argument("--hostname", help="override the reported hostname")
     ap.add_argument("--min-log-retention-days", type=int, default=90)

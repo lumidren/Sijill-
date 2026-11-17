@@ -1,4 +1,4 @@
-"""Parse OCSF Detection Findings (Prowler JSON-OCSF output and the PDPL-Ready Linux collector).
+"""Parse OCSF Detection Findings (Prowler JSON-OCSF output and the Sijill Linux collector).
 
 Only the fields the engine needs are kept. Anything that looks like a credential is
 redacted before it can reach the database, logs or exports.
@@ -93,7 +93,7 @@ def _provider_and_target(item: dict) -> tuple[str, str]:
     unmapped = item.get("unmapped") or {}
     device = item.get("device") or {}
     product_uid = ((item.get("metadata") or {}).get("product") or {}).get("uid", "")
-    if device or unmapped.get("provider") == "linux" or product_uid == "pdpl-ready-linux":
+    if device or unmapped.get("provider") == "linux" or product_uid in ("sijill-linux", "pdpl-ready-linux"):
         host = device.get("hostname") or ((item.get("resources") or [{}])[0] or {}).get("uid") or "unknown-host"
         return "linux", str(host)
     return "unknown", "unknown"

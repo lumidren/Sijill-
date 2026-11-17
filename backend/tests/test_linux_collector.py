@@ -64,7 +64,7 @@ def test_log_retention_threshold_is_configurable():
 def test_output_has_the_ocsf_shape_the_engine_ingests():
     f = collect("clinic-web-01")["linux_firewall_enabled"]
     assert f["class_uid"] == 2004 and f["status_code"] == "FAIL"
-    assert f["metadata"]["product"]["uid"] == "pdpl-ready-linux"
+    assert f["metadata"]["product"]["uid"] == "sijill-linux"
     assert f["resources"][0]["uid"] == "clinic-web-01"
     assert f["time"] == NOW and f["time_dt"].endswith("Z")
     assert f["finding_info"]["uid"] and f["severity"] in {"Low", "Medium", "High", "Critical", "Informational"}

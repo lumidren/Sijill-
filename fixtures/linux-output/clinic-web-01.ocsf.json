@@ -4,9 +4,9 @@
   "metadata": {
    "event_code": "linux_auditd_rules_present",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -76,9 +76,9 @@
   "metadata": {
    "event_code": "linux_auditd_running",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -148,9 +148,9 @@
   "metadata": {
    "event_code": "linux_automatic_security_updates_enabled",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -220,9 +220,9 @@
   "metadata": {
    "event_code": "linux_disk_encryption_enabled",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -292,9 +292,9 @@
   "metadata": {
    "event_code": "linux_firewall_enabled",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -364,9 +364,9 @@
   "metadata": {
    "event_code": "linux_log_retention_configured",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -436,9 +436,9 @@
   "metadata": {
    "event_code": "linux_pending_security_updates",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -508,9 +508,9 @@
   "metadata": {
    "event_code": "linux_sensitive_file_permissions",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -580,9 +580,9 @@
   "metadata": {
    "event_code": "linux_ssh_password_auth_disabled",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -652,9 +652,9 @@
   "metadata": {
    "event_code": "linux_ssh_root_login_disabled",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -724,9 +724,9 @@
   "metadata": {
    "event_code": "linux_ssh_strong_ciphers",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
@@ -796,9 +796,9 @@
   "metadata": {
    "event_code": "linux_time_sync_enabled",
    "product": {
-    "name": "PDPL-Ready Linux collector",
-    "uid": "pdpl-ready-linux",
-    "vendor_name": "PDPL-Ready",
+    "name": "Sijill Linux collector",
+    "uid": "sijill-linux",
+    "vendor_name": "Sijill",
     "version": "0.1.0"
    },
    "profiles": [
