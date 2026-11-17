@@ -13,7 +13,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from .config import get_settings
-from .db import utcnow
+from .db import local_date, utcnow
 from .models import AppSetting, Obligation, Reminder
 
 LICENSING_QUESTIONS = ["controls_processing", "processes_for_others", "cross_border", "electronic_marketing",
@@ -91,7 +91,7 @@ def _days(target: datetime | None, now: datetime) -> int | None:
     if target is None:
         return None
     # whole days, rounding toward the past so "due today" is 0 and yesterday is -1
-    return (target.date() - now.date()).days
+    return (target.date() - local_date(now)).days
 
 
 def upcoming_deadlines(db: Session, now: datetime | None = None, horizon_days: int = 90) -> list[dict]:

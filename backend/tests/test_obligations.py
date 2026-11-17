@@ -65,9 +65,10 @@ def test_reminders_window_and_idempotence(db):
 
 
 def test_deadline_days_across_midnight():
-    # Deadlines are stored at midday UTC, so the calendar day is the same in UTC and in Africa/Cairo (UTC+2/+3).
+    # Deadlines are calendar dates; "today" is the calendar day in Africa/Cairo (UTC+2 in December).
     due = datetime(2026, 12, 2, 12, tzinfo=timezone.utc)
-    assert _days(due, datetime(2026, 12, 1, 23, 30, tzinfo=timezone.utc)) == 1
+    assert _days(due, datetime(2026, 12, 1, 21, 30, tzinfo=timezone.utc)) == 1  # 23:30 Cairo, 1 Dec
+    assert _days(due, datetime(2026, 12, 1, 23, 30, tzinfo=timezone.utc)) == 0  # 01:30 Cairo, 2 Dec
     assert _days(due, datetime(2026, 12, 2, 0, 5, tzinfo=timezone.utc)) == 0
     assert _days(due, datetime(2026, 12, 3, 0, 5, tzinfo=timezone.utc)) == -1
 

@@ -15,6 +15,17 @@ def utcnow() -> datetime:
     return datetime.now(timezone.utc)
 
 
+def local_date(now: datetime):
+    """Today's calendar date where the users are (PDPL_TIMEZONE_DISPLAY), not in UTC.
+
+    Due dates are calendar dates; between midnight and 02:00 in Cairo the UTC date is still
+    yesterday, which used to make "due today" read as "due tomorrow".
+    """
+    from zoneinfo import ZoneInfo
+
+    return now.astimezone(ZoneInfo(get_settings().timezone_display)).date()
+
+
 class UTCDateTime(TypeDecorator):
     """Stores datetimes as UTC and always returns timezone-aware UTC values.
 

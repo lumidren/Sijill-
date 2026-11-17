@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session
 
 from .catalog import get_catalog
 from .config import get_settings
-from .db import utcnow
+from .db import local_date, utcnow
 from .models import DataRequest, Dpia, Policy, Risk, Task, Vendor
 
 # ------------------------------------------------------------------ dates
@@ -27,7 +27,7 @@ def day(d) -> datetime | None:
 
 
 def days_until(target: datetime | None, now: datetime) -> int | None:
-    return None if target is None else (target.date() - now.date()).days
+    return None if target is None else (target.date() - local_date(now)).days
 
 
 def iso_date(dt: datetime | None) -> str | None:
