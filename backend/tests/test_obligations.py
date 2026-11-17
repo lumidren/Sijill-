@@ -89,7 +89,9 @@ def test_api_questionnaires_and_tracking(as_role):
     ob = c.post("/api/obligations", json={"kind": "licence", "title": "Controller licence", "status": "active",
                                           "issued_on": "2026-01-20"}).json()
     assert ob["expires_on"] == "2029-01-20" and ob["expiry_from_default"] is True
-    soon = (date.today() + timedelta(days=10)).isoformat()
+    from app.db import local_date, utcnow
+
+    soon = (local_date(utcnow()) + timedelta(days=10)).isoformat()  # Cairo's date, as the app counts it
     p = c.post("/api/obligations", json={"kind": "permit", "title": "CCTV permit", "status": "active",
                                          "issued_on": "2025-12-01", "expires_on": soon}).json()
     assert p["expiry_from_default"] is False and 9 <= p["days_to_expiry"] <= 10

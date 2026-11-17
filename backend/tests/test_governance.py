@@ -2,10 +2,12 @@ from datetime import date, datetime, timedelta, timezone
 
 import pytest
 
+from app.db import local_date, utcnow
 from app.governance import dpia_screening, heat_map, risk_level
 from app.models import Risk
 
-TODAY = date.today()
+# "Today" where the users are (Cairo), as the app counts it - not the test machine's clock (CI runs in UTC).
+TODAY = local_date(utcnow())
 
 
 def d(days: int) -> str:
