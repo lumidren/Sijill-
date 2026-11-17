@@ -65,6 +65,7 @@ export default function Clients() {
     refresh();
   };
   const hidden = (archived.data ?? []).filter((o) => o.archived);
+  const here = data?.current ?? current; // the server decides which organisation is open
 
   return (
     <>
@@ -98,10 +99,22 @@ export default function Clients() {
               </thead>
               <tbody>
                 {data?.items.map((o) => (
-                  <tr key={o.id} className={o.id === current ? "bg-brand-50/50" : ""}>
+                  <tr key={o.id} className={o.id === here ? "bg-brand-50/50" : ""}>
                     <td>
                       <div className="font-medium">{o.name}</div>
-                      {o.id === current && <div className="text-xs text-brand-700">{t("orgs.openNow")}</div>}
+                      {o.id === here && <div className="text-xs text-brand-700">{t("orgs.openNow")}</div>}
+                      {can("orgs.manage") && (
+                        <div className="mt-0.5 flex gap-3 text-xs">
+                          <button className="text-brand-700 hover:underline" onClick={() => setEditing({ id: o.id, draft: { name: o.name } })} aria-label={`${t("orgs.rename")}: ${o.name}`}>
+                            {t("orgs.rename")}
+                          </button>
+                          {data!.items.length > 1 && (
+                            <button className="text-slate-500 hover:underline" onClick={() => patch(o.id, { archived: true })} aria-label={`${t("orgs.archive")}: ${o.name}`}>
+                              {t("orgs.archive")}
+                            </button>
+                          )}
+                        </div>
+                      )}
                     </td>
                     <td className="text-lg font-semibold">{o.overall == null ? <span className="text-sm text-slate-400">—</span> : fmtPct(o.overall)}</td>
                     <td>
@@ -127,18 +140,6 @@ export default function Clients() {
                       <button className="btn-secondary text-xs" onClick={() => select(o.id, "/")} aria-label={`${t("orgs.open")}: ${o.name}`}>
                         {t("orgs.open")}
                       </button>
-                      {can("orgs.manage") && (
-                        <>
-                          <button className="btn-ghost text-xs" onClick={() => setEditing({ id: o.id, draft: { name: o.name } })}>
-                            {t("orgs.rename")}
-                          </button>
-                          {data.items.length > 1 && (
-                            <button className="btn-ghost text-xs" onClick={() => patch(o.id, { archived: true })}>
-                              {t("orgs.archive")}
-                            </button>
-                          )}
-                        </>
-                      )}
                     </td>
                   </tr>
                 ))}
