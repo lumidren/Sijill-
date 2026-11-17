@@ -139,7 +139,7 @@ export default function Dashboard() {
                 <Link to={`/requirements?area=${a.id}`} className="group block rounded-lg p-1.5 hover:bg-slate-50">
                   <div className="mb-1.5 flex items-baseline justify-between gap-3 text-sm">
                     <span className="truncate font-medium text-slate-800 group-hover:text-brand-800">
-                      <span className="me-1.5 text-xs text-slate-400">{a.label}</span>
+                      <span className="me-1.5 text-xs text-slate-500">{a.label}</span>
                       {pick(a.title)}
                     </span>
                     <span className="shrink-0 tabular-nums text-slate-600">{a.score == null ? "—" : fmtNum(Math.round(a.score * 100))}</span>
@@ -171,7 +171,7 @@ export default function Dashboard() {
                     <Link to={`/requirements/${g.id}`} className="block hover:text-brand-800">
                       <div className="flex items-start justify-between gap-3">
                         <span className="text-sm">
-                          <span className="me-1.5 text-xs text-slate-400">{g.label}</span>
+                          <span className="me-1.5 text-xs text-slate-500">{g.label}</span>
                           {pick(g.title)}
                         </span>
                         <StatusChip status={g.status} />

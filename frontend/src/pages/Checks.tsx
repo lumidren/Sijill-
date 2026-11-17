@@ -102,14 +102,14 @@ function RunsTable({ runs }: { runs: Run[] }) {
               <td className="text-slate-600">{t(`checks.sources.${r.source}`, { defaultValue: r.source })}</td>
               <td className="whitespace-nowrap">
                 <span className="text-green-700">{fmtNum(r.passed)}</span> / <span className="text-red-700">{fmtNum(r.failed)}</span>
-                {r.unmapped > 0 && <span className="ms-2 text-xs text-slate-400" title={t("checks.unmappedHint")}>+{fmtNum(r.unmapped)}</span>}
+                {r.unmapped > 0 && <span className="ms-2 text-xs text-slate-500" title={t("checks.unmappedHint")}>+{fmtNum(r.unmapped)}</span>}
               </td>
               <td className="whitespace-nowrap">
                 {r.regressions ? <span className="chip bg-red-600 text-white">{t("checks.comparedRegressions", { count: fmtNum(r.regressions) })}</span> : null}{" "}
                 {r.fixed ? <span className="chip bg-green-100 text-green-800">{t("checks.comparedFixed", { count: fmtNum(r.fixed) })}</span> : null}
-                {!r.regressions && !r.fixed && <span className="text-xs text-slate-400">—</span>}
+                {!r.regressions && !r.fixed && <span className="text-xs text-slate-500">—</span>}
               </td>
-              <td className="font-mono text-[11px] text-slate-400" dir="ltr" title={r.file_sha256}>
+              <td className="font-mono text-[11px] text-slate-500" dir="ltr" title={r.file_sha256}>
                 {r.file_sha256.slice(0, 12)}…
               </td>
             </tr>
@@ -169,13 +169,13 @@ function MappingTable() {
         <details key={row.requirement.id} className="group rounded-xl border border-slate-200 bg-white">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3">
             <span className="text-sm font-medium">
-              <span className="me-2 text-xs text-slate-400">{row.requirement.label}</span>
+              <span className="me-2 text-xs text-slate-500">{row.requirement.label}</span>
               {pick(row.requirement.title)}
             </span>
             <span className="flex gap-2 text-xs">
               <span className="text-green-700">{fmtNum(row.checks.filter((c) => c.status === "PASS").length)}</span>
               <span className="text-red-700">{fmtNum(row.checks.filter((c) => c.status === "FAIL").length)}</span>
-              <span className="text-slate-400">/ {fmtNum(row.checks.length)}</span>
+              <span className="text-slate-500">/ {fmtNum(row.checks.length)}</span>
             </span>
           </summary>
           <ul className="divide-y divide-slate-100 border-t border-slate-100">
@@ -183,13 +183,13 @@ function MappingTable() {
               <li key={c.check_id} className="flex items-start justify-between gap-3 px-4 py-2">
                 <div className="min-w-0">
                   <div className="text-sm">{c.title}</div>
-                  <code className="text-[11px] text-slate-500" dir="ltr">
+                  <code className="break-all text-[11px] text-slate-500" dir="ltr">
                     {c.check_id}
                   </code>
                 </div>
                 <div className="flex shrink-0 items-center gap-2">
                   <span className="text-xs text-slate-500">{t(`checks.providers.${c.provider}`, { defaultValue: c.provider })}</span>
-                  {c.status ? <CheckChip status={c.status} /> : <span className="text-xs text-slate-400">{t("requirements.noResult")}</span>}
+                  {c.status ? <CheckChip status={c.status} /> : <span className="text-xs text-slate-500">{t("requirements.noResult")}</span>}
                 </div>
               </li>
             ))}

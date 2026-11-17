@@ -158,6 +158,7 @@ function ItemForm({ initial, id, years, onClose, onSaved }: { initial: typeof EM
 }
 
 function YesNo({ name, value, onChange, disabled }: { name: string; value: boolean | null | undefined; onChange: (v: boolean | null) => void; disabled: boolean }) {
+  // the question text carries id `${name}-q`; the group is named by it
   const { t } = useTranslation();
   const opts: [boolean | null, string][] = [
     [true, t("obligations.yes")],
@@ -165,7 +166,7 @@ function YesNo({ name, value, onChange, disabled }: { name: string; value: boole
     [null, t("obligations.unsure")],
   ];
   return (
-    <div role="radiogroup" className="flex gap-1.5">
+    <div role="radiogroup" aria-labelledby={`${name}-q`} className="flex gap-1.5">
       {opts.map(([v, label]) => (
         <label key={String(v)} className={`cursor-pointer rounded-lg border px-3 py-1.5 text-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-400 ${(value ?? null) === v ? "border-brand-500 bg-brand-50 font-medium" : "border-slate-200"} ${disabled ? "cursor-not-allowed opacity-70" : ""}`}>
           <input type="radio" className="sr-only" name={name} checked={(value ?? null) === v} onChange={() => onChange(v)} disabled={disabled} />
@@ -187,8 +188,8 @@ function Licensing({ q, reload, onTrack, canEdit, trackedTitles }: { q: Question
         <ol className="space-y-4">
           {q.licensing.questions.map((k, i) => (
             <li key={k} className="flex flex-col gap-2 border-b border-slate-100 pb-4 last:border-0 sm:flex-row sm:items-center sm:justify-between">
-              <span className="text-sm text-slate-800">
-                <span className="me-2 text-slate-400">{fmtNum(i + 1)}.</span>
+              <span id={`lic-${k}-q`} className="text-sm text-slate-800">
+                <span className="me-2 text-slate-500">{fmtNum(i + 1)}.</span>
                 {t(`obligations.questions.${k}`)}
               </span>
               <YesNo name={`lic-${k}`} value={answers[k]} onChange={(v) => setAnswers({ ...answers, [k]: v })} disabled={!canEdit} />
@@ -262,8 +263,8 @@ function Applicability({ q, reload, canEdit }: { q: Questionnaires; reload: () =
         <ol className="space-y-4">
           {visible.map((k, i) => (
             <li key={k} className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <span className="text-sm text-slate-800">
-                <span className="me-2 text-slate-400">{fmtNum(i + 1)}.</span>
+              <span id={`app-${k}-q`} className="text-sm text-slate-800">
+                <span className="me-2 text-slate-500">{fmtNum(i + 1)}.</span>
                 {t(`obligations.questions.${k}`)}
               </span>
               <YesNo name={`app-${k}`} value={answers[k]} onChange={(v) => setAnswers({ ...answers, [k]: v })} disabled={!canEdit} />

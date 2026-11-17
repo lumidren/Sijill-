@@ -139,7 +139,7 @@ function Question({ req, canAnswer, canUpload, onSaved }: { req: Req; canAnswer:
     <section id={req.id} className="card scroll-mt-20 p-5" aria-labelledby={`${req.id}-q`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-xs font-medium text-slate-400">
+          <p className="text-xs font-medium text-slate-500">
             {req.label} · {pick(req.title)} {!req.verified && <Unverified />}
           </p>
           <h3 id={`${req.id}-q`} className="mt-1 text-[15px] font-semibold text-ink">
@@ -273,7 +273,7 @@ export default function Assessment() {
                 >
                   <span className="flex items-center justify-between gap-2">
                     <span className="truncate">
-                      <span className={`me-1.5 text-xs ${a.id === area.id ? "text-brand-100" : "text-slate-400"}`}>{a.label}</span>
+                      <span className={`me-1.5 text-xs ${a.id === area.id ? "text-brand-100" : "text-slate-500"}`}>{a.label}</span>
                       {pick(a.title)}
                     </span>
                     <span className={`shrink-0 text-xs tabular-nums ${a.id === area.id ? "text-brand-100" : "text-slate-500"}`}>
@@ -290,7 +290,7 @@ export default function Assessment() {
           <Card>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-xs font-medium text-slate-400">{area.label}</p>
+                <p className="text-xs font-medium text-slate-500">{area.label}</p>
                 <h2 className="text-lg font-semibold">{pick(area.title)}</h2>
                 <p className="text-sm text-slate-600">{pick(area.overview)}</p>
               </div>

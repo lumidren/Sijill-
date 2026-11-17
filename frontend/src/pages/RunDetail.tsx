@@ -119,7 +119,7 @@ export default function RunDetail() {
                   <td>
                     <div className="text-sm">{r.title || r.check_id}</div>
                     <div className="text-xs text-slate-600">{r.message}</div>
-                    <code className="text-[11px] text-slate-400" dir="ltr">
+                    <code className="break-all text-[11px] text-slate-500" dir="ltr">
                       {r.check_id}
                     </code>
                   </td>

@@ -112,7 +112,7 @@ export default function RequirementDetail() {
                       <tr key={c.check_id}>
                         <td>
                           <div className="text-sm">{c.title}</div>
-                          <code className="text-[11px] text-slate-500" dir="ltr">
+                          <code className="break-all text-[11px] text-slate-500" dir="ltr">
                             {c.check_id}
                           </code>
                           {c.failing_resources.length > 0 && (
@@ -125,7 +125,7 @@ export default function RequirementDetail() {
                             </ul>
                           )}
                         </td>
-                        <td>{c.status ? <CheckChip status={c.status} /> : <span className="text-xs text-slate-400">{t("requirements.noResult")}</span>}</td>
+                        <td>{c.status ? <CheckChip status={c.status} /> : <span className="text-xs text-slate-500">{t("requirements.noResult")}</span>}</td>
                         <td className="whitespace-nowrap text-xs text-slate-600">{c.status ? t("requirements.resourcesShort", { passing: fmtNum(c.passing), failing: fmtNum(c.failing) }) : "—"}</td>
                         <td className="whitespace-nowrap text-xs text-slate-600">{fmtDateTime(c.last_observed)}</td>
                       </tr>
@@ -182,7 +182,7 @@ export default function RequirementDetail() {
                     </a>
                     {f.description && <p className="text-xs text-slate-600">{f.description}</p>}
                     <p className="mt-1 text-[11px] text-slate-500">{fmtDateTime(f.uploaded_at)}</p>
-                    <p className="truncate font-mono text-[10px] text-slate-400" dir="ltr" title={f.sha256}>
+                    <p className="truncate font-mono text-[10px] text-slate-500" dir="ltr" title={f.sha256}>
                       SHA-256 {f.sha256}
                     </p>
                   </li>

@@ -56,7 +56,7 @@ body {
   @apply btn bg-red-700 text-white hover:bg-red-800;
 }
 @utility input {
-  @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-ink placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
+  @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-ink placeholder:text-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
 }
 @utility label {
   @apply mb-1 block text-sm font-medium text-slate-700;
@@ -89,6 +89,18 @@ body {
 html[dir="rtl"] .table-base th {
   text-transform: none;
   letter-spacing: 0;
+}
+
+/* Grid items may shrink below their content width, so wide tables scroll inside their card
+   instead of pushing the page wider than a phone screen. */
+.grid > * {
+  min-width: 0;
+}
+
+/* Absolutely positioned descendants (e.g. sr-only labels in table headers) stay inside
+   horizontal scroll containers instead of widening the page in right-to-left layouts. */
+.overflow-x-auto {
+  position: relative;
 }
 
 @media (prefers-reduced-motion: reduce) {

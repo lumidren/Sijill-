@@ -107,7 +107,7 @@ export default function Requirements() {
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h2 className="text-base font-semibold">
-                    <span className="me-2 text-sm text-slate-400">{a.label}</span>
+                    <span className="me-2 text-sm text-slate-500">{a.label}</span>
                     {pick(a.title)}
                   </h2>
                   <p className="text-sm text-slate-500">{pick(a.overview)}</p>
@@ -126,7 +126,7 @@ export default function Requirements() {
                   .map((r) => (
                     <li key={r.id}>
                       <Link to={`/requirements/${r.id}`} className="-mx-2 flex flex-col gap-2 rounded-lg px-2 py-3 hover:bg-slate-50 sm:flex-row sm:items-center">
-                        <span className="w-14 shrink-0 text-xs font-medium text-slate-400">{r.label}</span>
+                        <span className="w-14 shrink-0 text-xs font-medium text-slate-500">{r.label}</span>
                         <span className="min-w-0 flex-1 text-sm text-ink">
                           {pick(r.title)} {!r.verified && <Unverified />}
                         </span>
