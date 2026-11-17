@@ -1,13 +1,13 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >
-  PDPL-Ready test lab. A handful of deliberately weak, low-cost settings so a real Prowler scan
+  Sijill test lab. A handful of deliberately weak, low-cost settings so a real Prowler scan
   has something to find. Nothing here is reachable from the internet: the bucket keeps its public
   access block on, and the security group is attached to nothing. Delete the stack when done.
 
 Parameters:
   LabName:
     Type: String
-    Default: pdpl-ready-lab
+    Default: sijill-lab
     AllowedPattern: "[a-z0-9-]{3,40}"
 
 Resources:
@@ -25,7 +25,7 @@ Resources:
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
       Tags:
-        - { Key: purpose, Value: pdpl-ready-test-lab }
+        - { Key: purpose, Value: sijill-test-lab }
 
   # Finds: ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_22 (FAIL).
   # Attached to no instance, so nothing is actually exposed.
@@ -33,11 +33,11 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: !Sub "${LabName}-open-ssh"
-      GroupDescription: PDPL-Ready lab - SSH open to the world, attached to nothing
+      GroupDescription: Sijill lab - SSH open to the world, attached to nothing
       SecurityGroupIngress:
         - { IpProtocol: tcp, FromPort: 22, ToPort: 22, CidrIp: 0.0.0.0/0, Description: deliberately too open }
       Tags:
-        - { Key: purpose, Value: pdpl-ready-test-lab }
+        - { Key: purpose, Value: sijill-test-lab }
 
   # Finds: cloudwatch_log_group_retention_policy_specific_days_enabled,
   # cloudwatch_log_group_kms_encryption_enabled (FAIL). Empty log group, no cost.
@@ -59,7 +59,7 @@ Resources:
       Encrypted: false
       Tags:
         - { Key: Name, Value: !Sub "${LabName}-unencrypted" }
-        - { Key: purpose, Value: pdpl-ready-test-lab }
+        - { Key: purpose, Value: sijill-test-lab }
 
 Outputs:
   Bucket:

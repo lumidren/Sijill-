@@ -1,4 +1,4 @@
-# PDPL-Ready container image. Written as a deliverable; built in CI only.
+# Sijill container image. Written as a deliverable; built in CI only.
 # Stage 1: build the web interface
 FROM node:24-alpine AS web
 WORKDIR /src/frontend

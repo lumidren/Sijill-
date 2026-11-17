@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
-# PDPL-Ready AWS lab: create the test stack, scan it with Prowler, import the result, tear it down.
+# Sijill AWS lab: create the test stack, scan it with Prowler, import the result, tear it down.
 #
 # Run this yourself, against an AWS account you own. It never asks for or stores credentials:
 # it uses whatever the AWS CLI and Prowler already pick up (AWS_PROFILE, SSO, environment).
 # For the scan, a role with the AWS-managed SecurityAudit and ViewOnlyAccess policies is enough.
 #
 #   ./lab.sh up        create the deliberately misconfigured stack (needs CloudFormation rights)
-#   ./lab.sh scan      run Prowler on the checks PDPL-Ready maps, write JSON-OCSF to ./out
-#   ./lab.sh import    load the newest scan into PDPL-Ready (run from the repo, server stopped or not)
+#   ./lab.sh scan      run Prowler on the checks Sijill maps, write JSON-OCSF to ./out
+#   ./lab.sh import    load the newest scan into Sijill (run from the repo, server stopped or not)
 #   ./lab.sh down      delete the stack
 #
-# Environment: AWS_PROFILE / AWS_REGION as usual; LAB_NAME (default pdpl-ready-lab);
+# Environment: AWS_PROFILE / AWS_REGION as usual; LAB_NAME (default sijill-lab);
 # PDPL_ORG (organisation id to import into; default: the collector organisation).
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
-LAB_NAME="${LAB_NAME:-pdpl-ready-lab}"
+LAB_NAME="${LAB_NAME:-sijill-lab}"
 STACK="$LAB_NAME"
 OUT="$HERE/out"
 REGION="${AWS_REGION:-$(aws configure get region 2>/dev/null || echo eu-central-1)}"
@@ -37,7 +37,7 @@ case "${1:-}" in
     whoami_aws
     aws cloudformation deploy --region "$REGION" --stack-name "$STACK" \
       --template-file "$HERE/lab-stack.yaml" --parameter-overrides "LabName=$LAB_NAME" \
-      --tags purpose=pdpl-ready-test-lab
+      --tags purpose=sijill-test-lab
     aws cloudformation describe-stacks --region "$REGION" --stack-name "$STACK" --query "Stacks[0].Outputs" --output table
     ;;
   scan)

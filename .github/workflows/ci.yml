@@ -85,4 +85,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build image (not pushed)
-        run: docker build -t pdpl-ready:ci .
+        run: docker build -t sijill:ci .

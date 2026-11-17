@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  One command to run PDPL-Ready: installs dependencies, builds the UI, migrates the
+  One command to run Sijill: installs dependencies, builds the UI, migrates the
   database, seeds the demo clinic (first run only) and serves the app.
 
 .EXAMPLE
@@ -86,5 +86,5 @@ try {
 } finally { Pop-Location }
 
 # 5. Serve
-Step "PDPL-Ready is starting on http://${BindHost}:$Port  (Ctrl+C to stop)"
+Step "Sijill is starting on http://${BindHost}:$Port  (Ctrl+C to stop)"
 & $venvPy -m uvicorn app.main:app --app-dir backend --host $BindHost --port $Port
