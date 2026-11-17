@@ -20,7 +20,8 @@ jobs:
       - run: pip install -r backend/requirements-dev.txt
       - name: Tests (SQLite)
         working-directory: backend
-        run: python -m pytest
+        # Failures also become annotations, which the public checks API shows without signing in.
+        run: python -m pytest --junitxml=report.xml || { python ../scripts/ci_annotate.py report.xml; exit 1; }
 
   backend-postgres:
     runs-on: ubuntu-latest
@@ -45,7 +46,8 @@ jobs:
       - run: pip install -r backend/requirements-dev.txt "psycopg[binary]"
       - name: Tests (Postgres)
         working-directory: backend
-        run: python -m pytest
+        # Failures also become annotations, which the public checks API shows without signing in.
+        run: python -m pytest --junitxml=report.xml || { python ../scripts/ci_annotate.py report.xml; exit 1; }
 
   prowler-mapping:
     # Installs the real Prowler on Linux and checks every mapped check ID against it.

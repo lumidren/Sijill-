@@ -28,3 +28,4 @@ Thumbs.db
 .vp/
 .fresh-clone/
 scripts/aws-lab/out/
+backend/report.xml
