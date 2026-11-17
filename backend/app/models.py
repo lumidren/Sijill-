@@ -209,3 +209,52 @@ class Reminder(Base):
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
     dismissed_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
     dismissed_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+INCIDENT_STATUSES = ("open", "contained", "notified", "closed")
+
+
+class Incident(Base):
+    """A personal data breach (or suspected breach) and its notification clocks."""
+
+    __tablename__ = "incidents"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    description: Mapped[str] = mapped_column(Text, default="")
+    status: Mapped[str] = mapped_column(String(16), default="open")
+    severity: Mapped[str] = mapped_column(String(16), default="medium")
+    discovered_at: Mapped[datetime] = mapped_column(UTCDateTime, index=True)
+    occurred_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    data_categories: Mapped[list] = mapped_column(JSON, default=list)
+    affected_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    systems: Mapped[list] = mapped_column(JSON, default=list)
+    likely_consequences: Mapped[str] = mapped_column(Text, default="")
+    measures_taken: Mapped[str] = mapped_column(Text, default="")
+    contact: Mapped[str] = mapped_column(String(255), default="")
+    individuals_notice_needed: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+    regulator_notified_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    individuals_notified_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    source: Mapped[dict] = mapped_column(JSON, default=dict)  # e.g. {"run_id": 16, "check_id": "..."}
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    created_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+    events: Mapped[list["IncidentEvent"]] = relationship(
+        back_populates="incident", cascade="all, delete-orphan", order_by="IncidentEvent.at", lazy="selectin"
+    )
+
+
+class IncidentEvent(Base):
+    """Timeline entry: what happened and who recorded it."""
+
+    __tablename__ = "incident_events"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    incident_id: Mapped[int] = mapped_column(ForeignKey("incidents.id", ondelete="CASCADE"), index=True)
+    at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    kind: Mapped[str] = mapped_column(String(32))  # created | status | note | notified_regulator | notified_individuals | edited
+    text: Mapped[str] = mapped_column(Text, default="")
+    actor_name: Mapped[str] = mapped_column(String(128), default="")
+
+    incident: Mapped[Incident] = relationship(back_populates="events")
