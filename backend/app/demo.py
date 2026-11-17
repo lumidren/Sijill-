@@ -50,6 +50,12 @@ def seed_demo(reset: bool = False, only_if_empty: bool = False) -> str:
                      actor_name="seed")
         extra = _seed_extras(db, users)
         db.commit()
+        if extra:
+            from .demo_clients import seed_clients
+            from .models import Organisation
+
+            db.get(Organisation, 1).name = "Nour Family Clinic"
+            extra += "; " + seed_clients(db, users)
     return "demo seeded" + (f": {extra}" if extra else "")
 
 
