@@ -1,10 +1,10 @@
 const en = {
   app: {
-    name: "PDPL-Ready",
+    name: "Sijill",
     tagline: "Readiness tracking for Egypt's Personal Data Protection Law",
     audience: "For compliance consultants and DPOs serving small organizations, and the IT teams who back them up.",
     disclaimer:
-      "PDPL-Ready helps you organise evidence and track readiness. It is not legal advice and does not determine legal compliance.",
+      "Sijill helps you organise evidence and track readiness. It is not legal advice and does not determine legal compliance.",
     skip: "Skip to main content",
     loading: "Loading…",
     language: "Language",
@@ -202,7 +202,7 @@ const en = {
     subtitle:
       "Technical evidence from Prowler (AWS) and the Linux host collector. Every result is stored with a timestamp and SHA-256 hash.",
     import: "Import findings",
-    importHint: "Prowler JSON-OCSF output (.ocsf.json) or the PDPL-Ready Linux collector output.",
+    importHint: "Prowler JSON-OCSF output (.ocsf.json) or the Sijill Linux collector output.",
     chooseFile: "Choose file",
     importing: "Importing…",
     imported: "Imported {{total}} findings ({{failed}} failing).",
@@ -302,7 +302,7 @@ const en = {
     arDesc: "Every check result and answer behind the score, with SHA-256 hashes.",
     poamDesc: "Every open gap as a plan-of-action item.",
     importTitle: "Import OSCAL assessment results",
-    importDesc: "Restore automated check results exported from another PDPL-Ready install (for example a consultant's laptop).",
+    importDesc: "Restore automated check results exported from another Sijill install (for example a consultant's laptop).",
     importDone: "Imported {{runs}} run(s) with {{results}} results.",
     open: "Open",
     notice: "Every report repeats the not-legal-advice notice and lists how many requirements are still unverified drafts.",

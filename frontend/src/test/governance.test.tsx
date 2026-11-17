@@ -61,7 +61,7 @@ describe("two-step sign-in", () => {
   it("turns two-step sign-in on from the account page", async () => {
     const calls = mockFetch({
       "/api/auth/me": ME("it"),
-      "POST /api/auth/mfa/setup": { secret: "JBSWY3DPEHPK3PXP", otpauth_uri: "otpauth://totp/PDPL-Ready:it?secret=JBSWY3DPEHPK3PXP" },
+      "POST /api/auth/mfa/setup": { secret: "JBSWY3DPEHPK3PXP", otpauth_uri: "otpauth://totp/Sijill:it?secret=JBSWY3DPEHPK3PXP" },
       "POST /api/auth/mfa/enable": { ...ME("it"), mfa_enabled: true },
     });
     renderPage(<Account />);

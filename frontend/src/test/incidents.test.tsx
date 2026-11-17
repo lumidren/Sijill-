@@ -80,7 +80,7 @@ describe("breach clocks", () => {
     mockFetch({
       "/api/auth/me": ME("dpo", ["read", "incidents.write"]),
       "/api/incidents/7": incident(80),
-      "/api/incidents/7/notice": { subject: "Personal data breach notification: Clinic (INC-0007)", body: "6. What happened: Stolen from a car.\n8. Number of people affected (estimate): 50", note: "Template drafted by PDPL-Ready", missing_fields: 3 },
+      "/api/incidents/7/notice": { subject: "Personal data breach notification: Clinic (INC-0007)", body: "6. What happened: Stolen from a car.\n8. Number of people affected (estimate): 50", note: "Template drafted by Sijill", missing_fields: 3 },
     });
     render(
       <AuthProvider>
