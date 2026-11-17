@@ -191,3 +191,21 @@ def test_demo_has_three_clients(app_client):
     assert delta["counts"]["by_basis"].get("automated", 0) == 0 and delta["counts"]["by_basis"]["attested"] > 40
     assert delta["tasks_overdue"] == 1 and delta["vendors_without_dpa"] == 1
     assert sphinx["counts"]["by_status"]["not_assessed"] > 40
+
+
+def test_cli_imports_into_a_chosen_organisation(db, capsys):
+    from app import cli
+
+    db.add(Organisation(id=2, name="Two"))
+    db.commit()
+    assert cli.main(["import-findings", str(WEEK1), "--org", "2"]) == 0
+    assert "into Two" in capsys.readouterr().out
+    assert cli.main(["import-findings", str(WEEK1), "--org", "9"]) == 2
+    from app.models import CheckRun
+
+    with org_session(1) as s:
+        assert s.execute(select(CheckRun)).scalars().all() == []
+    with org_session(2) as s:
+        assert len(s.execute(select(CheckRun)).scalars().all()) == 1
+    assert cli.main(["orgs"]) == 0
+    assert "Two" in capsys.readouterr().out

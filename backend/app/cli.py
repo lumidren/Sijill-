@@ -3,7 +3,9 @@
   migrate                 apply database migrations
   create-admin USER NAME  create an Admin (password read from PDPL_ADMIN_PASSWORD or prompted)
   seed-demo [--reset]     load the fictional demo clinic
-  import-findings FILE    import a Prowler JSON-OCSF / collector findings file
+  import-findings FILE [--org ID]
+                          import a Prowler JSON-OCSF / collector findings file
+  orgs                    list organisations and their ids
   collect                 run one scheduled collection now
 """
 from __future__ import annotations
@@ -26,11 +28,13 @@ def main(argv: list[str] | None = None) -> int:
     sd.add_argument("--if-empty", action="store_true", help="only seed when no users exist")
     imp = sub.add_parser("import-findings")
     imp.add_argument("file")
+    imp.add_argument("--org", type=int, default=None, help="organisation id (default: PDPL_COLLECT_ORG_ID)")
+    sub.add_parser("orgs")
     sub.add_parser("collect")
     args = p.parse_args(argv)
 
     from . import migrate
-    from .db import init_engine, session_factory
+    from .db import init_engine, org_session, session_factory
 
     if args.cmd == "migrate":
         migrate.upgrade()
@@ -68,11 +72,30 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "import-findings":
         from .evidence.service import import_findings_file
 
-        with session_factory()() as db, open(args.file, "rb") as fh:
+        from .config import get_settings
+        from .models import Organisation
+
+        org_id = args.org or get_settings().collect_org_id
+        with session_factory()() as db:
+            org = db.get(Organisation, org_id)
+        if org is None or org.archived:
+            print(f"no active organisation with id {org_id} (see: orgs)", file=sys.stderr)
+            return 2
+        with org_session(org_id) as db, open(args.file, "rb") as fh:
             run = import_findings_file(db, fh.read(), os.path.basename(args.file), actor=None,
                                        source="prowler-import")
             db.commit()
-            print(f"imported run {run.id}: {run.total} findings ({run.failed} failing)")
+            print(f"imported run {run.id} into {org.name}: {run.total} findings ({run.failed} failing)")
+        return 0
+
+    if args.cmd == "orgs":
+        from sqlalchemy import select
+
+        from .models import Organisation
+
+        with session_factory()() as db:
+            for o in db.execute(select(Organisation).order_by(Organisation.id)).scalars():
+                print(f"{o.id:>4}  {o.name}{'  (archived)' if o.archived else ''}")
         return 0
 
     if args.cmd == "collect":
