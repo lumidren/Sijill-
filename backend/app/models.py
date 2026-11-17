@@ -2,14 +2,25 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from sqlalchemy import JSON, Boolean, Float, ForeignKey, Integer, String, Text, UniqueConstraint
+from sqlalchemy import JSON, Boolean, Float, ForeignKey, Index, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .db import Base, UTCDateTime, utcnow
+from .db import Base, OrgScoped, UTCDateTime, utcnow
 
 ROLES = ("admin", "dpo", "it", "auditor")
 ANSWER_STATUSES = ("compliant", "partial", "non_compliant", "not_applicable", "not_assessed")
 CHECK_STATUSES = ("PASS", "FAIL", "MANUAL")
+
+
+class Organisation(Base):
+    """A client organisation. All assessment and governance data belongs to exactly one."""
+
+    __tablename__ = "organisations"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(255))
+    archived: Mapped[bool] = mapped_column(Boolean, default=False)
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
 
 
 class User(Base):
@@ -28,6 +39,8 @@ class User(Base):
     totp_secret: Mapped[str | None] = mapped_column(String(255), nullable=True)
     totp_enabled: Mapped[bool] = mapped_column(Boolean, default=False)
     totp_last_counter: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    # Organisations this user may open; None means all of them. Admins always see all.
+    org_ids: Mapped[list | None] = mapped_column(JSON, nullable=True)
 
 
 class AuditLog(Base):
@@ -49,22 +62,25 @@ class AuditLog(Base):
     detail: Mapped[dict] = mapped_column(JSON, default=dict)
     prev_hash: Mapped[str] = mapped_column(String(64))
     hash: Mapped[str] = mapped_column(String(64))
+    # Which organisation the event belongs to; None for install-wide events (users, organisations).
+    org_id: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
 
 
-class Answer(Base):
+class Answer(OrgScoped, Base):
     """Self-attested status for one catalog requirement."""
 
     __tablename__ = "answers"
+    __table_args__ = (Index("uq_answers_org_requirement", "org_id", "requirement_id", unique=True),)
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    requirement_id: Mapped[str] = mapped_column(String(32), unique=True, index=True)
+    requirement_id: Mapped[str] = mapped_column(String(32), index=True)
     status: Mapped[str] = mapped_column(String(16), default="not_assessed")
     note: Mapped[str] = mapped_column(Text, default="")
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
 
 
-class EvidenceFile(Base):
+class EvidenceFile(OrgScoped, Base):
     __tablename__ = "evidence_files"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -79,7 +95,7 @@ class EvidenceFile(Base):
     uploaded_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
 
 
-class CheckRun(Base):
+class CheckRun(OrgScoped, Base):
     """One batch of automated findings (a Prowler scan, a Linux collector run, an import)."""
 
     __tablename__ = "check_runs"
@@ -106,7 +122,7 @@ class CheckRun(Base):
     )
 
 
-class CheckResult(Base):
+class CheckResult(OrgScoped, Base):
     __tablename__ = "check_results"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -124,7 +140,7 @@ class CheckResult(Base):
     run: Mapped[CheckRun] = relationship(back_populates="results")
 
 
-class ScoreSnapshot(Base):
+class ScoreSnapshot(OrgScoped, Base):
     __tablename__ = "score_snapshots"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -136,16 +152,16 @@ class ScoreSnapshot(Base):
     run_id: Mapped[int | None] = mapped_column(ForeignKey("check_runs.id", ondelete="SET NULL"), nullable=True)
 
 
-class AppSetting(Base):
+class AppSetting(OrgScoped, Base):
     __tablename__ = "app_settings"
-    __table_args__ = (UniqueConstraint("key"),)
+    __table_args__ = (UniqueConstraint("org_id", "key", name="uq_app_settings_org_key"),)
 
     id: Mapped[int] = mapped_column(primary_key=True)
     key: Mapped[str] = mapped_column(String(64))
     value: Mapped[dict] = mapped_column(JSON, default=dict)
 
 
-class ProcessingActivity(Base):
+class ProcessingActivity(OrgScoped, Base):
     """One entry in the records of processing (controller or processor register)."""
 
     __tablename__ = "processing_activities"
@@ -178,7 +194,7 @@ OBLIGATION_KINDS = ("licence", "permit", "dpo_registration", "consent_mechanism"
 OBLIGATION_STATUSES = ("planned", "applied", "active", "expired", "not_needed")
 
 
-class Obligation(Base):
+class Obligation(OrgScoped, Base):
     """A licence, permit, registration or recurring duty the organisation tracks."""
 
     __tablename__ = "obligations"
@@ -200,7 +216,7 @@ class Obligation(Base):
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
-class Reminder(Base):
+class Reminder(OrgScoped, Base):
     """In-app reminder generated by the scheduler for an upcoming or missed date."""
 
     __tablename__ = "reminders"
@@ -218,7 +234,7 @@ class Reminder(Base):
 INCIDENT_STATUSES = ("open", "contained", "notified", "closed")
 
 
-class Incident(Base):
+class Incident(OrgScoped, Base):
     """A personal data breach (or suspected breach) and its notification clocks."""
 
     __tablename__ = "incidents"
@@ -249,7 +265,7 @@ class Incident(Base):
     )
 
 
-class IncidentEvent(Base):
+class IncidentEvent(OrgScoped, Base):
     """Timeline entry: what happened and who recorded it."""
 
     __tablename__ = "incident_events"
@@ -266,7 +282,7 @@ class IncidentEvent(Base):
 
 # --------------------------------------------------------------------------- governance modules
 
-class Task(Base):
+class Task(OrgScoped, Base):
     """A remediation task: who fixes which gap, by when."""
 
     __tablename__ = "tasks"
@@ -288,7 +304,7 @@ class Task(Base):
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
-class Risk(Base):
+class Risk(OrgScoped, Base):
     """Privacy risk register entry, scored likelihood x impact on 1-5 scales."""
 
     __tablename__ = "risks"
@@ -316,7 +332,7 @@ class Risk(Base):
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
-class DataRequest(Base):
+class DataRequest(OrgScoped, Base):
     """A request from an individual about their personal data (access, correction, deletion, and so on)."""
 
     __tablename__ = "data_requests"
@@ -337,7 +353,7 @@ class DataRequest(Base):
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
-class Vendor(Base):
+class Vendor(OrgScoped, Base):
     """A processor, sub-processor or other recipient of personal data."""
 
     __tablename__ = "vendors"
@@ -361,7 +377,7 @@ class Vendor(Base):
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
-class Dpia(Base):
+class Dpia(OrgScoped, Base):
     """Data protection impact assessment for one processing activity."""
 
     __tablename__ = "dpias"
@@ -386,7 +402,7 @@ class Dpia(Base):
     updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
 
-class Policy(Base):
+class Policy(OrgScoped, Base):
     """A versioned policy or procedure document."""
 
     __tablename__ = "policies"

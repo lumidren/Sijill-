@@ -3,9 +3,10 @@ from __future__ import annotations
 from collections.abc import Iterator
 from datetime import datetime, timezone
 
-from sqlalchemy import DateTime, create_engine, event
+from fastapi import Request
+from sqlalchemy import DateTime, Integer, create_engine, event
 from sqlalchemy.engine import Engine
-from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker, with_loader_criteria
 from sqlalchemy.types import TypeDecorator
 
 from .config import get_settings
@@ -57,6 +58,41 @@ class Base(DeclarativeBase):
     pass
 
 
+# --- Organisations (multi-tenancy) -------------------------------------------------------------
+# One install can hold several client organisations. Every table that holds an organisation's
+# data mixes in OrgScoped. A session carries the organisation it works for in
+# session.info["org_id"]; ORM reads, updates and deletes are then filtered to that organisation
+# automatically, and new rows are stamped with it. Users and the audit log are install-wide.
+# See docs/DECISIONS.md #34.
+
+DEFAULT_ORG_ID = 1
+ORG_COOKIE = "pdpl_org"
+
+
+class OrgScoped:
+    org_id: Mapped[int] = mapped_column(Integer, index=True)
+
+
+@event.listens_for(Session, "do_orm_execute")
+def _org_filter(state) -> None:
+    # A session that names no organisation works on the default one, never on all of them.
+    org = state.session.info.get("org_id") or DEFAULT_ORG_ID
+    if state.execution_options.get("all_orgs"):
+        return
+    if state.is_select or state.is_update or state.is_delete:
+        state.statement = state.statement.options(
+            with_loader_criteria(OrgScoped, lambda cls: cls.org_id == org, include_aliases=True)
+        )
+
+
+@event.listens_for(Session, "before_flush")
+def _org_stamp(session: Session, _ctx, _instances) -> None:
+    org = session.info.get("org_id") or DEFAULT_ORG_ID
+    for obj in session.new:
+        if isinstance(obj, OrgScoped) and obj.org_id is None:
+            obj.org_id = org
+
+
 _engine: Engine | None = None
 _SessionLocal: sessionmaker[Session] | None = None
 
@@ -103,8 +139,19 @@ def session_factory() -> sessionmaker[Session]:
     return _SessionLocal
 
 
-def get_db() -> Iterator[Session]:
+def org_session(org_id: int) -> Session:
+    """A session that only sees (and writes to) one organisation. Caller closes it."""
     db = session_factory()()
+    db.info["org_id"] = org_id
+    return db
+
+
+def get_db(request: Request) -> Iterator[Session]:
+    # The organisation the cookie asks for; security.current_user checks the user may see it (and
+    # falls back to one they may) before any endpoint reads data.
+    raw = request.cookies.get(ORG_COOKIE, "")
+    db = session_factory()()
+    db.info["org_id"] = int(raw) if raw.isdigit() else DEFAULT_ORG_ID
     try:
         yield db
     finally:
