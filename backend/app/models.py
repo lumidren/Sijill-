@@ -24,6 +24,10 @@ class User(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
     last_login_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    # Two-factor sign-in (TOTP, RFC 6238). The secret is stored encrypted (see app/totp.py).
+    totp_secret: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    totp_enabled: Mapped[bool] = mapped_column(Boolean, default=False)
+    totp_last_counter: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
 
 class AuditLog(Base):
@@ -258,3 +262,147 @@ class IncidentEvent(Base):
     actor_name: Mapped[str] = mapped_column(String(128), default="")
 
     incident: Mapped[Incident] = relationship(back_populates="events")
+
+
+# --------------------------------------------------------------------------- governance modules
+
+class Task(Base):
+    """A remediation task: who fixes which gap, by when."""
+
+    __tablename__ = "tasks"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    description: Mapped[str] = mapped_column(Text, default="")
+    requirement_id: Mapped[str | None] = mapped_column(String(32), nullable=True, index=True)
+    source: Mapped[str] = mapped_column(String(16), default="manual")  # gap | risk | incident | dpia | vendor | manual
+    source_id: Mapped[str] = mapped_column(String(64), default="")
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    priority: Mapped[str] = mapped_column(String(8), default="medium")  # low | medium | high
+    status: Mapped[str] = mapped_column(String(16), default="todo")  # todo | in_progress | blocked | done
+    due_on: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    completed_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    notes: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+class Risk(Base):
+    """Privacy risk register entry, scored likelihood x impact on 1-5 scales."""
+
+    __tablename__ = "risks"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    description: Mapped[str] = mapped_column(Text, default="")
+    category: Mapped[str] = mapped_column(String(64), default="")
+    likelihood: Mapped[int] = mapped_column(Integer, default=3)
+    impact: Mapped[int] = mapped_column(Integer, default=3)
+    residual_likelihood: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    residual_impact: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    treatment: Mapped[str] = mapped_column(String(16), default="mitigate")  # mitigate | accept | transfer | avoid
+    status: Mapped[str] = mapped_column(String(16), default="open")  # open | treating | accepted | closed
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    requirement_ids: Mapped[list] = mapped_column(JSON, default=list)
+    controls: Mapped[str] = mapped_column(Text, default="")
+    review_due: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    accepted_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    accepted_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    acceptance_expires_on: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    acceptance_note: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+class DataRequest(Base):
+    """A request from an individual about their personal data (access, correction, deletion, and so on)."""
+
+    __tablename__ = "data_requests"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    request_type: Mapped[str] = mapped_column(String(24))
+    requester: Mapped[str] = mapped_column(String(128))
+    channel: Mapped[str] = mapped_column(String(64), default="")
+    received_at: Mapped[datetime] = mapped_column(UTCDateTime, index=True)
+    identity_verified: Mapped[bool] = mapped_column(Boolean, default=False)
+    status: Mapped[str] = mapped_column(String(16), default="received")  # received | in_progress | completed | refused
+    details: Mapped[str] = mapped_column(Text, default="")
+    outcome: Mapped[str] = mapped_column(Text, default="")
+    completed_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+class Vendor(Base):
+    """A processor, sub-processor or other recipient of personal data."""
+
+    __tablename__ = "vendors"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(255))
+    service: Mapped[str] = mapped_column(String(255), default="")
+    role: Mapped[str] = mapped_column(String(16), default="processor")  # processor | sub_processor | recipient
+    data_categories: Mapped[list] = mapped_column(JSON, default=list)
+    countries: Mapped[list] = mapped_column(JSON, default=list)
+    dpa_signed: Mapped[bool] = mapped_column(Boolean, default=False)
+    dpa_signed_on: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    due_diligence_on: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    next_review_on: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    risk_level: Mapped[str] = mapped_column(String(8), default="medium")
+    security_notes: Mapped[str] = mapped_column(Text, default="")
+    status: Mapped[str] = mapped_column(String(16), default="active")  # active | offboarded
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+class Dpia(Base):
+    """Data protection impact assessment for one processing activity."""
+
+    __tablename__ = "dpias"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    activity_id: Mapped[int | None] = mapped_column(ForeignKey("processing_activities.id", ondelete="SET NULL"), nullable=True)
+    screening: Mapped[dict] = mapped_column(JSON, default=dict)
+    description: Mapped[str] = mapped_column(Text, default="")
+    necessity: Mapped[str] = mapped_column(Text, default="")
+    risks: Mapped[str] = mapped_column(Text, default="")
+    measures: Mapped[str] = mapped_column(Text, default="")
+    residual_risk: Mapped[str] = mapped_column(String(8), default="")  # low | medium | high
+    dpo_opinion: Mapped[str] = mapped_column(Text, default="")
+    status: Mapped[str] = mapped_column(String(16), default="draft")  # draft | in_review | approved | rejected
+    approved_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    approved_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    review_due: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+
+
+class Policy(Base):
+    """A versioned policy or procedure document."""
+
+    __tablename__ = "policies"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    version: Mapped[str] = mapped_column(String(32), default="0.1")
+    status: Mapped[str] = mapped_column(String(16), default="draft")  # draft | approved | retired
+    owner: Mapped[str] = mapped_column(String(128), default="")
+    summary: Mapped[str] = mapped_column(Text, default="")
+    requirement_ids: Mapped[list] = mapped_column(JSON, default=list)
+    evidence_file_id: Mapped[int | None] = mapped_column(ForeignKey("evidence_files.id", ondelete="SET NULL"), nullable=True)
+    approved_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    approved_on: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    review_due: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    history: Mapped[list] = mapped_column(JSON, default=list)  # [{version, status, at, by}]
+    created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    updated_by_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
