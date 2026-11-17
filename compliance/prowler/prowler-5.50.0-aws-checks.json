@@ -1,0 +1,4075 @@
+{
+ "source": "prowler 5.50.0 (PyPI wheel), prowler/providers/aws/services/*/*/*.metadata.json",
+ "license": "Prowler is licensed under Apache-2.0; check metadata reproduced for verification.",
+ "prowler_version": "5.50.0",
+ "checks": [
+  {
+   "CheckID": "accessanalyzer_enabled",
+   "Service": "accessanalyzer",
+   "Severity": "low",
+   "Title": "IAM Access Analyzer is enabled"
+  },
+  {
+   "CheckID": "accessanalyzer_enabled_without_findings",
+   "Service": "accessanalyzer",
+   "Severity": "low",
+   "Title": "IAM Access Analyzer analyzer is active and has no active findings"
+  },
+  {
+   "CheckID": "account_maintain_current_contact_details",
+   "Service": "account",
+   "Severity": "medium",
+   "Title": "AWS account contact information is current"
+  },
+  {
+   "CheckID": "account_maintain_different_contact_details_to_security_billing_and_operations",
+   "Service": "account",
+   "Severity": "medium",
+   "Title": "AWS account has distinct Security, Billing, and Operations contact details, different from each other and from the root contact"
+  },
+  {
+   "CheckID": "account_security_contact_information_is_registered",
+   "Service": "account",
+   "Severity": "medium",
+   "Title": "AWS account has security alternate contact registered"
+  },
+  {
+   "CheckID": "account_security_questions_are_registered_in_the_aws_account",
+   "Service": "account",
+   "Severity": "medium",
+   "Title": "[DEPRECATED] AWS root user has security challenge questions configured"
+  },
+  {
+   "CheckID": "acm_certificates_expiration_check",
+   "Service": "acm",
+   "Severity": "high",
+   "Title": "ACM certificate expires in more than the configured threshold of days"
+  },
+  {
+   "CheckID": "acm_certificates_transparency_logs_enabled",
+   "Service": "acm",
+   "Severity": "medium",
+   "Title": "ACM certificate is imported or has Certificate Transparency logging enabled"
+  },
+  {
+   "CheckID": "acm_certificates_with_secure_key_algorithms",
+   "Service": "acm",
+   "Severity": "high",
+   "Title": "ACM certificate uses a secure key algorithm"
+  },
+  {
+   "CheckID": "acmpca_certificate_authority_pqc_key_algorithm",
+   "Service": "acmpca",
+   "Severity": "low",
+   "Title": "AWS Private CA certificate authorities use a post-quantum (ML-DSA) key algorithm"
+  },
+  {
+   "CheckID": "amplify_app_no_secrets_in_environment",
+   "Service": "amplify",
+   "Severity": "high",
+   "Title": "Amplify app has no sensitive credentials in environment variables or build settings"
+  },
+  {
+   "CheckID": "apigateway_domain_name_pqc_tls_enabled",
+   "Service": "apigateway",
+   "Severity": "low",
+   "Title": "API Gateway custom domain names use a post-quantum TLS security policy"
+  },
+  {
+   "CheckID": "apigateway_restapi_authorizers_enabled",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway REST API has an authorizer at API level or all methods are authorized"
+  },
+  {
+   "CheckID": "apigateway_restapi_cache_encrypted",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway REST API stage cache data is encrypted at rest"
+  },
+  {
+   "CheckID": "apigateway_restapi_client_certificate_enabled",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway REST API stage has client certificate enabled"
+  },
+  {
+   "CheckID": "apigateway_restapi_logging_enabled",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway REST API stage has logging enabled"
+  },
+  {
+   "CheckID": "apigateway_restapi_no_secrets_in_stage_variables",
+   "Service": "apigateway",
+   "Severity": "high",
+   "Title": "API Gateway REST API stage variables should not contain secrets"
+  },
+  {
+   "CheckID": "apigateway_restapi_public",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway REST API endpoint is private"
+  },
+  {
+   "CheckID": "apigateway_restapi_public_with_authorizer",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway REST API with a public endpoint has an authorizer configured"
+  },
+  {
+   "CheckID": "apigateway_restapi_tracing_enabled",
+   "Service": "apigateway",
+   "Severity": "low",
+   "Title": "API Gateway REST API stage has X-Ray tracing enabled"
+  },
+  {
+   "CheckID": "apigateway_restapi_waf_acl_attached",
+   "Service": "apigateway",
+   "Severity": "medium",
+   "Title": "API Gateway stage has a WAF Web ACL attached"
+  },
+  {
+   "CheckID": "apigatewayv2_api_access_logging_enabled",
+   "Service": "apigatewayv2",
+   "Severity": "medium",
+   "Title": "API Gateway V2 API stage has access logging enabled"
+  },
+  {
+   "CheckID": "apigatewayv2_api_authorizers_enabled",
+   "Service": "apigatewayv2",
+   "Severity": "medium",
+   "Title": "API Gateway V2 API has an authorizer configured"
+  },
+  {
+   "CheckID": "appstream_fleet_default_internet_access_disabled",
+   "Service": "appstream",
+   "Severity": "medium",
+   "Title": "AppStream fleet has default internet access disabled"
+  },
+  {
+   "CheckID": "appstream_fleet_maximum_session_duration",
+   "Service": "appstream",
+   "Severity": "medium",
+   "Title": "AppStream fleet maximum user session duration is less than 10 hours"
+  },
+  {
+   "CheckID": "appstream_fleet_session_disconnect_timeout",
+   "Service": "appstream",
+   "Severity": "medium",
+   "Title": "AppStream fleet session disconnect timeout is 5 minutes or less"
+  },
+  {
+   "CheckID": "appstream_fleet_session_idle_disconnect_timeout",
+   "Service": "appstream",
+   "Severity": "medium",
+   "Title": "AppStream fleet session idle disconnect timeout is 10 minutes or less"
+  },
+  {
+   "CheckID": "appsync_field_level_logging_enabled",
+   "Service": "appsync",
+   "Severity": "medium",
+   "Title": "AWS AppSync API has field-level logging set to ALL or ERROR"
+  },
+  {
+   "CheckID": "appsync_graphql_api_no_api_key_authentication",
+   "Service": "appsync",
+   "Severity": "high",
+   "Title": "AWS AppSync GraphQL API does not use API key authentication"
+  },
+  {
+   "CheckID": "athena_workgroup_encryption",
+   "Service": "athena",
+   "Severity": "medium",
+   "Title": "Athena workgroup encrypts query results in S3 with server-side encryption"
+  },
+  {
+   "CheckID": "athena_workgroup_enforce_configuration",
+   "Service": "athena",
+   "Severity": "medium",
+   "Title": "Athena workgroup enforces workgroup configuration and cannot be overridden by client-side settings"
+  },
+  {
+   "CheckID": "athena_workgroup_logging_enabled",
+   "Service": "athena",
+   "Severity": "medium",
+   "Title": "Amazon Athena workgroup has CloudWatch logging enabled"
+  },
+  {
+   "CheckID": "autoscaling_find_secrets_ec2_launch_configuration",
+   "Service": "autoscaling",
+   "Severity": "critical",
+   "Title": "[DEPRECATED] EC2 Auto Scaling launch configuration user data contains no secrets"
+  },
+  {
+   "CheckID": "autoscaling_group_capacity_rebalance_enabled",
+   "Service": "autoscaling",
+   "Severity": "medium",
+   "Title": "Amazon EC2 Auto Scaling group has Capacity Rebalancing enabled"
+  },
+  {
+   "CheckID": "autoscaling_group_elb_health_check_enabled",
+   "Service": "autoscaling",
+   "Severity": "low",
+   "Title": "Auto Scaling group associated with a load balancer has ELB health checks enabled"
+  },
+  {
+   "CheckID": "autoscaling_group_launch_configuration_no_public_ip",
+   "Service": "autoscaling",
+   "Severity": "high",
+   "Title": "Auto Scaling group associated launch configuration does not assign a public IP address"
+  },
+  {
+   "CheckID": "autoscaling_group_launch_configuration_requires_imdsv2",
+   "Service": "autoscaling",
+   "Severity": "high",
+   "Title": "Auto Scaling group enforces IMDSv2 or disables the instance metadata service"
+  },
+  {
+   "CheckID": "autoscaling_group_multiple_az",
+   "Service": "autoscaling",
+   "Severity": "medium",
+   "Title": "Auto Scaling group uses multiple Availability Zones"
+  },
+  {
+   "CheckID": "autoscaling_group_multiple_instance_types",
+   "Service": "autoscaling",
+   "Severity": "medium",
+   "Title": "Auto Scaling group spans multiple Availability Zones and has multiple instance types per Availability Zone"
+  },
+  {
+   "CheckID": "autoscaling_group_using_ec2_launch_template",
+   "Service": "autoscaling",
+   "Severity": "medium",
+   "Title": "Amazon EC2 Auto Scaling group uses an EC2 launch template"
+  },
+  {
+   "CheckID": "awslambda_function_env_vars_not_encrypted_with_cmk",
+   "Service": "awslambda",
+   "Severity": "medium",
+   "Title": "Lambda function environment variables are encrypted with a customer-managed KMS key"
+  },
+  {
+   "CheckID": "awslambda_function_inside_vpc",
+   "Service": "awslambda",
+   "Severity": "low",
+   "Title": "Lambda function is deployed inside a VPC"
+  },
+  {
+   "CheckID": "awslambda_function_invoke_api_operations_cloudtrail_logging_enabled",
+   "Service": "awslambda",
+   "Severity": "low",
+   "Title": "Lambda function Invoke API calls are recorded by CloudTrail"
+  },
+  {
+   "CheckID": "awslambda_function_no_dead_letter_queue",
+   "Service": "awslambda",
+   "Severity": "medium",
+   "Title": "Lambda function has a Dead Letter Queue configured"
+  },
+  {
+   "CheckID": "awslambda_function_no_secrets_in_code",
+   "Service": "awslambda",
+   "Severity": "critical",
+   "Title": "Lambda function code contains no hardcoded secrets"
+  },
+  {
+   "CheckID": "awslambda_function_no_secrets_in_variables",
+   "Service": "awslambda",
+   "Severity": "critical",
+   "Title": "Lambda function environment variables do not contain secrets"
+  },
+  {
+   "CheckID": "awslambda_function_not_publicly_accessible",
+   "Service": "awslambda",
+   "Severity": "critical",
+   "Title": "Lambda function resource-based policy does not allow public access"
+  },
+  {
+   "CheckID": "awslambda_function_url_cors_policy",
+   "Service": "awslambda",
+   "Severity": "medium",
+   "Title": "Lambda function URL CORS does not allow wildcard origins (*)"
+  },
+  {
+   "CheckID": "awslambda_function_url_public",
+   "Service": "awslambda",
+   "Severity": "high",
+   "Title": "Lambda function URL is not publicly accessible"
+  },
+  {
+   "CheckID": "awslambda_function_using_cross_account_layers",
+   "Service": "awslambda",
+   "Severity": "high",
+   "Title": "Lambda function does not use cross-account layers"
+  },
+  {
+   "CheckID": "awslambda_function_using_supported_runtimes",
+   "Service": "awslambda",
+   "Severity": "medium",
+   "Title": "Lambda function uses a supported runtime"
+  },
+  {
+   "CheckID": "awslambda_function_vpc_multi_az",
+   "Service": "awslambda",
+   "Severity": "medium",
+   "Title": "Lambda function is configured with VPC subnets in at least two Availability Zones"
+  },
+  {
+   "CheckID": "awslambda_layer_no_secrets_in_content",
+   "Service": "awslambda",
+   "Severity": "high",
+   "Title": "Lambda layer content contains no hardcoded secrets"
+  },
+  {
+   "CheckID": "backup_plans_exist",
+   "Service": "backup",
+   "Severity": "low",
+   "Title": "At least one AWS Backup plan exists"
+  },
+  {
+   "CheckID": "backup_recovery_point_encrypted",
+   "Service": "backup",
+   "Severity": "medium",
+   "Title": "AWS Backup recovery point is encrypted at rest"
+  },
+  {
+   "CheckID": "backup_reportplans_exist",
+   "Service": "backup",
+   "Severity": "low",
+   "Title": "At least one AWS Backup report plan exists"
+  },
+  {
+   "CheckID": "backup_vaults_encrypted",
+   "Service": "backup",
+   "Severity": "medium",
+   "Title": "AWS Backup vault is encrypted at rest"
+  },
+  {
+   "CheckID": "backup_vaults_exist",
+   "Service": "backup",
+   "Severity": "low",
+   "Title": "At least one AWS Backup vault exists"
+  },
+  {
+   "CheckID": "batch_job_definition_no_secrets",
+   "Service": "batch",
+   "Severity": "high",
+   "Title": "AWS Batch job definitions have no secrets in environment variables or command parameters"
+  },
+  {
+   "CheckID": "bedrock_agent_guardrail_enabled",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock agent uses a guardrail to protect agent sessions"
+  },
+  {
+   "CheckID": "bedrock_agent_role_least_privilege",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock agent execution role follows least privilege"
+  },
+  {
+   "CheckID": "bedrock_agent_role_not_shared_across_agents",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Bedrock Agent has a dedicated execution role"
+  },
+  {
+   "CheckID": "bedrock_api_key_no_administrative_privileges",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock API key does not have administrative privileges, privilege escalation paths, or full Bedrock service access"
+  },
+  {
+   "CheckID": "bedrock_api_key_no_long_term_credentials",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock long-term API key has expired"
+  },
+  {
+   "CheckID": "bedrock_custom_model_encrypted_with_cmk",
+   "Service": "bedrock",
+   "Severity": "critical",
+   "Title": "Bedrock custom model is encrypted with a customer-managed KMS key"
+  },
+  {
+   "CheckID": "bedrock_full_access_policy_attached",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "IAM role does not have AmazonBedrockFullAccess managed policy attached"
+  },
+  {
+   "CheckID": "bedrock_guardrail_contextual_grounding_filter_enabled",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Bedrock guardrail blocks ungrounded and irrelevant model responses"
+  },
+  {
+   "CheckID": "bedrock_guardrail_iam_condition_enforcement_enabled",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "IAM policy allowing Bedrock model invocation requires a guardrail through the bedrock:GuardrailIdentifier condition key"
+  },
+  {
+   "CheckID": "bedrock_guardrail_prompt_attack_filter_enabled",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock guardrail has prompt attack filter strength set to HIGH"
+  },
+  {
+   "CheckID": "bedrock_guardrail_sensitive_information_filter_enabled",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock guardrail blocks or masks sensitive information"
+  },
+  {
+   "CheckID": "bedrock_guardrail_sensitive_information_filter_enforced",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock guardrail sensitive information filter acts on the output path"
+  },
+  {
+   "CheckID": "bedrock_guardrails_configured",
+   "Service": "bedrock",
+   "Severity": "medium",
+   "Title": "Bedrock has at least one guardrail configured in the audited region"
+  },
+  {
+   "CheckID": "bedrock_knowledge_base_encrypted_with_cmk",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Bedrock knowledge base data source is encrypted with a customer-managed KMS key"
+  },
+  {
+   "CheckID": "bedrock_model_invocation_job_output_encrypted_with_cmk",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Bedrock model invocation job output is encrypted with a customer-managed KMS key"
+  },
+  {
+   "CheckID": "bedrock_model_invocation_logging_enabled",
+   "Service": "bedrock",
+   "Severity": "medium",
+   "Title": "Amazon Bedrock model invocation logging is enabled"
+  },
+  {
+   "CheckID": "bedrock_model_invocation_logging_text_data_enabled",
+   "Service": "bedrock",
+   "Severity": "medium",
+   "Title": "Bedrock model invocation logging delivers prompt and response text."
+  },
+  {
+   "CheckID": "bedrock_model_invocation_logs_encryption_enabled",
+   "Service": "bedrock",
+   "Severity": "high",
+   "Title": "Amazon Bedrock model invocation logs are encrypted in the S3 bucket and KMS-encrypted in the CloudWatch log group"
+  },
+  {
+   "CheckID": "bedrock_prompt_encrypted_with_cmk",
+   "Service": "bedrock",
+   "Severity": "medium",
+   "Title": "Amazon Bedrock prompt is encrypted at rest with a customer-managed KMS key"
+  },
+  {
+   "CheckID": "bedrock_prompt_management_exists",
+   "Service": "bedrock",
+   "Severity": "low",
+   "Title": "Amazon Bedrock Prompt Management prompts exist in the region"
+  },
+  {
+   "CheckID": "bedrock_vpc_endpoints_configured",
+   "Service": "bedrock",
+   "Severity": "medium",
+   "Title": "VPC endpoints ensure private connectivity for all Bedrock APIs"
+  },
+  {
+   "CheckID": "bedrockagentcore_full_access_policy_attached",
+   "Service": "bedrockagentcore",
+   "Severity": "high",
+   "Title": "IAM role does not have the AWS-managed Bedrock AgentCore full access policies attached"
+  },
+  {
+   "CheckID": "bedrockagentcore_payments_process_payment_role_separation",
+   "Service": "bedrockagentcore",
+   "Severity": "high",
+   "Title": "IAM role does not both open and execute Bedrock AgentCore payments"
+  },
+  {
+   "CheckID": "bedrockagentcore_runtime_vpc_configured",
+   "Service": "bedrockagentcore",
+   "Severity": "medium",
+   "Title": "Amazon Bedrock AgentCore runtime uses VPC network mode"
+  },
+  {
+   "CheckID": "cloudformation_stack_cdktoolkit_bootstrap_version",
+   "Service": "cloudformation",
+   "Severity": "high",
+   "Title": "CDKToolkit CloudFormation stack has Bootstrap version 21 or higher"
+  },
+  {
+   "CheckID": "cloudformation_stack_outputs_find_secrets",
+   "Service": "cloudformation",
+   "Severity": "critical",
+   "Title": "CloudFormation stack outputs do not contain secrets"
+  },
+  {
+   "CheckID": "cloudformation_stacks_termination_protection_enabled",
+   "Service": "cloudformation",
+   "Severity": "medium",
+   "Title": "CloudFormation stack has termination protection enabled"
+  },
+  {
+   "CheckID": "cloudfront_distributions_custom_ssl_certificate",
+   "Service": "cloudfront",
+   "Severity": "medium",
+   "Title": "CloudFront distribution uses a custom SSL/TLS certificate"
+  },
+  {
+   "CheckID": "cloudfront_distributions_default_root_object",
+   "Service": "cloudfront",
+   "Severity": "high",
+   "Title": "CloudFront distribution has a default root object configured"
+  },
+  {
+   "CheckID": "cloudfront_distributions_field_level_encryption_enabled",
+   "Service": "cloudfront",
+   "Severity": "low",
+   "Title": "CloudFront distribution has Field Level Encryption enabled"
+  },
+  {
+   "CheckID": "cloudfront_distributions_geo_restrictions_enabled",
+   "Service": "cloudfront",
+   "Severity": "low",
+   "Title": "CloudFront distribution has Geo restrictions enabled"
+  },
+  {
+   "CheckID": "cloudfront_distributions_https_enabled",
+   "Service": "cloudfront",
+   "Severity": "medium",
+   "Title": "CloudFront distribution has viewer protocol policy set to HTTPS only or redirect to HTTPS"
+  },
+  {
+   "CheckID": "cloudfront_distributions_https_sni_enabled",
+   "Service": "cloudfront",
+   "Severity": "low",
+   "Title": "CloudFront distribution serves HTTPS requests using SNI"
+  },
+  {
+   "CheckID": "cloudfront_distributions_logging_enabled",
+   "Service": "cloudfront",
+   "Severity": "medium",
+   "Title": "CloudFront distribution has logging enabled"
+  },
+  {
+   "CheckID": "cloudfront_distributions_multiple_origin_failover_configured",
+   "Service": "cloudfront",
+   "Severity": "low",
+   "Title": "CloudFront distribution has origin failover configured with at least two origins"
+  },
+  {
+   "CheckID": "cloudfront_distributions_origin_traffic_encrypted",
+   "Service": "cloudfront",
+   "Severity": "medium",
+   "Title": "CloudFront distribution encrypts traffic to custom origins"
+  },
+  {
+   "CheckID": "cloudfront_distributions_pqc_tls_enabled",
+   "Service": "cloudfront",
+   "Severity": "low",
+   "Title": "CloudFront distributions enforce a post-quantum TLS 1.3 security policy"
+  },
+  {
+   "CheckID": "cloudfront_distributions_s3_origin_access_control",
+   "Service": "cloudfront",
+   "Severity": "medium",
+   "Title": "CloudFront distribution uses Origin Access Control (OAC) for all S3 origins"
+  },
+  {
+   "CheckID": "cloudfront_distributions_s3_origin_non_existent_bucket",
+   "Service": "cloudfront",
+   "Severity": "high",
+   "Title": "CloudFront distribution S3 origins reference existing buckets"
+  },
+  {
+   "CheckID": "cloudfront_distributions_using_deprecated_ssl_protocols",
+   "Service": "cloudfront",
+   "Severity": "low",
+   "Title": "CloudFront distribution does not use SSLv3, TLSv1, or TLSv1.1 for origin connections"
+  },
+  {
+   "CheckID": "cloudfront_distributions_using_waf",
+   "Service": "cloudfront",
+   "Severity": "medium",
+   "Title": "CloudFront distribution uses an AWS WAF web ACL"
+  },
+  {
+   "CheckID": "cloudtrail_agentcore_data_events_enabled",
+   "Service": "cloudtrail",
+   "Severity": "medium",
+   "Title": "CloudTrail logs Amazon Bedrock AgentCore data events"
+  },
+  {
+   "CheckID": "cloudtrail_bedrock_logging_enabled",
+   "Service": "cloudtrail",
+   "Severity": "medium",
+   "Title": "CloudTrail logs Amazon Bedrock API calls for security auditing"
+  },
+  {
+   "CheckID": "cloudtrail_bucket_requires_mfa_delete",
+   "Service": "cloudtrail",
+   "Severity": "medium",
+   "Title": "CloudTrail trail S3 bucket has MFA delete enabled"
+  },
+  {
+   "CheckID": "cloudtrail_cloudwatch_logging_enabled",
+   "Service": "cloudtrail",
+   "Severity": "low",
+   "Title": "CloudTrail trail has delivered logs to CloudWatch Logs in the last 24 hours"
+  },
+  {
+   "CheckID": "cloudtrail_insights_exist",
+   "Service": "cloudtrail",
+   "Severity": "low",
+   "Title": "CloudTrail trail has Insights enabled"
+  },
+  {
+   "CheckID": "cloudtrail_kms_encryption_enabled",
+   "Service": "cloudtrail",
+   "Severity": "medium",
+   "Title": "CloudTrail trail logs are encrypted at rest with a KMS key"
+  },
+  {
+   "CheckID": "cloudtrail_log_file_validation_enabled",
+   "Service": "cloudtrail",
+   "Severity": "medium",
+   "Title": "CloudTrail trail has log file validation enabled"
+  },
+  {
+   "CheckID": "cloudtrail_logs_s3_bucket_access_logging_enabled",
+   "Service": "cloudtrail",
+   "Severity": "medium",
+   "Title": "CloudTrail trail destination S3 bucket has access logging enabled"
+  },
+  {
+   "CheckID": "cloudtrail_logs_s3_bucket_is_not_publicly_accessible",
+   "Service": "cloudtrail",
+   "Severity": "critical",
+   "Title": "CloudTrail trail S3 bucket is not publicly accessible"
+  },
+  {
+   "CheckID": "cloudtrail_multi_region_enabled",
+   "Service": "cloudtrail",
+   "Severity": "high",
+   "Title": "Region has at least one CloudTrail trail logging"
+  },
+  {
+   "CheckID": "cloudtrail_multi_region_enabled_logging_management_events",
+   "Service": "cloudtrail",
+   "Severity": "low",
+   "Title": "CloudTrail trail logs management events for read and write operations"
+  },
+  {
+   "CheckID": "cloudtrail_s3_dataevents_read_enabled",
+   "Service": "cloudtrail",
+   "Severity": "low",
+   "Title": "CloudTrail trail records S3 object-level read events for all S3 buckets"
+  },
+  {
+   "CheckID": "cloudtrail_s3_dataevents_write_enabled",
+   "Service": "cloudtrail",
+   "Severity": "low",
+   "Title": "CloudTrail trail records all S3 object-level API operations for all buckets"
+  },
+  {
+   "CheckID": "cloudtrail_threat_detection_enumeration",
+   "Service": "cloudtrail",
+   "Severity": "critical",
+   "Title": "CloudTrail logs show no potential enumeration activity"
+  },
+  {
+   "CheckID": "cloudtrail_threat_detection_llm_jacking",
+   "Service": "cloudtrail",
+   "Severity": "critical",
+   "Title": "No potential LLM jacking activity detected in CloudTrail"
+  },
+  {
+   "CheckID": "cloudtrail_threat_detection_privilege_escalation",
+   "Service": "cloudtrail",
+   "Severity": "critical",
+   "Title": "No potential privilege escalation activity detected in CloudTrail"
+  },
+  {
+   "CheckID": "cloudwatch_alarm_actions_alarm_state_configured",
+   "Service": "cloudwatch",
+   "Severity": "high",
+   "Title": "CloudWatch metric alarm has actions configured for the ALARM state"
+  },
+  {
+   "CheckID": "cloudwatch_alarm_actions_enabled",
+   "Service": "cloudwatch",
+   "Severity": "high",
+   "Title": "CloudWatch metric alarm has actions enabled"
+  },
+  {
+   "CheckID": "cloudwatch_changes_to_network_acls_alarm_configured",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch log metric filter and alarm exist for Network ACL (NACL) change events"
+  },
+  {
+   "CheckID": "cloudwatch_changes_to_network_gateways_alarm_configured",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for changes to network gateways"
+  },
+  {
+   "CheckID": "cloudwatch_changes_to_network_route_tables_alarm_configured",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "Account monitors VPC route table changes with a CloudWatch Logs metric filter and alarm"
+  },
+  {
+   "CheckID": "cloudwatch_changes_to_vpcs_alarm_configured",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "AWS account has a CloudWatch Logs metric filter and alarm for VPC changes"
+  },
+  {
+   "CheckID": "cloudwatch_cross_account_sharing_disabled",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch does not allow cross-account sharing"
+  },
+  {
+   "CheckID": "cloudwatch_log_group_agentcore_data_protection_policy_enabled",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "Bedrock AgentCore log groups have a CloudWatch Logs data protection policy activated"
+  },
+  {
+   "CheckID": "cloudwatch_log_group_data_protection_policy_configured",
+   "Service": "cloudwatch",
+   "Severity": "high",
+   "Title": "CloudWatch Log Groups have a data protection policy configured"
+  },
+  {
+   "CheckID": "cloudwatch_log_group_kms_encryption_enabled",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch log group is encrypted with an AWS KMS key"
+  },
+  {
+   "CheckID": "cloudwatch_log_group_no_secrets_in_logs",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch log group contains no secrets in its log events"
+  },
+  {
+   "CheckID": "cloudwatch_log_group_not_publicly_accessible",
+   "Service": "cloudwatch",
+   "Severity": "high",
+   "Title": "CloudWatch Log Group is not publicly accessible"
+  },
+  {
+   "CheckID": "cloudwatch_log_group_retention_policy_specific_days_enabled",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch log group has a retention policy of at least the configured minimum days or never expires"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_and_alarm_for_aws_config_configuration_changes_enabled",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for AWS Config configuration changes"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_and_alarm_for_cloudtrail_configuration_changes_enabled",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for CloudTrail configuration changes"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_authentication_failures",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "Account has a CloudWatch Logs metric filter and alarm for AWS Management Console authentication failures"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_aws_organizations_changes",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for AWS Organizations changes"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_disable_or_scheduled_deletion_of_kms_cmk",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "Account has a CloudWatch log metric filter and alarm for disabling or scheduled deletion of customer-managed KMS keys"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_for_s3_bucket_policy_changes",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch log metric filter and alarm exist for S3 bucket policy changes"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_policy_changes",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for IAM policy changes"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_root_usage",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "Account has a CloudWatch Logs metric filter and alarm for root account usage"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_security_group_changes",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for security group changes"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_sign_in_without_mfa",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch log metric filter and alarm exist for Management Console sign-in without MFA"
+  },
+  {
+   "CheckID": "cloudwatch_log_metric_filter_unauthorized_api_calls",
+   "Service": "cloudwatch",
+   "Severity": "medium",
+   "Title": "CloudWatch Logs metric filter and alarm exist for unauthorized API calls"
+  },
+  {
+   "CheckID": "codeartifact_packages_external_public_publishing_disabled",
+   "Service": "codeartifact",
+   "Severity": "critical",
+   "Title": "Internal CodeArtifact package does not allow publishing versions already present in external public sources"
+  },
+  {
+   "CheckID": "codebuild_project_logging_enabled",
+   "Service": "codebuild",
+   "Severity": "medium",
+   "Title": "CodeBuild project has CloudWatch Logs or S3 logging enabled"
+  },
+  {
+   "CheckID": "codebuild_project_no_secrets_in_variables",
+   "Service": "codebuild",
+   "Severity": "critical",
+   "Title": "CodeBuild project has no sensitive credentials in plaintext environment variables"
+  },
+  {
+   "CheckID": "codebuild_project_not_publicly_accessible",
+   "Service": "codebuild",
+   "Severity": "high",
+   "Title": "CodeBuild project visibility is private"
+  },
+  {
+   "CheckID": "codebuild_project_older_90_days",
+   "Service": "codebuild",
+   "Severity": "medium",
+   "Title": "CodeBuild project has been invoked in the last 90 days"
+  },
+  {
+   "CheckID": "codebuild_project_s3_logs_encrypted",
+   "Service": "codebuild",
+   "Severity": "low",
+   "Title": "CodeBuild project S3 logs are encrypted at rest"
+  },
+  {
+   "CheckID": "codebuild_project_source_repo_url_no_sensitive_credentials",
+   "Service": "codebuild",
+   "Severity": "critical",
+   "Title": "CodeBuild project source repository URLs do not contain sensitive credentials"
+  },
+  {
+   "CheckID": "codebuild_project_user_controlled_buildspec",
+   "Service": "codebuild",
+   "Severity": "medium",
+   "Title": "CodeBuild project does not use a user-controlled buildspec file"
+  },
+  {
+   "CheckID": "codebuild_project_uses_allowed_github_organizations",
+   "Service": "codebuild",
+   "Severity": "high",
+   "Title": "CodeBuild project using GitHub uses an allowed GitHub organization"
+  },
+  {
+   "CheckID": "codebuild_project_webhook_filters_use_anchored_patterns",
+   "Service": "codebuild",
+   "Severity": "high",
+   "Title": "CodeBuild project webhook filters use anchored regex patterns"
+  },
+  {
+   "CheckID": "codebuild_report_group_export_encrypted",
+   "Service": "codebuild",
+   "Severity": "medium",
+   "Title": "CodeBuild report group exports to S3 are encrypted at rest"
+  },
+  {
+   "CheckID": "codecommit_repository_no_secrets",
+   "Service": "codecommit",
+   "Severity": "high",
+   "Title": "CodeCommit repository has no secrets in its default branch"
+  },
+  {
+   "CheckID": "codepipeline_project_repo_private",
+   "Service": "codepipeline",
+   "Severity": "medium",
+   "Title": "CodePipeline pipeline should use private repository source with authenticated connection"
+  },
+  {
+   "CheckID": "cognito_identity_pool_guest_access_disabled",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito identity pool has guest access disabled"
+  },
+  {
+   "CheckID": "cognito_user_pool_account_recovery_sms_not_preferred",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool does not prefer SMS for account recovery"
+  },
+  {
+   "CheckID": "cognito_user_pool_advanced_security_enabled",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool has advanced security enforced with full-function mode"
+  },
+  {
+   "CheckID": "cognito_user_pool_blocks_compromised_credentials_sign_in_attempts",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool blocks sign-in attempts with suspected compromised credentials"
+  },
+  {
+   "CheckID": "cognito_user_pool_blocks_potential_malicious_sign_in_attempts",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Amazon Cognito user pool blocks all potential malicious sign-in attempts"
+  },
+  {
+   "CheckID": "cognito_user_pool_client_prevent_user_existence_errors",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Amazon Cognito user pool client has Prevent User Existence Errors enabled"
+  },
+  {
+   "CheckID": "cognito_user_pool_client_token_revocation_enabled",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Amazon Cognito user pool client has token revocation enabled"
+  },
+  {
+   "CheckID": "cognito_user_pool_deletion_protection_enabled",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool has deletion protection enabled"
+  },
+  {
+   "CheckID": "cognito_user_pool_mfa_enabled",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Amazon Cognito user pool requires Multi-Factor Authentication (MFA)"
+  },
+  {
+   "CheckID": "cognito_user_pool_password_policy_lowercase",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool password policy requires at least one lowercase letter"
+  },
+  {
+   "CheckID": "cognito_user_pool_password_policy_minimum_length_14",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool has a password policy with a minimum length of 14 characters or more"
+  },
+  {
+   "CheckID": "cognito_user_pool_password_policy_number",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool password policy requires at least one number"
+  },
+  {
+   "CheckID": "cognito_user_pool_password_policy_symbol",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool password policy requires at least one symbol"
+  },
+  {
+   "CheckID": "cognito_user_pool_password_policy_uppercase",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool password policy requires at least one uppercase letter"
+  },
+  {
+   "CheckID": "cognito_user_pool_self_registration_disabled",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Amazon Cognito user pool has self registration disabled"
+  },
+  {
+   "CheckID": "cognito_user_pool_temporary_password_expiration",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Cognito user pool has temporary password expiration set to 7 days or less"
+  },
+  {
+   "CheckID": "cognito_user_pool_waf_acl_attached",
+   "Service": "cognito",
+   "Severity": "medium",
+   "Title": "Amazon Cognito user pool is associated with a WAF Web ACL"
+  },
+  {
+   "CheckID": "config_delegated_admin_and_org_aggregator_all_regions",
+   "Service": "config",
+   "Severity": "high",
+   "Title": "AWS Config has a delegated administrator and an organization aggregator covering all AWS regions"
+  },
+  {
+   "CheckID": "config_recorder_all_regions_enabled",
+   "Service": "config",
+   "Severity": "medium",
+   "Title": "AWS Config recorder is enabled and not in failure state or disabled"
+  },
+  {
+   "CheckID": "config_recorder_using_aws_service_role",
+   "Service": "config",
+   "Severity": "medium",
+   "Title": "AWS Config recorder uses the AWSServiceRoleForConfig service-linked role"
+  },
+  {
+   "CheckID": "datapipeline_pipeline_no_secrets_in_definition",
+   "Service": "datapipeline",
+   "Severity": "high",
+   "Title": "Data Pipeline definition has no sensitive credentials"
+  },
+  {
+   "CheckID": "datasync_task_logging_enabled",
+   "Service": "datasync",
+   "Severity": "high",
+   "Title": "DataSync task has CloudWatch Logs log group configured for logging"
+  },
+  {
+   "CheckID": "directconnect_connection_redundancy",
+   "Service": "directconnect",
+   "Severity": "medium",
+   "Title": "Direct Connect connections span at least two locations per region"
+  },
+  {
+   "CheckID": "directconnect_virtual_interface_redundancy",
+   "Service": "directconnect",
+   "Severity": "medium",
+   "Title": "Direct Connect gateway or virtual private gateway has at least two virtual interfaces on different Direct Connect connections"
+  },
+  {
+   "CheckID": "directoryservice_directory_log_forwarding_enabled",
+   "Service": "directoryservice",
+   "Severity": "medium",
+   "Title": "Directory Service directory has log forwarding to CloudWatch Logs enabled"
+  },
+  {
+   "CheckID": "directoryservice_directory_monitor_notifications",
+   "Service": "directoryservice",
+   "Severity": "medium",
+   "Title": "Directory Service directory has SNS notifications enabled"
+  },
+  {
+   "CheckID": "directoryservice_directory_snapshots_limit",
+   "Service": "directoryservice",
+   "Severity": "low",
+   "Title": "Directory Service directory has adequate remaining manual snapshot quota"
+  },
+  {
+   "CheckID": "directoryservice_ldap_certificate_expiration",
+   "Service": "directoryservice",
+   "Severity": "medium",
+   "Title": "Directory Service LDAP certificate expires in more than 90 days"
+  },
+  {
+   "CheckID": "directoryservice_radius_server_security_protocol",
+   "Service": "directoryservice",
+   "Severity": "medium",
+   "Title": "Directory Service directory RADIUS server uses MS-CHAPv2"
+  },
+  {
+   "CheckID": "directoryservice_supported_mfa_radius_enabled",
+   "Service": "directoryservice",
+   "Severity": "medium",
+   "Title": "AWS Directory Service directory has RADIUS-based MFA enabled"
+  },
+  {
+   "CheckID": "dlm_ebs_snapshot_lifecycle_policy_exists",
+   "Service": "dlm",
+   "Severity": "medium",
+   "Title": "Region with EBS snapshots has at least one EBS snapshot lifecycle policy defined"
+  },
+  {
+   "CheckID": "dms_endpoint_mongodb_authentication_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS MongoDB endpoint has an authentication mechanism enabled"
+  },
+  {
+   "CheckID": "dms_endpoint_neptune_iam_authorization_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS endpoint for Neptune has IAM authorization enabled"
+  },
+  {
+   "CheckID": "dms_endpoint_redis_in_transit_encryption_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS endpoint for Redis OSS is encrypted in transit"
+  },
+  {
+   "CheckID": "dms_endpoint_ssl_enabled",
+   "Service": "dms",
+   "Severity": "high",
+   "Title": "DMS endpoint has SSL enabled"
+  },
+  {
+   "CheckID": "dms_instance_minor_version_upgrade_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS replication instance has auto minor version upgrade enabled"
+  },
+  {
+   "CheckID": "dms_instance_multi_az_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS replication instance has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "dms_instance_no_public_access",
+   "Service": "dms",
+   "Severity": "critical",
+   "Title": "DMS replication instance is not publicly exposed to the Internet"
+  },
+  {
+   "CheckID": "dms_replication_task_source_logging_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS replication task has logging enabled and SOURCE_CAPTURE and SOURCE_UNLOAD components set to at least Default severity"
+  },
+  {
+   "CheckID": "dms_replication_task_target_logging_enabled",
+   "Service": "dms",
+   "Severity": "medium",
+   "Title": "DMS replication task has TARGET_APPLY and TARGET_LOAD logging enabled with at least default severity"
+  },
+  {
+   "CheckID": "documentdb_cluster_backup_enabled",
+   "Service": "documentdb",
+   "Severity": "medium",
+   "Title": "DocumentDB cluster has automated backups enabled with retention period of at least 7 days"
+  },
+  {
+   "CheckID": "documentdb_cluster_cloudwatch_log_export",
+   "Service": "documentdb",
+   "Severity": "medium",
+   "Title": "DocumentDB cluster exports audit and profiler logs to CloudWatch Logs"
+  },
+  {
+   "CheckID": "documentdb_cluster_deletion_protection",
+   "Service": "documentdb",
+   "Severity": "medium",
+   "Title": "DocumentDB cluster has deletion protection enabled"
+  },
+  {
+   "CheckID": "documentdb_cluster_multi_az_enabled",
+   "Service": "documentdb",
+   "Severity": "medium",
+   "Title": "DocumentDB cluster has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "documentdb_cluster_public_snapshot",
+   "Service": "documentdb",
+   "Severity": "critical",
+   "Title": "DocumentDB manual cluster snapshot is not shared publicly"
+  },
+  {
+   "CheckID": "documentdb_cluster_storage_encrypted",
+   "Service": "documentdb",
+   "Severity": "medium",
+   "Title": "DocumentDB cluster storage is encrypted at rest"
+  },
+  {
+   "CheckID": "drs_job_exist",
+   "Service": "drs",
+   "Severity": "medium",
+   "Title": "Region has AWS Elastic Disaster Recovery (DRS) enabled with at least one recovery job"
+  },
+  {
+   "CheckID": "dynamodb_accelerator_cluster_encryption_enabled",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB DAX cluster has encryption at rest enabled"
+  },
+  {
+   "CheckID": "dynamodb_accelerator_cluster_in_transit_encryption_enabled",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB Accelerator (DAX) cluster has encryption in transit enabled"
+  },
+  {
+   "CheckID": "dynamodb_accelerator_cluster_multi_az",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB Accelerator (DAX) cluster has nodes in multiple Availability Zones"
+  },
+  {
+   "CheckID": "dynamodb_table_autoscaling_enabled",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB table uses on-demand capacity or has auto scaling enabled for read and write capacity units"
+  },
+  {
+   "CheckID": "dynamodb_table_cross_account_access",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB table resource-based policy does not allow cross-account access"
+  },
+  {
+   "CheckID": "dynamodb_table_deletion_protection_enabled",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB table has deletion protection enabled"
+  },
+  {
+   "CheckID": "dynamodb_table_protected_by_backup_plan",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB table is protected by a backup plan"
+  },
+  {
+   "CheckID": "dynamodb_tables_kms_cmk_encryption_enabled",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB table is encrypted at rest with AWS KMS"
+  },
+  {
+   "CheckID": "dynamodb_tables_pitr_enabled",
+   "Service": "dynamodb",
+   "Severity": "medium",
+   "Title": "DynamoDB table has point-in-time recovery (PITR) enabled"
+  },
+  {
+   "CheckID": "ec2_ami_account_block_public_access",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "AMI block public access is enabled at the account level"
+  },
+  {
+   "CheckID": "ec2_ami_public",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 AMI owned by the account is not public"
+  },
+  {
+   "CheckID": "ec2_client_vpn_endpoint_connection_logging_enabled",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "EC2 Client VPN endpoint has client connection logging enabled"
+  },
+  {
+   "CheckID": "ec2_confidential_workload_host_imdsv2_not_enforced",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Confidential-workload host enforces IMDSv2"
+  },
+  {
+   "CheckID": "ec2_confidential_workload_host_not_running",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Nitro Enclave parent instance is in the running state"
+  },
+  {
+   "CheckID": "ec2_confidential_workload_host_public_ip",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Confidential-workload host is not exposed to the internet"
+  },
+  {
+   "CheckID": "ec2_confidential_workload_host_unrestricted_ingress",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Confidential-workload host does not expose non-standard ports to the internet"
+  },
+  {
+   "CheckID": "ec2_confidential_workload_host_vsock_proxy_exposed",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Confidential-workload host does not expose likely vsock-proxy TCP ports to the internet"
+  },
+  {
+   "CheckID": "ec2_ebs_default_encryption",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EBS default encryption is enabled"
+  },
+  {
+   "CheckID": "ec2_ebs_public_snapshot",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EBS snapshot is not public"
+  },
+  {
+   "CheckID": "ec2_ebs_snapshot_account_block_public_access",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "All EBS snapshots have public access blocked"
+  },
+  {
+   "CheckID": "ec2_ebs_snapshots_encrypted",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EBS snapshot is encrypted"
+  },
+  {
+   "CheckID": "ec2_ebs_volume_encryption",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EBS volume is encrypted"
+  },
+  {
+   "CheckID": "ec2_ebs_volume_protected_by_backup_plan",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EBS volume is protected by a backup plan"
+  },
+  {
+   "CheckID": "ec2_ebs_volume_snapshots_exists",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EBS volume has at least one snapshot"
+  },
+  {
+   "CheckID": "ec2_elastic_ip_shodan",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 Elastic IP address is not listed in Shodan"
+  },
+  {
+   "CheckID": "ec2_elastic_ip_unassigned",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "Elastic IP is associated with an instance or network interface"
+  },
+  {
+   "CheckID": "ec2_instance_account_imdsv2_enabled",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "IMDSv2 is required by default for EC2 instances at the account level"
+  },
+  {
+   "CheckID": "ec2_instance_detailed_monitoring_enabled",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "EC2 instance has detailed monitoring enabled"
+  },
+  {
+   "CheckID": "ec2_instance_emerging_threat_image",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not run an AMI affected by a known emerging threat"
+  },
+  {
+   "CheckID": "ec2_instance_imdsv2_enabled",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EC2 instance requires IMDSv2 or has the instance metadata service disabled"
+  },
+  {
+   "CheckID": "ec2_instance_internet_facing_with_instance_profile",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EC2 instance is not internet-facing with an instance profile attached"
+  },
+  {
+   "CheckID": "ec2_instance_managed_by_ssm",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 instance is managed by AWS Systems Manager or not running"
+  },
+  {
+   "CheckID": "ec2_instance_older_than_specific_days",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 instance is not older than the configured maximum age or is not running"
+  },
+  {
+   "CheckID": "ec2_instance_paravirtual_type",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 instance virtualization type is HVM"
+  },
+  {
+   "CheckID": "ec2_instance_port_cassandra_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not have Cassandra ports (TCP 7000, 7001, 7199, 9042, 9160) open to the Internet"
+  },
+  {
+   "CheckID": "ec2_instance_port_cifs_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow Internet ingress to TCP ports 139 or 445 (CIFS)"
+  },
+  {
+   "CheckID": "ec2_instance_port_elasticsearch_kibana_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to Elasticsearch and Kibana ports (TCP 9200, 9300, 5601)"
+  },
+  {
+   "CheckID": "ec2_instance_port_ftp_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP ports 20 or 21 (FTP)"
+  },
+  {
+   "CheckID": "ec2_instance_port_kafka_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 9092 (Kafka)"
+  },
+  {
+   "CheckID": "ec2_instance_port_kerberos_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP ports 88, 464, 749, or 750 (Kerberos)"
+  },
+  {
+   "CheckID": "ec2_instance_port_ldap_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP ports 389 or 636 (LDAP/LDAPS)"
+  },
+  {
+   "CheckID": "ec2_instance_port_memcached_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 11211 (Memcached)"
+  },
+  {
+   "CheckID": "ec2_instance_port_mongodb_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP ports 27017 or 27018 (MongoDB)"
+  },
+  {
+   "CheckID": "ec2_instance_port_mysql_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 3306 (MySQL)"
+  },
+  {
+   "CheckID": "ec2_instance_port_oracle_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP ports 1521, 2483, or 2484 (Oracle)"
+  },
+  {
+   "CheckID": "ec2_instance_port_postgresql_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 5432 (PostgreSQL)"
+  },
+  {
+   "CheckID": "ec2_instance_port_rdp_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 3389 (RDP)"
+  },
+  {
+   "CheckID": "ec2_instance_port_redis_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 6379 (Redis)"
+  },
+  {
+   "CheckID": "ec2_instance_port_sqlserver_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP ports 1433 or 1434 (SQL Server)"
+  },
+  {
+   "CheckID": "ec2_instance_port_ssh_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 22 (SSH)"
+  },
+  {
+   "CheckID": "ec2_instance_port_telnet_exposed_to_internet",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "EC2 instance does not allow ingress from the Internet to TCP port 23 (Telnet)"
+  },
+  {
+   "CheckID": "ec2_instance_profile_attached",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 instance is associated with an IAM instance profile role"
+  },
+  {
+   "CheckID": "ec2_instance_public_ip",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 instance does not have a public IP address"
+  },
+  {
+   "CheckID": "ec2_instance_secrets_user_data",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EC2 instance user data contains no secrets"
+  },
+  {
+   "CheckID": "ec2_instance_stopped_older_than_specific_days",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "EC2 instance has not been stopped longer than the configured maximum days"
+  },
+  {
+   "CheckID": "ec2_instance_uses_single_eni",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "EC2 instance has no more than one Elastic Network Interface (ENI) attached"
+  },
+  {
+   "CheckID": "ec2_instance_with_outdated_ami",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "EC2 instance uses a non-deprecated Amazon AMI"
+  },
+  {
+   "CheckID": "ec2_launch_template_imdsv2_required",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EC2 launch template has IMDSv2 enabled and required or instance metadata service disabled"
+  },
+  {
+   "CheckID": "ec2_launch_template_no_public_ip",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Amazon EC2 launch template has no public IP addresses configured on network interfaces"
+  },
+  {
+   "CheckID": "ec2_launch_template_no_secrets",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "EC2 launch template user data contains no secrets in any version"
+  },
+  {
+   "CheckID": "ec2_networkacl_allow_ingress_any_port",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Network ACL does not allow ingress from 0.0.0.0/0 to any port"
+  },
+  {
+   "CheckID": "ec2_networkacl_allow_ingress_tcp_port_22",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Network ACL does not allow ingress from the Internet to TCP port 22 (SSH)"
+  },
+  {
+   "CheckID": "ec2_networkacl_allow_ingress_tcp_port_3389",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Network ACL does not allow ingress from the Internet to TCP port 3389 (RDP)"
+  },
+  {
+   "CheckID": "ec2_networkacl_unused",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "Non-default network ACL is associated with a subnet"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_all_ports",
+   "Service": "ec2",
+   "Severity": "critical",
+   "Title": "Security group does not have all ports open to the Internet"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_any_port",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group has no 0.0.0.0/0 or ::/0 ingress to any port, or is attached only to allowed interface types or instance owners"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_any_port_from_ip",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Security group does not have any port open to a specific public IP address"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_high_risk_tcp_ports",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to high-risk TCP ports"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_22",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to TCP port 22 (SSH)"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_3389",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from the Internet to TCP port 3389 (RDP)"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_cassandra_7199_9160_8888",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Cassandra TCP ports 7199, 9160, or 8888"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_elasticsearch_kibana_9200_9300_5601",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Elasticsearch/Kibana TCP ports 9200, 9300, and 5601"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_ftp_20_21",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to FTP ports 20 or 21"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_kafka_9092",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to TCP port 9092 (Kafka)"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_memcached_11211",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Memcached TCP port 11211"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_mongodb_27017_27018",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to MongoDB TCP ports 27017 and 27018"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_mysql_3306",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to MySQL port 3306"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_oracle_1521_2483",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Oracle TCP ports 1521 or 2483"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_postgres_5432",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Postgres TCP port 5432"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_redis_6379",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Redis TCP port 6379"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_sql_server_1433_1434",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from 0.0.0.0/0 or ::/0 to Microsoft SQL Server ports 1433 and 1434"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_telnet_23",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group does not allow ingress from the Internet to TCP port 23 (Telnet)"
+  },
+  {
+   "CheckID": "ec2_securitygroup_allow_wide_open_public_ipv4",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Security group has no ingress or egress rules with public IPv4 CIDR ranges from /1 to /23"
+  },
+  {
+   "CheckID": "ec2_securitygroup_default_restrict_traffic",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "VPC default security group has no inbound or outbound rules"
+  },
+  {
+   "CheckID": "ec2_securitygroup_from_launch_wizard",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Security group not created using the EC2 Launch Wizard"
+  },
+  {
+   "CheckID": "ec2_securitygroup_not_used",
+   "Service": "ec2",
+   "Severity": "low",
+   "Title": "Non-default EC2 security group is in use"
+  },
+  {
+   "CheckID": "ec2_securitygroup_with_many_ingress_egress_rules",
+   "Service": "ec2",
+   "Severity": "medium",
+   "Title": "Security group has 50 or fewer inbound rules and 50 or fewer outbound rules"
+  },
+  {
+   "CheckID": "ec2_transitgateway_auto_accept_vpc_attachments",
+   "Service": "ec2",
+   "Severity": "high",
+   "Title": "Amazon EC2 Transit Gateway does not automatically accept shared VPC attachments"
+  },
+  {
+   "CheckID": "ecr_registry_enhanced_scanning_enabled",
+   "Service": "ecr",
+   "Severity": "medium",
+   "Title": "ECR registry has enhanced scanning enabled"
+  },
+  {
+   "CheckID": "ecr_registry_scan_images_on_push_enabled",
+   "Service": "ecr",
+   "Severity": "medium",
+   "Title": "ECR registry has automated image scanning enabled for all repositories"
+  },
+  {
+   "CheckID": "ecr_repositories_lifecycle_policy_enabled",
+   "Service": "ecr",
+   "Severity": "low",
+   "Title": "ECR repository has a lifecycle policy configured"
+  },
+  {
+   "CheckID": "ecr_repositories_not_publicly_accessible",
+   "Service": "ecr",
+   "Severity": "critical",
+   "Title": "ECR repository is not publicly accessible"
+  },
+  {
+   "CheckID": "ecr_repositories_scan_images_on_push_enabled",
+   "Service": "ecr",
+   "Severity": "medium",
+   "Title": "[DEPRECATED] ECR repository has image scanning on push enabled"
+  },
+  {
+   "CheckID": "ecr_repositories_scan_vulnerabilities_in_latest_image",
+   "Service": "ecr",
+   "Severity": "medium",
+   "Title": "ECR repository latest image is scanned with no vulnerabilities at or above the configured minimum severity"
+  },
+  {
+   "CheckID": "ecr_repositories_tag_immutability",
+   "Service": "ecr",
+   "Severity": "medium",
+   "Title": "ECR repository has image tag immutability enabled"
+  },
+  {
+   "CheckID": "ecr_repository_image_no_secrets",
+   "Service": "ecr",
+   "Severity": "high",
+   "Title": "ECR repository image contains no hardcoded secrets"
+  },
+  {
+   "CheckID": "ecs_cluster_container_insights_enabled",
+   "Service": "ecs",
+   "Severity": "medium",
+   "Title": "ECS cluster has Container Insights enabled or enhanced"
+  },
+  {
+   "CheckID": "ecs_service_fargate_latest_platform_version",
+   "Service": "ecs",
+   "Severity": "medium",
+   "Title": "ECS Fargate service uses the latest Fargate platform version"
+  },
+  {
+   "CheckID": "ecs_service_no_assign_public_ip",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "ECS service does not have automatic public IP assignment"
+  },
+  {
+   "CheckID": "ecs_task_definitions_containers_readonly_access",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "ECS task definition has all containers with read-only root filesystems"
+  },
+  {
+   "CheckID": "ecs_task_definitions_host_namespace_not_shared",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "ECS task definition does not share the host's process namespace with its containers"
+  },
+  {
+   "CheckID": "ecs_task_definitions_host_networking_mode_users",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "Amazon ECS task definition does not use host network mode, or non-privileged containers specify a non-root user"
+  },
+  {
+   "CheckID": "ecs_task_definitions_logging_block_mode",
+   "Service": "ecs",
+   "Severity": "low",
+   "Title": "ECS task definition has container logging in non-blocking mode"
+  },
+  {
+   "CheckID": "ecs_task_definitions_logging_enabled",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "ECS task definition has logging configured for all containers"
+  },
+  {
+   "CheckID": "ecs_task_definitions_no_environment_secrets",
+   "Service": "ecs",
+   "Severity": "critical",
+   "Title": "ECS task definition has no secrets in environment variables"
+  },
+  {
+   "CheckID": "ecs_task_definitions_no_privileged_containers",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "ECS task definition has no privileged containers"
+  },
+  {
+   "CheckID": "ecs_task_set_no_assign_public_ip",
+   "Service": "ecs",
+   "Severity": "high",
+   "Title": "ECS task set does not automatically assign a public IP address"
+  },
+  {
+   "CheckID": "efs_access_point_enforce_root_directory",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system has no access points allowing access to the root directory"
+  },
+  {
+   "CheckID": "efs_access_point_enforce_user_identity",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system has all access points with a defined POSIX user"
+  },
+  {
+   "CheckID": "efs_encryption_at_rest_enabled",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system has encryption at rest enabled"
+  },
+  {
+   "CheckID": "efs_have_backup_enabled",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system has backup enabled"
+  },
+  {
+   "CheckID": "efs_mount_target_not_publicly_accessible",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system has no publicly accessible mount targets"
+  },
+  {
+   "CheckID": "efs_multi_az_enabled",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system is Multi-AZ with more than one mount target"
+  },
+  {
+   "CheckID": "efs_not_publicly_accessible",
+   "Service": "efs",
+   "Severity": "medium",
+   "Title": "EFS file system policy does not allow access to any client within the VPC"
+  },
+  {
+   "CheckID": "eks_cluster_deletion_protection_enabled",
+   "Service": "eks",
+   "Severity": "high",
+   "Title": "EKS cluster has deletion protection enabled"
+  },
+  {
+   "CheckID": "eks_cluster_kms_cmk_encryption_in_secrets_enabled",
+   "Service": "eks",
+   "Severity": "medium",
+   "Title": "EKS cluster has Kubernetes secrets encryption enabled"
+  },
+  {
+   "CheckID": "eks_cluster_network_policy_enabled",
+   "Service": "eks",
+   "Severity": "high",
+   "Title": "EKS cluster has network policy enabled"
+  },
+  {
+   "CheckID": "eks_cluster_not_publicly_accessible",
+   "Service": "eks",
+   "Severity": "high",
+   "Title": "EKS cluster endpoint is not publicly accessible from 0.0.0.0/0"
+  },
+  {
+   "CheckID": "eks_cluster_private_nodes_enabled",
+   "Service": "eks",
+   "Severity": "high",
+   "Title": "EKS cluster has private endpoint access enabled"
+  },
+  {
+   "CheckID": "eks_cluster_uses_a_supported_version",
+   "Service": "eks",
+   "Severity": "high",
+   "Title": "EKS cluster uses a supported Kubernetes version"
+  },
+  {
+   "CheckID": "eks_cluster_vpc_cni_network_policy_enforced",
+   "Service": "eks",
+   "Severity": "medium",
+   "Title": "EKS cluster enforces Kubernetes network policies through the Amazon VPC CNI add-on"
+  },
+  {
+   "CheckID": "eks_control_plane_logging_all_types_enabled",
+   "Service": "eks",
+   "Severity": "medium",
+   "Title": "EKS cluster has control plane logging enabled for api, audit, authenticator, controllerManager, and scheduler"
+  },
+  {
+   "CheckID": "elasticache_cluster_uses_public_subnet",
+   "Service": "elasticache",
+   "Severity": "medium",
+   "Title": "ElastiCache cluster is not using public subnets"
+  },
+  {
+   "CheckID": "elasticache_redis_cluster_auto_minor_version_upgrades",
+   "Service": "elasticache",
+   "Severity": "high",
+   "Title": "ElastiCache Redis cache cluster has automatic minor version upgrades enabled"
+  },
+  {
+   "CheckID": "elasticache_redis_cluster_automatic_failover_enabled",
+   "Service": "elasticache",
+   "Severity": "medium",
+   "Title": "ElastiCache Redis cluster has automatic failover enabled"
+  },
+  {
+   "CheckID": "elasticache_redis_cluster_backup_enabled",
+   "Service": "elasticache",
+   "Severity": "high",
+   "Title": "ElastiCache Redis cache cluster has automated snapshot backups enabled with retention of at least 7 days"
+  },
+  {
+   "CheckID": "elasticache_redis_cluster_in_transit_encryption_enabled",
+   "Service": "elasticache",
+   "Severity": "medium",
+   "Title": "ElastiCache Redis cache cluster has in-transit encryption enabled"
+  },
+  {
+   "CheckID": "elasticache_redis_cluster_multi_az_enabled",
+   "Service": "elasticache",
+   "Severity": "medium",
+   "Title": "ElastiCache Redis replication group has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "elasticache_redis_cluster_rest_encryption_enabled",
+   "Service": "elasticache",
+   "Severity": "medium",
+   "Title": "ElastiCache Redis cache cluster has at rest encryption enabled"
+  },
+  {
+   "CheckID": "elasticache_redis_replication_group_auth_enabled",
+   "Service": "elasticache",
+   "Severity": "medium",
+   "Title": "ElastiCache Redis replication group with engine version < 6.0 has Redis OSS AUTH enabled"
+  },
+  {
+   "CheckID": "elasticbeanstalk_environment_cloudwatch_logging_enabled",
+   "Service": "elasticbeanstalk",
+   "Severity": "high",
+   "Title": "Elastic Beanstalk environment streams logs to CloudWatch Logs"
+  },
+  {
+   "CheckID": "elasticbeanstalk_environment_enhanced_health_reporting",
+   "Service": "elasticbeanstalk",
+   "Severity": "low",
+   "Title": "Elastic Beanstalk environment has enhanced health reporting enabled"
+  },
+  {
+   "CheckID": "elasticbeanstalk_environment_managed_updates_enabled",
+   "Service": "elasticbeanstalk",
+   "Severity": "high",
+   "Title": "Elastic Beanstalk environment has managed platform updates enabled"
+  },
+  {
+   "CheckID": "elasticbeanstalk_environment_no_secrets_in_configuration",
+   "Service": "elasticbeanstalk",
+   "Severity": "high",
+   "Title": "Elastic Beanstalk environment configuration has no hardcoded secrets"
+  },
+  {
+   "CheckID": "elasticbeanstalk_environment_php_platform_updated",
+   "Service": "elasticbeanstalk",
+   "Severity": "critical",
+   "Title": "Elastic Beanstalk PHP environment runs a platform version with the fixed PHP release"
+  },
+  {
+   "CheckID": "elb_connection_draining_enabled",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Classic Load Balancer has connection draining enabled"
+  },
+  {
+   "CheckID": "elb_cross_zone_load_balancing_enabled",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Classic Load Balancer has cross-zone load balancing enabled"
+  },
+  {
+   "CheckID": "elb_desync_mitigation_mode",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Classic Load Balancer desync mitigation mode is defensive or strictest"
+  },
+  {
+   "CheckID": "elb_insecure_ssl_ciphers",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Elastic Load Balancer HTTPS listeners, if present, use the ELBSecurityPolicy-TLS-1-2-2017-01 policy"
+  },
+  {
+   "CheckID": "elb_internet_facing",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Elastic Load Balancer is not internet-facing"
+  },
+  {
+   "CheckID": "elb_is_in_multiple_az",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Classic Load Balancer is in multiple Availability Zones"
+  },
+  {
+   "CheckID": "elb_logging_enabled",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Elastic Load Balancer has access logs to S3 configured"
+  },
+  {
+   "CheckID": "elb_ssl_listeners",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Elastic Load Balancer has only HTTPS or SSL listeners"
+  },
+  {
+   "CheckID": "elb_ssl_listeners_use_acm_certificate",
+   "Service": "elb",
+   "Severity": "medium",
+   "Title": "Classic Load Balancer HTTPS/SSL listeners use ACM-issued certificates"
+  },
+  {
+   "CheckID": "elbv2_alb_drop_invalid_header_fields_enabled",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "Application Load Balancer should be configured to drop invalid HTTP header fields"
+  },
+  {
+   "CheckID": "elbv2_cross_zone_load_balancing_enabled",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 Network or Gateway Load Balancer has cross-zone load balancing enabled"
+  },
+  {
+   "CheckID": "elbv2_deletion_protection",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 load balancer has deletion protection enabled"
+  },
+  {
+   "CheckID": "elbv2_desync_mitigation_mode",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "Application Load Balancer has desync mitigation mode set to strictest or defensive, or drops invalid header fields"
+  },
+  {
+   "CheckID": "elbv2_insecure_ssl_ciphers",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 load balancer uses a secure SSL policy on HTTPS listeners"
+  },
+  {
+   "CheckID": "elbv2_internet_facing",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "Application Load Balancer is not publicly accessible (no inbound TCP from 0.0.0.0/0 or ::/0)"
+  },
+  {
+   "CheckID": "elbv2_is_in_multiple_az",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 load balancer is configured across multiple Availability Zones"
+  },
+  {
+   "CheckID": "elbv2_listener_fips_tls_enabled",
+   "Service": "elbv2",
+   "Severity": "low",
+   "Title": "ELBv2 HTTPS/TLS listeners use a FIPS TLS security policy"
+  },
+  {
+   "CheckID": "elbv2_listener_pqc_tls_enabled",
+   "Service": "elbv2",
+   "Severity": "low",
+   "Title": "ELBv2 HTTPS/TLS listeners use a post-quantum TLS security policy"
+  },
+  {
+   "CheckID": "elbv2_listeners_underneath",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 load balancer has at least one listener"
+  },
+  {
+   "CheckID": "elbv2_logging_enabled",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 Application Load Balancer has access logs to S3 configured"
+  },
+  {
+   "CheckID": "elbv2_nlb_tls_termination_enabled",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 Network Load Balancer has TLS termination enabled"
+  },
+  {
+   "CheckID": "elbv2_ssl_listeners",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "ELBv2 Application Load Balancer listeners use HTTPS or redirect HTTP to HTTPS"
+  },
+  {
+   "CheckID": "elbv2_waf_acl_attached",
+   "Service": "elbv2",
+   "Severity": "medium",
+   "Title": "Application Load Balancer has a WAF Web ACL attached"
+  },
+  {
+   "CheckID": "emr_cluster_account_public_block_enabled",
+   "Service": "emr",
+   "Severity": "high",
+   "Title": "EMR account has Block Public Access enabled"
+  },
+  {
+   "CheckID": "emr_cluster_master_nodes_no_public_ip",
+   "Service": "emr",
+   "Severity": "medium",
+   "Title": "EMR Cluster without Public IP."
+  },
+  {
+   "CheckID": "emr_cluster_publicly_accesible",
+   "Service": "emr",
+   "Severity": "medium",
+   "Title": "EMR cluster is not publicly accessible"
+  },
+  {
+   "CheckID": "eventbridge_bus_cross_account_access",
+   "Service": "eventbridge",
+   "Severity": "high",
+   "Title": "AWS EventBridge event bus does not allow cross-account access"
+  },
+  {
+   "CheckID": "eventbridge_bus_exposed",
+   "Service": "eventbridge",
+   "Severity": "high",
+   "Title": "AWS EventBridge event bus policy does not allow public access"
+  },
+  {
+   "CheckID": "eventbridge_global_endpoint_event_replication_enabled",
+   "Service": "eventbridge",
+   "Severity": "medium",
+   "Title": "EventBridge global endpoint has event replication enabled"
+  },
+  {
+   "CheckID": "eventbridge_schema_registry_cross_account_access",
+   "Service": "eventbridge",
+   "Severity": "high",
+   "Title": "AWS EventBridge schema registry does not allow cross-account access"
+  },
+  {
+   "CheckID": "firehose_stream_encrypted_at_rest",
+   "Service": "firehose",
+   "Severity": "medium",
+   "Title": "Kinesis Data Firehose delivery stream is encrypted at rest"
+  },
+  {
+   "CheckID": "fms_policy_compliant",
+   "Service": "fms",
+   "Severity": "medium",
+   "Title": "All AWS FMS policies in the admin account are compliant for all accounts"
+  },
+  {
+   "CheckID": "fsx_file_system_copy_tags_to_backups_enabled",
+   "Service": "fsx",
+   "Severity": "low",
+   "Title": "FSx file system has copy tags to backups enabled"
+  },
+  {
+   "CheckID": "fsx_file_system_copy_tags_to_volumes_enabled",
+   "Service": "fsx",
+   "Severity": "low",
+   "Title": "FSx file system has copy tags to volumes enabled"
+  },
+  {
+   "CheckID": "fsx_windows_file_system_multi_az_enabled",
+   "Service": "fsx",
+   "Severity": "low",
+   "Title": "FSx Windows file system is configured for Multi-AZ deployment"
+  },
+  {
+   "CheckID": "glacier_vaults_policy_public_access",
+   "Service": "glacier",
+   "Severity": "critical",
+   "Title": "S3 Glacier vault has no policy or its policy does not allow access to everyone"
+  },
+  {
+   "CheckID": "glue_catalog_connection_no_secrets",
+   "Service": "glue",
+   "Severity": "high",
+   "Title": "Glue Data Catalog connection has no secrets in connection properties"
+  },
+  {
+   "CheckID": "glue_data_catalogs_connection_passwords_encryption_enabled",
+   "Service": "glue",
+   "Severity": "high",
+   "Title": "Glue data catalog connection password is encrypted with a KMS key"
+  },
+  {
+   "CheckID": "glue_data_catalogs_metadata_encryption_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue Data Catalog metadata is encrypted with KMS"
+  },
+  {
+   "CheckID": "glue_data_catalogs_not_publicly_accessible",
+   "Service": "glue",
+   "Severity": "high",
+   "Title": "Glue Data Catalog is not publicly accessible via its resource policy"
+  },
+  {
+   "CheckID": "glue_database_connections_ssl_enabled",
+   "Service": "glue",
+   "Severity": "high",
+   "Title": "Glue connection has SSL enabled"
+  },
+  {
+   "CheckID": "glue_development_endpoints_cloudwatch_logs_encryption_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue development endpoint has CloudWatch Logs encryption enabled"
+  },
+  {
+   "CheckID": "glue_development_endpoints_job_bookmark_encryption_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue development endpoint has Job Bookmark encryption enabled"
+  },
+  {
+   "CheckID": "glue_development_endpoints_s3_encryption_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue development endpoint has S3 encryption enabled"
+  },
+  {
+   "CheckID": "glue_etl_jobs_amazon_s3_encryption_enabled",
+   "Service": "glue",
+   "Severity": "high",
+   "Title": "Glue job has S3 encryption enabled"
+  },
+  {
+   "CheckID": "glue_etl_jobs_cloudwatch_logs_encryption_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue ETL job has CloudWatch Logs encryption enabled"
+  },
+  {
+   "CheckID": "glue_etl_jobs_job_bookmark_encryption_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue ETL job has Job bookmark encryption enabled"
+  },
+  {
+   "CheckID": "glue_etl_jobs_logging_enabled",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue ETL job has continuous CloudWatch logging enabled"
+  },
+  {
+   "CheckID": "glue_etl_jobs_no_secrets_in_arguments",
+   "Service": "glue",
+   "Severity": "critical",
+   "Title": "Glue ETL job has no secrets in default arguments"
+  },
+  {
+   "CheckID": "glue_ml_transform_encrypted_at_rest",
+   "Service": "glue",
+   "Severity": "medium",
+   "Title": "Glue ML Transform is encrypted at rest"
+  },
+  {
+   "CheckID": "guardduty_ai_protection_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has AI Protection enabled"
+  },
+  {
+   "CheckID": "guardduty_centrally_managed",
+   "Service": "guardduty",
+   "Severity": "medium",
+   "Title": "GuardDuty detector is managed by an administrator account or is the administrator with member accounts"
+  },
+  {
+   "CheckID": "guardduty_delegated_admin_enabled_all_regions",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty has delegated admin configured and is enabled in all regions with organization auto-enable"
+  },
+  {
+   "CheckID": "guardduty_ec2_malware_protection_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has Malware Protection for EC2 enabled"
+  },
+  {
+   "CheckID": "guardduty_eks_audit_log_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has EKS Audit Log Monitoring enabled"
+  },
+  {
+   "CheckID": "guardduty_eks_runtime_monitoring_enabled",
+   "Service": "guardduty",
+   "Severity": "medium",
+   "Title": "GuardDuty detector has EKS Runtime Monitoring enabled"
+  },
+  {
+   "CheckID": "guardduty_is_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector is enabled and not suspended"
+  },
+  {
+   "CheckID": "guardduty_lambda_protection_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has Lambda Protection enabled"
+  },
+  {
+   "CheckID": "guardduty_no_high_severity_findings",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has no high severity findings"
+  },
+  {
+   "CheckID": "guardduty_rds_protection_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has RDS Protection enabled"
+  },
+  {
+   "CheckID": "guardduty_runtime_monitoring_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has Runtime Monitoring enabled"
+  },
+  {
+   "CheckID": "guardduty_s3_protection_enabled",
+   "Service": "guardduty",
+   "Severity": "high",
+   "Title": "GuardDuty detector has S3 Protection enabled"
+  },
+  {
+   "CheckID": "iam_administrator_access_with_mfa",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM group members granted AdministratorAccess have MFA enabled"
+  },
+  {
+   "CheckID": "iam_avoid_root_usage",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "AWS account root user has not been used in the last day"
+  },
+  {
+   "CheckID": "iam_aws_attached_policy_no_administrative_privileges",
+   "Service": "iam",
+   "Severity": "critical",
+   "Title": "Attached AWS-managed IAM policy does not allow '*:*' administrative privileges"
+  },
+  {
+   "CheckID": "iam_check_saml_providers_sts",
+   "Service": "iam",
+   "Severity": "low",
+   "Title": "IAM SAML provider exists in the account"
+  },
+  {
+   "CheckID": "iam_customer_attached_policy_no_administrative_privileges",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "Attached IAM customer-managed policy does not allow '*:*' administrative privileges"
+  },
+  {
+   "CheckID": "iam_customer_unattached_policy_no_administrative_privileges",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Unattached customer managed IAM policy does not allow '*:*' administrative privileges"
+  },
+  {
+   "CheckID": "iam_group_administrator_access_policy",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM group does not have AdministratorAccess policy attached"
+  },
+  {
+   "CheckID": "iam_inline_policy_allows_privilege_escalation",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM inline policy does not allow privilege escalation"
+  },
+  {
+   "CheckID": "iam_inline_policy_no_administrative_privileges",
+   "Service": "iam",
+   "Severity": "critical",
+   "Title": "Inline IAM policy does not allow '*:*' administrative privileges"
+  },
+  {
+   "CheckID": "iam_inline_policy_no_full_access_to_cloudtrail",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "Inline IAM policy does not allow 'cloudtrail:*' privileges"
+  },
+  {
+   "CheckID": "iam_inline_policy_no_full_access_to_kms",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Inline IAM policy does not allow kms:* privileges"
+  },
+  {
+   "CheckID": "iam_inline_policy_no_wildcard_marketplace_subscribe",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Inline IAM policy does not allow 'aws-marketplace:Subscribe' on all resources"
+  },
+  {
+   "CheckID": "iam_no_custom_policy_permissive_role_assumption",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "Custom IAM policy does not allow STS role assumption on wildcard resources"
+  },
+  {
+   "CheckID": "iam_no_expired_server_certificates_stored",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM server certificate is not expired"
+  },
+  {
+   "CheckID": "iam_no_root_access_key",
+   "Service": "iam",
+   "Severity": "critical",
+   "Title": "Root account has no active access keys"
+  },
+  {
+   "CheckID": "iam_password_policy_expires_passwords_within_90_days_or_less",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM account password policy enforces password expiration within 90 days or less"
+  },
+  {
+   "CheckID": "iam_password_policy_lowercase",
+   "Service": "iam",
+   "Severity": "low",
+   "Title": "IAM password policy requires at least one lowercase letter"
+  },
+  {
+   "CheckID": "iam_password_policy_minimum_length_14",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM password policy requires passwords to be at least 14 characters long"
+  },
+  {
+   "CheckID": "iam_password_policy_number",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM password policy requires at least one number"
+  },
+  {
+   "CheckID": "iam_password_policy_reuse_24",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM password policy prevents reuse of the last 24 passwords"
+  },
+  {
+   "CheckID": "iam_password_policy_symbol",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM password policy requires at least one symbol"
+  },
+  {
+   "CheckID": "iam_password_policy_uppercase",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM password policy requires at least one uppercase letter"
+  },
+  {
+   "CheckID": "iam_policy_allows_privilege_escalation",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "Customer managed IAM policy does not allow actions that can lead to privilege escalation"
+  },
+  {
+   "CheckID": "iam_policy_attached_only_to_group_or_roles",
+   "Service": "iam",
+   "Severity": "low",
+   "Title": "IAM user has no inline or attached policies"
+  },
+  {
+   "CheckID": "iam_policy_cloudshell_admin_not_attached",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "No IAM users, groups, or roles have the AWSCloudShellFullAccess policy attached"
+  },
+  {
+   "CheckID": "iam_policy_no_agentcore_workload_access_token_wildcard",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "Custom IAM policy scopes Bedrock AgentCore workload access token retrieval to workload identity ARNs"
+  },
+  {
+   "CheckID": "iam_policy_no_full_access_to_cloudtrail",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Customer managed IAM policy does not allow cloudtrail:* privileges"
+  },
+  {
+   "CheckID": "iam_policy_no_full_access_to_kms",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Custom IAM policy does not allow 'kms:*' privileges"
+  },
+  {
+   "CheckID": "iam_policy_no_wildcard_marketplace_subscribe",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Custom IAM policy does not allow 'aws-marketplace:Subscribe' on all resources"
+  },
+  {
+   "CheckID": "iam_policy_passrole_to_bedrock_agentcore_restricted",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "Custom IAM policy restricts iam:PassRole to Bedrock AgentCore to specific roles"
+  },
+  {
+   "CheckID": "iam_role_access_not_stale_to_bedrock",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Regular Bedrock access ensures IAM roles retain only actively used permissions"
+  },
+  {
+   "CheckID": "iam_role_administratoraccess_policy",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM role does not have AdministratorAccess policy attached"
+  },
+  {
+   "CheckID": "iam_role_cross_account_readonlyaccess_policy",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM role does not grant ReadOnlyAccess to external AWS accounts"
+  },
+  {
+   "CheckID": "iam_role_cross_service_confused_deputy_prevention",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM service role prevents cross-service confused deputy attack"
+  },
+  {
+   "CheckID": "iam_role_service_trust_restricts_source_to_account",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM role trust policy confines AWS service principals to a specific source account"
+  },
+  {
+   "CheckID": "iam_root_credentials_management_enabled",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "AWS Organization has centralized root credentials management enabled"
+  },
+  {
+   "CheckID": "iam_root_hardware_mfa_enabled",
+   "Service": "iam",
+   "Severity": "critical",
+   "Title": "Root account has a hardware MFA device enabled"
+  },
+  {
+   "CheckID": "iam_root_mfa_enabled",
+   "Service": "iam",
+   "Severity": "critical",
+   "Title": "Root account has MFA enabled"
+  },
+  {
+   "CheckID": "iam_rotate_access_key_90_days",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM user does not have active access keys older than 90 days"
+  },
+  {
+   "CheckID": "iam_securityaudit_role_created",
+   "Service": "iam",
+   "Severity": "low",
+   "Title": "At least one IAM role has the SecurityAudit AWS managed policy attached"
+  },
+  {
+   "CheckID": "iam_support_role_created",
+   "Service": "iam",
+   "Severity": "low",
+   "Title": "At least one IAM role has the AWSSupportAccess managed policy attached"
+  },
+  {
+   "CheckID": "iam_user_access_not_stale_to_bedrock",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Regular Bedrock access ensures IAM users retain only actively used permissions"
+  },
+  {
+   "CheckID": "iam_user_access_not_stale_to_sagemaker",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "Regular SageMaker access ensures IAM users retain only actively used permissions"
+  },
+  {
+   "CheckID": "iam_user_accesskey_unused",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM user does not have unused access keys older than 45 days"
+  },
+  {
+   "CheckID": "iam_user_administrator_access_policy",
+   "Service": "iam",
+   "Severity": "critical",
+   "Title": "IAM user does not have AdministratorAccess policy attached"
+  },
+  {
+   "CheckID": "iam_user_console_access_unused",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM user console access is disabled, used within the configured inactivity period, or never used"
+  },
+  {
+   "CheckID": "iam_user_hardware_mfa_enabled",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM user has hardware MFA enabled"
+  },
+  {
+   "CheckID": "iam_user_mfa_enabled_console_access",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM user has MFA enabled for console access or no console password is set"
+  },
+  {
+   "CheckID": "iam_user_no_setup_initial_access_key",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM user does not have active access keys that have never been used"
+  },
+  {
+   "CheckID": "iam_user_two_active_access_key",
+   "Service": "iam",
+   "Severity": "medium",
+   "Title": "IAM user has at most one active access key"
+  },
+  {
+   "CheckID": "iam_user_with_temporary_credentials",
+   "Service": "iam",
+   "Severity": "high",
+   "Title": "IAM user does not use long-lived credentials to access services other than IAM or STS"
+  },
+  {
+   "CheckID": "inspector2_active_findings_exist",
+   "Service": "inspector2",
+   "Severity": "high",
+   "Title": "Inspector2 is enabled with no active findings"
+  },
+  {
+   "CheckID": "inspector2_active_findings_kev_within_due_date",
+   "Service": "inspector2",
+   "Severity": "critical",
+   "Title": "Inspector2 has no active findings for CISA Known Exploited Vulnerabilities past their remediation due date"
+  },
+  {
+   "CheckID": "inspector2_active_findings_no_known_exploited_vulnerabilities",
+   "Service": "inspector2",
+   "Severity": "high",
+   "Title": "Inspector2 has no active findings for CISA Known Exploited Vulnerabilities"
+  },
+  {
+   "CheckID": "inspector2_active_findings_within_max_age",
+   "Service": "inspector2",
+   "Severity": "medium",
+   "Title": "Inspector2 has no active findings older than the configured maximum age"
+  },
+  {
+   "CheckID": "inspector2_coverage_recently_scanned",
+   "Service": "inspector2",
+   "Severity": "medium",
+   "Title": "Inspector2 covered resource was scanned within the configured number of days"
+  },
+  {
+   "CheckID": "inspector2_coverage_scan_status_active",
+   "Service": "inspector2",
+   "Severity": "medium",
+   "Title": "Inspector2 covered resource is actively scanned"
+  },
+  {
+   "CheckID": "inspector2_is_enabled",
+   "Service": "inspector2",
+   "Severity": "medium",
+   "Title": "Inspector2 is enabled for Amazon EC2 instances, ECR container images, Lambda functions, and Lambda code"
+  },
+  {
+   "CheckID": "kafka_cluster_encryption_at_rest_uses_cmk",
+   "Service": "kafka",
+   "Severity": "medium",
+   "Title": "Kafka cluster has encryption at rest enabled with a customer managed key (CMK) or is serverless"
+  },
+  {
+   "CheckID": "kafka_cluster_enhanced_monitoring_enabled",
+   "Service": "kafka",
+   "Severity": "medium",
+   "Title": "Amazon MSK cluster has enhanced monitoring enabled"
+  },
+  {
+   "CheckID": "kafka_cluster_in_transit_encryption_enabled",
+   "Service": "kafka",
+   "Severity": "high",
+   "Title": "Kafka cluster has encryption in transit enabled"
+  },
+  {
+   "CheckID": "kafka_cluster_is_public",
+   "Service": "kafka",
+   "Severity": "critical",
+   "Title": "Kafka cluster is not publicly accessible"
+  },
+  {
+   "CheckID": "kafka_cluster_mutual_tls_authentication_enabled",
+   "Service": "kafka",
+   "Severity": "high",
+   "Title": "Kafka cluster has TLS authentication enabled"
+  },
+  {
+   "CheckID": "kafka_cluster_unrestricted_access_disabled",
+   "Service": "kafka",
+   "Severity": "critical",
+   "Title": "Kafka cluster requires authentication"
+  },
+  {
+   "CheckID": "kafka_cluster_uses_latest_version",
+   "Service": "kafka",
+   "Severity": "medium",
+   "Title": "MSK cluster uses the latest Kafka version or is serverless with AWS-managed version"
+  },
+  {
+   "CheckID": "kafka_connector_in_transit_encryption_enabled",
+   "Service": "kafka",
+   "Severity": "high",
+   "Title": "MSK Connect connector has encryption in transit enabled"
+  },
+  {
+   "CheckID": "kinesis_stream_data_retention_period",
+   "Service": "kinesis",
+   "Severity": "medium",
+   "Title": "Kinesis stream retains data for at least the required minimum hours"
+  },
+  {
+   "CheckID": "kinesis_stream_encrypted_at_rest",
+   "Service": "kinesis",
+   "Severity": "high",
+   "Title": "Kinesis stream is encrypted at rest with KMS"
+  },
+  {
+   "CheckID": "kms_cmk_are_used",
+   "Service": "kms",
+   "Severity": "low",
+   "Title": "KMS customer managed key is enabled or scheduled for deletion"
+  },
+  {
+   "CheckID": "kms_cmk_not_deleted_unintentionally",
+   "Service": "kms",
+   "Severity": "critical",
+   "Title": "AWS KMS customer managed key is not scheduled for deletion"
+  },
+  {
+   "CheckID": "kms_cmk_not_multi_region",
+   "Service": "kms",
+   "Severity": "medium",
+   "Title": "AWS KMS customer managed key is single-Region"
+  },
+  {
+   "CheckID": "kms_cmk_rotation_enabled",
+   "Service": "kms",
+   "Severity": "high",
+   "Title": "KMS customer-managed symmetric CMK has automatic rotation enabled"
+  },
+  {
+   "CheckID": "kms_key_enclave_attestation_bypassable_path",
+   "Service": "kms",
+   "Severity": "high",
+   "Title": "KMS enclave key has no authorization path that bypasses attestation"
+  },
+  {
+   "CheckID": "kms_key_enclave_attestation_no_deployment_binding",
+   "Service": "kms",
+   "Severity": "informational",
+   "Title": "KMS enclave key attestation binds a specific deployment context"
+  },
+  {
+   "CheckID": "kms_key_enclave_attestation_not_enforced",
+   "Service": "kms",
+   "Severity": "high",
+   "Title": "KMS enclave key requires kms:RecipientAttestation conditions on sensitive actions"
+  },
+  {
+   "CheckID": "kms_key_enclave_attestation_pcr_mismatch",
+   "Service": "kms",
+   "Severity": "medium",
+   "Title": "KMS enclave key attestation PCRs match customer-supplied golden values"
+  },
+  {
+   "CheckID": "kms_key_enclave_attestation_unknown_image",
+   "Service": "kms",
+   "Severity": "medium",
+   "Title": "No enclave with an unknown image identity has called this KMS key"
+  },
+  {
+   "CheckID": "kms_key_enclave_debug_attestation_detected",
+   "Service": "kms",
+   "Severity": "high",
+   "Title": "No Nitro Enclave debug-mode attestation observed against this KMS key"
+  },
+  {
+   "CheckID": "kms_key_not_publicly_accessible",
+   "Service": "kms",
+   "Severity": "critical",
+   "Title": "Cloud KMS key does not grant access to allUsers or allAuthenticatedUsers"
+  },
+  {
+   "CheckID": "lightsail_database_public",
+   "Service": "lightsail",
+   "Severity": "high",
+   "Title": "Lightsail database public access disabled"
+  },
+  {
+   "CheckID": "lightsail_instance_automated_snapshots",
+   "Service": "lightsail",
+   "Severity": "medium",
+   "Title": "Lightsail instance has automated snapshots enabled"
+  },
+  {
+   "CheckID": "lightsail_instance_php_blueprint_updated",
+   "Service": "lightsail",
+   "Severity": "high",
+   "Title": "Lightsail instance created from a PHP blueprint runs a fixed PHP release"
+  },
+  {
+   "CheckID": "lightsail_instance_public",
+   "Service": "lightsail",
+   "Severity": "high",
+   "Title": "Lightsail instance has no publicly accessible ports"
+  },
+  {
+   "CheckID": "lightsail_static_ip_unused",
+   "Service": "lightsail",
+   "Severity": "low",
+   "Title": "Lightsail static IP is associated with an instance"
+  },
+  {
+   "CheckID": "macie_automated_sensitive_data_discovery_enabled",
+   "Service": "macie",
+   "Severity": "high",
+   "Title": "Macie automated sensitive data discovery is enabled"
+  },
+  {
+   "CheckID": "macie_is_enabled",
+   "Service": "macie",
+   "Severity": "medium",
+   "Title": "Amazon Macie is enabled"
+  },
+  {
+   "CheckID": "memorydb_cluster_auto_minor_version_upgrades",
+   "Service": "memorydb",
+   "Severity": "medium",
+   "Title": "MemoryDB cluster has automatic minor version upgrades enabled"
+  },
+  {
+   "CheckID": "memorydb_cluster_in_transit_encryption_enabled",
+   "Service": "memorydb",
+   "Severity": "medium",
+   "Title": "MemoryDB cluster has in-transit encryption enabled"
+  },
+  {
+   "CheckID": "mq_broker_active_deployment_mode",
+   "Service": "mq",
+   "Severity": "low",
+   "Title": "Apache ActiveMQ broker is configured in active/standby Multi-AZ deployment mode"
+  },
+  {
+   "CheckID": "mq_broker_auto_minor_version_upgrades",
+   "Service": "mq",
+   "Severity": "low",
+   "Title": "Amazon MQ broker has automated minor version upgrades enabled"
+  },
+  {
+   "CheckID": "mq_broker_cluster_deployment_mode",
+   "Service": "mq",
+   "Severity": "medium",
+   "Title": "MQ RabbitMQ broker has cluster (multi-AZ) deployment mode"
+  },
+  {
+   "CheckID": "mq_broker_logging_enabled",
+   "Service": "mq",
+   "Severity": "low",
+   "Title": "MQ broker has general logging enabled and, for ActiveMQ, audit logging enabled"
+  },
+  {
+   "CheckID": "mq_broker_not_publicly_accessible",
+   "Service": "mq",
+   "Severity": "high",
+   "Title": "Amazon MQ broker is not publicly accessible"
+  },
+  {
+   "CheckID": "neptune_cluster_backup_enabled",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune cluster has automated backups enabled with retention period equal to or greater than the configured minimum"
+  },
+  {
+   "CheckID": "neptune_cluster_copy_tags_to_snapshots",
+   "Service": "neptune",
+   "Severity": "low",
+   "Title": "Neptune DB cluster is configured to copy tags to snapshots."
+  },
+  {
+   "CheckID": "neptune_cluster_deletion_protection",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune cluster has deletion protection enabled"
+  },
+  {
+   "CheckID": "neptune_cluster_iam_authentication_enabled",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune cluster has IAM authentication enabled"
+  },
+  {
+   "CheckID": "neptune_cluster_integration_cloudwatch_logs",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune cluster has CloudWatch audit logs enabled"
+  },
+  {
+   "CheckID": "neptune_cluster_multi_az",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune cluster has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "neptune_cluster_public_snapshot",
+   "Service": "neptune",
+   "Severity": "critical",
+   "Title": "NeptuneDB cluster snapshot is not publicly shared"
+  },
+  {
+   "CheckID": "neptune_cluster_snapshot_encrypted",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune DB cluster snapshot is encrypted at rest"
+  },
+  {
+   "CheckID": "neptune_cluster_storage_encrypted",
+   "Service": "neptune",
+   "Severity": "high",
+   "Title": "Neptune cluster storage is encrypted at rest"
+  },
+  {
+   "CheckID": "neptune_cluster_uses_public_subnet",
+   "Service": "neptune",
+   "Severity": "medium",
+   "Title": "Neptune cluster is not using public subnets"
+  },
+  {
+   "CheckID": "networkfirewall_deletion_protection",
+   "Service": "networkfirewall",
+   "Severity": "medium",
+   "Title": "Network Firewall has deletion protection enabled"
+  },
+  {
+   "CheckID": "networkfirewall_in_all_vpc",
+   "Service": "networkfirewall",
+   "Severity": "medium",
+   "Title": "VPC has Network Firewall enabled"
+  },
+  {
+   "CheckID": "networkfirewall_logging_enabled",
+   "Service": "networkfirewall",
+   "Severity": "high",
+   "Title": "Network Firewall has logging enabled"
+  },
+  {
+   "CheckID": "networkfirewall_multi_az",
+   "Service": "networkfirewall",
+   "Severity": "high",
+   "Title": "Network Firewall firewall is deployed across multiple Availability Zones"
+  },
+  {
+   "CheckID": "networkfirewall_policy_default_action_fragmented_packets",
+   "Service": "networkfirewall",
+   "Severity": "high",
+   "Title": "Network Firewall policy drops or forwards fragmented packets by default"
+  },
+  {
+   "CheckID": "networkfirewall_policy_default_action_full_packets",
+   "Service": "networkfirewall",
+   "Severity": "high",
+   "Title": "Network Firewall firewall policy default stateless action for full packets is drop or forward"
+  },
+  {
+   "CheckID": "networkfirewall_policy_rule_group_associated",
+   "Service": "networkfirewall",
+   "Severity": "high",
+   "Title": "Network Firewall policy has at least one rule group associated"
+  },
+  {
+   "CheckID": "oam_sink_not_publicly_accessible",
+   "Service": "oam",
+   "Severity": "high",
+   "Title": "Observability Access Manager sink does not allow any AWS account to link to it"
+  },
+  {
+   "CheckID": "opensearch_service_domains_access_control_enabled",
+   "Service": "opensearch",
+   "Severity": "high",
+   "Title": "Amazon OpenSearch Service domain has fine-grained access control enabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_audit_logging_enabled",
+   "Service": "opensearch",
+   "Severity": "high",
+   "Title": "Amazon OpenSearch Service domain has audit logging enabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_cloudwatch_logging_enabled",
+   "Service": "opensearch",
+   "Severity": "low",
+   "Title": "Amazon OpenSearch Service domain publishes search and index slow logs to CloudWatch Logs"
+  },
+  {
+   "CheckID": "opensearch_service_domains_encryption_at_rest_enabled",
+   "Service": "opensearch",
+   "Severity": "critical",
+   "Title": "Amazon OpenSearch Service domain has encryption at rest enabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_fault_tolerant_data_nodes",
+   "Service": "opensearch",
+   "Severity": "medium",
+   "Title": "OpenSearch domain has at least 3 data nodes and Zone Awareness enabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_fault_tolerant_master_nodes",
+   "Service": "opensearch",
+   "Severity": "medium",
+   "Title": "OpenSearch domain has at least 3 dedicated master nodes"
+  },
+  {
+   "CheckID": "opensearch_service_domains_https_communications_enforced",
+   "Service": "opensearch",
+   "Severity": "high",
+   "Title": "OpenSearch domain has HTTPS enforcement enabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_internal_user_database_enabled",
+   "Service": "opensearch",
+   "Severity": "medium",
+   "Title": "Amazon OpenSearch Service domain has internal user database disabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_node_to_node_encryption_enabled",
+   "Service": "opensearch",
+   "Severity": "high",
+   "Title": "Amazon OpenSearch Service domain has node-to-node encryption enabled"
+  },
+  {
+   "CheckID": "opensearch_service_domains_not_publicly_accessible",
+   "Service": "opensearch",
+   "Severity": "critical",
+   "Title": "Amazon OpenSearch Service domain is not publicly accessible"
+  },
+  {
+   "CheckID": "opensearch_service_domains_updated_to_the_latest_service_software_version",
+   "Service": "opensearch",
+   "Severity": "high",
+   "Title": "Amazon OpenSearch Service domain is updated to the latest service software version"
+  },
+  {
+   "CheckID": "opensearch_service_domains_use_cognito_authentication_for_kibana",
+   "Service": "opensearch",
+   "Severity": "medium",
+   "Title": "Amazon OpenSearch Service domain has either Amazon Cognito or SAML authentication enabled for Kibana"
+  },
+  {
+   "CheckID": "organizations_account_part_of_organizations",
+   "Service": "organizations",
+   "Severity": "medium",
+   "Title": "AWS account is a member of an active AWS Organization"
+  },
+  {
+   "CheckID": "organizations_delegated_administrators",
+   "Service": "organizations",
+   "Severity": "critical",
+   "Title": "AWS Organization has only trusted delegated administrators"
+  },
+  {
+   "CheckID": "organizations_opt_out_ai_services_policy",
+   "Service": "organizations",
+   "Severity": "medium",
+   "Title": "AWS Organization has opted out of all AI services and child accounts cannot override the policy"
+  },
+  {
+   "CheckID": "organizations_scp_check_deny_regions",
+   "Service": "organizations",
+   "Severity": "high",
+   "Title": "AWS Organization restricts operations to only the configured AWS Regions with SCP policies"
+  },
+  {
+   "CheckID": "organizations_security_services_delegated_admin_not_management_account",
+   "Service": "organizations",
+   "Severity": "high",
+   "Title": "AWS Organization security services are administered from a delegated administrator account and not from the management account"
+  },
+  {
+   "CheckID": "organizations_tags_policies_enabled_and_attached",
+   "Service": "organizations",
+   "Severity": "low",
+   "Title": "AWS Organization has tag policies enabled and attached"
+  },
+  {
+   "CheckID": "rds_cluster_backtrack_enabled",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS Aurora MySQL cluster has Backtrack enabled"
+  },
+  {
+   "CheckID": "rds_cluster_copy_tags_to_snapshots",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS DB cluster has copy tags to snapshots enabled"
+  },
+  {
+   "CheckID": "rds_cluster_critical_event_subscription",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster event subscription is enabled for maintenance and failure categories"
+  },
+  {
+   "CheckID": "rds_cluster_default_admin",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster master username is not admin or postgres"
+  },
+  {
+   "CheckID": "rds_cluster_deletion_protection",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster has deletion protection enabled"
+  },
+  {
+   "CheckID": "rds_cluster_iam_authentication_enabled",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster has IAM authentication enabled"
+  },
+  {
+   "CheckID": "rds_cluster_integration_cloudwatch_logs",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster has CloudWatch Logs export enabled"
+  },
+  {
+   "CheckID": "rds_cluster_minor_version_upgrade_enabled",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster has automatic minor version upgrades enabled"
+  },
+  {
+   "CheckID": "rds_cluster_multi_az",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS cluster has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "rds_cluster_non_default_port",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS cluster uses a non-default port for its database engine"
+  },
+  {
+   "CheckID": "rds_cluster_protected_by_backup_plan",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS cluster is protected by an AWS Backup plan"
+  },
+  {
+   "CheckID": "rds_cluster_storage_encrypted",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS cluster storage is encrypted"
+  },
+  {
+   "CheckID": "rds_instance_backup_enabled",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance has backup retention period greater than 0 days"
+  },
+  {
+   "CheckID": "rds_instance_certificate_expiration",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS instance SSL/TLS certificate has more than 3 months of validity remaining"
+  },
+  {
+   "CheckID": "rds_instance_copy_tags_to_snapshots",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS DB instance has copy tags to snapshots enabled"
+  },
+  {
+   "CheckID": "rds_instance_critical_event_subscription",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance event subscription is enabled for maintenance, configuration change, and failure categories"
+  },
+  {
+   "CheckID": "rds_instance_default_admin",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance does not use the default master username (admin or postgres)"
+  },
+  {
+   "CheckID": "rds_instance_deletion_protection",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance has deletion protection enabled"
+  },
+  {
+   "CheckID": "rds_instance_deprecated_engine_version",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS instance uses a supported engine version"
+  },
+  {
+   "CheckID": "rds_instance_enhanced_monitoring_enabled",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS instance has enhanced monitoring enabled"
+  },
+  {
+   "CheckID": "rds_instance_event_subscription_parameter_groups",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS DB parameter group event subscription is enabled and subscribes to configuration change events or all categories"
+  },
+  {
+   "CheckID": "rds_instance_event_subscription_security_groups",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS event subscription for DB security groups is enabled for configuration change and failure events"
+  },
+  {
+   "CheckID": "rds_instance_extended_support",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance is not enrolled in RDS Extended Support"
+  },
+  {
+   "CheckID": "rds_instance_iam_authentication_enabled",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance has IAM database authentication enabled"
+  },
+  {
+   "CheckID": "rds_instance_inside_vpc",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS instance is deployed in a VPC"
+  },
+  {
+   "CheckID": "rds_instance_integration_cloudwatch_logs",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance exports logs to CloudWatch Logs"
+  },
+  {
+   "CheckID": "rds_instance_minor_version_upgrade_enabled",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance has minor version upgrade enabled"
+  },
+  {
+   "CheckID": "rds_instance_multi_az",
+   "Service": "rds",
+   "Severity": "medium",
+   "Title": "RDS instance has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "rds_instance_no_public_access",
+   "Service": "rds",
+   "Severity": "critical",
+   "Title": "RDS instance is not publicly exposed to the Internet"
+  },
+  {
+   "CheckID": "rds_instance_non_default_port",
+   "Service": "rds",
+   "Severity": "low",
+   "Title": "RDS instance uses a non-default port for its engine"
+  },
+  {
+   "CheckID": "rds_instance_protected_by_backup_plan",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS instance is protected by an AWS Backup plan"
+  },
+  {
+   "CheckID": "rds_instance_storage_encrypted",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS DB instance storage is encrypted at rest"
+  },
+  {
+   "CheckID": "rds_instance_transport_encrypted",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS instance or cluster enforces SSL/TLS encryption for client connections"
+  },
+  {
+   "CheckID": "rds_snapshots_encrypted",
+   "Service": "rds",
+   "Severity": "high",
+   "Title": "RDS DB instance snapshot or DB cluster snapshot is encrypted"
+  },
+  {
+   "CheckID": "rds_snapshots_public_access",
+   "Service": "rds",
+   "Severity": "critical",
+   "Title": "RDS snapshot is not publicly shared"
+  },
+  {
+   "CheckID": "redshift_cluster_audit_logging",
+   "Service": "redshift",
+   "Severity": "medium",
+   "Title": "Redshift cluster has audit logging enabled"
+  },
+  {
+   "CheckID": "redshift_cluster_automated_snapshot",
+   "Service": "redshift",
+   "Severity": "high",
+   "Title": "Redshift cluster has automated snapshots enabled"
+  },
+  {
+   "CheckID": "redshift_cluster_automatic_upgrades",
+   "Service": "redshift",
+   "Severity": "medium",
+   "Title": "Redshift cluster has automatic version upgrade enabled"
+  },
+  {
+   "CheckID": "redshift_cluster_encrypted_at_rest",
+   "Service": "redshift",
+   "Severity": "critical",
+   "Title": "Redshift cluster is encrypted at rest"
+  },
+  {
+   "CheckID": "redshift_cluster_enhanced_vpc_routing",
+   "Service": "redshift",
+   "Severity": "medium",
+   "Title": "Redshift cluster has Enhanced VPC Routing enabled"
+  },
+  {
+   "CheckID": "redshift_cluster_in_transit_encryption_enabled",
+   "Service": "redshift",
+   "Severity": "high",
+   "Title": "Redshift cluster is encrypted in transit"
+  },
+  {
+   "CheckID": "redshift_cluster_multi_az_enabled",
+   "Service": "redshift",
+   "Severity": "medium",
+   "Title": "Redshift cluster has Multi-AZ enabled"
+  },
+  {
+   "CheckID": "redshift_cluster_non_default_database_name",
+   "Service": "redshift",
+   "Severity": "low",
+   "Title": "Redshift cluster does not use the default database name dev"
+  },
+  {
+   "CheckID": "redshift_cluster_non_default_username",
+   "Service": "redshift",
+   "Severity": "medium",
+   "Title": "Amazon Redshift cluster does not use the default admin username"
+  },
+  {
+   "CheckID": "redshift_cluster_public_access",
+   "Service": "redshift",
+   "Severity": "critical",
+   "Title": "Redshift cluster is not publicly exposed to the Internet"
+  },
+  {
+   "CheckID": "resourceexplorer2_indexes_found",
+   "Service": "resourceexplorer2",
+   "Severity": "low",
+   "Title": "Resource Explorer indexes exist"
+  },
+  {
+   "CheckID": "rolesanywhere_profile_restricts_session_permissions",
+   "Service": "rolesanywhere",
+   "Severity": "medium",
+   "Title": "IAM Roles Anywhere profiles scope down the vended session permissions"
+  },
+  {
+   "CheckID": "rolesanywhere_trust_anchor_pqc_pki",
+   "Service": "rolesanywhere",
+   "Severity": "low",
+   "Title": "IAM Roles Anywhere trust anchors are backed by a post-quantum (ML-DSA) PKI"
+  },
+  {
+   "CheckID": "route53_dangling_ip_subdomain_takeover",
+   "Service": "route53",
+   "Severity": "high",
+   "Title": "Route53 record does not point to a dangling AWS resource"
+  },
+  {
+   "CheckID": "route53_domains_privacy_protection_enabled",
+   "Service": "route53",
+   "Severity": "medium",
+   "Title": "Route 53 domain has admin contact privacy protection enabled"
+  },
+  {
+   "CheckID": "route53_domains_transferlock_enabled",
+   "Service": "route53",
+   "Severity": "high",
+   "Title": "Route 53 domain has Transfer Lock enabled"
+  },
+  {
+   "CheckID": "route53_public_hosted_zones_cloudwatch_logging_enabled",
+   "Service": "route53",
+   "Severity": "medium",
+   "Title": "Route53 public hosted zone has query logging enabled to a CloudWatch Logs log group"
+  },
+  {
+   "CheckID": "s3_access_point_public_access_block",
+   "Service": "s3",
+   "Severity": "critical",
+   "Title": "S3 access point has all Block Public Access settings enabled"
+  },
+  {
+   "CheckID": "s3_account_level_public_access_blocks",
+   "Service": "s3",
+   "Severity": "high",
+   "Title": "S3 account-level Block Public Access ignores public ACLs and restricts public buckets"
+  },
+  {
+   "CheckID": "s3_bucket_acl_prohibited",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "S3 bucket has bucket ACLs disabled"
+  },
+  {
+   "CheckID": "s3_bucket_cross_account_access",
+   "Service": "s3",
+   "Severity": "high",
+   "Title": "S3 bucket policy does not allow cross-account access"
+  },
+  {
+   "CheckID": "s3_bucket_cross_region_replication",
+   "Service": "s3",
+   "Severity": "low",
+   "Title": "S3 bucket has cross-region replication configured to a bucket in a different region"
+  },
+  {
+   "CheckID": "s3_bucket_default_encryption",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "[DEPRECATED] S3 bucket has default server-side encryption (SSE) enabled"
+  },
+  {
+   "CheckID": "s3_bucket_event_notifications_enabled",
+   "Service": "s3",
+   "Severity": "low",
+   "Title": "S3 bucket has event notifications enabled"
+  },
+  {
+   "CheckID": "s3_bucket_kms_encryption",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "S3 bucket has server-side encryption with AWS KMS"
+  },
+  {
+   "CheckID": "s3_bucket_level_public_access_block",
+   "Service": "s3",
+   "Severity": "high",
+   "Title": "S3 bucket has Block Public Access with IgnorePublicAcls and RestrictPublicBuckets enabled at bucket or account level"
+  },
+  {
+   "CheckID": "s3_bucket_lifecycle_enabled",
+   "Service": "s3",
+   "Severity": "low",
+   "Title": "S3 bucket has a lifecycle configuration enabled"
+  },
+  {
+   "CheckID": "s3_bucket_no_mfa_delete",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "S3 bucket has MFA Delete enabled"
+  },
+  {
+   "CheckID": "s3_bucket_object_lock",
+   "Service": "s3",
+   "Severity": "low",
+   "Title": "S3 bucket has Object Lock enabled"
+  },
+  {
+   "CheckID": "s3_bucket_object_public",
+   "Service": "s3",
+   "Severity": "low",
+   "Title": "Spot-check S3 bucket objects for public ACLs"
+  },
+  {
+   "CheckID": "s3_bucket_object_versioning",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "S3 bucket has object versioning enabled"
+  },
+  {
+   "CheckID": "s3_bucket_policy_public_write_access",
+   "Service": "s3",
+   "Severity": "critical",
+   "Title": "S3 bucket policy does not allow public write access"
+  },
+  {
+   "CheckID": "s3_bucket_public_access",
+   "Service": "s3",
+   "Severity": "critical",
+   "Title": "S3 bucket is not publicly accessible to Everyone or Authenticated Users"
+  },
+  {
+   "CheckID": "s3_bucket_public_list_acl",
+   "Service": "s3",
+   "Severity": "critical",
+   "Title": "S3 bucket is not publicly listable by Everyone or any authenticated AWS user"
+  },
+  {
+   "CheckID": "s3_bucket_public_write_acl",
+   "Service": "s3",
+   "Severity": "critical",
+   "Title": "S3 bucket ACL does not grant write access to Everyone or any AWS customer"
+  },
+  {
+   "CheckID": "s3_bucket_secure_transport_policy",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "S3 bucket policy denies requests over insecure transport"
+  },
+  {
+   "CheckID": "s3_bucket_server_access_logging_enabled",
+   "Service": "s3",
+   "Severity": "medium",
+   "Title": "S3 bucket has server access logging enabled"
+  },
+  {
+   "CheckID": "s3_bucket_shadow_resource_vulnerability",
+   "Service": "s3",
+   "Severity": "high",
+   "Title": "S3 bucket is not a known shadow resource owned by another account"
+  },
+  {
+   "CheckID": "s3_multi_region_access_point_public_access_block",
+   "Service": "s3",
+   "Severity": "high",
+   "Title": "S3 Multi-Region Access Point has all Block Public Access settings enabled"
+  },
+  {
+   "CheckID": "sagemaker_clarify_exists",
+   "Service": "sagemaker",
+   "Severity": "low",
+   "Title": "Amazon SageMaker Clarify processing jobs exist in the region"
+  },
+  {
+   "CheckID": "sagemaker_domain_sso_configured",
+   "Service": "sagemaker",
+   "Severity": "medium",
+   "Title": "SageMaker domains use SSO authentication instead of IAM mode"
+  },
+  {
+   "CheckID": "sagemaker_endpoint_config_kms_encryption_enabled",
+   "Service": "sagemaker",
+   "Severity": "medium",
+   "Title": "SageMaker endpoint configuration is encrypted with a KMS key"
+  },
+  {
+   "CheckID": "sagemaker_endpoint_config_prod_variant_instances",
+   "Service": "sagemaker",
+   "Severity": "medium",
+   "Title": "SageMaker endpoint configuration has all production variants with at least two initial instances"
+  },
+  {
+   "CheckID": "sagemaker_models_monitor_enabled",
+   "Service": "sagemaker",
+   "Severity": "low",
+   "Title": "Amazon SageMaker has a monitoring schedule scheduled"
+  },
+  {
+   "CheckID": "sagemaker_models_network_isolation_enabled",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "Amazon SageMaker model has network isolation enabled"
+  },
+  {
+   "CheckID": "sagemaker_models_registry_in_use",
+   "Service": "sagemaker",
+   "Severity": "low",
+   "Title": "Amazon SageMaker Model Registry should have at least one approved model package"
+  },
+  {
+   "CheckID": "sagemaker_models_vpc_settings_configured",
+   "Service": "sagemaker",
+   "Severity": "medium",
+   "Title": "Amazon SageMaker model has VPC settings enabled"
+  },
+  {
+   "CheckID": "sagemaker_notebook_instance_encryption_enabled",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "SageMaker notebook instance is encrypted with a KMS key"
+  },
+  {
+   "CheckID": "sagemaker_notebook_instance_no_secrets",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "SageMaker notebook instance lifecycle configuration contains no hardcoded secrets"
+  },
+  {
+   "CheckID": "sagemaker_notebook_instance_root_access_disabled",
+   "Service": "sagemaker",
+   "Severity": "medium",
+   "Title": "Amazon SageMaker notebook instance has root access disabled"
+  },
+  {
+   "CheckID": "sagemaker_notebook_instance_vpc_settings_configured",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "Amazon SageMaker notebook instance has VPC settings configured"
+  },
+  {
+   "CheckID": "sagemaker_notebook_instance_without_direct_internet_access_configured",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "Amazon SageMaker notebook instance has direct internet access disabled"
+  },
+  {
+   "CheckID": "sagemaker_training_jobs_intercontainer_encryption_enabled",
+   "Service": "sagemaker",
+   "Severity": "medium",
+   "Title": "Amazon SageMaker training job has inter-container traffic encryption enabled"
+  },
+  {
+   "CheckID": "sagemaker_training_jobs_network_isolation_enabled",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "Amazon SageMaker training job has network isolation enabled"
+  },
+  {
+   "CheckID": "sagemaker_training_jobs_volume_and_output_encryption_enabled",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "Amazon SageMaker training job volume has KMS encryption enabled"
+  },
+  {
+   "CheckID": "sagemaker_training_jobs_vpc_settings_configured",
+   "Service": "sagemaker",
+   "Severity": "high",
+   "Title": "Amazon SageMaker training job has VPC configuration enabled"
+  },
+  {
+   "CheckID": "secretsmanager_automatic_rotation_enabled",
+   "Service": "secretsmanager",
+   "Severity": "high",
+   "Title": "Secrets Manager secret has rotation enabled"
+  },
+  {
+   "CheckID": "secretsmanager_has_restrictive_resource_policy",
+   "Service": "secretsmanager",
+   "Severity": "high",
+   "Title": "Secrets Manager secret has a restrictive resource-based policy"
+  },
+  {
+   "CheckID": "secretsmanager_not_publicly_accessible",
+   "Service": "secretsmanager",
+   "Severity": "high",
+   "Title": "Secrets Manager secret resource policy does not allow public access"
+  },
+  {
+   "CheckID": "secretsmanager_secret_rotated_periodically",
+   "Service": "secretsmanager",
+   "Severity": "medium",
+   "Title": "AWS Secrets Manager secret is rotated within the configured maximum number of days"
+  },
+  {
+   "CheckID": "secretsmanager_secret_unused",
+   "Service": "secretsmanager",
+   "Severity": "medium",
+   "Title": "Secrets Manager secret has been accessed within the last 90 days"
+  },
+  {
+   "CheckID": "securityhub_delegated_admin_enabled_all_regions",
+   "Service": "securityhub",
+   "Severity": "high",
+   "Title": "Security Hub has delegated admin configured and is enabled in all regions with organization auto-enable"
+  },
+  {
+   "CheckID": "securityhub_enabled",
+   "Service": "securityhub",
+   "Severity": "high",
+   "Title": "Security Hub is enabled with standards or integrations configured"
+  },
+  {
+   "CheckID": "servicecatalog_portfolio_shared_within_organization_only",
+   "Service": "servicecatalog",
+   "Severity": "high",
+   "Title": "Service Catalog portfolio is shared only within the AWS Organization"
+  },
+  {
+   "CheckID": "ses_identity_dkim_enabled",
+   "Service": "ses",
+   "Severity": "medium",
+   "Title": "SES identity has DKIM signing enabled"
+  },
+  {
+   "CheckID": "ses_identity_not_publicly_accessible",
+   "Service": "ses",
+   "Severity": "high",
+   "Title": "SES identity resource policy does not allow public access"
+  },
+  {
+   "CheckID": "shield_advanced_protection_in_associated_elastic_ips",
+   "Service": "shield",
+   "Severity": "medium",
+   "Title": "Elastic IP address is protected by AWS Shield Advanced"
+  },
+  {
+   "CheckID": "shield_advanced_protection_in_classic_load_balancers",
+   "Service": "shield",
+   "Severity": "medium",
+   "Title": "Classic Load Balancer is protected by AWS Shield Advanced"
+  },
+  {
+   "CheckID": "shield_advanced_protection_in_cloudfront_distributions",
+   "Service": "shield",
+   "Severity": "medium",
+   "Title": "CloudFront distribution is protected by AWS Shield Advanced"
+  },
+  {
+   "CheckID": "shield_advanced_protection_in_global_accelerators",
+   "Service": "shield",
+   "Severity": "medium",
+   "Title": "Global Accelerator accelerator is protected by AWS Shield Advanced"
+  },
+  {
+   "CheckID": "shield_advanced_protection_in_internet_facing_load_balancers",
+   "Service": "shield",
+   "Severity": "medium",
+   "Title": "Internet-facing Application Load Balancer is protected by AWS Shield Advanced"
+  },
+  {
+   "CheckID": "shield_advanced_protection_in_route53_hosted_zones",
+   "Service": "shield",
+   "Severity": "medium",
+   "Title": "Route53 hosted zone is protected by AWS Shield Advanced"
+  },
+  {
+   "CheckID": "sns_subscription_not_using_http_endpoints",
+   "Service": "sns",
+   "Severity": "high",
+   "Title": "SNS subscription uses an HTTPS endpoint"
+  },
+  {
+   "CheckID": "sns_topics_kms_encryption_at_rest_enabled",
+   "Service": "sns",
+   "Severity": "high",
+   "Title": "SNS topic is encrypted at rest with KMS"
+  },
+  {
+   "CheckID": "sns_topics_not_publicly_accessible",
+   "Service": "sns",
+   "Severity": "high",
+   "Title": "SNS topic is not publicly accessible"
+  },
+  {
+   "CheckID": "sqs_queues_not_publicly_accessible",
+   "Service": "sqs",
+   "Severity": "critical",
+   "Title": "SQS queue policy does not allow public access"
+  },
+  {
+   "CheckID": "sqs_queues_server_side_encryption_enabled",
+   "Service": "sqs",
+   "Severity": "medium",
+   "Title": "SQS queue has server-side encryption enabled"
+  },
+  {
+   "CheckID": "ssm_document_secrets",
+   "Service": "ssm",
+   "Severity": "high",
+   "Title": "SSM document contains no secrets"
+  },
+  {
+   "CheckID": "ssm_documents_set_as_public",
+   "Service": "ssm",
+   "Severity": "high",
+   "Title": "SSM document is not public and shared only with trusted AWS accounts"
+  },
+  {
+   "CheckID": "ssm_managed_compliant_patching",
+   "Service": "ssm",
+   "Severity": "high",
+   "Title": "EC2 managed instance is compliant with Systems Manager patching requirements"
+  },
+  {
+   "CheckID": "ssmincidents_enabled_with_plans",
+   "Service": "ssmincidents",
+   "Severity": "medium",
+   "Title": "SSM Incidents replication set is ACTIVE and has at least one response plan"
+  },
+  {
+   "CheckID": "stepfunctions_statemachine_encrypted_with_cmk",
+   "Service": "stepfunctions",
+   "Severity": "medium",
+   "Title": "Step Functions state machine is encrypted at rest with a customer-managed KMS key"
+  },
+  {
+   "CheckID": "stepfunctions_statemachine_logging_enabled",
+   "Service": "stepfunctions",
+   "Severity": "medium",
+   "Title": "Step Functions state machine has logging enabled"
+  },
+  {
+   "CheckID": "stepfunctions_statemachine_no_secrets_in_definition",
+   "Service": "stepfunctions",
+   "Severity": "critical",
+   "Title": "Step Functions state machine has no sensitive credentials in its definition"
+  },
+  {
+   "CheckID": "storagegateway_fileshare_encryption_enabled",
+   "Service": "storagegateway",
+   "Severity": "medium",
+   "Title": "Storage Gateway file share is encrypted with KMS CMK"
+  },
+  {
+   "CheckID": "storagegateway_gateway_fault_tolerant",
+   "Service": "storagegateway",
+   "Severity": "medium",
+   "Title": "AWS Storage Gateway gateway is not hosted on EC2"
+  },
+  {
+   "CheckID": "transfer_server_fips_security_policy_enabled",
+   "Service": "transfer",
+   "Severity": "low",
+   "Title": "AWS Transfer Family server uses a FIPS security policy"
+  },
+  {
+   "CheckID": "transfer_server_in_transit_encryption_enabled",
+   "Service": "transfer",
+   "Severity": "high",
+   "Title": "Transfer Family server has encryption in transit enabled"
+  },
+  {
+   "CheckID": "transfer_server_pqc_ssh_kex_enabled",
+   "Service": "transfer",
+   "Severity": "low",
+   "Title": "AWS Transfer Family server uses a post-quantum hybrid SSH key exchange security policy"
+  },
+  {
+   "CheckID": "trustedadvisor_errors_and_warnings",
+   "Service": "trustedadvisor",
+   "Severity": "medium",
+   "Title": "Trusted Advisor check has no errors or warnings"
+  },
+  {
+   "CheckID": "trustedadvisor_premium_support_plan_subscribed",
+   "Service": "trustedadvisor",
+   "Severity": "low",
+   "Title": "AWS account is subscribed to an AWS Premium Support plan"
+  },
+  {
+   "CheckID": "vpc_different_regions",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "VPCs are present in more than one region"
+  },
+  {
+   "CheckID": "vpc_endpoint_connections_trust_boundaries",
+   "Service": "vpc",
+   "Severity": "high",
+   "Title": "VPC endpoint policy allows access only from trusted AWS accounts"
+  },
+  {
+   "CheckID": "vpc_endpoint_for_ec2_enabled",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "VPC has an Amazon EC2 VPC endpoint"
+  },
+  {
+   "CheckID": "vpc_endpoint_multi_az_enabled",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "Amazon VPC interface endpoint has subnets in multiple Availability Zones"
+  },
+  {
+   "CheckID": "vpc_endpoint_services_allowed_principals_trust_boundaries",
+   "Service": "vpc",
+   "Severity": "high",
+   "Title": "VPC endpoint service allows only trusted principals or none"
+  },
+  {
+   "CheckID": "vpc_flow_logs_enabled",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "VPC flow logs are enabled"
+  },
+  {
+   "CheckID": "vpc_peering_routing_tables_with_least_privilege",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "VPC peering connection route tables do not include 0.0.0.0/0 or entire requester/accepter VPC CIDR routes"
+  },
+  {
+   "CheckID": "vpc_subnet_different_az",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "VPC has subnets in more than one Availability Zone"
+  },
+  {
+   "CheckID": "vpc_subnet_no_public_ip_by_default",
+   "Service": "vpc",
+   "Severity": "high",
+   "Title": "VPC subnet does not assign public IP addresses by default"
+  },
+  {
+   "CheckID": "vpc_subnet_separate_private_public",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "VPC has both public and private subnets"
+  },
+  {
+   "CheckID": "vpc_vpn_connection_tunnels_up",
+   "Service": "vpc",
+   "Severity": "medium",
+   "Title": "AWS Site-to-Site VPN connection has both tunnels up"
+  },
+  {
+   "CheckID": "waf_global_rule_with_conditions",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic Global rule has at least one condition"
+  },
+  {
+   "CheckID": "waf_global_rulegroup_not_empty",
+   "Service": "waf",
+   "Severity": "high",
+   "Title": "AWS WAF Classic global rule group has at least one rule"
+  },
+  {
+   "CheckID": "waf_global_webacl_logging_enabled",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic Global Web ACL has logging enabled"
+  },
+  {
+   "CheckID": "waf_global_webacl_with_rules",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic global Web ACL has at least one rule or rule group"
+  },
+  {
+   "CheckID": "waf_regional_rule_with_conditions",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic Regional rule has at least one condition"
+  },
+  {
+   "CheckID": "waf_regional_rulegroup_not_empty",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic Regional rule group has at least one rule"
+  },
+  {
+   "CheckID": "waf_regional_webacl_logging_enabled",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic Regional Web ACL has logging enabled"
+  },
+  {
+   "CheckID": "waf_regional_webacl_with_rules",
+   "Service": "waf",
+   "Severity": "medium",
+   "Title": "AWS WAF Classic Regional Web ACL has at least one rule or rule group"
+  },
+  {
+   "CheckID": "wafv2_webacl_logging_enabled",
+   "Service": "wafv2",
+   "Severity": "medium",
+   "Title": "AWS WAFv2 Web ACL has logging enabled"
+  },
+  {
+   "CheckID": "wafv2_webacl_managed_rule_groups_enabled",
+   "Service": "wafv2",
+   "Severity": "medium",
+   "Title": "WAFv2 Web ACL uses managed rule groups"
+  },
+  {
+   "CheckID": "wafv2_webacl_rule_logging_enabled",
+   "Service": "wafv2",
+   "Severity": "medium",
+   "Title": "AWS WAFv2 Web ACL has Amazon CloudWatch metrics enabled for all rules and rule groups"
+  },
+  {
+   "CheckID": "wafv2_webacl_with_rules",
+   "Service": "wafv2",
+   "Severity": "high",
+   "Title": "AWS WAFv2 Web ACL has at least one rule or rule group attached"
+  },
+  {
+   "CheckID": "wellarchitected_workload_no_high_or_medium_risks",
+   "Service": "wellarchitected",
+   "Severity": "medium",
+   "Title": "AWS Well-Architected Tool workload has no high or medium risks"
+  },
+  {
+   "CheckID": "workspaces_volume_encryption_enabled",
+   "Service": "workspaces",
+   "Severity": "high",
+   "Title": "Amazon WorkSpaces workspace root and user volumes are encrypted"
+  },
+  {
+   "CheckID": "workspaces_vpc_2private_1public_subnets_nat",
+   "Service": "workspaces",
+   "Severity": "high",
+   "Title": "Workspace is in a private subnet and its VPC has at least 1 public subnet, 2 private subnets, and a NAT Gateway"
+  }
+ ]
+}
