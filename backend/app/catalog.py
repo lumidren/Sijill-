@@ -11,7 +11,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from .config import REPO_DIR
-from .oscal import NS, NS_AR
+from .oscal import NS, NS_AR, canon_ns
 from .oscal.validate import errors as oscal_errors
 
 CATALOG_PATH = REPO_DIR / "catalog" / "pdpl-catalog.json"
@@ -102,14 +102,14 @@ class CatalogError(ValueError):
 
 def _prop(props: list[dict], name: str, ns: str | None = None, default: str = "") -> str:
     for p in props or []:
-        if p.get("name") == name and (ns is None or p.get("ns") == ns):
+        if p.get("name") == name and (ns is None or canon_ns(p.get("ns")) == ns):
             return p.get("value", default)
     return default
 
 
 def _part(parts: list[dict], name: str, ar: bool = False) -> str:
     for p in parts or []:
-        if p.get("name") == name and (p.get("ns") == NS_AR) == ar:
+        if p.get("name") == name and (canon_ns(p.get("ns")) == NS_AR) == ar:
             return p.get("prose", "")
     return ""
 

@@ -2,7 +2,7 @@
   "catalog": {
     "uuid": "ed424efc-78ed-5b86-bb45-82914c8e0a87",
     "metadata": {
-      "title": "PDPL-Ready catalog: Egypt Personal Data Protection Law No. 151 of 2020",
+      "title": "Sijill catalog: Egypt Personal Data Protection Law No. 151 of 2020",
       "last-modified": "2026-11-17T00:00:00Z",
       "version": "0.1.0-draft",
       "oscal-version": "1.1.3",
@@ -10,15 +10,15 @@
         {
           "name": "verified",
           "value": "false",
-          "ns": "urn:pdpl-ready:oscal"
+          "ns": "urn:sijill:oscal"
         },
         {
           "name": "disclaimer",
           "value": "Plain-language drafting for readiness tracking. Not legal advice. Not verified against the official legal text.",
-          "ns": "urn:pdpl-ready:oscal"
+          "ns": "urn:sijill:oscal"
         }
       ],
-      "remarks": "Structure: 11 assessment areas modelled on the regulator's self-assessment checklist as described in the project brief. No requirement in this draft has been verified against the Law, the Executive Regulations or the regulator's checklist: every control carries verified=false and source-status=needed. Arabic text is in parts and props in the urn:pdpl-ready:oscal:ar namespace. See docs/LEGAL-REVIEW.md."
+      "remarks": "Structure: 11 assessment areas modelled on the regulator's self-assessment checklist as described in the project brief. No requirement in this draft has been verified against the Law, the Executive Regulations or the regulator's checklist: every control carries verified=false and source-status=needed. Arabic text is in parts and props in the urn:sijill:oscal:ar namespace. See docs/LEGAL-REVIEW.md."
     },
     "groups": [
       {
@@ -33,12 +33,12 @@
           {
             "name": "title-ar",
             "value": "الحوكمة والمساءلة",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "01",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -51,7 +51,7 @@
             "id": "a01_ovw.ar",
             "name": "overview",
             "prose": "من المسؤول عن حماية البيانات الشخصية، وهل يمكنكم إثبات ذلك؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -67,27 +67,27 @@
               {
                 "name": "title-ar",
                 "value": "تعيين مسؤول حماية البيانات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -100,7 +100,7 @@
                 "id": "a01-01_smt.ar",
                 "name": "statement",
                 "prose": "عيّنت المؤسسة مسؤولًا لحماية البيانات يتمتع بالصلاحيات والوقت والاستقلالية الكافية للإشراف على حماية البيانات الشخصية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-01_obj",
@@ -111,7 +111,7 @@
                 "id": "a01-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل عيّنتم مسؤولًا لحماية البيانات رسميًا وكتابيًا وبمهام واضحة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-01_gdn",
@@ -122,7 +122,7 @@
                 "id": "a01-01_gdn.ar",
                 "name": "guidance",
                 "prose": "احتفظوا بخطاب التعيين والوصف الوظيفي لمسؤول حماية البيانات كدليل.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -138,27 +138,27 @@
               {
                 "name": "title-ar",
                 "value": "تسجيل مسؤول حماية البيانات لدى الجهة الرقابية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -171,7 +171,7 @@
                 "id": "a01-02_smt.ar",
                 "name": "statement",
                 "prose": "تم تسجيل تعيين مسؤول حماية البيانات لدى الجهة الرقابية المختصة، وتُحدَّث بيانات التسجيل باستمرار.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-02_obj",
@@ -182,7 +182,7 @@
                 "id": "a01-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل مسؤول حماية البيانات مسجّل لدى الجهة الرقابية، وهل بياناته محدّثة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-02_gdn",
@@ -193,7 +193,7 @@
                 "id": "a01-02_gdn.ar",
                 "name": "guidance",
                 "prose": "أرفقوا ما يثبت التسجيل، وحدّثوه عند تغيير مسؤول حماية البيانات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -209,27 +209,27 @@
               {
                 "name": "title-ar",
                 "value": "سياسة معتمدة لحماية البيانات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -242,7 +242,7 @@
                 "id": "a01-03_smt.ar",
                 "name": "statement",
                 "prose": "توجد سياسة مكتوبة لحماية البيانات معتمدة من الإدارة توضح كيف تتعامل المؤسسة مع البيانات الشخصية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-03_obj",
@@ -253,7 +253,7 @@
                 "id": "a01-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم سياسة مكتوبة لحماية البيانات معتمدة من الإدارة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-03_gdn",
@@ -264,7 +264,7 @@
                 "id": "a01-03_gdn.ar",
                 "name": "guidance",
                 "prose": "أرفقوا السياسة وما يثبت اعتمادها (محضر اجتماع أو مذكرة موقّعة). راجعوها عند تغيّر القانون أو اللائحة أو أنشطة المعالجة لديكم.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -280,27 +280,27 @@
               {
                 "name": "title-ar",
                 "value": "توعية العاملين وتدريبهم",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -313,7 +313,7 @@
                 "id": "a01-04_smt.ar",
                 "name": "statement",
                 "prose": "يتلقى العاملون الذين يتعاملون مع البيانات الشخصية تدريبًا على حمايتها عند التحاقهم وعلى فترات منتظمة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-04_obj",
@@ -324,7 +324,7 @@
                 "id": "a01-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تلقى العاملون الذين يتعاملون مع البيانات الشخصية تدريبًا خلال العام الماضي؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-04_gdn",
@@ -335,7 +335,7 @@
                 "id": "a01-04_gdn.ar",
                 "name": "guidance",
                 "prose": "احتفظوا بسجلات الحضور أو شهادات الإتمام. التدريب التنشيطي السنوي ممارسة جيدة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -351,27 +351,27 @@
               {
                 "name": "title-ar",
                 "value": "توثيق المساءلة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -384,7 +384,7 @@
                 "id": "a01-05_smt.ar",
                 "name": "statement",
                 "prose": "تحتفظ المؤسسة بسجلات توضح كيفية وفائها بالتزامات حماية البيانات، مثل السياسات والقرارات والتقييمات والمراجعات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-05_obj",
@@ -395,7 +395,7 @@
                 "id": "a01-05_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل يمكنكم أن تقدموا للجهة الرقابية مستندات تثبت كيف تحمون البيانات الشخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a01-05_gdn",
@@ -406,7 +406,7 @@
                 "id": "a01-05_gdn.ar",
                 "name": "guidance",
                 "prose": "يمكن أن تكون تقارير هذه المنصة وحزمة الأدلة جزءًا من هذا السجل.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -424,12 +424,12 @@
           {
             "name": "title-ar",
             "value": "المعالجة المشروعة والموافقة",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "02",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -442,7 +442,7 @@
             "id": "a02_ovw.ar",
             "name": "overview",
             "prose": "هل لديكم سبب مشروع لكل استخدام للبيانات الشخصية، وهل تُدار الموافقة بشكل صحيح؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -458,27 +458,27 @@
               {
                 "name": "title-ar",
                 "value": "أساس مشروع لكل غرض",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -491,7 +491,7 @@
                 "id": "a02-01_smt.ar",
                 "name": "statement",
                 "prose": "لكل غرض تُعالج من أجله البيانات الشخصية أساس مشروع محدد ومسجل في سجل أنشطة المعالجة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-01_obj",
@@ -502,7 +502,7 @@
                 "id": "a02-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل حددتم وسجلتم الأساس المشروع لكل غرض من أغراض المعالجة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-01_gdn",
@@ -513,7 +513,7 @@
                 "id": "a02-01_gdn.ar",
                 "name": "guidance",
                 "prose": "من الأمثلة موافقة الشخص أو عقد معه أو التزام قانوني. تحققوا مع مستشاركم القانوني من الأسس المتاحة بموجب القانون.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -529,27 +529,27 @@
               {
                 "name": "title-ar",
                 "value": "موافقة صحيحة وموثقة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -562,7 +562,7 @@
                 "id": "a02-02_smt.ar",
                 "name": "statement",
                 "prose": "عندما تعتمد المعالجة على الموافقة، تكون الموافقة محددة ومستنيرة وموثقة، ويستطيع الشخص سحبها بنفس سهولة منحها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-02_obj",
@@ -573,7 +573,7 @@
                 "id": "a02-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل يمكنكم إثبات متى وكيف منح كل شخص موافقته، وهل يستطيع سحبها بسهولة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-02_gdn",
@@ -584,7 +584,7 @@
                 "id": "a02-02_gdn.ar",
                 "name": "guidance",
                 "prose": "احتفظوا بسجلات الموافقة متضمنة التاريخ والقناة والنص المعروض، واختبروا طريقة سحب الموافقة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -600,27 +600,27 @@
               {
                 "name": "title-ar",
                 "value": "تقييد الغرض",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -633,7 +633,7 @@
                 "id": "a02-03_smt.ar",
                 "name": "statement",
                 "prose": "تُستخدم البيانات الشخصية فقط للأغراض التي أُبلغ بها أصحابها، ويُقيَّم أي غرض جديد قبل إعادة استخدام البيانات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-03_obj",
@@ -644,7 +644,7 @@
                 "id": "a02-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تُستخدم البيانات الشخصية فقط للأغراض المعلنة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-03_gdn",
@@ -655,7 +655,7 @@
                 "id": "a02-03_gdn.ar",
                 "name": "guidance",
                 "prose": "راجعوا استخدامات التقارير والتحليلات والتسويق مقارنة بالأغراض الواردة في إشعار الخصوصية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -671,27 +671,27 @@
               {
                 "name": "title-ar",
                 "value": "البيانات الشخصية الحساسة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -704,7 +704,7 @@
                 "id": "a02-04_smt.ar",
                 "name": "statement",
                 "prose": "تُحدَّد البيانات الشخصية الحساسة، مثل البيانات الصحية أو البيومترية، وتُعالج وفق ضوابط أكثر صرامة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-04_obj",
@@ -715,7 +715,7 @@
                 "id": "a02-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تعرفون أين تحتفظون بالبيانات الشخصية الحساسة، وهل تخضع لضوابط أقوى؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-04_gdn",
@@ -726,7 +726,7 @@
                 "id": "a02-04_gdn.ar",
                 "name": "guidance",
                 "prose": "تحققوا مع مستشاركم القانوني من الفئات التي يعدّها القانون حساسة ومن أي شروط إضافية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -742,27 +742,27 @@
               {
                 "name": "title-ar",
                 "value": "بيانات الأطفال",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -775,7 +775,7 @@
                 "id": "a02-05_smt.ar",
                 "name": "statement",
                 "prose": "عندما تعالج المؤسسة بيانات شخصية لأطفال، تحصل على موافقة الوالد أو الولي متى كان ذلك مطلوبًا وتطبق عناية إضافية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-05_obj",
@@ -786,7 +786,7 @@
                 "id": "a02-05_obj.ar",
                 "name": "assessment-objective",
                 "prose": "إذا كنتم تتعاملون مع بيانات أطفال، فهل تحصلون على موافقة الوالد أو الولي حيثما يلزم؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a02-05_gdn",
@@ -797,7 +797,7 @@
                 "id": "a02-05_gdn.ar",
                 "name": "guidance",
                 "prose": "اختاروا «لا ينطبق» إذا كنتم لا تعالجون بيانات أطفال إطلاقًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -815,12 +815,12 @@
           {
             "name": "title-ar",
             "value": "الشفافية وحقوق أصحاب البيانات",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "03",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -833,7 +833,7 @@
             "id": "a03_ovw.ar",
             "name": "overview",
             "prose": "هل يعرف الأشخاص ما تفعلونه ببياناتهم، وهل يستطيعون ممارسة حقوقهم؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -849,27 +849,27 @@
               {
                 "name": "title-ar",
                 "value": "إشعار الخصوصية عند الجمع",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -882,7 +882,7 @@
                 "id": "a03-01_smt.ar",
                 "name": "statement",
                 "prose": "يحصل الأشخاص على إشعار خصوصية واضح عند جمع بياناتهم يوضح الجهة التي تجمعها والغرض ومدة الاحتفاظ والجهات المتلقية والحقوق المتاحة لهم.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-01_obj",
@@ -893,7 +893,7 @@
                 "id": "a03-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تقدمون إشعار خصوصية واضحًا في كل نقطة تجمعون فيها البيانات؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-01_gdn",
@@ -904,7 +904,7 @@
                 "id": "a03-01_gdn.ar",
                 "name": "guidance",
                 "prose": "راجعوا النماذج والمواقع والتطبيقات ومكاتب الاستقبال ونصوص المكالمات، وقدّموا الإشعار باللغة العربية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -920,27 +920,27 @@
               {
                 "name": "title-ar",
                 "value": "التعامل مع طلبات أصحاب البيانات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -953,7 +953,7 @@
                 "id": "a03-02_smt.ar",
                 "name": "statement",
                 "prose": "توجد إجراءات موثقة لاستقبال طلبات الأشخاص للاطلاع على بياناتهم أو تصحيحها أو حذفها أو الاعتراض على معالجتها والرد عليها خلال المدة التي يسمح بها القانون.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-02_obj",
@@ -964,7 +964,7 @@
                 "id": "a03-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم إجراء مكتوب للتعامل مع الطلبات المتعلقة بالبيانات الشخصية، مع تحديد مسؤول عنه؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-02_gdn",
@@ -975,7 +975,7 @@
                 "id": "a03-02_gdn.ar",
                 "name": "guidance",
                 "prose": "تحققوا مع مستشاركم القانوني من مهلة الرد وأي رسوم؛ هذه المنصة لا تفترضها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -991,27 +991,27 @@
               {
                 "name": "title-ar",
                 "value": "التحقق من الهوية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1024,7 +1024,7 @@
                 "id": "a03-03_smt.ar",
                 "name": "statement",
                 "prose": "قبل تنفيذ أي طلب، تتحقق المؤسسة من هوية مقدّمه دون جمع بيانات أكثر من اللازم.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-03_obj",
@@ -1035,7 +1035,7 @@
                 "id": "a03-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تتحققون من هوية مقدّم الطلب قبل الإفصاح عن البيانات أو تعديلها؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-03_gdn",
@@ -1046,7 +1046,7 @@
                 "id": "a03-03_gdn.ar",
                 "name": "guidance",
                 "prose": "استخدموا البيانات المتوفرة لديكم أصلًا قدر الإمكان.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1062,27 +1062,27 @@
               {
                 "name": "title-ar",
                 "value": "سجل الطلبات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1095,7 +1095,7 @@
                 "id": "a03-04_smt.ar",
                 "name": "statement",
                 "prose": "تُسجَّل جميع الطلبات مع تاريخ الاستلام وتاريخ الرد والنتيجة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-04_obj",
@@ -1106,7 +1106,7 @@
                 "id": "a03-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تحتفظون بسجل للطلبات وكيف ومتى تم الرد عليها؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a03-04_gdn",
@@ -1117,7 +1117,7 @@
                 "id": "a03-04_gdn.ar",
                 "name": "guidance",
                 "prose": "يمكن استخدام جدول بيانات بسيط بشرط تحديثه باستمرار.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -1135,12 +1135,12 @@
           {
             "name": "title-ar",
             "value": "سجلات أنشطة المعالجة",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "04",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -1153,7 +1153,7 @@
             "id": "a04_ovw.ar",
             "name": "overview",
             "prose": "هل لديكم سجل محدّث بالبيانات الشخصية التي تعالجونها وأغراض معالجتها؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -1169,27 +1169,27 @@
               {
                 "name": "title-ar",
                 "value": "سجل المعالجة الخاص بالمتحكم",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1202,7 +1202,7 @@
                 "id": "a04-01_smt.ar",
                 "name": "statement",
                 "prose": "تحتفظ المؤسسة بسجل لأنشطة المعالجة يتضمن الأغراض وفئات البيانات وفئات أصحاب البيانات والجهات المتلقية ومدد الاحتفاظ والضمانات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-01_obj",
@@ -1213,7 +1213,7 @@
                 "id": "a04-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تحتفظون بسجل كامل لأنشطة المعالجة لديكم؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-01_gdn",
@@ -1224,7 +1224,7 @@
                 "id": "a04-01_gdn.ar",
                 "name": "guidance",
                 "prose": "اتبعوا هيكل النموذج الخاص بالمتحكم الصادر عن الجهة الرقابية إن وُجد.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1240,27 +1240,27 @@
               {
                 "name": "title-ar",
                 "value": "سجل المعالجة الخاص بالمعالج",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1273,7 +1273,7 @@
                 "id": "a04-02_smt.ar",
                 "name": "statement",
                 "prose": "عندما تعالج المؤسسة بيانات نيابة عن غيرها، تحتفظ بسجل منفصل لهذه المعالجة لكل عميل.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-02_obj",
@@ -1284,7 +1284,7 @@
                 "id": "a04-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "إذا كنتم تعالجون بيانات لصالح عملاء، فهل تحتفظون بسجل خاص بالمعالج؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-02_gdn",
@@ -1295,7 +1295,7 @@
                 "id": "a04-02_gdn.ar",
                 "name": "guidance",
                 "prose": "اختاروا «لا ينطبق» إذا لم تعملوا كمعالج بيانات إطلاقًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1311,27 +1311,27 @@
               {
                 "name": "title-ar",
                 "value": "تحديث السجل",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1344,7 +1344,7 @@
                 "id": "a04-03_smt.ar",
                 "name": "statement",
                 "prose": "يُراجع السجل على فترات محددة ويُحدَّث عند إدخال أي نظام أو مورّد أو غرض جديد.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-03_obj",
@@ -1355,7 +1355,7 @@
                 "id": "a04-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل رُوجع السجل خلال العام الماضي وحُدِّث بعد آخر التغييرات؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-03_gdn",
@@ -1366,7 +1366,7 @@
                 "id": "a04-03_gdn.ar",
                 "name": "guidance",
                 "prose": "اربطوا مراجعة السجل بإجراءات إدارة التغيير والمشتريات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1382,27 +1382,27 @@
               {
                 "name": "title-ar",
                 "value": "حصر البيانات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1415,7 +1415,7 @@
                 "id": "a04-04_smt.ar",
                 "name": "statement",
                 "prose": "تعرف المؤسسة الأنظمة والملفات والموردين الذين يحتفظون ببيانات شخصية وأماكن وجودهم.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-04_obj",
@@ -1426,7 +1426,7 @@
                 "id": "a04-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم خريطة محدّثة لأماكن تخزين البيانات الشخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a04-04_gdn",
@@ -1437,7 +1437,7 @@
                 "id": "a04-04_gdn.ar",
                 "name": "guidance",
                 "prose": "اشملوا الحسابات السحابية ومناطقها والحواسيب المحمولة والملفات الورقية والنسخ الاحتياطية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -1455,12 +1455,12 @@
           {
             "name": "title-ar",
             "value": "تقليل البيانات ودقتها والاحتفاظ بها",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "05",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -1473,7 +1473,7 @@
             "id": "a05_ovw.ar",
             "name": "overview",
             "prose": "هل تحتفظون فقط بالبيانات التي تحتاجونها، وبدقة، ولمدة لا تتجاوز الضرورة؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -1489,27 +1489,27 @@
               {
                 "name": "title-ar",
                 "value": "تقليل البيانات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1522,7 +1522,7 @@
                 "id": "a05-01_smt.ar",
                 "name": "statement",
                 "prose": "تجمع النماذج والأنظمة البيانات الشخصية اللازمة للغرض المعلن فقط.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-01_obj",
@@ -1533,7 +1533,7 @@
                 "id": "a05-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل راجعتم النماذج والأنظمة لإزالة الحقول غير الضرورية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-01_gdn",
@@ -1544,7 +1544,7 @@
                 "id": "a05-01_gdn.ar",
                 "name": "guidance",
                 "prose": "أرقام الهوية الوطنية وتواريخ الميلاد الكاملة من أكثر البيانات التي تُجمع دون حاجة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1560,27 +1560,27 @@
               {
                 "name": "title-ar",
                 "value": "دقة البيانات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1593,7 +1593,7 @@
                 "id": "a05-02_smt.ar",
                 "name": "statement",
                 "prose": "تُحفظ البيانات الشخصية دقيقة ومحدّثة، وتُصحَّح الأخطاء دون تأخير.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-02_obj",
@@ -1604,7 +1604,7 @@
                 "id": "a05-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم طريقة للحفاظ على دقة البيانات الشخصية وتصحيح الأخطاء سريعًا؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-02_gdn",
@@ -1615,7 +1615,7 @@
                 "id": "a05-02_gdn.ar",
                 "name": "guidance",
                 "prose": "اسمحوا للأشخاص بتحديث بياناتهم بأنفسهم متى أمكن.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1631,27 +1631,27 @@
               {
                 "name": "title-ar",
                 "value": "تطبيق مدد الاحتفاظ",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1664,7 +1664,7 @@
                 "id": "a05-03_smt.ar",
                 "name": "statement",
                 "prose": "لكل فئة من البيانات الشخصية مدة احتفاظ محددة، وتُحذف البيانات أو تُجهَّل عند انتهائها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-03_obj",
@@ -1675,7 +1675,7 @@
                 "id": "a05-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل حُددت مدد الاحتفاظ لكل فئة من البيانات، وهل تُطبَّق فعليًا؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-03_gdn",
@@ -1686,7 +1686,7 @@
                 "id": "a05-03_gdn.ar",
                 "name": "guidance",
                 "prose": "قواعد دورة الحياة الآلية على وحدات التخزين دليل جيد على أن الحذف يتم فعليًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1702,27 +1702,27 @@
               {
                 "name": "title-ar",
                 "value": "حماية النسخ الاحتياطية واختبارها",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1735,7 +1735,7 @@
                 "id": "a05-04_smt.ar",
                 "name": "statement",
                 "prose": "تُنسخ البيانات الشخصية احتياطيًا، وتُحمى النسخ الاحتياطية بنفس مستوى حماية البيانات الأصلية، ويُختبر الاسترجاع.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-04_obj",
@@ -1746,7 +1746,7 @@
                 "id": "a05-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل النسخ الاحتياطية مشفرة ومقيّدة الوصول وتم اختبار استرجاعها؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a05-04_gdn",
@@ -1757,7 +1757,7 @@
                 "id": "a05-04_gdn.ar",
                 "name": "guidance",
                 "prose": "تغطي الفحوص الآلية إعدادات النسخ الاحتياطي، أما اختبارات الاسترجاع فتحتاج إلى أدلة منكم.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -1775,12 +1775,12 @@
           {
             "name": "title-ar",
             "value": "أمن المعالجة: التحكم في الوصول والتشفير",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "06",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -1793,7 +1793,7 @@
             "id": "a06_ovw.ar",
             "name": "overview",
             "prose": "هل الضمانات التقنية مطبقة للحفاظ على سرية البيانات الشخصية وسلامتها؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -1809,27 +1809,27 @@
               {
                 "name": "title-ar",
                 "value": "التشفير أثناء التخزين",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1842,7 +1842,7 @@
                 "id": "a06-01_smt.ar",
                 "name": "statement",
                 "prose": "وحدات التخزين التي تحتوي على بيانات شخصية، بما فيها قواعد البيانات والأقراص ووحدات تخزين الكائنات واللقطات والحواسيب المحمولة، مشفرة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-01_obj",
@@ -1853,7 +1853,7 @@
                 "id": "a06-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل جميع وحدات التخزين التي تحتوي على بيانات شخصية مشفرة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-01_gdn",
@@ -1864,7 +1864,7 @@
                 "id": "a06-01_gdn.ar",
                 "name": "guidance",
                 "prose": "تشفير الحواسيب المحمولة لا تغطيه الفحوص الآلية؛ أرفقوا تقرير نظام إدارة الأجهزة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1880,27 +1880,27 @@
               {
                 "name": "title-ar",
                 "value": "التشفير أثناء النقل",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1913,7 +1913,7 @@
                 "id": "a06-02_smt.ar",
                 "name": "statement",
                 "prose": "تُحمى البيانات الشخصية المرسلة عبر الشبكات باستخدام TLS أو SSH بإصدارات حديثة، وتُعطَّل البروتوكولات غير المشفرة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-02_obj",
@@ -1924,7 +1924,7 @@
                 "id": "a06-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تُشفَّر البيانات الشخصية دائمًا أثناء انتقالها عبر الشبكة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-02_gdn",
@@ -1935,7 +1935,7 @@
                 "id": "a06-02_gdn.ar",
                 "name": "guidance",
                 "prose": "اشملوا الاتصالات الداخلية بين الخدمات، وليس المواقع العامة فقط.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -1951,27 +1951,27 @@
               {
                 "name": "title-ar",
                 "value": "إدارة مفاتيح التشفير",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -1984,7 +1984,7 @@
                 "id": "a06-03_smt.ar",
                 "name": "statement",
                 "prose": "تُدوَّر مفاتيح التشفير ويُقيَّد الوصول إليها ولا تكون متاحة للعامة أبدًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-03_obj",
@@ -1995,7 +1995,7 @@
                 "id": "a06-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تُدوَّر مفاتيح التشفير، وهل الوصول إليها مقيَّد؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-03_gdn",
@@ -2006,7 +2006,7 @@
                 "id": "a06-03_gdn.ar",
                 "name": "guidance",
                 "prose": "وثّقوا من يستطيع استخدام كل مفتاح ومن يديره.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2022,27 +2022,27 @@
               {
                 "name": "title-ar",
                 "value": "مبدأ أقل الصلاحيات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2055,7 +2055,7 @@
                 "id": "a06-04_smt.ar",
                 "name": "statement",
                 "prose": "لا يحصل الأشخاص والأنظمة إلا على الصلاحيات التي يحتاجونها، وتكون صلاحيات المدير محدودة وتُراجع وتُسحب عند انتهاء الحاجة إليها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-04_obj",
@@ -2066,7 +2066,7 @@
                 "id": "a06-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل الوصول إلى البيانات الشخصية مقصور على من يحتاجونه، وهل يُراجع بانتظام؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-04_gdn",
@@ -2077,7 +2077,7 @@
                 "id": "a06-04_gdn.ar",
                 "name": "guidance",
                 "prose": "احتفظوا بسجلات مراجعة الصلاحيات؛ الفحوص الآلية تغطي الصلاحيات السحابية فقط.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2093,27 +2093,27 @@
               {
                 "name": "title-ar",
                 "value": "المصادقة القوية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2126,7 +2126,7 @@
                 "id": "a06-05_smt.ar",
                 "name": "statement",
                 "prose": "يتطلب الوصول المميّز والوصول عن بُعد مصادقة متعددة العوامل، وتمنع قواعد كلمات المرور استخدام كلمات مرور ضعيفة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-05_obj",
@@ -2137,7 +2137,7 @@
                 "id": "a06-05_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل يسجّل المديرون والمستخدمون عن بُعد الدخول بمصادقة متعددة العوامل؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-05_gdn",
@@ -2148,7 +2148,7 @@
                 "id": "a06-05_gdn.ar",
                 "name": "guidance",
                 "prose": "اشملوا البريد الإلكتروني والشبكة الخاصة الافتراضية ولوحات التحكم السحابية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2164,27 +2164,27 @@
               {
                 "name": "title-ar",
                 "value": "عدم إتاحة مخازن البيانات للعامة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2197,7 +2197,7 @@
                 "id": "a06-06_smt.ar",
                 "name": "statement",
                 "prose": "قواعد البيانات وحاويات التخزين واللقطات والنسخ الاحتياطية التي تحتوي على بيانات شخصية غير قابلة للوصول من الإنترنت.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-06_obj",
@@ -2208,7 +2208,7 @@
                 "id": "a06-06_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تأكدتم من أن أي مخزن يحتوي على بيانات شخصية غير متاح للعامة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-06_gdn",
@@ -2219,7 +2219,7 @@
                 "id": "a06-06_gdn.ar",
                 "name": "guidance",
                 "prose": "إتاحة مخازن البيانات للعامة من أكثر أسباب الاختراقات الكبيرة شيوعًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2235,27 +2235,27 @@
               {
                 "name": "title-ar",
                 "value": "حماية الشبكة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2268,7 +2268,7 @@
                 "id": "a06-07_smt.ar",
                 "name": "statement",
                 "prose": "تسمح الجدران النارية أو مجموعات الأمان بحركة الشبكة اللازمة فقط، ولا تكون منافذ الإدارة مفتوحة على الإنترنت.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-07_obj",
@@ -2279,7 +2279,7 @@
                 "id": "a06-07_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل الجدران النارية مفعّلة، وهل منافذ الإدارة مغلقة أمام الإنترنت؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-07_gdn",
@@ -2290,7 +2290,7 @@
                 "id": "a06-07_gdn.ar",
                 "name": "guidance",
                 "prose": "راجعوا القواعد التي تسمح بالاتصال من أي مكان (0.0.0.0/0).",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2306,27 +2306,27 @@
               {
                 "name": "title-ar",
                 "value": "التحديثات وإدارة الثغرات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2339,7 +2339,7 @@
                 "id": "a06-08_smt.ar",
                 "name": "statement",
                 "prose": "تحصل الأنظمة التي تعالج البيانات الشخصية على التحديثات الأمنية فورًا وتُفحص بحثًا عن الثغرات المعروفة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-08_obj",
@@ -2350,7 +2350,7 @@
                 "id": "a06-08_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تُطبَّق التحديثات الأمنية فورًا على الأنظمة التي تحتوي على بيانات شخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-08_gdn",
@@ -2361,7 +2361,7 @@
                 "id": "a06-08_gdn.ar",
                 "name": "guidance",
                 "prose": "حددوا مهلة مستهدفة لتطبيق التحديثات الحرجة وقيسوا الأداء مقارنة بها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2377,27 +2377,27 @@
               {
                 "name": "title-ar",
                 "value": "تأمين الخوادم",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2410,7 +2410,7 @@
                 "id": "a06-09_smt.ar",
                 "name": "statement",
                 "prose": "الخوادم مؤمَّنة: الدخول الإداري عن بُعد مقيَّد، والملفات الحساسة في النظام لا يقرؤها إلا من يحتاج إليها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-09_obj",
@@ -2421,7 +2421,7 @@
                 "id": "a06-09_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل الخوادم مهيأة وفق معيار تأمين معتمد؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a06-09_gdn",
@@ -2432,7 +2432,7 @@
                 "id": "a06-09_gdn.ar",
                 "name": "guidance",
                 "prose": "تفحص أداة جمع بيانات Linux إعدادات SSH وصلاحيات الملفات الحساسة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -2450,12 +2450,12 @@
           {
             "name": "title-ar",
             "value": "السجلات والمراقبة واكتشاف الاختراقات",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "07",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -2468,7 +2468,7 @@
             "id": "a07_ovw.ar",
             "name": "overview",
             "prose": "هل ستلاحظون حدوث اختراق، وهل يمكنكم إعادة بناء ما حدث؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -2484,27 +2484,27 @@
               {
                 "name": "title-ar",
                 "value": "تفعيل سجلات التدقيق",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2517,7 +2517,7 @@
                 "id": "a07-01_smt.ar",
                 "name": "statement",
                 "prose": "تُسجَّل الأحداث الإدارية والأمنية على جميع الحسابات والخوادم التي تعالج البيانات الشخصية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-01_obj",
@@ -2528,7 +2528,7 @@
                 "id": "a07-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل سجلات التدقيق مفعّلة في كل مكان تُعالج فيه البيانات الشخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-01_gdn",
@@ -2539,7 +2539,7 @@
                 "id": "a07-01_gdn.ar",
                 "name": "guidance",
                 "prose": "اشملوا كل المناطق والحسابات، وليس الحساب الرئيسي فقط.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2555,27 +2555,27 @@
               {
                 "name": "title-ar",
                 "value": "الاحتفاظ بالسجلات وحمايتها",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2588,7 +2588,7 @@
                 "id": "a07-02_smt.ar",
                 "name": "statement",
                 "prose": "يُحتفظ بالسجلات لمدة محددة وتُحمى من التلاعب والحذف.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-02_obj",
@@ -2599,7 +2599,7 @@
                 "id": "a07-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تحتفظون بالسجلات لمدة محددة وتحمونها من التعديل؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-02_gdn",
@@ -2610,7 +2610,7 @@
                 "id": "a07-02_gdn.ar",
                 "name": "guidance",
                 "prose": "تحققوا مع مستشاركم القانوني من أي حد أدنى لمدة الاحتفاظ بالسجلات في اللائحة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2626,27 +2626,27 @@
               {
                 "name": "title-ar",
                 "value": "اكتشاف التهديدات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2659,7 +2659,7 @@
                 "id": "a07-03_smt.ar",
                 "name": "statement",
                 "prose": "تراقب أدوات اكتشاف التهديدات الآلية الحسابات والأنظمة بحثًا عن مؤشرات الاختراق.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-03_obj",
@@ -2670,7 +2670,7 @@
                 "id": "a07-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تستخدمون أدوات آلية لاكتشاف التهديدات على الأنظمة التي تحتوي على بيانات شخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-03_gdn",
@@ -2681,7 +2681,7 @@
                 "id": "a07-03_gdn.ar",
                 "name": "guidance",
                 "prose": "يجب أن يراجع شخص ما النتائج؛ فالاكتشاف دون مراجعة لا يوفر حماية تُذكر.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2697,27 +2697,27 @@
               {
                 "name": "title-ar",
                 "value": "التنبيهات الأمنية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2730,7 +2730,7 @@
                 "id": "a07-04_smt.ar",
                 "name": "statement",
                 "prose": "تصدر تنبيهات وتُراجع عند وقوع أحداث عالية الخطورة مثل استخدام الحساب الجذري ومحاولات الوصول غير المصرح بها وتغيير إعدادات الأمان.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-04_obj",
@@ -2741,7 +2741,7 @@
                 "id": "a07-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل يتلقى شخص ما تنبيهًا ويستجيب عند وقوع حدث أمني عالي الخطورة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-04_gdn",
@@ -2752,7 +2752,7 @@
                 "id": "a07-04_gdn.ar",
                 "name": "guidance",
                 "prose": "وجّهوا التنبيهات إلى بريد أو هاتف تتم متابعته، وليس إلى بريد شخص واحد فقط.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2768,27 +2768,27 @@
               {
                 "name": "title-ar",
                 "value": "تتبع الوصول إلى البيانات الشخصية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "technical",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2801,7 +2801,7 @@
                 "id": "a07-05_smt.ar",
                 "name": "statement",
                 "prose": "تُسجَّل عمليات قراءة البيانات الشخصية وتعديلها في مخازنها بحيث يمكن تتبع الوصول إلى شخص أو نظام بعينه.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-05_obj",
@@ -2812,7 +2812,7 @@
                 "id": "a07-05_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل يمكنكم معرفة من وصل إلى مجموعة معينة من البيانات الشخصية خلال الشهر الماضي؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a07-05_gdn",
@@ -2823,7 +2823,7 @@
                 "id": "a07-05_gdn.ar",
                 "name": "guidance",
                 "prose": "يوفر التسجيل على مستوى الكائنات في وحدات التخزين التي تحتوي على بيانات شخصية هذا الأثر.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -2841,12 +2841,12 @@
           {
             "name": "title-ar",
             "value": "الاستجابة للاختراقات والإخطار",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "08",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -2859,7 +2859,7 @@
             "id": "a08_ovw.ar",
             "name": "overview",
             "prose": "عند اختراق البيانات الشخصية، هل يمكنكم الاستجابة والإخطار في الوقت المحدد؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -2875,27 +2875,27 @@
               {
                 "name": "title-ar",
                 "value": "خطة الاستجابة للاختراقات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2908,7 +2908,7 @@
                 "id": "a08-01_smt.ar",
                 "name": "statement",
                 "prose": "توجد خطة مكتوبة للاستجابة للاختراقات تحدد من يتخذ القرار ومن يحقق ومن يتولى الإخطار.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-01_obj",
@@ -2919,7 +2919,7 @@
                 "id": "a08-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم خطة مكتوبة للاستجابة للاختراقات بأدوار محددة بالأسماء؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-01_gdn",
@@ -2930,7 +2930,7 @@
                 "id": "a08-01_gdn.ar",
                 "name": "guidance",
                 "prose": "اشملوا أرقام التواصل خارج أوقات العمل.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -2946,27 +2946,27 @@
               {
                 "name": "title-ar",
                 "value": "إخطار الجهة الرقابية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -2979,7 +2979,7 @@
                 "id": "a08-02_smt.ar",
                 "name": "statement",
                 "prose": "يُبلَّغ عن اختراقات البيانات الشخصية للجهة الرقابية خلال المهلة التي تحددها اللائحة (قابلة للضبط في هذه المنصة).",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-02_obj",
@@ -2990,7 +2990,7 @@
                 "id": "a08-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل يمكنكم إخطار الجهة الرقابية خلال المهلة إذا وقع اختراق اليوم؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-02_gdn",
@@ -3001,7 +3001,7 @@
                 "id": "a08-02_gdn.ar",
                 "name": "guidance",
                 "prose": "جهّزوا نموذج الإخطار ووسيلة التواصل مع الجهة الرقابية مسبقًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3017,27 +3017,27 @@
               {
                 "name": "title-ar",
                 "value": "إبلاغ الأشخاص المتأثرين",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3050,7 +3050,7 @@
                 "id": "a08-03_smt.ar",
                 "name": "statement",
                 "prose": "يُبلَّغ الأشخاص المتأثرون بالاختراق متى كان ذلك مطلوبًا، بلغة واضحة، مع الخطوات التي يمكنهم اتخاذها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-03_obj",
@@ -3061,7 +3061,7 @@
                 "id": "a08-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم نموذج وإجراء لإبلاغ الأشخاص المتأثرين بالاختراق؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-03_gdn",
@@ -3072,7 +3072,7 @@
                 "id": "a08-03_gdn.ar",
                 "name": "guidance",
                 "prose": "تحققوا مع مستشاركم القانوني من الحالات التي يلزم فيها إبلاغ الأفراد ومن مهلة ذلك.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3088,27 +3088,27 @@
               {
                 "name": "title-ar",
                 "value": "سجل الاختراقات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3121,7 +3121,7 @@
                 "id": "a08-04_smt.ar",
                 "name": "statement",
                 "prose": "يُسجَّل كل اختراق، بما في ذلك ما لم يُبلَّغ عنه، مع الوقائع والآثار والإجراءات المتخذة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-04_obj",
@@ -3132,7 +3132,7 @@
                 "id": "a08-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تحتفظون بسجل لكل الاختراقات، بما فيها البسيطة؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-04_gdn",
@@ -3143,7 +3143,7 @@
                 "id": "a08-04_gdn.ar",
                 "name": "guidance",
                 "prose": "سجّلوا سبب قرار عدم الإخطار عندما تقررون ذلك.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3159,27 +3159,27 @@
               {
                 "name": "title-ar",
                 "value": "اختبار الخطة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3192,7 +3192,7 @@
                 "id": "a08-05_smt.ar",
                 "name": "statement",
                 "prose": "تُختبر خطة الاستجابة للاختراقات من خلال تمرين على فترات محددة، وتُسجَّل الدروس المستفادة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-05_obj",
@@ -3203,7 +3203,7 @@
                 "id": "a08-05_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل أجريتم تمرينًا على الاستجابة للاختراقات خلال العام الماضي؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a08-05_gdn",
@@ -3214,7 +3214,7 @@
                 "id": "a08-05_gdn.ar",
                 "name": "guidance",
                 "prose": "يكفي تمرين نظري لمدة ساعتين لاكتشاف معظم الثغرات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -3232,12 +3232,12 @@
           {
             "name": "title-ar",
             "value": "المعالجون والأطراف الثالثة",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "09",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -3250,7 +3250,7 @@
             "id": "a09_ovw.ar",
             "name": "overview",
             "prose": "هل يحمي الموردون الذين يعالجون البيانات الشخصية لصالحكم هذه البيانات بنفس مستوى حمايتكم لها؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -3266,27 +3266,27 @@
               {
                 "name": "title-ar",
                 "value": "عقود مكتوبة مع المعالجين",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3299,7 +3299,7 @@
                 "id": "a09-01_smt.ar",
                 "name": "statement",
                 "prose": "لدى كل مورد يعالج بيانات شخصية نيابة عن المؤسسة عقد مكتوب يغطي التعليمات والسرية والأمان والإخطار بالاختراقات.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-01_obj",
@@ -3310,7 +3310,7 @@
                 "id": "a09-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لدى جميع الموردين الذين يتعاملون مع البيانات الشخصية لصالحكم عقد لحماية البيانات؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-01_gdn",
@@ -3321,7 +3321,7 @@
                 "id": "a09-01_gdn.ar",
                 "name": "guidance",
                 "prose": "كثيرًا ما يُغفل مزودو الخدمات السحابية والرواتب والدعم الفني وخدمات المراسلة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3337,27 +3337,27 @@
               {
                 "name": "title-ar",
                 "value": "العناية الواجبة تجاه الموردين",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3370,7 +3370,7 @@
                 "id": "a09-02_smt.ar",
                 "name": "statement",
                 "prose": "تُفحص ضمانات الموردين قبل التعاقد معهم وتُراجع دوريًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-02_obj",
@@ -3381,7 +3381,7 @@
                 "id": "a09-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تتحققون من أمان المورد قبل منحه بيانات شخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-02_gdn",
@@ -3392,7 +3392,7 @@
                 "id": "a09-02_gdn.ar",
                 "name": "guidance",
                 "prose": "استبيان أمني قصير وشهادات المورد بداية عملية.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3408,27 +3408,27 @@
               {
                 "name": "title-ar",
                 "value": "قائمة الجهات المتلقية",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3441,7 +3441,7 @@
                 "id": "a09-03_smt.ar",
                 "name": "statement",
                 "prose": "تحتفظ المؤسسة بقائمة محدّثة لكل طرف ثالث يتلقى بيانات شخصية وسبب ذلك.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-03_obj",
@@ -3452,7 +3452,7 @@
                 "id": "a09-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل توجد قائمة محدّثة بكل من تشاركون معهم البيانات الشخصية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-03_gdn",
@@ -3463,7 +3463,7 @@
                 "id": "a09-03_gdn.ar",
                 "name": "guidance",
                 "prose": "حافظوا على توافقها مع سجل أنشطة المعالجة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3479,27 +3479,27 @@
               {
                 "name": "title-ar",
                 "value": "التحكم في المعالجين من الباطن",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3512,7 +3512,7 @@
                 "id": "a09-04_smt.ar",
                 "name": "statement",
                 "prose": "لا ينقل الموردون البيانات الشخصية إلى متعاقديهم من الباطن إلا بموافقة المؤسسة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-04_obj",
@@ -3523,7 +3523,7 @@
                 "id": "a09-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تشترط عقودكم موافقتكم قبل أن يستعين المورد بمتعاقد من الباطن؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a09-04_gdn",
@@ -3534,7 +3534,7 @@
                 "id": "a09-04_gdn.ar",
                 "name": "guidance",
                 "prose": "اطلبوا من الموردين قائمتهم الحالية للمعالجين من الباطن.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -3552,12 +3552,12 @@
           {
             "name": "title-ar",
             "value": "نقل البيانات عبر الحدود",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "10",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -3570,7 +3570,7 @@
             "id": "a10_ovw.ar",
             "name": "overview",
             "prose": "هل تعرفون متى تغادر البيانات الشخصية مصر، وهل كل عملية نقل مصرح بها؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -3586,27 +3586,27 @@
               {
                 "name": "title-ar",
                 "value": "حصر عمليات النقل",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3619,7 +3619,7 @@
                 "id": "a10-01_smt.ar",
                 "name": "statement",
                 "prose": "تُحدَّد كل عملية نقل للبيانات الشخصية خارج مصر، بما في ذلك الاستضافة السحابية والدعم عن بُعد، مع بلد الوجهة والغرض.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a10-01_obj",
@@ -3630,7 +3630,7 @@
                 "id": "a10-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تعرفون كل بلد تُخزَّن فيه بياناتكم الشخصية أو يُوصل إليها منه؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a10-01_gdn",
@@ -3641,7 +3641,7 @@
                 "id": "a10-01_gdn.ar",
                 "name": "guidance",
                 "prose": "الاستضافة السحابية في منطقة خارج مصر غالبًا ما تعد نقلًا عبر الحدود؛ تحققوا من ذلك مع مستشاركم القانوني.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3657,27 +3657,27 @@
               {
                 "name": "title-ar",
                 "value": "تصاريح النقل عبر الحدود",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3690,7 +3690,7 @@
                 "id": "a10-02_smt.ar",
                 "name": "statement",
                 "prose": "يُحصل على تصريح من الجهة الرقابية لكل عملية نقل عبر الحدود يُرجَّح أنها تتطلبه، وتُتبع شروطه.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a10-02_obj",
@@ -3701,7 +3701,7 @@
                 "id": "a10-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم تصريح نقل عبر الحدود لكل عملية نقل يُرجَّح أنها تحتاج إليه؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a10-02_gdn",
@@ -3712,7 +3712,7 @@
                 "id": "a10-02_gdn.ar",
                 "name": "guidance",
                 "prose": "يقدّر استبيان التراخيص في هذه المنصة التصاريح التي يُرجَّح أنها مطلوبة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3728,27 +3728,27 @@
               {
                 "name": "title-ar",
                 "value": "ضمانات النقل",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3761,7 +3761,7 @@
                 "id": "a10-03_smt.ar",
                 "name": "statement",
                 "prose": "تخضع كل عملية نقل لضمانات مناسبة لبلد الوجهة، مثل البنود التعاقدية والتشفير.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a10-03_obj",
@@ -3772,7 +3772,7 @@
                 "id": "a10-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل كل عملية نقل عبر الحدود محمية ببنود تعاقدية وضمانات تقنية؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a10-03_gdn",
@@ -3783,7 +3783,7 @@
                 "id": "a10-03_gdn.ar",
                 "name": "guidance",
                 "prose": "سجّلوا ضمانات كل عملية نقل في سجل أنشطة المعالجة.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -3801,12 +3801,12 @@
           {
             "name": "title-ar",
             "value": "التراخيص والتصاريح والمعالجة الخاصة",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           },
           {
             "name": "sort-id",
             "value": "11",
-            "ns": "urn:pdpl-ready:oscal"
+            "ns": "urn:sijill:oscal"
           }
         ],
         "parts": [
@@ -3819,7 +3819,7 @@
             "id": "a11_ovw.ar",
             "name": "overview",
             "prose": "هل لديكم التراخيص والتصاريح التي يُرجَّح أن أنشطتكم تتطلبها، وهل هي سارية؟",
-            "ns": "urn:pdpl-ready:oscal:ar"
+            "ns": "urn:sijill:oscal:ar"
           }
         ],
         "controls": [
@@ -3835,27 +3835,27 @@
               {
                 "name": "title-ar",
                 "value": "ترخيص المتحكم أو المعالج",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "3",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3868,7 +3868,7 @@
                 "id": "a11-01_smt.ar",
                 "name": "statement",
                 "prose": "لدى المؤسسة ترخيص ساري من الجهة الرقابية للعمل كمتحكم أو معالج، حيثما يُرجَّح أنه مطلوب.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-01_obj",
@@ -3879,7 +3879,7 @@
                 "id": "a11-01_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل لديكم ترخيص ساري كمتحكم أو معالج؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-01_gdn",
@@ -3890,7 +3890,7 @@
                 "id": "a11-01_gdn.ar",
                 "name": "guidance",
                 "prose": "يقدّر استبيان التراخيص ما إذا كان الترخيص مطلوبًا على الأرجح؛ وهو ليس تحديدًا قانونيًا.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3906,27 +3906,27 @@
               {
                 "name": "title-ar",
                 "value": "التسويق الإلكتروني",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -3939,7 +3939,7 @@
                 "id": "a11-02_smt.ar",
                 "name": "statement",
                 "prose": "لا تُرسل رسائل التسويق الإلكتروني إلا بموافقة المتلقي، مع توفير طريقة سهلة لإلغاء الاشتراك، وبموجب تصريح حيثما يُرجَّح أنه مطلوب.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-02_obj",
@@ -3950,7 +3950,7 @@
                 "id": "a11-02_obj.ar",
                 "name": "assessment-objective",
                 "prose": "إذا كنتم ترسلون رسائل تسويقية عبر البريد الإلكتروني أو الرسائل القصيرة أو تطبيقات المراسلة، فهل لديكم الموافقة وخيار إلغاء الاشتراك وأي تصريح يُرجَّح أنه مطلوب؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-02_gdn",
@@ -3961,7 +3961,7 @@
                 "id": "a11-02_gdn.ar",
                 "name": "guidance",
                 "prose": "اختاروا «لا ينطبق» إذا كنتم لا ترسلون أي تسويق إلكتروني.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -3977,27 +3977,27 @@
               {
                 "name": "title-ar",
                 "value": "المراقبة",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "2",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -4010,7 +4010,7 @@
                 "id": "a11-03_smt.ar",
                 "name": "statement",
                 "prose": "تقتصر المراقبة، مثل كاميرات المراقبة، على ما هو ضروري، مع وضع لافتات تنبيه، وبموجب تصريح حيثما يُرجَّح أنه مطلوب.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-03_obj",
@@ -4021,7 +4021,7 @@
                 "id": "a11-03_obj.ar",
                 "name": "assessment-objective",
                 "prose": "إذا كنتم تستخدمون كاميرات مراقبة أو وسائل مشابهة، فهل توجد لافتات تنبيه وأي تصريح يُرجَّح أنه مطلوب؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-03_gdn",
@@ -4032,7 +4032,7 @@
                 "id": "a11-03_gdn.ar",
                 "name": "guidance",
                 "prose": "احتفظوا بالتسجيلات للمدة اللازمة فقط وقيّدوا من يمكنه مشاهدتها.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           },
@@ -4048,27 +4048,27 @@
               {
                 "name": "title-ar",
                 "value": "متابعة التجديدات",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "weight",
                 "value": "1",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "evidence-type",
                 "value": "organizational",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "verified",
                 "value": "false",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               },
               {
                 "name": "source-status",
                 "value": "needed",
-                "ns": "urn:pdpl-ready:oscal"
+                "ns": "urn:sijill:oscal"
               }
             ],
             "parts": [
@@ -4081,7 +4081,7 @@
                 "id": "a11-04_smt.ar",
                 "name": "statement",
                 "prose": "تُتابع تواريخ انتهاء التراخيص والتصاريح، ويبدأ التجديد قبل انتهائها بوقت كافٍ.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-04_obj",
@@ -4092,7 +4092,7 @@
                 "id": "a11-04_obj.ar",
                 "name": "assessment-objective",
                 "prose": "هل تتابعون تواريخ انتهاء التراخيص والتصاريح مع تذكيرات؟",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               },
               {
                 "id": "a11-04_gdn",
@@ -4103,7 +4103,7 @@
                 "id": "a11-04_gdn.ar",
                 "name": "guidance",
                 "prose": "يرسل متتبع الالتزامات في هذه المنصة تذكيرات التجديد.",
-                "ns": "urn:pdpl-ready:oscal:ar"
+                "ns": "urn:sijill:oscal:ar"
               }
             ]
           }
@@ -4120,7 +4120,7 @@
             {
               "name": "source-status",
               "value": "needed",
-              "ns": "urn:pdpl-ready:oscal"
+              "ns": "urn:sijill:oscal"
             }
           ]
         },
@@ -4132,7 +4132,7 @@
             {
               "name": "source-status",
               "value": "needed",
-              "ns": "urn:pdpl-ready:oscal"
+              "ns": "urn:sijill:oscal"
             }
           ]
         },
@@ -4144,7 +4144,7 @@
             {
               "name": "source-status",
               "value": "needed",
-              "ns": "urn:pdpl-ready:oscal"
+              "ns": "urn:sijill:oscal"
             }
           ]
         }

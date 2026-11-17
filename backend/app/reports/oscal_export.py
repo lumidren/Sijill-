@@ -5,7 +5,7 @@
 - Each self-attested answer becomes an observation (method INTERVIEW, or EXAMINE when evidence
   files are attached).
 - Each assessed requirement becomes a finding targeting its assessment objective
-  (`<control-id>_obj` in the catalog), with the PDPL-Ready status kept in a namespaced prop.
+  (`<control-id>_obj` in the catalog), with the Sijill status kept in a namespaced prop.
 - Gaps become POA&M items.
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ from .. import __version__
 from ..catalog import CATALOG_PATH
 from ..evidence.service import import_findings
 from ..models import CheckRun, User
-from ..oscal import NS, OSCAL_VERSION
+from ..oscal import NS, OSCAL_VERSION, canon_ns
 from ..oscal.validate import errors as oscal_errors
 from .data import ReportData
 
@@ -56,7 +56,7 @@ def _metadata(d: ReportData, title: str) -> dict:
         "version": f"{d.generated_at:%Y%m%d%H%M%S}",
         "oscal-version": OSCAL_VERSION,
         "props": [
-            _prop("generator", f"PDPL-Ready {__version__}"),
+            _prop("generator", f"Sijill {__version__}"),
             _prop("disclaimer", "Readiness tracking aid. Not legal advice and not a legal compliance determination."),
             _prop("catalog-verified", "false" if d.unverified else "true"),
         ],
@@ -72,7 +72,7 @@ def _back_matter(d: ReportData) -> dict:
          "rlinks": [{"href": "pdpl-catalog.json", "media-type": "application/json",
                      "hashes": [{"algorithm": "SHA-256", "value": catalog_sha}]}]},
         {"uuid": _u("implicit-ap"), "title": "Continuous self-assessment (no separate assessment plan document)",
-         "description": "PDPL-Ready assesses every catalog requirement continuously from questionnaire answers and automated checks."},
+         "description": "Sijill assesses every catalog requirement continuously from questionnaire answers and automated checks."},
     ]}
 
 
@@ -171,7 +171,7 @@ def assessment_results(d: ReportData) -> dict:
     result = {
         "uuid": _u("result", d.generated_at.isoformat()),
         "title": "PDPL readiness self-assessment",
-        "description": ("Readiness against the PDPL-Ready catalog for Law No. 151 of 2020, combining self-attested "
+        "description": ("Readiness against the Sijill catalog for Law No. 151 of 2020, combining self-attested "
                         "answers and automated technical checks. Not a legal compliance determination."),
         "start": _iso(min(starts)),
         "end": _iso(d.generated_at),
@@ -253,7 +253,7 @@ class OscalImportError(ValueError):
 
 
 def _props(o: dict) -> dict:
-    return {p["name"]: p["value"] for p in o.get("props", []) if p.get("ns") == NS}
+    return {p["name"]: p["value"] for p in o.get("props", []) if canon_ns(p.get("ns")) == NS}
 
 
 def import_assessment_results(db: Session, doc: dict, actor: User | None) -> list[CheckRun]:
@@ -278,7 +278,7 @@ def import_assessment_results(db: Session, doc: dict, actor: User | None) -> lis
                 observed = ep.get("observed-at") or o["collected"]
                 ts = int(datetime.fromisoformat(observed.replace("Z", "+00:00")).timestamp())
                 item = {
-                    "metadata": {"event_code": p["check-id"], "product": {"name": "PDPL-Ready OSCAL import", "uid": "pdpl-ready-oscal"}},
+                    "metadata": {"event_code": p["check-id"], "product": {"name": "Sijill OSCAL import", "uid": "sijill-oscal"}},
                     "status_code": status, "status_detail": ev.get("description", ""), "time": ts,
                     "severity": ep.get("severity", "") if ep.get("severity") != "-" else "",
                     "finding_info": {"title": o.get("title", ""), "uid": f"{p['check-id']}-{ep.get('resource')}"},
