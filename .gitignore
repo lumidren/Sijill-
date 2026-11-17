@@ -1,0 +1,26 @@
+# Python
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Runtime data: database, uploaded evidence, secrets, generated reports
+data/
+*.db
+*.db-journal
+*.sqlite3
+.env
+*.key
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
