@@ -6,7 +6,7 @@ Resume here after a context reset: read this file and `git log --oneline`, then 
 
 Core first, then the assessment workflow, then the stretch goals in order:
 
-- [x] **Skeleton**: FastAPI + SQLAlchemy + Alembic (4 migrations), Argon2 auth, roles enforced server-side, hash-chained append-only audit log, React shell EN/AR + RTL, CI workflow, `scripts/start.ps1` / `scripts/dev.ps1`, Dockerfile + compose (not run)
+- [x] **Skeleton**: FastAPI + SQLAlchemy + Alembic (5 migrations), Argon2 auth, roles enforced server-side, hash-chained append-only audit log, React shell EN/AR + RTL, CI workflow, `scripts/start.ps1` / `scripts/dev.ps1`, Dockerfile + compose (not run)
 - [x] **Core 1: PDPL catalog in OSCAL**: `catalog/pdpl-catalog.json`, 11 areas, 52 bilingual requirements (16 technical), all `verified=false` / `source-status=needed`; validates against the official OSCAL 1.1.3 schema; lossless round trip; admin import/reset of a reviewed catalog
 - [x] **Core 2: Evidence engine**: OCSF ingestion (validation, redaction, per-target runs, SHA-256 per file and per result), Prowler framework file (129 AWS checks), Linux mapping (12 checks), inbox + Prowler subprocess adapters, APScheduler collection, read-only Linux collector
 - [x] **Core 3: Scoring, run history, regression detection, score-over-time dashboard**, with the automated / self-attested / not-assessed split and drill-down to each failing resource
@@ -17,11 +17,13 @@ Core first, then the assessment workflow, then the stretch goals in order:
 - [x] Stretch 2: applicability screener, licensing questionnaire ("likely required"), obligations tracker, renewal reminders, dashboard deadlines
 - [x] Stretch 3: breach clock (regulator + individuals countdowns, escalation, timeline, EN/AR notice templates, PDF)
 - [x] Polish: settings screen, accessibility and layout pass (contrast, labels, RTL and phone-width overflow), upstream Prowler notes, screenshots
+- [x] **Governance extension** (DECISIONS #28-33): remediation tasks feeding the POA&M and PDF, risk register with heat map and expiring Admin acceptance, requests from individuals with response clocks, vendor/processor register, DPIAs with screening and approval, versioned policy library, TOTP two-step sign-in with QR setup and Admin reset, dashboard governance card, related records on the drill-down, demo data for all of it
 
 ## Verified, and how
 
-- **Backend tests**: 185 passed, 2 skipped (the two live-Prowler tests; CI runs them). Includes every role on every write endpoint, malformed/oversized/wrong-type uploads, tampered evidence, credential redaction, scoring rules, OSCAL schema validity and round trip, deadline arithmetic across midnight and Egypt's DST change, the 70-hour urgent clock and an overdue clock.
-- **Frontend tests**: 28 passed (vitest + Testing Library), including Arabic RTL with Arabic-Indic digits.
+- **Backend tests**: 217 passed, 2 skipped (the two live-Prowler tests; CI runs them). Includes every role on every write endpoint, malformed/oversized/wrong-type uploads, tampered evidence, credential redaction, scoring rules, OSCAL schema validity and round trip, deadline arithmetic across midnight and Egypt's DST change, the 70-hour urgent clock and an overdue clock.
+- **Frontend tests**: 38 passed (vitest + Testing Library), including Arabic RTL with Arabic-Indic digits and the two-step sign-in flow.
+- **Governance in the running app**: migrated a fresh database, seeded the demo, and checked the dashboard card, risk register, requests, DPIAs and vendors (Arabic) in the built-in browser; screenshots in `docs/screenshots/`.
 - **In the running app** (built-in browser, screenshots in `docs/screenshots/`): dashboard EN + AR, requirement drill-down, run comparison with regressions, assessment answering (saved an answer and saw the new status), register, obligations and licensing, breach clock (desktop and 375 px), reports, Arabic PDF in the browser's PDF viewer.
 - **Accessibility sweep** on 17 screens in the running app: no unlabelled form controls, unnamed buttons/links, duplicate ids or missing `h1`; no horizontal overflow in English, Arabic, or at 375 px. Secondary text raised to AA contrast.
 - **Fresh clone**: `git clone` of the repo into an ignored folder, then `scripts/start.ps1 -Port 8010`: created the venv, installed Python and npm dependencies, built the UI, migrated, seeded and served in 80 s (pip and npm caches were already warm on this machine). All four demo roles signed in; dashboard, assessment, register, obligations, incidents, Arabic PDFs, CSV, evidence pack and POA&M all returned 200; an Auditor write returned 403. The clone was deleted afterwards.
@@ -37,6 +39,8 @@ Core first, then the assessment workflow, then the stretch goals in order:
 - The CI workflow has never run: there is no git remote, so nothing was pushed.
 - No legal source documents were available: every requirement, the 11-area structure, the screener rules, the licence/permit list and both breach deadlines are unverified (docs/LEGAL-REVIEW.md). The notice-to-individuals default (144 h) is a placeholder.
 - Reminders are in-app only (no email).
+- Two-step sign-in was tested with RFC 6238 vectors and mocked UI flows, not with a real authenticator app on a phone.
+- The request-response period (30 days), risk bands and DPIA screening rule are placeholders or practice conventions, not verified law.
 
 ## Next
 
