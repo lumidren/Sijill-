@@ -6,11 +6,19 @@ import { Spinner } from "./components/ui";
 import Login from "./pages/Login";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Requirements = lazy(() => import("./pages/Requirements"));
+const RequirementDetail = lazy(() => import("./pages/RequirementDetail"));
+const Checks = lazy(() => import("./pages/Checks"));
+const RunDetail = lazy(() => import("./pages/RunDetail"));
 const Users = lazy(() => import("./pages/Users"));
 const AuditLog = lazy(() => import("./pages/AuditLog"));
 
 const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/", element: <Dashboard /> },
+  { path: "/requirements", element: <Requirements /> },
+  { path: "/requirements/:id", element: <RequirementDetail /> },
+  { path: "/checks", element: <Checks /> },
+  { path: "/checks/runs/:id", element: <RunDetail /> },
   { path: "/users", element: <Users /> },
   { path: "/audit", element: <AuditLog /> },
 ];
