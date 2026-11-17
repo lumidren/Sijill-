@@ -36,6 +36,9 @@ def _fresh_db() -> None:
             c.execute(text("DROP SCHEMA public CASCADE; CREATE SCHEMA public;"))
         migrate.upgrade(url)
         init_engine(url)
+        s = get_settings()
+        shutil.rmtree(s.evidence_dir, ignore_errors=True)  # same clean slate as the SQLite path
+        s.ensure_dirs()
         return
     from app import db as dbmod
 

@@ -193,8 +193,13 @@ def test_demo_has_three_clients(app_client):
     assert sphinx["counts"]["by_status"]["not_assessed"] > 40
 
 
-def test_cli_imports_into_a_chosen_organisation(db, capsys):
+def test_cli_imports_into_a_chosen_organisation(db, capsys, monkeypatch):
+    import os
+
     from app import cli
+
+    if os.environ.get("PDPL_TEST_DATABASE_URL"):  # the CLI opens its own engine; point it at the test database
+        monkeypatch.setenv("DATABASE_URL", os.environ["PDPL_TEST_DATABASE_URL"])
 
     db.add(Organisation(id=2, name="Two"))
     db.commit()
