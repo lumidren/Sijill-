@@ -66,10 +66,10 @@ STAGE_2 = [  # more areas, ~20 days ago
     ("a10-01", "partial", "Clinic systems are hosted in AWS Frankfurt (eu-central-1); remote IT support flows not mapped."),
     ("a10-02", "non_compliant", "No cross-border transfer permit has been requested."),
     ("a10-03", "partial", "Encryption is used; transfer contract terms not reviewed."),
-    ("a11-01", "partial", "Licence application drafted; not yet submitted."),
+    ("a11-01", "compliant", "Controller licence held; see the obligations tracker."),
     ("a11-02", "not_applicable", "The clinic sends appointment reminders only, no electronic marketing."),
-    ("a11-03", "partial", "CCTV in the waiting area with signs; permit status unknown."),
-    ("a11-04", "non_compliant", "Licence and permit dates are not tracked anywhere."),
+    ("a11-03", "partial", "CCTV in the waiting area with signs; permit held but expiring soon."),
+    ("a11-04", "partial", "Dates now tracked in PDPL-Ready; the CCTV permit renewal is due soon."),
 ]
 STAGE_3 = [  # technical self-attestation, ~10 days ago
     ("a05-04", "compliant", "Nightly backups via AWS Backup; restore tested in October."),
