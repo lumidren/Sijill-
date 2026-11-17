@@ -55,7 +55,7 @@ export default function Login() {
             <h2 className="text-3xl font-semibold leading-tight">{t("app.tagline")}</h2>
             <p className="mt-4 text-brand-100/85">{t("app.audience")}</p>
           </div>
-          <div className="text-xs text-brand-200/70">PDPL 151/2020 · OSCAL · Prowler</div>
+          <div className="text-xs text-brand-200/70">PDPL 151/2020 • OSCAL • Prowler</div>
           <svg aria-hidden className="absolute -bottom-24 -end-24 h-96 w-96 text-brand-700/40" viewBox="0 0 200 200" fill="currentColor">
             <path d="M100 10l70 26v52c0 44-30 80-70 98-40-18-70-54-70-98V36z" />
           </svg>

@@ -265,7 +265,7 @@ export default function EvidenceRequests() {
                       <StateChip state={r.status} />
                     </td>
                     <td className="text-sm text-slate-600">
-                      {t("er.progressOf", { done: fmtNum(r.counts.answered + r.counts.accepted), total: fmtNum(r.total) })} · {t("er.accepted", { count: r.counts.accepted })}
+                      {t("er.progressOf", { done: fmtNum(r.counts.answered + r.counts.accepted), total: fmtNum(r.total) })} • {t("er.accepted", { count: r.counts.accepted })}
                     </td>
                     <td className="text-sm text-slate-600">{fmtDate(r.expires_at)}</td>
                   </tr>
@@ -316,7 +316,7 @@ export function EvidenceRequestDetail() {
     <>
       <PageHeader
         title={data.title}
-        subtitle={`${t("er.recipient")}: ${data.recipient}${data.recipient_contact ? ` · ${data.recipient_contact}` : ""}`}
+        subtitle={`${t("er.recipient")}: ${data.recipient}${data.recipient_contact ? ` • ${data.recipient_contact}` : ""}`}
         actions={
           manage && (
             <div className="flex flex-wrap gap-2">

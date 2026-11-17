@@ -113,10 +113,10 @@ export default function Dashboard() {
                     {r.title || r.check_id}
                   </Link>
                   <div className="mt-1 text-xs text-red-800/80" dir="ltr">
-                    {shortResource(r.resource)} · {r.target}
+                    {shortResource(r.resource)} • {r.target}
                   </div>
                   <div className="mt-1 text-xs text-slate-600">
-                    {t("dashboard.detectedOn", { when: fmtDateTime(r.detected_at) })} ·{" "}
+                    {t("dashboard.detectedOn", { when: fmtDateTime(r.detected_at) })} •{" "}
                     {t("dashboard.affects", { reqs: r.requirements.map((id) => id.toUpperCase().replace("-", ".")).join(", ") })}
                   </div>
                 </li>
@@ -213,7 +213,7 @@ export default function Dashboard() {
                       <BasisChip basis="automated" />
                     </div>
                     <div className="mt-1 text-xs text-slate-500">
-                      {t(`checks.providers.${tg.provider}`, { defaultValue: tg.provider })} · {fmtDateTime(tg.started_at)}
+                      {t(`checks.providers.${tg.provider}`, { defaultValue: tg.provider })} • {fmtDateTime(tg.started_at)}
                     </div>
                     <div className="mt-2 flex gap-3 text-xs">
                       <span className="text-green-700">

@@ -176,7 +176,7 @@ export default function PublicRequest() {
             <p className="text-sm text-slate-500">{org}</p>
             <h1 className="mt-1 text-2xl font-semibold">{view.title}</h1>
             <p className="mt-2 text-sm text-slate-600">
-              {t("pr.for", { name: view.recipient })} · {t("pr.until", { when: fmtDate(view.expires_at) })}
+              {t("pr.for", { name: view.recipient })} • {t("pr.until", { when: fmtDate(view.expires_at) })}
             </p>
             {view.message && <p className="mt-4 whitespace-pre-line rounded-xl bg-white p-4 text-sm shadow-sm">{view.message}</p>}
             <p className="mt-4 text-xs text-slate-500">{t("pr.privacy")}</p>

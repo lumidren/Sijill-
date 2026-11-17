@@ -72,7 +72,7 @@ export default function AuditLog() {
                       </td>
                       <td className="text-slate-600" dir="ltr">
                         {e.entity_type}
-                        {e.entity_id ? ` · ${e.entity_id}` : ""}
+                        {e.entity_id ? ` • ${e.entity_id}` : ""}
                       </td>
                       <td className="max-w-xs truncate text-xs text-slate-500" dir="ltr" title={JSON.stringify(e.detail)}>
                         {Object.keys(e.detail || {}).length ? JSON.stringify(e.detail) : ""}

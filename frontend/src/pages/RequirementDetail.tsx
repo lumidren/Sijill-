@@ -80,13 +80,13 @@ export default function RequirementDetail() {
       </Link>
       <div className="mb-6">
         <p className="text-sm text-slate-500">
-          {req.label} · {data.area.label} {pick(data.area.title)}
+          {req.label} • {data.area.label} {pick(data.area.title)}
         </p>
         <h1 className="page-title mt-1 flex flex-wrap items-center gap-3">
           {pick(req.title)} {!req.verified && <Unverified />}
         </h1>
         <p className="mt-1 text-xs text-slate-500">
-          {req.technical ? t("requirements.technical") : t("requirements.organisational")} · {t("requirements.weightHint", { weight: fmtNum(req.weight) })}
+          {req.technical ? t("requirements.technical") : t("requirements.organisational")} • {t("requirements.weightHint", { weight: fmtNum(req.weight) })}
         </p>
       </div>
 
@@ -187,7 +187,7 @@ export default function RequirementDetail() {
                           </Link>
                           <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
                             <span>{t(`tasks.statuses.${x.status}`)}</span>
-                            {x.owner && <span>· {x.owner}</span>}
+                            {x.owner && <span>• {x.owner}</span>}
                             <DaysChip days={x.days_left} done={x.status === "done"} />
                           </div>
                         </li>
@@ -221,7 +221,7 @@ export default function RequirementDetail() {
                           </Link>
                           <div className="text-xs text-slate-500">
                             {t(`policies.statuses.${x.status}`)}
-                            {x.review_overdue && <span className="ms-1.5 font-medium text-red-700">· {t("policies.reviewOverdue")}</span>}
+                            {x.review_overdue && <span className="ms-1.5 font-medium text-red-700">• {t("policies.reviewOverdue")}</span>}
                           </div>
                         </li>
                       ))}

@@ -108,7 +108,7 @@ export default function Policies() {
                         <ol className="mt-1 space-y-0.5 text-xs text-slate-600">
                           {[...p.history].reverse().map((h, i) => (
                             <li key={i}>
-                              <span dir="ltr">v{h.version}</span> · {t(`policies.statuses.${h.status}`)} · {fmtDate(h.at)} · {h.by}
+                              <span dir="ltr">v{h.version}</span> • {t(`policies.statuses.${h.status}`)} • {fmtDate(h.at)} • {h.by}
                             </li>
                           ))}
                         </ol>

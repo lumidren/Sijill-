@@ -128,7 +128,7 @@ export default function Settings() {
             <p className="mt-3 text-xs text-slate-500">{t("checks.credentialsNote")}</p>
             <p className="mt-3 text-xs text-slate-500">
               {t("settings.catalogInfo", { version: data.catalog.version, unverified: fmtNum(data.catalog.unverified), total: fmtNum(data.catalog.requirements) })}{" "}
-              {t("settings.timezone", { tz: data.timezone })} · v{data.version}
+              {t("settings.timezone", { tz: data.timezone })} • v{data.version}
             </p>
           </Card>
         </div>

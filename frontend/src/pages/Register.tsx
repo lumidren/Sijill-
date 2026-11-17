@@ -246,12 +246,12 @@ export default function Register() {
                     <td>
                       <div className="font-medium">{a.name}</div>
                       <div className="text-xs text-slate-500">
-                        {t(`register.${a.role}`)} · {fmtDate(a.updated_at)}
+                        {t(`register.${a.role}`)} • {fmtDate(a.updated_at)}
                       </div>
                       {a.sensitive_categories.length > 0 && <span className="chip mt-1 bg-violet-50 text-violet-800">{a.sensitive_categories.join(", ")}</span>}
                     </td>
                     <td className="text-sm text-slate-700">{a.data_subjects.join(", ")}</td>
-                    <td className="text-sm">{a.cross_border ? `${t("register.yes")} · ${a.transfer_countries.join(", ")}` : t("register.no")}</td>
+                    <td className="text-sm">{a.cross_border ? `${t("register.yes")} • ${a.transfer_countries.join(", ")}` : t("register.no")}</td>
                     <td className="text-sm text-slate-700">{a.retention || "—"}</td>
                     <td>
                       {a.issues.length === 0 ? (

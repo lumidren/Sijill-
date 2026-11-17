@@ -70,7 +70,7 @@ export default function Account() {
   if (!user) return null;
   return (
     <>
-      <PageHeader title={t("nav.account")} subtitle={`${user.display_name} · ${t(`roles.${user.role}`)}`} />
+      <PageHeader title={t("nav.account")} subtitle={`${user.display_name} • ${t(`roles.${user.role}`)}`} />
       <Card title={t("mfa.title")}>
         <p className="text-sm text-slate-600">{t("mfa.subtitle")}</p>
         <p className={`mt-3 inline-block chip ${enabled ? "bg-green-50 text-green-800 ring-1 ring-green-600/20" : "bg-amber-50 text-amber-900"}`} role="status">

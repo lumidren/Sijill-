@@ -75,7 +75,7 @@ export function HeatMap({ rows, selected, onSelect, compact = false }: { rows: {
 }
 
 function riskFields(t: (k: string) => string): Field[] {
-  const scale = (prefix: string) => [1, 2, 3, 4, 5].map((n) => ({ value: String(n), label: `${n} · ${t(`${prefix}.${n}`)}` }));
+  const scale = (prefix: string) => [1, 2, 3, 4, 5].map((n) => ({ value: String(n), label: `${n} • ${t(`${prefix}.${n}`)}` }));
   const opt = (prefix: string, keys: string[]) => keys.map((k) => ({ value: k, label: t(`${prefix}.${k}`) }));
   return [
     { key: "title", label: t("risks.name"), required: true },
@@ -152,7 +152,7 @@ export default function Risks() {
                           <div className="font-medium">{r.title}</div>
                           <div className="mt-0.5 flex flex-wrap gap-2 text-xs text-slate-500">
                             {r.category && <span>{r.category}</span>}
-                            {r.owner && <span>· {r.owner}</span>}
+                            {r.owner && <span>• {r.owner}</span>}
                             {r.requirement_ids.map((id) => (
                               <Link key={id} to={`/requirements/${id}`} className="text-brand-700 hover:underline" dir="ltr">
                                 {id.toUpperCase().replace("-", ".")}
@@ -162,10 +162,10 @@ export default function Risks() {
                         </td>
                         <td>
                           <span className={`chip ${LEVEL_STYLE[r.level]}`}>
-                            {fmtNum(r.score)} · {t(`risks.levels.${r.level}`)}
+                            {fmtNum(r.score)} • {t(`risks.levels.${r.level}`)}
                           </span>
                         </td>
-                        <td>{r.residual_score ? <span className={`chip ${LEVEL_STYLE[r.residual_level!]}`}>{fmtNum(r.residual_score)} · {t(`risks.levels.${r.residual_level}`)}</span> : "—"}</td>
+                        <td>{r.residual_score ? <span className={`chip ${LEVEL_STYLE[r.residual_level!]}`}>{fmtNum(r.residual_score)} • {t(`risks.levels.${r.residual_level}`)}</span> : "—"}</td>
                         <td className="text-sm">{t(`risks.treatments.${r.treatment}`)}</td>
                         <td className="text-sm">
                           <div>{t(`risks.statuses.${r.status}`)}</div>

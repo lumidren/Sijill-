@@ -140,7 +140,7 @@ function Question({ req, canAnswer, canUpload, onSaved }: { req: Req; canAnswer:
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-medium text-slate-500">
-            {req.label} · {pick(req.title)} {!req.verified && <Unverified />}
+            {req.label} • {pick(req.title)} {!req.verified && <Unverified />}
           </p>
           <h3 id={`${req.id}-q`} className="mt-1 text-[15px] font-semibold text-ink">
             {pick(req.question)}

@@ -218,7 +218,7 @@ export default function Incidents() {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <p className="text-xs text-slate-500">
-                    <span dir="ltr">{i.ref}</span> · {t(`incidents.severities.${i.severity}`)} · {fmtDateTime(i.discovered_at)}
+                    <span dir="ltr">{i.ref}</span> • {t(`incidents.severities.${i.severity}`)} • {fmtDateTime(i.discovered_at)}
                   </p>
                   <Link to={`/incidents/${i.id}`} className="text-base font-semibold text-ink hover:text-brand-800 hover:underline">
                     {i.title}

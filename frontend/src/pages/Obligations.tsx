@@ -379,7 +379,7 @@ export default function Obligations() {
                             {t(`obligations.kinds.${o.kind}`)}
                             {o.reference && (
                               <span dir="ltr" className="ms-1">
-                                · {o.reference}
+                                • {o.reference}
                               </span>
                             )}
                           </div>

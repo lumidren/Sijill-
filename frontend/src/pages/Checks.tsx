@@ -137,7 +137,7 @@ function RegressionList() {
           </div>
           <p className="mt-1 text-sm text-slate-700">{r.message}</p>
           <p className="mt-2 text-xs text-slate-500" dir="ltr">
-            {r.check_id} · {r.resource}
+            {r.check_id} • {r.resource}
           </p>
           <p className="mt-1 text-xs text-slate-600">
             {t("dashboard.regressionHint", { target: r.target })}{" "}

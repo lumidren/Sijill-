@@ -39,7 +39,7 @@ function EvidenceBar({ row }: { row: ClientRow }) {
         ))}
       </div>
       <div className="mt-1 text-[11px] text-slate-500">
-        {fmtNum(row.counts.by_basis.automated ?? 0)} · {fmtNum(row.counts.by_basis.attested ?? 0)} · {fmtNum(row.counts.by_basis.not_assessed ?? 0)}
+        {fmtNum(row.counts.by_basis.automated ?? 0)} • {fmtNum(row.counts.by_basis.attested ?? 0)} • {fmtNum(row.counts.by_basis.not_assessed ?? 0)}
       </div>
     </div>
   );

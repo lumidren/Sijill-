@@ -57,7 +57,7 @@ export default function RunDetail() {
       </Link>
       <h1 className="page-title">{t("checks.runDetail", { id: data.id })}</h1>
       <p className="mt-1 text-sm text-slate-600">
-        <span dir="ltr">{data.target}</span> · {t(`checks.providers.${data.provider}`, { defaultValue: data.provider })} · {t(`checks.sources.${data.source}`, { defaultValue: data.source })} · {fmtDateTime(data.started_at)}
+        <span dir="ltr">{data.target}</span> • {t(`checks.providers.${data.provider}`, { defaultValue: data.provider })} • {t(`checks.sources.${data.source}`, { defaultValue: data.source })} • {fmtDateTime(data.started_at)}
       </p>
       <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
@@ -73,7 +73,7 @@ export default function RunDetail() {
         ))}
       </dl>
       <p className="mt-3 truncate font-mono text-[11px] text-slate-500" dir="ltr">
-        {data.filename} · SHA-256 {data.file_sha256}
+        {data.filename} • SHA-256 {data.file_sha256}
       </p>
 
       <section className="mt-6 space-y-3">

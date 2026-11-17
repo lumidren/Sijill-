@@ -63,7 +63,7 @@ export default function Requirements() {
               <option value="">{t("requirements.allAreas")}</option>
               {data.areas.map((a) => (
                 <option key={a.id} value={a.id}>
-                  {a.label} · {pick(a.title)}
+                  {a.label} • {pick(a.title)}
                 </option>
               ))}
             </select>

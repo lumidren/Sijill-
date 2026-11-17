@@ -81,7 +81,7 @@ describe("governance registers", () => {
     renderPage(<Risks />);
     expect(await screen.findByText("Patient images exposed")).toBeInTheDocument();
     expect(screen.getByRole("gridcell", { name: "1 risk(s) with likelihood 4 and impact 5" })).toHaveTextContent("1");
-    expect(screen.getByText("20 · Critical")).toBeInTheDocument();
+    expect(screen.getByText("20 • Critical")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Accept risk" })).toBeNull();
   });
 

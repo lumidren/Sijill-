@@ -111,7 +111,7 @@ export default function IncidentDetail() {
         {t("incidents.back")}
       </Link>
       <p className="text-sm text-slate-500">
-        <span dir="ltr">{data.ref}</span> · {t(`incidents.severities.${data.severity}`)} · {t(`incidents.statuses.${data.status}`)}
+        <span dir="ltr">{data.ref}</span> • {t(`incidents.severities.${data.severity}`)} • {t(`incidents.statuses.${data.status}`)}
       </p>
       <h1 className="page-title mt-1">{data.title}</h1>
       {data.source?.check_id && (
@@ -171,7 +171,7 @@ export default function IncidentDetail() {
                 <li key={e.id}>
                   <span className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border-2 border-white bg-brand-600" aria-hidden />
                   <p className="text-xs text-slate-500">
-                    {fmtDateTime(e.at)} · {e.actor}
+                    {fmtDateTime(e.at)} • {e.actor}
                   </p>
                   <p className="text-sm font-medium">{t(`incidents.kinds.${e.kind}`, { defaultValue: e.kind })}</p>
                   {e.text && !e.kind.startsWith("notified") && <p className="text-sm text-slate-700">{e.text}</p>}
