@@ -101,3 +101,16 @@ def test_catalog_import_requires_admin_and_valid_oscal(as_role, raw):
     # back to the shipped catalog
     assert c.delete("/api/catalog/import").status_code == 200
     catmod.reload_catalog()
+
+
+def test_legal_review_document_is_current():
+    import importlib.util
+    from app.config import REPO_DIR
+    spec = importlib.util.spec_from_file_location("legal_review", REPO_DIR / "scripts" / "legal_review.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    on_disk = (REPO_DIR / "docs" / "LEGAL-REVIEW.md").read_text(encoding="utf-8")
+    assert on_disk == mod.render(), "run: python scripts/legal_review.py"
+    for r in parse(json.loads(CATALOG_PATH.read_text(encoding="utf-8"))).requirements:
+        if not r.verified:
+            assert f"`{r.id}`" in on_disk
