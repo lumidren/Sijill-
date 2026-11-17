@@ -1,0 +1,15 @@
+fastapi==0.163.1
+uvicorn[standard]==0.54.0
+SQLAlchemy==2.1.9
+alembic==1.20.1
+pydantic==2.14.3
+pydantic-settings==2.16.3
+argon2-cffi==25.1.0
+python-multipart==0.0.34
+itsdangerous==2.2.0
+APScheduler==3.11.3
+reportlab==5.1.0
+arabic-reshaper==3.1.0
+python-bidi==0.6.12
+jsonschema==4.26.0
+regex==2026.11.15
