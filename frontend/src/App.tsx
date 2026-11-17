@@ -26,9 +26,11 @@ const Vendors = lazy(() => import("./pages/Vendors"));
 const Dpias = lazy(() => import("./pages/Dpias"));
 const Policies = lazy(() => import("./pages/Policies"));
 const Account = lazy(() => import("./pages/Account"));
+const Clients = lazy(() => import("./pages/Clients"));
 
 const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/", element: <Dashboard /> },
+  { path: "/clients", element: <Clients /> },
   { path: "/requirements", element: <Requirements /> },
   { path: "/requirements/:id", element: <RequirementDetail /> },
   { path: "/checks", element: <Checks /> },
