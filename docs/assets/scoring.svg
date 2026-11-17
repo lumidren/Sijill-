@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 340" width="1280" height="340" role="img" aria-labelledby="t d">
+  <title id="t">How a requirement is scored</title>
+  <desc id="d">A DPO answers Met, but three mapped automated checks are failing, so the requirement is capped at Partly met. The dashboard always shows how many requirements rest on automated evidence, on self-attestation, or on nothing yet.</desc>
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif; }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="340" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+  <g class="sans">
+    <text x="48" y="56" font-size="24" font-weight="700" fill="#10201f">The score cannot be talked past</text>
+    <text x="48" y="84" font-size="15" fill="#64748b">Requirement A06.06, "No public exposure of data stores", in the demo clinic</text>
+
+    <!-- answer -->
+    <g transform="translate(48 116)">
+      <rect width="250" height="96" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="20" y="34" font-size="13" font-weight="700" fill="#7c3aed" letter-spacing="1">SELF-ATTESTED</text>
+      <text x="20" y="68" font-size="20" font-weight="600" fill="#10201f">DPO answers</text>
+      <rect x="150" y="48" width="78" height="30" rx="15" fill="#dcfce7"/>
+      <text x="189" y="68" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">Met</text>
+    </g>
+    <text x="320" y="170" font-size="30" font-weight="700" fill="#475569">+</text>
+    <!-- checks -->
+    <g transform="translate(350 116)">
+      <rect width="300" height="96" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="20" y="34" font-size="13" font-weight="700" fill="#0284c7" letter-spacing="1">AUTOMATED (PROWLER)</text>
+      <g font-size="14" fill="#334155">
+        <circle cx="27" cy="58" r="6" fill="#dc2626"/><text x="41" y="63">s3_bucket_public_access</text>
+        <circle cx="27" cy="80" r="6" fill="#dc2626"/><text x="41" y="85">+2 more failing · 7 passing</text>
+      </g>
+    </g>
+    <path d="M664 164H730" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+    <!-- result -->
+    <g transform="translate(742 116)">
+      <rect width="250" height="96" rx="16" fill="#fffbeb" stroke="#fbbf24"/>
+      <text x="20" y="34" font-size="13" font-weight="700" fill="#b45309" letter-spacing="1">RESULT</text>
+      <rect x="20" y="48" width="118" height="30" rx="15" fill="#fef3c7"/>
+      <text x="79" y="68" font-size="15" font-weight="600" fill="#92400e" text-anchor="middle">Partly met</text>
+      <text x="150" y="68" font-size="13" fill="#92400e">capped</text>
+    </g>
+    <g transform="translate(1016 116)" font-size="14" fill="#475569">
+      <text y="22">Not applicable is ignored</text>
+      <text y="44">while a check fails.</text>
+      <text y="74">Stale evidence (30 days+)</text>
+      <text y="96">is flagged, not hidden.</text>
+    </g>
+
+    <!-- split bar -->
+    <text x="48" y="262" font-size="15" font-weight="600" fill="#10201f">Shown beside every score: what the 52 requirements rest on</text>
+    <g transform="translate(48 278)">
+      <rect width="1184" height="22" rx="11" fill="#e2e8f0"/>
+      <rect width="364" height="22" rx="11" fill="#38bdf8"/>
+      <rect x="350" width="584" height="22" fill="#8b5cf6"/>
+      <rect x="920" width="264" height="22" rx="11" fill="#cbd5e1"/>
+      <text x="14" y="16" font-size="13" font-weight="600" fill="#ffffff">16 automated evidence</text>
+      <text x="366" y="16" font-size="13" font-weight="600" fill="#ffffff">25 self-attested</text>
+      <text x="936" y="16" font-size="13" font-weight="600" fill="#334155">11 not assessed</text>
+    </g>
+  </g>
+</svg>

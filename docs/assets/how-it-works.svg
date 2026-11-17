@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 520" width="1280" height="520" role="img" aria-labelledby="t d">
+  <title id="t">How Sijill works</title>
+  <desc id="d">Evidence comes in from cloud scans, Linux hosts, client staff and the DPO's own answers. It is checked, hashed and reviewed, scored with rules that cannot be talked past, turned into tasks, risks and breach clocks, and reported in English and Arabic.</desc>
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .h { font-size: 21px; font-weight: 700; fill: #10201f; }
+      .step { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; }
+      .li { font-size: 15px; fill: #334155; }
+      .muted { font-size: 13px; fill: #64748b; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#0d7b72"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="520" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="48" y="58" class="sans" font-size="28" font-weight="700" fill="#10201f">From evidence to a report a manager can trust</text>
+  <text x="48" y="88" class="sans muted" font-size="15">Every number on the dashboard can be clicked back to the answer, check or file behind it.</text>
+
+  <!-- column template: x positions 48, 292, 536, 780, 1024 ; width 208 -->
+  <g class="sans">
+    <!-- 1 collect -->
+    <g transform="translate(48 120)">
+      <rect width="208" height="350" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+      <rect width="208" height="6" rx="3" fill="#38bdf8"/>
+      <text x="20" y="40" class="step" fill="#0284c7">1 · COLLECT</text>
+      <text x="20" y="70" class="h">Evidence in</text>
+      <g class="li">
+        <circle cx="24" cy="105" r="3" fill="#94a3b8"/><text x="34" y="110">Prowler AWS scans</text>
+        <circle cx="24" cy="135" r="3" fill="#94a3b8"/><text x="34" y="140">Linux collector</text>
+        <circle cx="24" cy="165" r="3" fill="#94a3b8"/><text x="34" y="170">Links for client staff</text>
+        <circle cx="24" cy="195" r="3" fill="#94a3b8"/><text x="34" y="200">DPO's answers</text>
+        <circle cx="24" cy="225" r="3" fill="#94a3b8"/><text x="34" y="230">Uploaded documents</text>
+      </g>
+      <text x="20" y="282" class="muted">129 AWS + 12 Linux checks</text>
+      <text x="20" y="302" class="muted">mapped to 16 technical</text>
+      <text x="20" y="322" class="muted">requirements</text>
+    </g>
+    <!-- 2 verify -->
+    <g transform="translate(292 120)">
+      <rect width="208" height="350" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+      <rect width="208" height="6" rx="3" fill="#a78bfa"/>
+      <text x="20" y="40" class="step" fill="#7c3aed">2 · VERIFY</text>
+      <text x="20" y="70" class="h">Trust it</text>
+      <g class="li">
+        <circle cx="24" cy="105" r="3" fill="#94a3b8"/><text x="34" y="110">SHA-256 on every file</text>
+        <text x="34" y="140">and every result</text>
+        <circle cx="24" cy="165" r="3" fill="#94a3b8"/><text x="34" y="170">Secrets redacted</text>
+        <circle cx="24" cy="195" r="3" fill="#94a3b8"/><text x="34" y="200">Client answers reviewed</text>
+        <text x="34" y="230">before they count</text>
+      </g>
+      <text x="20" y="282" class="muted">Hash-chained audit log;</text>
+      <text x="20" y="302" class="muted">tampering shows up on</text>
+      <text x="20" y="322" class="muted">download and in /verify</text>
+    </g>
+    <!-- 3 score -->
+    <g transform="translate(536 120)">
+      <rect width="208" height="350" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+      <rect width="208" height="6" rx="3" fill="#149a8d"/>
+      <text x="20" y="40" class="step" fill="#0d7b72">3 · SCORE</text>
+      <text x="20" y="70" class="h">Honest readiness</text>
+      <g class="li">
+        <circle cx="24" cy="105" r="3" fill="#94a3b8"/><text x="34" y="110">52 requirements,</text>
+        <text x="34" y="140">11 areas, weighted</text>
+        <circle cx="24" cy="165" r="3" fill="#94a3b8"/><text x="34" y="170">Failing checks cap a</text>
+        <text x="34" y="200">"Met" answer at "Partly"</text>
+        <circle cx="24" cy="225" r="3" fill="#94a3b8"/><text x="34" y="230">Regressions flagged</text>
+      </g>
+      <text x="20" y="282" class="muted">Always shown with the</text>
+      <text x="20" y="302" class="muted">automated / self-attested /</text>
+      <text x="20" y="322" class="muted">not-assessed split</text>
+    </g>
+    <!-- 4 act -->
+    <g transform="translate(780 120)">
+      <rect width="208" height="350" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+      <rect width="208" height="6" rx="3" fill="#fbbf24"/>
+      <text x="20" y="40" class="step" fill="#b45309">4 · ACT</text>
+      <text x="20" y="70" class="h">Close the gaps</text>
+      <g class="li">
+        <circle cx="24" cy="105" r="3" fill="#94a3b8"/><text x="34" y="110">Tasks from any gap</text>
+        <circle cx="24" cy="135" r="3" fill="#94a3b8"/><text x="34" y="140">Risk register, heat map</text>
+        <circle cx="24" cy="165" r="3" fill="#94a3b8"/><text x="34" y="170">DPIAs and policies</text>
+        <circle cx="24" cy="195" r="3" fill="#94a3b8"/><text x="34" y="200">Vendors, requests</text>
+        <circle cx="24" cy="225" r="3" fill="#94a3b8"/><text x="34" y="230">Breach clocks</text>
+      </g>
+      <text x="20" y="282" class="muted">Approvals and risk</text>
+      <text x="20" y="302" class="muted">acceptance are Admin</text>
+      <text x="20" y="322" class="muted">decisions that expire</text>
+    </g>
+    <!-- 5 report -->
+    <g transform="translate(1024 120)">
+      <rect width="208" height="350" rx="18" fill="#0f3d3a"/>
+      <rect width="208" height="6" rx="3" fill="#34d399"/>
+      <text x="20" y="40" class="step" fill="#5ad4c3">5 · REPORT</text>
+      <text x="20" y="70" font-size="21" font-weight="700" fill="#ffffff">Prove it</text>
+      <g font-size="15" fill="#c9f5ec" class="dark">
+        <circle cx="24" cy="105" r="3" fill="#94a3b8"/><text x="34" y="110">PDF in English</text>
+        <text x="34" y="140">and Arabic (RTL)</text>
+        <circle cx="24" cy="165" r="3" fill="#94a3b8"/><text x="34" y="170">Evidence pack + hashes</text>
+        <circle cx="24" cy="195" r="3" fill="#94a3b8"/><text x="34" y="200">OSCAL results, POA&amp;M</text>
+        <circle cx="24" cy="225" r="3" fill="#94a3b8"/><text x="34" y="230">Register exports</text>
+      </g>
+      <text x="20" y="282" font-size="13" fill="#94e9da">Schema-valid against</text>
+      <text x="20" y="302" font-size="13" fill="#94e9da">NIST OSCAL 1.1.3;</text>
+      <text x="20" y="322" font-size="13" fill="#94e9da">round-trip tested</text>
+    </g>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#0d7b72" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M258 295H288"/>
+    <path d="M502 295H532"/>
+    <path d="M746 295H776"/>
+    <path d="M990 295H1020"/>
+  </g>
+  <text x="48" y="500" class="sans muted">Several client organisations per install, each fully separate · four roles enforced on the server · two-step sign-in</text>
+</svg>
