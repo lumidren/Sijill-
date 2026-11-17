@@ -72,7 +72,7 @@ export default function RequirementDetail() {
   return (
     <>
       <Link to={`/requirements?area=${req.area_id}`} className="mb-4 inline-flex items-center gap-1 text-sm text-brand-700 hover:underline">
-        <span aria-hidden className="rtl:rotate-180">
+        <span aria-hidden className="inline-block rtl:rotate-180">
           ←
         </span>
         {t("requirements.back")}

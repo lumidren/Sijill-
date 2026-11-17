@@ -38,6 +38,8 @@ const BASIS_STYLE: Record<Basis, string> = {
 
 export function BasisChip({ basis }: { basis: Basis }) {
   const { t } = useTranslation();
+  // "Not assessed" is already said by the status chip next to it.
+  if (basis === "not_assessed") return null;
   const label = basis === "automated" ? t("basis.automatedShort") : basis === "attested" ? t("basis.attestedShort") : t("basis.not_assessed");
   return <span className={`chip ${BASIS_STYLE[basis]}`}>{label}</span>;
 }
