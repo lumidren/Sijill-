@@ -68,7 +68,9 @@ def write_blob(data: bytes, filename: str) -> tuple[str, str, str]:
     settings.evidence_dir.mkdir(parents=True, exist_ok=True)
     stored = f"{sha}{ext}"
     path = settings.evidence_dir / stored
-    if not path.exists():
+    # Content-addressed: an existing file with this name must hold these exact bytes. If it was
+    # damaged or tampered with, the fresh upload repairs it rather than silently keeping the bad copy.
+    if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != sha:
         path.write_bytes(data)
     return stored, ctype, sha
 

@@ -83,6 +83,9 @@ def test_tampered_evidence_is_refused(as_role, db):
     ev = db.get(EvidenceFile, eid)
     path_of(ev).write_bytes(PDF + b"tampered")
     assert c.get(f"/api/evidence/{eid}/download").status_code == 409
+    # Uploading the genuine file again repairs the stored copy instead of keeping the damaged one
+    upload(c)
+    assert c.get(f"/api/evidence/{eid}/download").status_code == 200
 
 
 @pytest.mark.parametrize("name,data,ctype,status,code", [
