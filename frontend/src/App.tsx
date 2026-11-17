@@ -14,6 +14,8 @@ const Assessment = lazy(() => import("./pages/Assessment"));
 const Reports = lazy(() => import("./pages/Reports"));
 const Register = lazy(() => import("./pages/Register"));
 const Obligations = lazy(() => import("./pages/Obligations"));
+const Incidents = lazy(() => import("./pages/Incidents"));
+const IncidentDetail = lazy(() => import("./pages/IncidentDetail"));
 const Users = lazy(() => import("./pages/Users"));
 const AuditLog = lazy(() => import("./pages/AuditLog"));
 
@@ -27,6 +29,8 @@ const ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/reports", element: <Reports /> },
   { path: "/register", element: <Register /> },
   { path: "/obligations", element: <Obligations /> },
+  { path: "/incidents", element: <Incidents /> },
+  { path: "/incidents/:id", element: <IncidentDetail /> },
   { path: "/users", element: <Users /> },
   { path: "/audit", element: <AuditLog /> },
 ];
