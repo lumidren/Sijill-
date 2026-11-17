@@ -2,8 +2,9 @@
 
 **Open-source, self-hosted readiness tracking for Egypt's Personal Data Protection Law (Law No. 151 of 2020).**
 Assess an organisation against the law, back the technical part with automated evidence from Prowler and Linux
-hosts, keep the records the law asks for, watch the score over time, catch regressions, run the breach clock, and
-hand management a report, in English or Arabic.
+hosts, keep the records the law asks for, run the privacy programme around them (remediation tasks, a risk register,
+requests from individuals, vendors, impact assessments, policies), watch the score over time, catch regressions, run
+the breach clock, and hand management a report, in English or Arabic.
 
 > PDPL-Ready helps you organise evidence and track readiness. It is **not legal advice** and does not determine legal
 > compliance. The requirement catalog is plain-language drafting that has **not yet been verified** against the official
@@ -36,9 +37,18 @@ proof that the technical controls exist or still hold.
 | 5 | **Posture and drift** | Scheduled collection, run history, resource-by-resource comparison, regression detection, score over time |
 | 6 | **Breach readiness** | Incident records with live countdowns to the regulator deadline and the notice to individuals, escalation as the deadline nears, a timeline, and notices filled from the recorded facts (EN/AR, text and PDF) |
 | 7 | **Reporting** | Readiness report and gap list (PDF in English and shaped right-to-left Arabic, CSV), evidence pack with a SHA-256 manifest, OSCAL catalog, assessment results and POA&M |
+| 8 | **Remediation** | Tasks with owners, priorities and due dates, created from any gap in one click; open tasks become the POA&M milestones (owner, due date, status) and a section of the PDF report |
+| 9 | **Risk register** | Likelihood × impact on 1–5 scales, inherent and residual scores, a 5×5 heat map, treatment, links to requirements; accepting a risk is an Admin decision with a written reason and an expiry date (at most a year), and expired acceptances are flagged |
+| 10 | **Requests from individuals** | Access, correction, deletion, objection, consent withdrawal and portable-copy requests, each with a response clock (configurable, marked as an unverified placeholder), identity-check status, and on-time/late outcome |
+| 11 | **Vendors and processors** | Who handles personal data for you, whether a data processing agreement is signed, when safeguards were last checked, data held outside Egypt, next review |
+| 12 | **Impact assessments** | DPIAs linked to processing activities, with an eight-criterion screening ("likely needed" at two or more), necessity, risks, measures, residual risk and DPO opinion; an Admin approves only a complete assessment |
+| 13 | **Policy library** | Versioned policies with owners, linked requirements and evidence, approval history and review dates; a new version needs approval again |
 
 Everything runs in English and Arabic with full right-to-left layout, behind local accounts with four roles
-(Admin, DPO, IT/Security, read-only Auditor) enforced on the server, and an append-only, hash-chained audit log.
+(Admin, DPO, IT/Security, read-only Auditor) enforced on the server, optional two-step sign-in with an authenticator
+app (TOTP), and an append-only, hash-chained audit log. The dashboard shows the governance picture next to the score
+(open and overdue tasks, the risk heat map, overdue requests, processors without a contract, policies overdue for
+review), and every requirement's drill-down lists the tasks, risks and policies linked to it.
 All AWS evidence in this repository is synthetic: no AWS account was scanned.
 
 ## Screenshots
@@ -59,6 +69,10 @@ All data below is the fictional demo clinic that `scripts/start.ps1` seeds.
 | **Arabic, right to left.** Mirrored layout, Arabic-Indic digits, reversed time axis. | **Arabic PDF.** Shaped and reordered with pure-Python packages, no system fonts. |
 | ![Reports screen](docs/screenshots/reports.jpg) | ![Breach clock on a phone](docs/screenshots/breach-mobile.jpg) |
 | **Reports.** PDF, CSV, ZIP and OSCAL, each with the not-legal-advice notice. | **On a phone.** Every screen was checked at 375 px for overflow. |
+| ![Risk register with a 5x5 heat map, inherent and residual scores, and an accepted risk with an expiry](docs/screenshots/risk-register.jpg) | ![Impact assessments with screening results and approval](docs/screenshots/dpias.jpg) |
+| **Risk register.** Heat map, inherent and residual scores, and a time-limited acceptance signed off by an Admin. | **DPIAs.** Screening criteria, "likely needed" at two or more, approval only once the DPO opinion and residual risk are in. |
+| ![Requests from individuals with response clocks](docs/screenshots/requests.jpg) | |
+| **Requests from individuals.** Each request has a clock; the period is a setting flagged as unverified. | |
 
 ## Architecture
 
@@ -180,7 +194,7 @@ to see the answer, each mapped check and each failing resource behind the number
 |---|---|---|
 | Catalog | `GET /api/catalog/oscal` | The 52 requirements; Arabic in a namespaced part/prop. Admins can import a reviewed catalog (schema-validated first). |
 | Assessment results | `GET /api/reports/oscal/assessment-results` | One observation per automated check per monitored system, with every resource result and its SHA-256 as relevant evidence; one observation per self-attested answer; one finding per assessed requirement targeting its assessment objective. |
-| Plan of action and milestones | `GET /api/reports/oscal/poam` | One POA&M item per gap, linked to its finding. |
+| Plan of action and milestones | `GET /api/reports/oscal/poam` | One POA&M item per gap, linked to its finding, carrying the remediation owner, due date and status from the linked tasks. |
 
 Exports are validated against the official NIST OSCAL 1.1.3 JSON schemas in the test suite (the schemas use
 `\p{L}` patterns, so validation runs with the `regex` package). Round trips are tested: catalog → OSCAL → catalog is
@@ -197,6 +211,9 @@ installs.
 - **Cloud credentials are never stored.** The Prowler adapter only passes an AWS profile name or role ARN from the
   server environment. Anything in a findings file that looks like an access key, secret key, session token or private
   key is redacted before storage.
+- Optional **two-step sign-in** (RFC 6238 TOTP, 6 digits, 30 s, ±1 step, replay-protected), set up with a QR code on
+  *My account*; the password step issues a five-minute token for the code step, failed codes are throttled, and an Admin
+  can reset a lost authenticator. Every governance write and approval is in the audit log.
 - Argon2 password hashing, signed HttpOnly SameSite=Strict session cookies, a custom header on every write (CSRF),
   login throttling, role checks on every endpoint, strict security headers, upload type, size and magic-byte checks,
   and CSV formula neutralisation.
@@ -249,9 +266,9 @@ not run on the development machine.
 
 | Suite | Count | What it covers |
 |---|---|---|
-| Backend (pytest) | 185 passed, 2 skipped | auth and every role, audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
+| Backend (pytest) | 217 passed, 2 skipped | auth and every role, two-step sign-in (RFC test vectors, time window, replay, throttling, reset), governance modules (risk bands and acceptance expiry, request clocks, DPIA screening and approval rules, policy versions, vendor gaps, role checks on every module), audit chain, catalog schema and round trip, scoring rules, ingestion edge cases (malformed, wrong class, oversized, wrong type, duplicate), redaction, regressions, adapters, assessment and evidence uploads (wrong type, mismatched content, oversized, tampered file), register, obligations (screener, default expiry, reminders), breach clocks (70 h → urgent, overdue, midnight and DST in Cairo), notice templates, reports, OSCAL validity and round trip, evidence pack hashes, demo story |
 | Linux collector | included above | replays recorded fictional hosts; read-only command guarantee |
-| Frontend (vitest) | 28 passed | sign-in, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
+| Frontend (vitest) | 38 passed | sign-in and the two-step code, account setup with QR, risk acceptance, request clocks, DPIA screening, policy approval, task prefill from a gap, roles, Arabic RTL and digits, dashboard, drill-down, filters, import errors, assessment, register, obligations, breach clocks and templates |
 
 The two skipped tests need a live Prowler install, which the Windows path limit prevented here (see
 [docs/DECISIONS.md](docs/DECISIONS.md)); CI's `prowler-mapping` job runs them on Linux. Postgres tests and the Docker
